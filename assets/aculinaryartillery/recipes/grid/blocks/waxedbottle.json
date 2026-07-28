@@ -1,0 +1,52 @@
+[
+    {
+        "ingredientPattern": "W,B",
+        "ingredients": {
+            "W": { "type": "item", "tags": [ "bottle-sealant" ] },
+            "B": { "type": "block", "code": "bottle-clay-*-corked", "name": "color" }
+        },
+        "width": 1,
+        "height": 2,
+        "recipeGroup": 1,
+        "name": "seal-claybottle",
+		"output": { "type": "block", "code": "bottle-clay-{color}-waxed" },
+		"copyAttributesFrom": "B"
+    },
+    {
+        "ingredientPattern": "W,B",
+        "ingredients": {
+            "W": { "type": "item", "tags": [ "bottle-sealant" ] },
+            "B": { "type": "block", "code": "bottle-glass-*-corked", "name": "color" }
+        },
+        "width": 1,
+        "height": 2,
+        "recipeGroup": 1,
+        "name": "seal-glassbottle",
+		"output": { "type": "block", "code": "bottle-glass-{color}-waxed" },
+		"copyAttributesFrom": "B"
+    },
+    {
+        "ingredientPattern": "B",
+        "ingredients": {
+            "B": { "type": "block", "code": "bottle-clay-*-fired", "name": "color" }
+        },
+        "width": 1,
+        "height": 1,
+        "recipeGroup": 1,
+        "name": "unseal-claybottle",
+        "output": { "type": "block", "code": "bottle-clay-{color}-fired"},
+        "copyAttributesFrom": "B"
+    },
+    {
+        "ingredientPattern": "B",
+        "ingredients": {
+            "B": { "type": "block", "code": "bottle-glass-*-fired", "name": "color" }
+        },
+        "width": 1,
+        "height": 1,
+        "recipeGroup": 1,
+        "name": "unseal-glassbottle",
+        "output": { "type": "block", "code": "bottle-glass-{color}-fired"},
+        "copyAttributesFrom": "B"
+    }
+]

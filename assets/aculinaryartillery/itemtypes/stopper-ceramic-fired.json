@@ -1,0 +1,13 @@
+{
+	"code": "stopper",
+	"inheritFrom": "itemtypes/stopper-bark",
+	"variantgroups": [
+		{ "code": "material", "states": [ "ceramic" ] },
+		{ "code": "color", "states": [ "blue", "fire", "black", "brown", "cream", "earthyorange", "gray", "orange", "red", "tan" ] },
+		{ "code": "type", "states": [ "fired" ] }
+	],
+	"attributes": {
+		"bottleStopperPerishRate": 0.9
+	},
+	"texture": { "base": "game:block/clay/hardened/{color}" }
+}

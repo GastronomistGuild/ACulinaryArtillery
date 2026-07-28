@@ -1,0 +1,76 @@
+{
+	"code": "stopper",
+	"variantgroups": [
+		{ "code": "material", "states": [ "ceramic" ] },
+		{ "code": "color", "states": [ "blue", "fire", "red" ] },
+		{ "code": "type", "states": [ "raw" ] }
+	],
+	"texture": { "base": "game:block/clay/{color}clay" },
+    "behaviors": [ { "name": "GroundStorable", "properties": { "layout": "Quadrants" } } ],
+    "storageFlags": 257,
+    "attributesByType" : {
+		"isBottleStopper": false,
+		"stopper-ceramic-red-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-tan-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-orange-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-red-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-brown-fired" }
+			}
+		},
+		"stopper-ceramic-blue-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-cream-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-gray-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-black-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-black-fired" }
+			}
+		},
+		"stopper-ceramic-fire-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" }
+			}
+		}
+	},
+	"combustiblePropsByType": {
+		"*-red-raw": {
+			"meltingPoint": 600,
+			"meltingDuration": 30,
+			"smeltedRatio": 1,
+			"smeltingType": "fire",
+			"smeltedStack": {"type": "item", "code": "aculinaryartillery:stopper-ceramic-earthyorange-fired" },
+			"requiresContainer": false
+		},
+		"*": {
+			"meltingPoint": 600,
+			"meltingDuration": 30,
+			"smeltedRatio": 1,
+			"smeltingType": "fire",
+			"smeltedStack": {"type": "item", "code": "aculinaryartillery:stopper-ceramic-{color}-fired" },
+			"requiresContainer": false
+		}
+	},
+	"materialDensity": 100,
+    "shape": { "base": "item/stopper" },
+    "creativeinventory": { "general": ["*"], "items": ["*"], "aculinaryartillery": ["*"] },
+    "guiTransform": {
+        "translation": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": -125, "y": -10, "z": 0 },
+        "origin": { "x": 0.5, "y": 0.125, "z": 0.5 },
+        "scale": 8
+    },
+    "tpHandTransform": {
+        "translation": { "x": -1.23, "y": -0.5, "z": -0.7 },
+        "rotation": { "x": 13, "y": -180, "z": 52 },
+        "scale": 0.71
+    },
+    "groundTransform": {
+        "translation": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 5
+    }
+}
