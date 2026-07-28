@@ -1,7 +1,7 @@
 {
 	"editor": {
 		"backDropShape": "entity/land/hooved/deer/elk/female",
-		"collapsedPaths": "Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/cork5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/holsterOrigin,Root/glassBase/cork1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/glassSide5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassSideBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/glassLidBase2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/holsterOrigin/holsterBase/holsterCornerBase2,Root/glassBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassLidBase5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassEdgeBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassCornerBase3,Root/glassBase/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/cork1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/holsterOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/O,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/glassLidBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/cork3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/glassSide1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/glassSide9,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassBaseOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassTopBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/cork9,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/GearORIGIN",
+		"collapsedPaths": "Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/cork5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/holsterOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassSideBase,Root/glassBase/cork1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/cork1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/glassSide5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassSideBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/glassLidBase2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/holsterOrigin/holsterBase/holsterCornerBase2,Root/glassBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassLidBase5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassEdgeBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassCornerBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassTopBase,Root/glassBase/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/cork1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/holsterOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/glassLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/O,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassCornerBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/glassLidBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE2/cork3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOriginDELETE/glassSide1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin3/glassSide9,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassBaseOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBaseOrigin/glassEdgeBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/glassTopBase3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin2,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/holsterOrigin3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/glassBase3/cork9,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/GearORIGIN",
 		"allAngles": true,
 		"entityTextureMode": false
 	},
@@ -11,12 +11,14 @@
 		"material": [16,16],
 		"stopper": [16,16],
 		"plain": [16,16],
-		"plain2": [16,16]
+		"plain2": [16,16],
+		"sides": [16,16],
+		"wax": [16,16]
 	},
-    "textures": {
+	"textures": {
         "plain": "game:block/leather/plain",
         "plain2": "game:block/leather/stiched/running/plain"
-    },
+	},
 	"elements": [
 		{
 			"name": "hideme",
@@ -102,18 +104,18 @@
 											},
 											"children": [
 												{
-													"name": "glassBaseOrigin3",
-													"from": [ -1.9, 2.5, -1.2 ],
-													"to": [ -1.9, 2.5, -1.2 ],
-													"rotationOrigin": [ -1.9, 2.5, -1.2 ],
-													"rotationX": 91.0,
-													"rotationY": 6.0,
-													"rotationZ": -56.0,
+													"name": "glassBaseOrigin",
+													"from": [ -1.2, 1.9, 6.9 ],
+													"to": [ -1.2, 1.9, 6.9 ],
+													"rotationOrigin": [ -1.2, 1.9, 6.9 ],
+													"rotationX": 111.0,
+													"rotationY": 12.0,
+													"rotationZ": -62.0,
 													"faces": {
 													},
 													"children": [
 														{
-															"name": "cork9",
+															"name": "cork1",
 															"from": [ 0.75, 3.0375, 0.75 ],
 															"to": [ 1.5, 3.7875, 1.5 ],
 															"rotationOrigin": [ 5.25, 3.0, 5.25 ],
@@ -126,7 +128,7 @@
 															},
 															"children": [
 																{
-																	"name": "cork10",
+																	"name": "cork2",
 																	"from": [ -0.1875, 0.7125, -0.1875 ],
 																	"to": [ 0.9375, 1.275, 0.9375 ],
 																	"rotationOrigin": [ 0.0, 0.75, 0.0 ],
@@ -142,7 +144,7 @@
 															]
 														},
 														{
-															"name": "glassLidBase5",
+															"name": "glassLidBase",
 															"from": [ 0.555, 3.0, 0.75 ],
 															"to": [ 0.555, 3.0, 0.75 ],
 															"renderPass": 3,
@@ -151,7 +153,7 @@
 															},
 															"children": [
 																{
-																	"name": "glassLid25",
+																	"name": "glassLid2",
 																	"from": [ 0.9375, 0.0, -0.0075 ],
 																	"to": [ 1.125, 0.375, 0.7575 ],
 																	"renderPass": 3,
@@ -163,7 +165,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid26",
+																	"name": "glassLid3",
 																	"from": [ 0.1875, 0.0, -0.195 ],
 																	"to": [ 0.9375, 0.375, -0.0075 ],
 																	"renderPass": 3,
@@ -175,7 +177,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid27",
+																	"name": "glassLid4",
 																	"from": [ 0.1875, 0.0, 0.7575 ],
 																	"to": [ 0.9375, 0.375, 0.945 ],
 																	"renderPass": 3,
@@ -187,7 +189,7 @@
 																	}
 																},
 																{
-																	"name": "glassLidCornerBase3",
+																	"name": "glassLidCornerBase",
 																	"from": [ 0.0, 0.0, -0.195 ],
 																	"to": [ 0.0, 0.0, -0.195 ],
 																	"renderPass": 3,
@@ -196,7 +198,7 @@
 																	},
 																	"children": [
 																		{
-																			"name": "glassLidCorner9",
+																			"name": "glassLidCorner1",
 																			"from": [ 0.0, 0.0, 0.0 ],
 																			"to": [ 0.1875, 0.375, 0.1875 ],
 																			"renderPass": 3,
@@ -208,7 +210,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassLidCorner10",
+																			"name": "glassLidCorner2",
 																			"from": [ 0.9375, 0.0, 0.0 ],
 																			"to": [ 1.125, 0.375, 0.1875 ],
 																			"renderPass": 3,
@@ -220,7 +222,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassLidCorner11",
+																			"name": "glassLidCorner3",
 																			"from": [ 0.0, 0.0, 0.9525 ],
 																			"to": [ 0.1875, 0.375, 1.14 ],
 																			"renderPass": 3,
@@ -232,7 +234,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassLidCorner12",
+																			"name": "glassLidCorner4",
 																			"from": [ 0.9375, 0.0, 0.9525 ],
 																			"to": [ 1.125, 0.375, 1.14 ],
 																			"renderPass": 3,
@@ -246,7 +248,7 @@
 																	]
 																},
 																{
-																	"name": "glassLid28",
+																	"name": "glassLid1",
 																	"from": [ 0.0, 0.0, -0.0075 ],
 																	"to": [ 0.1875, 0.375, 0.7575 ],
 																	"renderPass": 3,
@@ -258,7 +260,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid29",
+																	"name": "glassLid5",
 																	"from": [ 0.045, -0.15, 0.0 ],
 																	"to": [ 0.1875, 0.0, 0.75 ],
 																	"renderPass": 3,
@@ -269,7 +271,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid30",
+																	"name": "glassLid6",
 																	"from": [ 0.9375, -0.15, 0.0 ],
 																	"to": [ 1.0958, 0.0, 0.75 ],
 																	"renderPass": 3,
@@ -280,7 +282,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid31",
+																	"name": "glassLid7",
 																	"from": [ 0.1875, -0.15, -0.1507 ],
 																	"to": [ 0.9375, 0.0, 0.0 ],
 																	"renderPass": 3,
@@ -291,7 +293,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid32",
+																	"name": "glassLid8",
 																	"from": [ 0.1875, -0.15, 0.75 ],
 																	"to": [ 0.9375, 0.0, 0.9 ],
 																	"renderPass": 3,
@@ -302,7 +304,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid33",
+																	"name": "glassLid9",
 																	"from": [ 0.9383, -0.15, -0.1507 ],
 																	"to": [ 1.0958, 0.0, -7.0E-4 ],
 																	"renderPass": 3,
@@ -312,7 +314,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid34",
+																	"name": "glassLid10",
 																	"from": [ 0.0375, -0.15, -0.1507 ],
 																	"to": [ 0.1875, 0.0, 0.0 ],
 																	"renderPass": 3,
@@ -322,7 +324,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid35",
+																	"name": "glassLid11",
 																	"from": [ 0.9375, -0.15, 0.75 ],
 																	"to": [ 1.095, 0.0, 0.9 ],
 																	"renderPass": 3,
@@ -332,7 +334,7 @@
 																	}
 																},
 																{
-																	"name": "glassLid36",
+																	"name": "glassLid12",
 																	"from": [ 0.045, -0.15, 0.75 ],
 																	"to": [ 0.1875, 0.0, 0.9 ],
 																	"renderPass": 3,
@@ -344,7 +346,7 @@
 															]
 														},
 														{
-															"name": "glassSideBase3",
+															"name": "glassSideBase",
 															"from": [ 0.0, 0.0, 0.0 ],
 															"to": [ 0.0, 0.0, 0.0 ],
 															"renderPass": 3,
@@ -353,7 +355,7 @@
 															},
 															"children": [
 																{
-																	"name": "glassSide17",
+																	"name": "glassSide2",
 																	"from": [ -0.15, 0.15, 2.25 ],
 																	"to": [ 1.8, 2.85, 2.4 ],
 																	"renderPass": 3,
@@ -366,7 +368,7 @@
 																	}
 																},
 																{
-																	"name": "glassSide18",
+																	"name": "glassSide3",
 																	"from": [ 0.0, 0.15, 2.1 ],
 																	"to": [ 1.95, 2.85, 2.25 ],
 																	"renderPass": 3,
@@ -378,7 +380,7 @@
 																	}
 																},
 																{
-																	"name": "glassSide19",
+																	"name": "glassSide4",
 																	"from": [ 2.1, 0.15, 2.1 ],
 																	"to": [ 4.05, 2.85, 2.25 ],
 																	"renderPass": 3,
@@ -390,7 +392,7 @@
 																	}
 																},
 																{
-																	"name": "glassBottom5",
+																	"name": "glassBottom",
 																	"from": [ 0.15, 0.0, 2.1 ],
 																	"to": [ 2.1, 0.15, 4.05 ],
 																	"renderPass": 3,
@@ -402,7 +404,7 @@
 																	}
 																},
 																{
-																	"name": "glassSide20",
+																	"name": "glassSide1",
 																	"from": [ 0.15, 0.15, 0.0 ],
 																	"to": [ 2.1, 2.85, 0.15 ],
 																	"renderPass": 3,
@@ -415,7 +417,7 @@
 															]
 														},
 														{
-															"name": "glassCornerBase3",
+															"name": "glassCornerBase",
 															"from": [ 0.0, 0.0, 2.25 ],
 															"to": [ 0.0, 0.0, 2.25 ],
 															"renderPass": 3,
@@ -432,7 +434,7 @@
 															},
 															"children": [
 																{
-																	"name": "glassCorner9",
+																	"name": "glassCorner1",
 																	"from": [ 0.0, 0.0, 0.0 ],
 																	"to": [ 0.15, 3.0, 0.15 ],
 																	"renderPass": 3,
@@ -445,7 +447,7 @@
 																	}
 																},
 																{
-																	"name": "glassCorner10",
+																	"name": "glassCorner2",
 																	"from": [ 2.1, 0.0, 0.0 ],
 																	"to": [ 2.25, 3.0, 0.15 ],
 																	"renderPass": 3,
@@ -458,7 +460,7 @@
 																	}
 																},
 																{
-																	"name": "glassCorner11",
+																	"name": "glassCorner3",
 																	"from": [ -6.7484, 0.0, -6.7516 ],
 																	"to": [ -6.5984, 3.0, -6.6016 ],
 																	"renderPass": 3,
@@ -474,7 +476,7 @@
 																	}
 																},
 																{
-																	"name": "glassCorner12",
+																	"name": "glassCorner4",
 																	"from": [ -8.85, 0.0, -6.75 ],
 																	"to": [ -8.7, 3.0, -6.6 ],
 																	"renderPass": 3,
@@ -491,7 +493,7 @@
 															]
 														},
 														{
-															"name": "glassEdgeBase3",
+															"name": "glassEdgeBase",
 															"from": [ 0.15, 0.0, 0.0 ],
 															"to": [ 0.15, 0.0, 0.0 ],
 															"renderPass": 3,
@@ -500,7 +502,7 @@
 															},
 															"children": [
 																{
-																	"name": "glassEdge17",
+																	"name": "glassEdge1",
 																	"from": [ 0.0, 0.0, 0.0 ],
 																	"to": [ 1.95, 0.15, 0.15 ],
 																	"renderPass": 3,
@@ -511,7 +513,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge18",
+																	"name": "glassEdge2",
 																	"from": [ 0.0, 2.85, 0.0 ],
 																	"to": [ 1.95, 3.0, 0.15 ],
 																	"renderPass": 3,
@@ -522,7 +524,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge19",
+																	"name": "glassEdge3",
 																	"from": [ -0.1492, 0.0, 2.1 ],
 																	"to": [ 1.8008, 0.15, 2.25 ],
 																	"renderPass": 3,
@@ -534,7 +536,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge20",
+																	"name": "glassEdge4",
 																	"from": [ -0.1492, 2.85, 2.1 ],
 																	"to": [ 1.8008, 3.0, 2.25 ],
 																	"renderPass": 3,
@@ -546,7 +548,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge21",
+																	"name": "glassEdge5",
 																	"from": [ -0.3, 0.0, 2.25 ],
 																	"to": [ 1.65, 0.15, 2.4 ],
 																	"renderPass": 3,
@@ -559,7 +561,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge22",
+																	"name": "glassEdge6",
 																	"from": [ -0.3, 2.85, 2.25 ],
 																	"to": [ 1.65, 3.0, 2.4 ],
 																	"renderPass": 3,
@@ -572,7 +574,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge23",
+																	"name": "glassEdge7",
 																	"from": [ 1.9508, 0.0, 2.0993 ],
 																	"to": [ 3.9007, 0.15, 2.2493 ],
 																	"renderPass": 3,
@@ -584,7 +586,7 @@
 																	}
 																},
 																{
-																	"name": "glassEdge24",
+																	"name": "glassEdge8",
 																	"from": [ 1.9508, 2.85, 2.0993 ],
 																	"to": [ 3.9007, 3.0, 2.2493 ],
 																	"renderPass": 3,
@@ -598,7 +600,7 @@
 															]
 														},
 														{
-															"name": "glassTopBase3",
+															"name": "glassTopBase",
 															"from": [ 0.1508, 2.85, 2.0999 ],
 															"to": [ 0.1508, 2.85, 2.0999 ],
 															"renderPass": 3,
@@ -608,7 +610,7 @@
 															},
 															"children": [
 																{
-																	"name": "glassTop17",
+																	"name": "glassTop2",
 																	"from": [ 0.45, 0.0, 1.5 ],
 																	"to": [ 1.5, 0.15, 1.95 ],
 																	"renderPass": 3,
@@ -620,7 +622,7 @@
 																	}
 																},
 																{
-																	"name": "glassTop18",
+																	"name": "glassTop4",
 																	"from": [ 1.5, 0.0, 0.45 ],
 																	"to": [ 1.95, 0.15, 1.5 ],
 																	"renderPass": 3,
@@ -632,7 +634,7 @@
 																	}
 																},
 																{
-																	"name": "glassTop19",
+																	"name": "glassTop3",
 																	"from": [ 0.0, 0.0, 0.45 ],
 																	"to": [ 0.45, 0.15, 1.5 ],
 																	"renderPass": 3,
@@ -644,7 +646,7 @@
 																	}
 																},
 																{
-																	"name": "glassTop20",
+																	"name": "glassTop1",
 																	"from": [ 0.45, 0.0, 0.0 ],
 																	"to": [ 1.5, 0.15, 0.45 ],
 																	"renderPass": 3,
@@ -656,7 +658,7 @@
 																	}
 																},
 																{
-																	"name": "glassTopCornerBase3",
+																	"name": "glassTopCornerBase",
 																	"from": [ 0.0, 0.0, 0.0 ],
 																	"to": [ 0.0, 0.0, 0.0 ],
 																	"renderPass": 3,
@@ -665,7 +667,7 @@
 																	},
 																	"children": [
 																		{
-																			"name": "glassTopCorner9",
+																			"name": "glassTopCorner1",
 																			"from": [ 0.0, 0.0, 0.0 ],
 																			"to": [ 0.45, 0.15, 0.45 ],
 																			"renderPass": 3,
@@ -676,7 +678,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassTopCorner10",
+																			"name": "glassTopCorner2",
 																			"from": [ 1.5, 0.0, 0.0 ],
 																			"to": [ 1.95, 0.15, 0.45 ],
 																			"renderPass": 3,
@@ -687,7 +689,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassTopCorner11",
+																			"name": "glassTopCorner3",
 																			"from": [ 5.0E-4, 0.0, 1.5 ],
 																			"to": [ 0.4505, 0.15, 1.95 ],
 																			"renderPass": 3,
@@ -698,7 +700,7 @@
 																			}
 																		},
 																		{
-																			"name": "glassTopCorner12",
+																			"name": "glassTopCorner4",
 																			"from": [ 1.5, 0.0, 1.5 ],
 																			"to": [ 1.95, 0.15, 1.95 ],
 																			"renderPass": 3,
@@ -713,7 +715,7 @@
 															]
 														},
 														{
-															"name": "holsterOrigin3",
+															"name": "holsterOrigin",
 															"from": [ 0.56, -0.25, 0.56 ],
 															"to": [ 0.56, -0.25, 0.56 ],
 															"rotationOrigin": [ 1.0625, -0.25, 1.0625 ],
@@ -727,7 +729,7 @@
 															},
 															"children": [
 																{
-																	"name": "holsterBase3",
+																	"name": "holsterBase",
 																	"from": [ 0.0, 0.0, 0.0 ],
 																	"to": [ 1.125, 0.25, 1.125 ],
 																	"rotationOrigin": [ 0.5025, 0.0, 0.5025 ],
@@ -741,7 +743,7 @@
 																	},
 																	"children": [
 																		{
-																			"name": "holsterCornerBase9",
+																			"name": "holsterCornerBase1",
 																			"from": [ -0.8125, 0.25, -0.81 ],
 																			"to": [ -0.8125, 0.25, -0.81 ],
 																			"rotationOrigin": [ -0.8125, 0.25, -0.81 ],
@@ -755,7 +757,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster25",
+																					"name": "holster1",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -768,7 +770,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster26",
+																					"name": "holster2",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -782,7 +784,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster27",
+																					"name": "holster3",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -796,7 +798,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap9",
+																					"name": "holsterOverStrap1",
 																					"from": [ -0.0025, 1.99, 0.0 ],
 																					"to": [ 2.7625, 2.49, 0.25 ],
 																					"rotationOrigin": [ -0.0025, 1.99, 0.0 ],
@@ -812,7 +814,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase10",
+																			"name": "holsterCornerBase2",
 																			"from": [ -0.81, 0.25, 1.95 ],
 																			"to": [ -0.81, 0.25, 1.95 ],
 																			"rotationOrigin": [ -0.8125, 0.25, 1.95 ],
@@ -827,7 +829,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster28",
+																					"name": "holster4",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -840,7 +842,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster29",
+																					"name": "holster5",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -854,7 +856,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster30",
+																					"name": "holster6",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -868,7 +870,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap10",
+																					"name": "holsterOverStrap2",
 																					"from": [ 0.25, 1.99, -0.0022 ],
 																					"to": [ 3.015, 2.49, 0.2478 ],
 																					"rotationOrigin": [ 0.25, 1.99, -0.0025 ],
@@ -887,7 +889,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase11",
+																			"name": "holsterCornerBase3",
 																			"from": [ 1.95, 0.25, -0.81 ],
 																			"to": [ 1.95, 0.25, -0.81 ],
 																			"rotationOrigin": [ 1.95, 0.25, -0.81 ],
@@ -902,7 +904,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster31",
+																					"name": "holster7",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -915,7 +917,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster32",
+																					"name": "holster8",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -929,7 +931,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster33",
+																					"name": "holster9",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -943,7 +945,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap11",
+																					"name": "holsterOverStrap3",
 																					"from": [ 0.25, 1.99, 2.765 ],
 																					"to": [ 0.5, 2.49, 5.035 ],
 																					"rotationOrigin": [ 0.25, 1.99, 2.765 ],
@@ -962,7 +964,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase12",
+																			"name": "holsterCornerBase4",
 																			"from": [ 1.95, 0.25, 1.95 ],
 																			"to": [ 1.95, 0.25, 1.95 ],
 																			"rotationOrigin": [ 1.95, 0.25, 1.95 ],
@@ -977,7 +979,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster34",
+																					"name": "holster10",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -990,7 +992,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster35",
+																					"name": "holster11",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -1004,7 +1006,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster36",
+																					"name": "holster12",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -1018,7 +1020,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap12",
+																					"name": "holsterOverStrap4",
 																					"from": [ 0.25, 1.99, 2.51 ],
 																					"to": [ 0.5, 2.49, 4.78 ],
 																					"rotationOrigin": [ 0.25, 1.99, 2.51 ],
@@ -1038,7 +1040,7 @@
 																	]
 																},
 																{
-																	"name": "holsterUnderStrap5",
+																	"name": "holsterUnderStrap1",
 																	"from": [ -0.5, 0.001, 1.0 ],
 																	"to": [ 2.7, 0.251, 1.5 ],
 																	"rotationOrigin": [ 0.0, 0.001, 1.5 ],
@@ -1053,7 +1055,7 @@
 																	}
 																},
 																{
-																	"name": "holsterUnderStrap6",
+																	"name": "holsterUnderStrap2",
 																	"from": [ -0.825, 0.001, -0.475 ],
 																	"to": [ 2.375, 0.251, 0.025 ],
 																	"rotationOrigin": [ -0.315, 0.001, 0.025 ],
@@ -1065,6 +1067,50 @@
 																		"west": { "texture": "#plain2", "uv": [ 0.0, 6.5, 0.5, 7.0 ] },
 																		"up": { "texture": "#plain2", "uv": [ 10.5, 15.5, 13.5, 16.0 ] },
 																		"down": { "texture": "#plain2", "uv": [ 6.15, 15.5, 9.25, 16.0 ], "autoUv": false }
+																	}
+																}
+															]
+														},
+														{
+															"name": "wax1",
+															"from": [ 0.5, 3.04, 0.5 ],
+															"to": [ 1.8125, 3.435, 1.8125 ],
+															"rotationOrigin": [ 0.5, 3.0, 0.5 ],
+															"faces": {
+																"north": { "texture": "#wax", "uv": [ 13.5, 1.5, 14.0, 3.0 ], "rotation": 90, "autoUv": false },
+																"east": { "texture": "#wax", "uv": [ 13.5, 0.5, 14.0, 2.0 ], "rotation": 90, "autoUv": false },
+																"south": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.5 ], "rotation": 270, "autoUv": false },
+																"west": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.5 ], "rotation": 270, "autoUv": false },
+																"up": { "texture": "#wax", "uv": [ 12.5, 0.0, 14.0, 1.5 ], "autoUv": false },
+																"down": { "texture": "#wax", "uv": [ 12.5, 0.0, 14.0, 1.5 ], "autoUv": false }
+															},
+															"children": [
+																{
+																	"name": "wax2",
+																	"from": [ 0.0, 0.705, 0.0 ],
+																	"to": [ 1.3125, 1.325, 1.3125 ],
+																	"rotationOrigin": [ 0.2813, 0.705, 0.2813 ],
+																	"faces": {
+																		"north": { "texture": "#wax", "uv": [ 13.5, 1.5, 14.0, 3.0 ], "rotation": 90, "autoUv": false },
+																		"east": { "texture": "#wax", "uv": [ 13.5, 0.5, 14.0, 2.0 ], "rotation": 90, "autoUv": false },
+																		"south": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.5 ], "rotation": 270, "autoUv": false },
+																		"west": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.5 ], "rotation": 270, "autoUv": false },
+																		"up": { "texture": "#wax", "uv": [ 12.5, 0.0, 14.0, 1.5 ], "autoUv": false },
+																		"down": { "texture": "#wax", "uv": [ 12.5, 0.0, 14.0, 1.5 ], "autoUv": false }
+																	}
+																},
+																{
+																	"name": "wax3",
+																	"from": [ 0.1875, 0.39, 0.1875 ],
+																	"to": [ 1.125, 0.71, 1.125 ],
+																	"rotationOrigin": [ 0.4313, 0.39, 0.4313 ],
+																	"faces": {
+																		"north": { "texture": "#wax", "uv": [ 13.5, 1.5, 14.0, 2.5 ], "rotation": 90, "autoUv": false },
+																		"east": { "texture": "#wax", "uv": [ 13.5, 0.5, 14.0, 1.5 ], "rotation": 90, "autoUv": false },
+																		"south": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.0 ], "rotation": 270, "autoUv": false },
+																		"west": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.0, 1.0 ], "rotation": 270, "autoUv": false },
+																		"up": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.5, 1.0 ], "autoUv": false },
+																		"down": { "texture": "#wax", "uv": [ 12.5, 0.0, 13.5, 1.0 ], "autoUv": false }
 																	}
 																}
 															]
