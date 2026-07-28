@@ -18,11 +18,11 @@ namespace ACulinaryArtillery
 
         private readonly TextureAtlasPosition defaultTexPos;
 
-        public DynamicTextureSource(ICoreClientAPI capi, Block block, string defaultTextureName)
+        public DynamicTextureSource(ICoreClientAPI capi, Block block)
         {
             this.capi = capi;
 
-            defaultTexPos = capi.BlockTextureAtlas.GetPosition(block, defaultTextureName);
+            defaultTexPos = capi.BlockTextureAtlas.GetPosition(block, block.Attributes["dynamicTextureSourceDefaultName"].AsString() ?? "material");
         }
 
         public TextureAtlasPosition GetOrInsertTexture(string name, CompositeTexture texture)

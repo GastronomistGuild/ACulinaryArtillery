@@ -1,0 +1,11 @@
+{
+	"ingredientPattern": "GS",
+	"ingredients": {
+        "S": { "type": "item", "tags": ["tool-saw"], "isTool": true },
+		"G": { "type": "block", "code": "game:glassslab-*-down-free", "name": "color" }
+	},
+	"width": 1,
+	"height": 2,
+	"name": "stopper-glass",
+	"output": { "type": "item", "code": "stopper-glass-{color}", "quantity": 16  }
+}

@@ -51,7 +51,7 @@ namespace ACulinaryArtillery
             CompositeTexture? woodTexture = capi.World.GetItem(stack.Attributes.GetString("wood", "game:plank-oak") ?? "game:plank-oak")?.FirstTexture;
             CompositeTexture? metalTexture = capi.World.GetItem(stack.Attributes.GetString("metal", "aculinaryartillery:bighook-copper") ?? "aculinaryartillery:bighook-copper")?.FirstTexture;
 
-            DynamicTextureSource textureSource = new(capi, this, "wood");
+            DynamicTextureSource textureSource = new(capi, this);
             if (woodTexture != null) textureSource.GetOrInsertTexture("wood", woodTexture);
             if (metalTexture != null) textureSource.GetOrInsertTexture("metal", metalTexture);
 

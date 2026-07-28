@@ -31,7 +31,8 @@
                   "text": "aculinaryartillery:block-handbooktext-meathooks"
                 }
             ]
-        }
+        },
+		"dynamicTextureSourceDefaultName": "wood"
 	},
     "materialDensity": 1050,
 	"drawtype": "json",

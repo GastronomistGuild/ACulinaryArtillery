@@ -311,7 +311,7 @@ namespace ACulinaryArtillery
             AssetLocation shapeLoc = sap != null ? DripShapeLoc : EmptyShapeLoc;
             if (capi?.Assets.TryGet(shapeLoc.CopyWithPathPrefixAndAppendixOnce("shapes/", ".json")) is not IAsset asset) return new MeshData();
 
-            DynamicTextureSource textureSource = new(capi, this, "material");
+            DynamicTextureSource textureSource = new(capi, this);
             if (sap != null) textureSource.GetOrInsertTexture("sap", sap.FirstTexture);
 
             tessThreadTesselator.TesselateShape(Code, asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));

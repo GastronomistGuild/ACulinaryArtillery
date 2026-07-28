@@ -1,0 +1,106 @@
+[
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "replace",
+        "path": "/class",
+        "value": "BlockStoppableContainer"
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "add",
+        "path": "/variantgroups/1/states/-",
+        "value": "corked"
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "add",
+        "path": "/variantgroups/1/states/-",
+        "value": "waxed"
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "addmerge",
+        "path": "/attributes",
+        "value": {
+            "corkedTypeVariant": "state",
+            "dynamicTextureSourceDefaultName": "material"
+        }
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "addmerge",
+        "path": "/textures",
+        "value": {
+            "material": {
+                "base": "game:block/clay/hardened/{color}"
+            },
+            "sides": {
+                "base": "game:block/clay/hardened/{color}",
+                "overlays": [
+                    "block/clay/overlay/bottle"
+                ]
+            },
+            "stopper": {
+                "base": "game:item/utility/map"
+            },
+            "wax": {
+                "base": "game:block/fire-blue"
+            }
+        }
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "addmerge",
+        "path": "/",
+        "value": {
+            "attributesByType": {
+                "*-waxed": {
+                    "liquidContainerProps": {
+                        "canDrinkFrom": false,
+                        "isTopOpened": false,
+                        "allowHeldLiquidTransfer": false
+                    }
+                },
+                "*-corked": {
+                    "liquidContainerProps": {
+                        "canDrinkFrom": false,
+                        "isTopOpened": false,
+                        "allowHeldLiquidTransfer": false
+                    }
+                }
+            }
+        }
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "addmerge",
+        "path": "/attributes/transparentStopperShapeLocByType",
+        "value": {
+            "*-waxed": "aculinaryartillery:shapes/block/jug/waxedjug-transparentstopper",
+            "*-corked": "aculinaryartillery:shapes/block/jug/corkedjug-transparentstopper"
+        }
+    },
+    {
+        "file": "game:blocktypes/clay/fired/jug.json",
+        "op": "addmerge",
+        "path": "/attributes/liquidContainerPropsByType",
+        "value": {
+            "*-waxed": {
+                "capacityLitres": 3,
+                "transferSizeLitres": 0.3,
+                "emptyShapeLoc": "aculinaryartillery:shapes/block/jug/waxedjug",
+                "opaqueContentShapeLoc": "shapes/block/basic/nothing",
+                "liquidContentShapeLoc": "shapes/block/basic/nothing",
+                "liquidMaxYTranslate": 0.05
+            },
+            "*-corked": {
+                "capacityLitres": 3,
+                "transferSizeLitres": 0.3,
+                "emptyShapeLoc": "aculinaryartillery:shapes/block/jug/corkedjug",
+                "opaqueContentShapeLoc": "shapes/block/basic/nothing",
+                "liquidContentShapeLoc": "shapes/block/basic/nothing",
+                "liquidMaxYTranslate": 0.05
+            }
+        }
+    }
+]

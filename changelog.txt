@@ -10,6 +10,11 @@
 - New, larger spile mold shape
 - Kneading handbook page fixed
 
+~1.22_v2.0.0-dev.29~
+- Added new glass, ceramic, metal, and wood stoppers in addition to the normal oak bark cork
+- Liquid containers other than bottles can be stopped and sealed (currently just the vanilla jug with ACA, but other mods can add their own!)
+- Stopped containers can be sealed with wax to further extend their lifespan
+
 ~1.22_v2.0.0-dev.28~
 - Hydrate or Diedrate compatiblity fixed (thanks to InsanityGod!) 
 - Fixed: Bottle and meat racks did not display held items (thanks to Lazula!)

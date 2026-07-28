@@ -82,7 +82,7 @@ namespace ACulinaryArtillery
                 }
             }
 
-            DynamicTextureSource textureSource = new(capi, this, "frame");
+            DynamicTextureSource textureSource = new(capi, this);
             if (frameTexture != null) textureSource.GetOrInsertTexture("frame", frameTexture);
             if (interiorTexture != null) textureSource.GetOrInsertTexture("interior", interiorTexture);
 

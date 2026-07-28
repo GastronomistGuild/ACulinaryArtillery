@@ -47,7 +47,7 @@ namespace ACulinaryArtillery
 
                     obj.WalkInventory(delegate (ItemSlot pslot)
                     {
-                        if (pslot.Empty || pslot is ItemSlotCreative || pslot.StackSize == pslot.Itemstack.Collectible.MaxStackSize || pslot.Itemstack.ItemAttributes?["canSealBottle"].AsBool() == true)
+                        if (pslot.Empty || pslot is ItemSlotCreative || pslot.StackSize == pslot.Itemstack.Collectible.MaxStackSize || pslot.Itemstack.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true || pslot.Itemstack.ItemAttributes?["isLiquidContainerSealant"]?.AsBool() == true)
                         {
                             return true;
                         }
@@ -1093,7 +1093,7 @@ namespace ACulinaryArtillery
     {
         public static bool Prefix(ref CookingRecipe __instance, ref ICoreClientAPI api, ref Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? cachedValidStacksByIngredient)
         {
-            if (__instance.Ingredients == null) return false;
+            if (__instance.Ingredients == null || __instance.Ingredients.Length == 0) return false;
             cachedValidStacksByIngredient ??= HandbookInfoExtensions.CreateCachedMealRecipeStacks(api, __instance);
             return true;
         }
