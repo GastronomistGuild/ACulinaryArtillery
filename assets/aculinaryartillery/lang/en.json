@@ -50,6 +50,12 @@
   "block-handbooktitle-spile": "Metal Spile",
   "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Whether or not a tree produces liquid depends on the time of year, as trees produce more or less sap, gum, or nectar during certain seasons. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly. Tapping is hard on the tree, so you can only use one spile each; Any more would put the tree's health at risk.",
   
+  "blockdesc-spile": "Gently siphon the liquid nectar from the trees around you.",
+  "spile-produces": "Produces {0}.",
+  "spile-outofseason": "Out of season.",
+  "spile-inseason": "In season.",
+  "spile-boosted": "In season. Stimulated by temperature shifts.",
+
   "block-saucepan-blue-fired" : "Earthy brown ceramic saucepan",
   "block-saucepan-earthyorange-fired" : "Earthy orange ceramic saucepan",
   "block-saucepan-black-fired" : "Black ceramic saucepan",
