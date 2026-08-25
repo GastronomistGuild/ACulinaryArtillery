@@ -1,6 +1,10 @@
-﻿using System.Collections.Generic;
+
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 using Vintagestory.API.Common;
+using Vintagestory.API.Client;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -9,15 +13,26 @@ namespace ACulinaryArtillery
 {
     public class BlockSpile : Block
     {
+
+        public virtual AssetLocation EmptyShapeLoc => "aculinaryartillery:shapes/block/spile";
+        public virtual AssetLocation DripShapeLoc => "aculinaryartillery:shapes/block/spiledrip";
+
+        protected MeshData? mesh = null;
+
         // CanPlaceBlock can't override the horizontal orientable behavior's
         // error message, so it needs to be done here instead.
         public override bool TryPlaceBlock(IWorldAccessor world, IPlayer byPlayer, ItemStack itemstack, BlockSelection blockSel, ref string failureCode)
         {
             BlockPos attachingTo = blockSel.Position.AddCopy(blockSel.Face, -1);
+            Block block = world.BlockAccessor.GetBlock(attachingTo);
+            if (blockSel.Face.IsHorizontal && SapProperties.ReadFrom(block) == null)
+            {
+                failureCode = "notspileable";
+                return false;
+            }
 
             if (blockSel.Face.IsHorizontal)
             {
-                Block block = world.BlockAccessor.GetBlock(attachingTo);
                 if (block.Attributes?["sapProperties"]?.AsObject<SapProperties>() == null)
                 {
                     string[] codeParts = block.Code.Path.Split("-");
@@ -34,7 +49,7 @@ namespace ACulinaryArtillery
                     return false;
                 }
 
-                if (!BlockEntitySpile.CachedTreesBySpilePos.ContainsKey(blockSel.Position) && TreeHasSpile(world.BlockAccessor, attachingTo.Copy()))
+                if (!BlockEntitySpile.CachedTreesBySpilePos.ContainsKey(blockSel.Position) && TreeHasSpile(world.BlockAccessor, attachingTo))
                 {
                     failureCode = "alreadyhasspile";
                     return false;
@@ -50,10 +65,11 @@ namespace ACulinaryArtillery
         public override bool CanPlaceBlock(IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel, ref string failureCode)
         {
             BlockPos attachingTo = blockSel.Position.AddCopy(blockSel.Face, -1);
+            Block block = world.BlockAccessor.GetBlock(attachingTo);
 
             if (blockSel.Face.IsHorizontal)
             {
-                if (world.BlockAccessor.GetBlock(attachingTo)?.Attributes?["sapProperties"]?.AsObject<SapProperties>() == null)
+                if (block.Attributes?["sapProperties"]?.AsObject<SapProperties>() == null)
                 {
                     return false;
                 }
@@ -238,5 +254,110 @@ namespace ACulinaryArtillery
 
             return false;
         }
+
+        public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
+        {
+            StringBuilder sb = new();
+
+            sb.AppendLine(Lang.Get("aculinaryartillery:blockdesc-spile"));
+
+            if (GetBlockEntity<BlockEntitySpile>(pos) is BlockEntitySpile bes)
+            {
+                if (SapProperties.ReadFrom(world.BlockAccessor.GetBlock(bes.Pos.AddCopy(bes.Facing()))) is SapProperties xylem)
+                {
+                    switch (bes.GetClimateStatus(xylem, (float)world.Calendar.TotalDays))
+                    {
+                        case BlockEntitySpile.EnumSpileClimateStatus.Boosted:
+                            {
+                                // Reflect that the xylem may be configured to have no seasonal bonus
+                                if (xylem.boostedDripLitres > xylem.dripLitres)
+                                {
+                                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-boosted"));
+                                }
+                                else
+                                {
+                                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-inseason"));
+                                }
+                                break;
+                            }
+                        case BlockEntitySpile.EnumSpileClimateStatus.Active:
+                            {
+                                sb.AppendLine(Lang.Get("aculinaryartillery:spile-inseason"));
+                                break;
+                            }
+                        case BlockEntitySpile.EnumSpileClimateStatus.Inactive:
+                            {
+                                sb.AppendLine(Lang.Get("aculinaryartillery:spile-outofseason"));
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-outofseason"));
+                }
+            }
+
+            return sb.ToString();
+        }
+        public MeshData GenMesh(ICoreClientAPI? capi, ITesselatorAPI tessThreadTesselator, Item? sap = null)
+        {
+            AssetLocation shapeLoc = sap != null ? DripShapeLoc : EmptyShapeLoc;
+            if (capi?.Assets.TryGet(shapeLoc.CopyWithPathPrefixAndAppendixOnce("shapes/", ".json")) is not IAsset asset) return new MeshData();
+
+            CompositeTexture? sapTexture = sap?.FirstTexture;
+
+            tessThreadTesselator.TesselateShape("aculinaryartillery:spile", asset.ToObject<Shape>(), out MeshData mesh, new SpileTextureSource(capi, this, sapTexture), new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+
+            return mesh;
+        }
+    }
+
+    public class SpileTextureSource : ITexPositionSource
+    {
+        private readonly ICoreClientAPI capi;
+
+        // Used for loading dynamic textures
+        private readonly Dictionary<string, TextureAtlasPosition?> texturePositions = [];
+
+        // Stored as a default to avoid a double lookup
+        private readonly TextureAtlasPosition blockTexPos;
+
+        public SpileTextureSource(ICoreClientAPI capi, Block spile, CompositeTexture? sapTexture)
+        {
+            this.capi = capi;
+            if (sapTexture != null) texturePositions["sap"] = GetOrInsertTexture(capi.BlockTextureAtlas, "sap", sapTexture);
+            texturePositions["material"] = capi.BlockTextureAtlas.GetPosition(spile, "material");
+
+            blockTexPos = capi.BlockTextureAtlas.GetPosition(spile, "material");
+        }
+
+        public TextureAtlasPosition GetOrInsertTexture(ITextureAtlasAPI atlas, string name, CompositeTexture texture)
+        {
+            int textureSubId = ObjectCacheUtil.GetOrCreate(capi, $"{name}texture-{texture}", () =>
+            {
+                capi.BlockTextureAtlas.GetOrInsertTexture(
+                    texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"),
+                    out var id,
+                    out _,
+                    new CreateTextureDelegate(() =>
+                    {
+                        var bmp = capi.Assets.TryGet(texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"))?.ToBitmap(capi);
+                        if (bmp != null && texture.Alpha != 255) bmp.MulAlpha(texture.Alpha);
+                        return bmp;
+                    })
+                );
+                return id;
+            });
+
+            return atlas.Positions[textureSubId];
+        }
+
+        public TextureAtlasPosition this[string textureCode]
+        {
+            get => texturePositions.GetValueOrDefault(textureCode) ?? blockTexPos;
+        }
+
+        public Size2i AtlasSize => capi.BlockTextureAtlas.Size;
     }
 }
