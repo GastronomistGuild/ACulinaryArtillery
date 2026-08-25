@@ -1,4 +1,3 @@
-
 using System.Text;
 using System.Linq;
 using System.Collections.Generic;
@@ -14,8 +13,8 @@ namespace ACulinaryArtillery
     public class BlockSpile : Block
     {
 
-        public virtual AssetLocation EmptyShapeLoc => "aculinaryartillery:shapes/block/spile";
-        public virtual AssetLocation DripShapeLoc => "aculinaryartillery:shapes/block/spiledrip";
+        public virtual AssetLocation EmptyShapeLoc => $"{Code.Domain}:shapes/block/{FirstCodePart()}";
+        public virtual AssetLocation DripShapeLoc => $"{Code.Domain}:shapes/block/{FirstCodePart()}drip";
 
         protected MeshData? mesh = null;
 
@@ -25,11 +24,6 @@ namespace ACulinaryArtillery
         {
             BlockPos attachingTo = blockSel.Position.AddCopy(blockSel.Face, -1);
             Block block = world.BlockAccessor.GetBlock(attachingTo);
-            if (blockSel.Face.IsHorizontal && SapProperties.ReadFrom(block) == null)
-            {
-                failureCode = "notspileable";
-                return false;
-            }
 
             if (blockSel.Face.IsHorizontal)
             {
@@ -39,7 +33,7 @@ namespace ACulinaryArtillery
                     if (codeParts[0] == "log")
                     {
                         failureCode = codeParts[1] == "grown"
-                            ? "notspileable-tree"
+                            ? "notspileable-invalidtree"
                             : "notspileable-placed";
                     }
                     else
@@ -265,7 +259,9 @@ namespace ACulinaryArtillery
             {
                 if (SapProperties.ReadFrom(world.BlockAccessor.GetBlock(bes.Pos.AddCopy(bes.Facing()))) is SapProperties xylem)
                 {
-                    switch (bes.GetClimateStatus(xylem, (float)world.Calendar.TotalDays))
+                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-produces", Lang.Get($"{xylem.sap.Domain}:spile-product-{xylem.sap.Path}")));
+
+                    switch (bes.CachedClimateStatus)
                     {
                         case BlockEntitySpile.EnumSpileClimateStatus.Boosted:
                             {
@@ -294,12 +290,13 @@ namespace ACulinaryArtillery
                 }
                 else
                 {
-                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-outofseason"));
+                    sb.AppendLine(Lang.Get("placefailure-notspileable-other"));
                 }
             }
 
             return sb.ToString();
         }
+
         public MeshData GenMesh(ICoreClientAPI? capi, ITesselatorAPI tessThreadTesselator, Item? sap = null)
         {
             AssetLocation shapeLoc = sap != null ? DripShapeLoc : EmptyShapeLoc;
@@ -308,7 +305,7 @@ namespace ACulinaryArtillery
             DynamicTextureSource textureSource = new(capi, this, "material");
             if (sap != null) textureSource.GetOrInsertTexture("sap", sap.FirstTexture);
 
-            tessThreadTesselator.TesselateShape("aculinaryartillery:spile", asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+            tessThreadTesselator.TesselateShape(Code, asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
 
             return mesh;
         }
