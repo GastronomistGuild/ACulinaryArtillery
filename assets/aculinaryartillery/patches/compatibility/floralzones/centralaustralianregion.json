@@ -1,10 +1,10 @@
 [
     {
-        "file": "wildcrafttree:itemtypes/resource/plank.json",
+        "file": "floralzonescentralaustralianregion:itemtypes/resource/plank.json",
         "op": "addmerge",
         "path": "/tags",
         "value": [ "plank-wood" ],
-        "dependsOn": [{ "modid": "wildcrafttree" }]
+        "dependsOn": [{ "modid": "floralzonescentralaustralianregion" }]
     },
     {
         "file": "recipes/grid/blocks/bottlerack.json",
@@ -14,8 +14,8 @@
             "ingredientPattern": "PLN,PLP,PLP",
             "recipeGroup": 1,
             "ingredients": {
-                "P": { "type": "item", "code": "wildcrafttree:plank-*", "name": "frame" },
-                "L": { "type": "item", "code": "wildcrafttree:plank-*", "name": "interior" },
+                "P": { "type": "item", "code": "floralzonescentralaustralianregion:plank-*", "name": "frame" },
+                "L": { "type": "item", "code": "floralzonescentralaustralianregion:plank-*", "name": "interior" },
                 "N": { "type": "item", "code": "game:metalnailsandstrips-*" }
             },
             "width": 3,
@@ -23,6 +23,6 @@
             "name": "bottlerack-handbookdisplay",
             "output": { "type": "block", "code": "aculinaryartillery:bottlerack-north" }
         },
-        "dependsOn": [{ "modid": "wildcrafttree" }]
+        "dependsOn": [{ "modid": "floralzonescentralaustralianregion" }]
     }
 ]
