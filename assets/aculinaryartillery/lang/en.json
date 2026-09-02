@@ -224,8 +224,10 @@
   "item-handbooktitle-rollingpin": "Rolling Pin",
   "item-handbooktext-rollingpin": "A cylindrical utensil used for flattening and shaping ingredients, primarily dough. The handles are made from the same piece of material used for the roller, so they do not rotate when in use; this offers greater precision over how much pressure is used when flattening. This also helps keep the roller in place when hitting a drifter in the face.",
 
+  "blockdesc-bottlerack-*-*": "Place this block in the crafting grid to update it to the new version for it to correctly display its wood types.",
   "block-bottlerack-*": "Bottle rack",
-  "block-bottlerackcorner-*": "Bottle rack (corner)",
+  "blockdesc-bottlerackcorner-*-*": "Place this block in the crafting grid to update it to the new version for it to correctly display its wood types.",
+  "block-bottlerackcorner-*": "Corner bottle rack",
   "block-handbooktitle-bottlerack": "Bottle Rack",
   "block-handbooktext-bottlerack": "Essential for liquid storage and presentation, the bottle rack can store up to 16 bottles at once and is the ideal implement for making fine wines and spirits. The bottles are stored horizontally, which prevents the cork from drying out and allowing air to spoil the liquid via oxidation while keeping the bottles easily accessible. Best utilized in a cellar, away from temperature fluctuations. ",
   "block-handbooktitle-bottlerackcorner": "Bottle Rack (corner)",

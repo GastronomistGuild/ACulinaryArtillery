@@ -1,184 +1,31 @@
 [
 	{
+		"___comment": "See BlockBottleRack.OnCreatedByCrafting for more information about how this recipe works.",
 		"ingredientPattern": "PLN,PLP,PLP",
 		"recipeGroup": 1,
 		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-acacia" },
+			"P": { "type": "item", "tags": [ "plank-wood" ] },
+			"L": { "type": "item", "tags": [ "plank-wood" ] },
 			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
 		},
 		"width": 3,
 		"height": 3,
-		"name": "bottlerackacacia",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-acacia-north" }
+		"name": "bottlerack",
+		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-north" },
+		"showInCreatedBy": false
 	},
 	{
+		"___comment": "This is needed to display a comprehensible recipe. The above shows all random planks without the pattern we need.",
 		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 2,
+		"recipeGroup": 1,
 		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-baldcypress" },
+			"P": { "type": "item", "code": "game:plank-*", "name": "frame" },
+			"L": { "type": "item", "code": "game:plank-*", "name": "interior" },
 			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
 		},
 		"width": 3,
 		"height": 3,
-		"name": "bottlerackbaldcypress",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-baldcypress-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 3,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-birch" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackbirch",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-birch-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 4,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-ebony" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackebony",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-ebony-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 5,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-kapok" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackkapok",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-kapok-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 6,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-larch" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottleracklarch",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-larch-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 7,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-maple" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackmaple",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-maple-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 8,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-oak" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackoak",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-oak-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 9,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-pine" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackpine",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-pine-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 10,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-purpleheart" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackpurpleheart",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-purpleheart-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 11,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-redwood" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackredwood",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-redwood-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 12,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-walnut" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackwalnut",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-walnut-north" }
-	},
-	{
-		"ingredientPattern": "PLN,PLP,PLP",
-		"recipeGroup": 13,
-		"ingredients": {
-			"P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-			"L": { "type": "item", "code": "game:plank-aged" },
-			"N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-		},
-		"width": 3,
-		"height": 3,
-		"name": "bottlerackaged",
-		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-aged-north" }
-	},
-    {
-      "ingredientPattern": "PLN,PLP,PLP",
-      "recipeGroup": 14,
-      "ingredients": {
-          "P": { "type": "item", "code": "game:plank-*", "name": "woodframe" },
-          "L": { "type": "item", "code": "game:plank-veryaged" },
-          "N": { "type": "item", "code": "game:metalnailsandstrips-*" }
-      },
-      "width": 3,
-      "height": 3,
-      "name": "bottlerackveryaged",
-      "output": { "type": "block", "code": "aculinaryartillery:bottlerack-{woodframe}-veryaged-north" }
-    }
+		"name": "bottlerack-handbookdisplay",
+		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-north" }
+	}
 ]

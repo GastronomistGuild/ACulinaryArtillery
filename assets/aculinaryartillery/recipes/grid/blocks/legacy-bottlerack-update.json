@@ -1,0 +1,30 @@
+[
+    {
+		"___comment": "STABLERACK",
+		"ingredientPattern": "R",
+		"recipeGroup": 1,
+		"ingredients": {
+			"R": { "type": "block", "code": "aculinaryartillery:bottlerack-*-*-north" }
+		},
+		"width": 1,
+		"height": 1,
+        "shapeless": true,
+		"name": "legacy-bottlerack-update",
+		"output": { "type": "block", "code": "aculinaryartillery:bottlerack-north" },
+		"showInCreatedBy": false
+	},
+    {
+		"___comment": "STABLERACK",
+		"ingredientPattern": "R",
+		"recipeGroup": 1,
+		"ingredients": {
+			"R": { "type": "block", "code": "aculinaryartillery:bottlerackcorner-*-*-north" }
+		},
+		"width": 1,
+		"height": 1,
+        "shapeless": true,
+		"name": "legacy-bottlerackcorner-update",
+		"output": { "type": "block", "code": "aculinaryartillery:bottlerackcorner-north" },
+		"showInCreatedBy": false
+	}
+]
