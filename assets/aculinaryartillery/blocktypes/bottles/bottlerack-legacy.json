@@ -4,11 +4,11 @@
     "class": "BlockBottleRack",
     "entityClass": "BottleRack",
     "attributes": {
-      "handbook": { 
-        "groupBy": ["bottlerack-*"],
-        "extraSections": [ { "title": "aculinaryartillery:block-handbooktitle-bottlerack", "text": "aculinaryartillery:block-handbooktext-bottlerack" } ]
+      "handbook": {
+        "exclude": true
       }
     },
+    "creativeinventoryStacks": [ { "tabs": [], "stacks": [] } ],
     "materialDensity": 700,
     "behaviors": [ { "name": "HorizontalOrientable" } ],
     "variantgroups": [

@@ -6,15 +6,10 @@
   "behaviors": [ { "name": "HorizontalOrientable" } ],
   "attributes": {
     "handbook": {
-      "groupBy": ["bottlerackcorner-*"],
-      "extraSections": [
-        {
-          "title": "aculinaryartillery:block-handbooktitle-bottlerackcorner",
-          "text": "aculinaryartillery:block-handbooktext-bottlerackcorner"
-        }
-      ]
+      "exclude": true
     }
   },
+  "creativeinventoryStacks": [ { "tabs": [], "stacks": [] } ],
   "materialDensity": 700,
   "variantgroups": [
     {
