@@ -3,7 +3,7 @@
 	"variantgroups": [
 		{ "code": "material", "states": [ "glass" ] },
 		{ "code": "color", "states": [ "green", "blue", "brown", "pink", "plain", "quartz", "red", "smoky", "vintage", "violet", "yellow" ] },
-		{ "code": "type", "states": [ "fired", "corked" ] }
+		{ "code": "type", "states": [ "fired", "corked", "waxed" ] }
 	],
 	"class": "BlockBottle",
 	"creativeinventory": { "general": [ "*" ], "aculinaryartillery": ["*"] },
@@ -26,12 +26,35 @@
 		"isClear": true
 	},
 	"attributesByType": {
+		"*-waxed": {
+			"canDrinkFrom": false,
+			"isTopOpened": false,
+			"allowHeldLiquidTransfer": false,
+			"bottlerackable": true,
+			"liquidContainerProps": {
+				"capacityLitres": 1,
+				"transferSizeLitres": 0.1,
+				"emptyShapeLoc": "aculinaryartillery:shapes/block/bottle/waxedbottleglass",
+				"opaqueContentShapeLoc": "aculinaryartillery:shapes/block/bottle/contents",
+				"liquidContentShapeLoc": "aculinaryartillery:shapes/block/bottle/liquidcontents",
+				"liquidMaxYTranslate": 0.05
+			},
+            "attachableToEntity": {
+                "categoryCode": "gear",
+				"texturePrefixCode": "glassbottle-waxed",
+                "attachedShapeBySlotCode": {
+                    "gearleft": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottlewaxglass1" },
+                    "gearback": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottlewaxglass2" },
+                    "gearright": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottlewaxglass3" }
+                }
+            },
+			"transparentStopperShapeLoc": "aculinaryartillery:shapes/block/bottle/waxedbottleglass-transparentstopper"
+		},
 		"*-corked": {
 			"canDrinkFrom": false,
 			"isTopOpened": false,
 			"allowHeldLiquidTransfer": false,
 			"bottlerackable": true,
-			"perishRate": 0.1,
 			"liquidContainerProps": {
 				"capacityLitres": 1,
 				"transferSizeLitres": 0.1,
@@ -42,20 +65,20 @@
 			},
             "attachableToEntity": {
                 "categoryCode": "gear",
-                "texturePrefixCode": "bottle-glass-{color}-corked",
+				"texturePrefixCode": "glassbottle-corked",
                 "attachedShapeBySlotCode": {
-                    "gearleft": { "base": "aculinaryartillery:item/wearable/hooved/elk/bottleglass1" },
-                    "gearback": { "base": "aculinaryartillery:item/wearable/hooved/elk/bottleglass2" },
-                    "gearright": { "base": "aculinaryartillery:item/wearable/hooved/elk/bottleglass3" }
+                    "gearleft": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottleglass1" },
+                    "gearback": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottleglass2" },
+                    "gearright": { "base": "aculinaryartillery:shapes/item/wearable/hooved/elk/bottleglass3" }
                 }
-            }
+            },
+			"transparentStopperShapeLoc": "aculinaryartillery:shapes/block/bottle/corkedbottleglass-transparentstopper"
 		},
 		"*-fired": {
 			"canDrinkFrom": true,
 			"isTopOpened": true,
 			"bottlerackable": true,
 			"allowHeldLiquidTransfer": true,
-			"perishRate": 1,
 			"liquidContainerProps": {
 				"capacityLitres": 1,
 				"transferSizeLitres": 0.1,
@@ -76,13 +99,13 @@
 	"replaceable": 1,
 	"behaviors": [
 		{ "name": "GroundStorable", "properties": { "layout": "Quadrants", "collisionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.125, "z2": 1 } } },
-		{ "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"},
+		{ "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"}
 	],
 	"maxstacksize":  16,
 	"blockmaterial": "Glass",
 	"shapeByType": {
-		"*-corked": { "base": "aculinaryartillery:block/bottle/corkedbottleglass" },
-		"*": { "base": "aculinaryartillery:block/bottle/openedbottleglass" }
+		"*-corked": { "base": "aculinaryartillery:shapes/block/bottle/corkedbottleglass" },
+		"*": { "base": "aculinaryartillery:shapes/block/bottle/openedbottleglass" }
 	},
 	"lightAbsorption": 0,
 	"liquidSelectable": 1,
@@ -101,7 +124,8 @@
 	},
 	"textures": {
 		"material": { "base": "block/bottle/{color}" },
-		"map": { "base": "game:item/utility/map" }
+		"stopper": { "base": "game:item/utility/map" },
+		"wax": { "base": "game:block/fire-blue" }
 	},
 	"resistance": 0.5,
 	"guiTransform": {

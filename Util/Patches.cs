@@ -12,6 +12,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using Vintagestory.API.Datastructures;
 
 namespace ACulinaryArtillery
 {
@@ -46,7 +47,7 @@ namespace ACulinaryArtillery
 
                     obj.WalkInventory(delegate (ItemSlot pslot)
                     {
-                        if (pslot.Empty || pslot is ItemSlotCreative || pslot.StackSize == pslot.Itemstack.Collectible.MaxStackSize || pslot.Itemstack.ItemAttributes?["canSealBottle"].AsBool() == true)
+                        if (pslot.Empty || pslot is ItemSlotCreative || pslot.StackSize == pslot.Itemstack.Collectible.MaxStackSize || pslot.Itemstack.Collectible.GetTags(pslot.Itemstack).Overlaps(BlockBottle.bottleStopperTag) || pslot.Itemstack.Collectible.GetTags(pslot.Itemstack).Overlaps(BlockBottle.bottleSealantTag))
                         {
                             return true;
                         }

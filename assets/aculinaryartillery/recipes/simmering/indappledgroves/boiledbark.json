@@ -1,14 +1,14 @@
 {
   "Ingredients": [
     { "type": "item", "code": "waterportion", "quantity": 100 },
-    { "type": "item", "code": "indappledgroves:bark-oak-dry", "quantity": 1, "name": "wood" }
+    { "type": "item", "code": "indappledgroves:bark-*-dry", "quantity": 1, "name": "wood" }
   ],
   "Simmering": {
     "meltingPoint": 100,
     "meltingDuration": 200,
     "smeltedRatio": 1,
     "smeltingType": "bake",
-    "smeltedStack": { "type": "item", "code": "aculinaryartillery:bark-oak-boiled" },
+    "smeltedStack": { "type": "item", "code": "aculinaryartillery:bark-{wood}-boiled" },
     "requiresContainer": false
   }
 }

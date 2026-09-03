@@ -1,51 +1,55 @@
 [
 	{
+		"___comment": "Placing the cork in the content stacks is handled in code",
 		"ingredientPattern": "C,G",
 		"ingredients": {
-			"C": { "type": "item", "code": "cork-generic" },
+			"C": { "type": "item", "tags": [ "bottle-stopper" ], "name": "stopper" },
 			"G": { "type": "block", "code": "bottle-clay-*-fired", "name": "color" }
 		},
 		"width": 1,
 		"height": 2,
         "recipeGroup": 1,
-		"name": "corkedclaybottle",
+		"name": "cork-claybottle",
 		"output": { "type": "block", "code": "bottle-clay-{color}-corked" },
 		"copyAttributesFrom": "G"
 	},
 	{
+		"___comment": "Placing the cork in the content stacks is handled in code",
 		"ingredientPattern": "C,G",
 		"ingredients": {
-			"C": { "type": "item", "code": "cork-generic" },
+			"C": { "type": "item", "tags": [ "bottle-stopper" ], "name": "stopper" },
 			"G": { "type": "block", "code": "bottle-glass-*-fired", "name": "color" }
 		},
 		"width": 1,
 		"height": 2,
         "recipeGroup": 1,
-		"name": "corkedglassbottle",
+		"name": "cork-glassbottle",
 		"output": { "type": "block", "code": "bottle-glass-{color}-corked" },
 		"copyAttributesFrom": "G"
 	},
 	{
+		"___comment": "Returning the cork from the content stacks is handled in code",
 		"ingredientPattern": "G",
 		"ingredients": {
-			"G": { "type": "block", "code": "bottle-clay-*-corked", "name": "color", "returnedStack": { "type": "item", "code": "cork-generic" } }
+			"G": { "type": "block", "code": "bottle-clay-*-corked", "name": "color" }
 		},
 		"width": 1,
 		"height": 1,
         "recipeGroup": 2,
-		"name": "uncorkedclaybottle",
+		"name": "uncork-claybottle",
 		"output": { "type": "block", "code": "bottle-clay-{color}-fired" },
 		"copyAttributesFrom": "G"
 	},
 	{
+		"___comment": "Returning the cork from the content stacks is handled in code",
 		"ingredientPattern": "G",
 		"ingredients": {
-			"G": { "type": "block", "code": "bottle-glass-*-corked", "name": "color", "returnedStack": { "type": "item", "code": "cork-generic" } }
+			"G": { "type": "block", "code": "bottle-glass-*-corked", "name": "color" }
 		},
 		"width": 1,
 		"height": 1,
         "recipeGroup": 2,
-		"name": "uncorkedglassbottle",
+		"name": "uncork-glassbottle",
 		"output": { "type": "block", "code": "bottle-glass-{color}-fired" },
 		"copyAttributesFrom": "G"
 	}

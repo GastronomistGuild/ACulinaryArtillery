@@ -1,0 +1,30 @@
+[
+    {
+        "file": "game:itemtypes/resource/beeswax.json",
+        "op": "addmerge",
+        "path": "/tags",
+        "value": [ "bottle-sealant" ]
+    },
+    {
+        "file": "game:itemtypes/resource/beeswax.json",
+        "op": "addmerge",
+        "path": "/attributes",
+        "value": {
+            "bottleSealantPerishRate": 0.5
+        }
+    },
+    {
+        "file": "game:itemtypes/resource/beeswax.json",
+        "op": "addmerge",
+        "path": "/attributes",
+        "value": {
+            "bottleSealantTexture": { "base": "game:block/fire-blue" }
+        }
+    },
+    {
+        "file": "game:itemtypes/resource/beeswax.json",
+        "op": "addmerge",
+        "path": "/storageFlags",
+        "value": 257
+    }
+]

@@ -1,51 +1,51 @@
 {
-  "code": "bark",
-  "creativeinventory": { "general": ["*"], "items": ["*"], "aculinaryartillery": ["*"] },
-  "attributes": {
-    "handbook": {
-      "groupBy": ["bark-*"],
-      "extraSections": [
-        {
-          "title": "aculinaryartillery:item-handbooktitle-bark",
-          "text": "aculinaryartillery:item-handbooktext-bark"
+    "code": "bark",
+    "creativeinventory": { "general": ["*"], "items": ["*"], "aculinaryartillery": ["*"] },
+    "attributes": {
+        "handbook": {
+            "groupBy": ["bark-*"],
+            "extraSections": [
+                {
+                    "title": "aculinaryartillery:item-handbooktitle-bark",
+                    "text": "aculinaryartillery:item-handbooktext-bark"
+                }
+            ]
         }
-      ]
+    },
+    "variantgroups": [
+        { "code": "bark", "states": [ "oak" ] },
+        { "code": "state", "states": [ "dry", "boiled" ] }
+    ],
+    "combustibleProps": {
+        "burnTemperature": 800,
+        "burnDuration": 12
+    },
+    "materialDensity": 350,
+    "shape": { "base": "item/bark/{state}" },
+    "textures": { "bark": { "base": "game:block/wood/bark/{bark}" } },
+    "maxstacksize": 64,
+    "guiTransform": {
+        "translation": { "x": 3, "y": 4, "z": 0 },
+        "rotation": { "x": -25, "y": -44, "z": -168 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 3.47
+    },
+    "fpHandTransform": {
+        "translation": { "x": 0.05, "y": 0.5, "z": 0 },
+        "rotation": { "x": 17, "y": -8, "z": 14 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 2.21
+    },
+    "tpHandTransform": {
+        "translation": { "x": -1, "y": 0, "z": -0.8 },
+        "rotation": { "x": 0, "y": -86, "z": 0 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 0.57
+    },
+    "groundTransform": {
+        "translation": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5299 },
+        "scale": 3.5
     }
-  },
-  "variantgroups": [
-    { "code": "bark", "states":["oak"] },
-    { "code": "state", "states":["dry", "boiled"] }
-  ],
-  "combustibleProps": {
-    "burnTemperature": 800,
-    "burnDuration": 12
-  },
-  "materialDensity": 350,
-  "shape": { "base": "item/bark/{state}" },
-  "textures": { "bark": { "base": "game:block/wood/bark/{bark}" } },
-  "maxstacksize": 64,
-  "guiTransform": {
-    "translation": { "x": 3, "y": 4, "z": 0 },
-    "rotation": { "x": -25, "y": -44, "z": -168 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 3.47
-  },
-  "fpHandTransform": {
-    "translation": { "x": 0.05, "y": 0.5, "z": 0 },
-    "rotation": { "x": 17, "y": -8, "z": 14 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 2.21
-  },
-  "tpHandTransform": {
-    "translation": { "x": -1, "y": 0, "z": -0.8 },
-    "rotation": { "x": 0, "y": -86, "z": 0 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 0.57
-  },
-  "groundTransform": {
-    "translation": { "x": 0, "y": 0, "z": 0 },
-    "rotation": { "x": 0, "y": 0, "z": 0 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5299 },
-    "scale": 3.5
-  }
 }
