@@ -1,0 +1,1308 @@
+[
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "wildcrafttree"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-fir", "interior": "wildcrafttree:plank-fir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-spruce", "interior": "wildcrafttree:plank-spruce" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-douglasfir", "interior": "wildcrafttree:plank-douglasfir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tuja", "interior": "wildcrafttree:plank-tuja" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-redcedar", "interior": "wildcrafttree:plank-redcedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-yew", "interior": "wildcrafttree:plank-yew" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-kauri", "interior": "wildcrafttree:plank-kauri" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ginkgo", "interior": "wildcrafttree:plank-ginkgo" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sycamore", "interior": "wildcrafttree:plank-sycamore" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-honeylocust", "interior": "wildcrafttree:plank-honeylocust" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-dalbergia", "interior": "wildcrafttree:plank-dalbergia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-umnini", "interior": "wildcrafttree:plank-umnini" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-banyan", "interior": "wildcrafttree:plank-banyan" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-elm", "interior": "wildcrafttree:plank-elm" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-beech", "interior": "wildcrafttree:plank-beech" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-bearnut", "interior": "wildcrafttree:plank-bearnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-willow", "interior": "wildcrafttree:plank-willow" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-poplar", "interior": "wildcrafttree:plank-poplar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tamanu", "interior": "wildcrafttree:plank-tamanu" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-spurgetree", "interior": "wildcrafttree:plank-spurgetree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-azobe", "interior": "wildcrafttree:plank-azobe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-guajacum", "interior": "wildcrafttree:plank-guajacum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-eucalyptus", "interior": "wildcrafttree:plank-eucalyptus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ghostgum", "interior": "wildcrafttree:plank-ghostgum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ohia", "interior": "wildcrafttree:plank-ohia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-satinash", "interior": "wildcrafttree:plank-satinash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-leadwood", "interior": "wildcrafttree:plank-leadwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-bluemahoe", "interior": "wildcrafttree:plank-bluemahoe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-linden", "interior": "wildcrafttree:plank-linden" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sal", "interior": "wildcrafttree:plank-sal" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-horsechestnut", "interior": "wildcrafttree:plank-horsechestnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tigerwood", "interior": "wildcrafttree:plank-tigerwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-mahogany", "interior": "wildcrafttree:plank-mahogany" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sapele", "interior": "wildcrafttree:plank-sapele" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-saxaul", "interior": "wildcrafttree:plank-saxaul" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ash", "interior": "wildcrafttree:plank-ash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-catalpa", "interior": "wildcrafttree:plank-catalpa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-jacaranda", "interior": "wildcrafttree:plank-jacaranda" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-mangrove", "interior": "wildcrafttree:plank-mangrove" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-empresstree", "interior": "wildcrafttree:plank-empresstree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-charred", "interior": "wildcrafttree:plank-charred" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-chlorociboria", "interior": "wildcrafttree:plank-chlorociboria" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-petrified", "interior": "wildcrafttree:plank-petrified" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "wildcrafttree"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-fir", "interior": "wildcrafttree:plank-fir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-spruce", "interior": "wildcrafttree:plank-spruce" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-douglasfir", "interior": "wildcrafttree:plank-douglasfir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tuja", "interior": "wildcrafttree:plank-tuja" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-redcedar", "interior": "wildcrafttree:plank-redcedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-yew", "interior": "wildcrafttree:plank-yew" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-kauri", "interior": "wildcrafttree:plank-kauri" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ginkgo", "interior": "wildcrafttree:plank-ginkgo" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sycamore", "interior": "wildcrafttree:plank-sycamore" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-honeylocust", "interior": "wildcrafttree:plank-honeylocust" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-dalbergia", "interior": "wildcrafttree:plank-dalbergia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-umnini", "interior": "wildcrafttree:plank-umnini" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-banyan", "interior": "wildcrafttree:plank-banyan" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-elm", "interior": "wildcrafttree:plank-elm" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-beech", "interior": "wildcrafttree:plank-beech" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-bearnut", "interior": "wildcrafttree:plank-bearnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-willow", "interior": "wildcrafttree:plank-willow" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-poplar", "interior": "wildcrafttree:plank-poplar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tamanu", "interior": "wildcrafttree:plank-tamanu" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-spurgetree", "interior": "wildcrafttree:plank-spurgetree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-cedar", "interior": "wildcrafttree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-azobe", "interior": "wildcrafttree:plank-azobe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-guajacum", "interior": "wildcrafttree:plank-guajacum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-eucalyptus", "interior": "wildcrafttree:plank-eucalyptus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ghostgum", "interior": "wildcrafttree:plank-ghostgum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ohia", "interior": "wildcrafttree:plank-ohia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-satinash", "interior": "wildcrafttree:plank-satinash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-leadwood", "interior": "wildcrafttree:plank-leadwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-bluemahoe", "interior": "wildcrafttree:plank-bluemahoe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-linden", "interior": "wildcrafttree:plank-linden" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sal", "interior": "wildcrafttree:plank-sal" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-horsechestnut", "interior": "wildcrafttree:plank-horsechestnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-tigerwood", "interior": "wildcrafttree:plank-tigerwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-mahogany", "interior": "wildcrafttree:plank-mahogany" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-sapele", "interior": "wildcrafttree:plank-sapele" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-saxaul", "interior": "wildcrafttree:plank-saxaul" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-ash", "interior": "wildcrafttree:plank-ash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-catalpa", "interior": "wildcrafttree:plank-catalpa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-jacaranda", "interior": "wildcrafttree:plank-jacaranda" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-mangrove", "interior": "wildcrafttree:plank-mangrove" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-empresstree", "interior": "wildcrafttree:plank-empresstree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-charred", "interior": "wildcrafttree:plank-charred" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-chlorociboria", "interior": "wildcrafttree:plank-chlorociboria" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "wildcrafttree:plank-petrified", "interior": "wildcrafttree:plank-petrified" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    }
+]
