@@ -348,6 +348,9 @@
   "aculinaryartillery:handbook-createdby-mixingbowl": "Kneading",
   "aculinaryartillery:handbook-createdby-simmering": "Simmering (in saucepan or cauldron)",
   
+  "aculinaryartillery:firepit-gui-willwaste-liquid": "(will waste {0} of {1})",
+  "aculinaryartillery:firepit-gui-willwaste": "(will waste {0}x {1})",
+
   "aculinaryartillery:Will make {0}" : "Will make {0}",
   "aculinaryartillery:made with " : "made with ",
   "aculinaryartillery:and " : "and ",
