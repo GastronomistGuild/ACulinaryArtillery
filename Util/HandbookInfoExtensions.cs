@@ -248,7 +248,8 @@ namespace ACulinaryArtillery.Util
 
         public static Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? CreateCachedMealRecipeStacks(ICoreClientAPI capi, CookingRecipe recipe)
         {
-            ItemStack[] allstacks = ObjectCacheUtil.TryGet<ItemStack[]>(capi, "handbookallstacks");
+            ItemStack[]? allstacks = ObjectCacheUtil.TryGet<ItemStack[]>(capi, "handbookallstacks");
+            if (allstacks == null) return null;
 
             return ObjectCacheUtil.GetOrCreate(capi, "valstacksbying-" + recipe.Code, () =>
             {
