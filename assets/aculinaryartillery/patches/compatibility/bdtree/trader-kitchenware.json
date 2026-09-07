@@ -1,0 +1,1224 @@
+[
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ { "modid": "bdtree" } ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ash", "interior": "bdtree:plank-ash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-azobe", "interior": "bdtree:plank-azobe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-banyan", "interior": "bdtree:plank-banyan" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-beech", "interior": "bdtree:plank-beech" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-bearnut", "interior": "bdtree:plank-bearnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-bluemahoe", "interior": "bdtree:plank-bluemahoe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-catalpa", "interior": "bdtree:plank-catalpa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-cedar", "interior": "bdtree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-charred", "interior": "bdtree:plank-charred" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-chlorociboria", "interior": "bdtree:plank-chlorociboria" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-dalbergia", "interior": "bdtree:plank-dalbergia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-douglasfir", "interior": "bdtree:plank-douglasfir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-elm", "interior": "bdtree:plank-elm" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-empresstree", "interior": "bdtree:plank-empresstree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-eucalyptus", "interior": "bdtree:plank-eucalyptus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-fir", "interior": "bdtree:plank-fir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ghostgum", "interior": "bdtree:plank-ghostgum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ginkgo", "interior": "bdtree:plank-ginkgo" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-guajacum", "interior": "bdtree:plank-guajacum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-honeylocust", "interior": "bdtree:plank-honeylocust" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-horsechestnut", "interior": "bdtree:plank-horsechestnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-rosewood", "interior": "bdtree:plank-rosewood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-kauri", "interior": "bdtree:plank-kauri" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-leadwood", "interior": "bdtree:plank-leadwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-linden", "interior": "bdtree:plank-linden" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-mahogany", "interior": "bdtree:plank-mahogany" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-mangrove", "interior": "bdtree:plank-mangrove" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ohia", "interior": "bdtree:plank-ohia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-poplar", "interior": "bdtree:plank-poplar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-redcedar", "interior": "bdtree:plank-redcedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sal", "interior": "bdtree:plank-sal" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sapele", "interior": "bdtree:plank-sapele" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-satinash", "interior": "bdtree:plank-satinash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-saxaul", "interior": "bdtree:plank-saxaul" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-spruce", "interior": "bdtree:plank-spruce" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-spurgetree", "interior": "bdtree:plank-spurgetree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sycamore", "interior": "bdtree:plank-sycamore" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tamanu", "interior": "bdtree:plank-tamanu" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tigerwood", "interior": "bdtree:plank-tigerwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tuja", "interior": "bdtree:plank-tuja" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-umnini", "interior": "bdtree:plank-umnini" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-willow", "interior": "bdtree:plank-willow" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-yew", "interior": "bdtree:plank-yew" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ { "modid": "bdtree" } ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ash", "interior": "bdtree:plank-ash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-azobe", "interior": "bdtree:plank-azobe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-banyan", "interior": "bdtree:plank-banyan" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-beech", "interior": "bdtree:plank-beech" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-bearnut", "interior": "bdtree:plank-bearnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-bluemahoe", "interior": "bdtree:plank-bluemahoe" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-catalpa", "interior": "bdtree:plank-catalpa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-cedar", "interior": "bdtree:plank-cedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-charred", "interior": "bdtree:plank-charred" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-chlorociboria", "interior": "bdtree:plank-chlorociboria" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-dalbergia", "interior": "bdtree:plank-dalbergia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-douglasfir", "interior": "bdtree:plank-douglasfir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-elm", "interior": "bdtree:plank-elm" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-empresstree", "interior": "bdtree:plank-empresstree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-eucalyptus", "interior": "bdtree:plank-eucalyptus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-fir", "interior": "bdtree:plank-fir" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ghostgum", "interior": "bdtree:plank-ghostgum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ginkgo", "interior": "bdtree:plank-ginkgo" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-guajacum", "interior": "bdtree:plank-guajacum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-honeylocust", "interior": "bdtree:plank-honeylocust" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-horsechestnut", "interior": "bdtree:plank-horsechestnut" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-rosewood", "interior": "bdtree:plank-rosewood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-kauri", "interior": "bdtree:plank-kauri" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-leadwood", "interior": "bdtree:plank-leadwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-linden", "interior": "bdtree:plank-linden" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-mahogany", "interior": "bdtree:plank-mahogany" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-mangrove", "interior": "bdtree:plank-mangrove" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-ohia", "interior": "bdtree:plank-ohia" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-poplar", "interior": "bdtree:plank-poplar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-redcedar", "interior": "bdtree:plank-redcedar" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sal", "interior": "bdtree:plank-sal" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sapele", "interior": "bdtree:plank-sapele" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-satinash", "interior": "bdtree:plank-satinash" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-saxaul", "interior": "bdtree:plank-saxaul" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-spruce", "interior": "bdtree:plank-spruce" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-spurgetree", "interior": "bdtree:plank-spurgetree" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-sycamore", "interior": "bdtree:plank-sycamore" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tamanu", "interior": "bdtree:plank-tamanu" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tigerwood", "interior": "bdtree:plank-tigerwood" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-tuja", "interior": "bdtree:plank-tuja" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-umnini", "interior": "bdtree:plank-umnini" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-willow", "interior": "bdtree:plank-willow" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "bdtree:plank-yew", "interior": "bdtree:plank-yew" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    }
+]
