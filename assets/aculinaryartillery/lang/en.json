@@ -224,11 +224,11 @@
   "item-handbooktitle-rollingpin": "Rolling Pin",
   "item-handbooktext-rollingpin": "A cylindrical utensil used for flattening and shaping ingredients, primarily dough. The handles are made from the same piece of material used for the roller, so they do not rotate when in use; this offers greater precision over how much pressure is used when flattening. This also helps keep the roller in place when hitting a drifter in the face.",
 
-  "blockdesc-bottlerack-*-*": "Place this block in the crafting grid to update it to the new version for it to correctly display its wood types. This legacy block will be removed in a future update.",
+  "blockdesc-bottlerack-*-*": "Break this block to update it to the new version. This legacy block will be removed in a future update.",
   "block-bottlerack-single": "{0} bottle rack",
   "block-bottlerack-double": "{0}-{1} bottle rack",
   "block-bottlerack-legacy": "Bottle rack",
-  "blockdesc-bottlerackcorner-*-*": "Place this block in the crafting grid to update it to the new version for it to correctly display its wood types. This legacy block will be removed in a future update.",
+  "blockdesc-bottlerackcorner-*-*": "Break this block to update it to the new version. This legacy block will be removed in a future update.",
   "block-bottlerackcorner-single": "{0} corner bottle rack",
   "block-bottlerackcorner-double": "{0}-{1} corner bottle rack",
   "block-bottlerackcorner-legacy": "Corner bottle rack",

@@ -53,8 +53,35 @@ namespace ACulinaryArtillery
         {
             if (capi == null) return new();
 
-            CompositeTexture? frameTexture = capi.World.GetItem(stack.Attributes.GetString("frame", "game:plank-oak"))?.FirstTexture;
-            CompositeTexture? interiorTexture = capi.World.GetItem(stack.Attributes.GetString("interior", "game:plank-oak"))?.FirstTexture;
+            CompositeTexture? frameTexture = null;
+            CompositeTexture? interiorTexture = null;
+
+            // STABLERACK
+            string[] codeParts = stack.Collectible.Code.Path.Split("-");
+            if (stack.Attributes.HasAttribute("frame") && stack.Attributes.HasAttribute("interior"))
+            {
+                frameTexture = capi.World.GetItem(stack.Attributes.GetString("frame", "game:plank-oak"))?.FirstTexture;
+                interiorTexture = capi.World.GetItem(stack.Attributes.GetString("interior", "game:plank-oak"))?.FirstTexture;
+            }
+            else if (codeParts.Length > 2)
+            {
+                Dictionary<string, string[]> plankTypesByDomain = [];
+                plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
+                plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
+
+                foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
+                {
+                    if (plankTypes.Contains(codeParts[1]))
+                    {
+                        frameTexture = capi.World.GetItem($"{domain}:plank-{codeParts[1]}")?.FirstTexture;
+                    }
+
+                    if (plankTypes.Contains(codeParts[2]))
+                    {
+                        interiorTexture = capi.World.GetItem($"{domain}:plank-{codeParts[2]}")?.FirstTexture;
+                    }
+                }
+            }
 
             return GenMesh(capi, new BottleRackTextureSource(capi, frameTexture, interiorTexture));
         }
@@ -134,32 +161,6 @@ namespace ACulinaryArtillery
                 }
             }
 
-            // STABLERACK; Don't need this entire block.
-            if (byRecipe.Name?.FirstCodePart() == "legacy")
-            {
-                ItemStack inputStack = allInputslots.First(slot => slot.Itemstack?.Collectible.FirstCodePart() is "bottlerack" or "bottlerackcorner").Itemstack!;
-                string[] codeParts = inputStack.Collectible.Code.Path.ToString().Split("-");
-
-                // Unfortunately, we have no way to determine the domain from the block code, so we have to hardcode it.
-                // Note that other compatibilities are new and thus do not need conversion matching.
-                Dictionary<string, string[]> plankTypesByDomain = [];
-                plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
-                plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
-
-                foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
-                {
-                    if (plankTypes.Contains(codeParts[1]))
-                    {
-                        outputSlot.Itemstack?.Attributes.SetString("frame", $"{domain}:plank-{codeParts[1]}");
-                    }
-
-                    if (plankTypes.Contains(codeParts[2]))
-                    {
-                        outputSlot.Itemstack?.Attributes.SetString("interior", $"{domain}:plank-{codeParts[2]}");
-                    }
-                }
-            }
-
             base.OnCreatedByCrafting(allInputslots, outputSlot, byRecipe);
         }
 
@@ -182,6 +183,54 @@ namespace ACulinaryArtillery
             {
                 return Lang.Get("aculinaryartillery:block-" + itemStack.Collectible.FirstCodePart() + "-double", woodName1, woodName2);
             }
+        }
+
+        // STABLERACK
+        public override ItemStack[] GetDrops(IWorldAccessor world, BlockPos pos, IPlayer byPlayer, float dropQuantityMultiplier = 1)
+        {
+            ItemStack[] drops = base.GetDrops(world, pos, byPlayer, dropQuantityMultiplier);
+            ItemStack? rack = null;
+            int idx = 0;
+            string[] codeParts = [];
+
+            foreach ((int i, ItemStack drop) in drops.Index())
+            {
+                if (drop.Collectible is BlockBottleRack)
+                {
+                    rack = new ItemStack(world.GetBlock(new AssetLocation("aculinaryartillery:" + drop.Collectible.FirstCodePart() + "-north")));
+                    if (world.BlockAccessor.GetBlockEntity<BlockEntityBottleRack>(pos) is not BlockEntityBottleRack be) return drops;
+                    rack.Attributes.SetString("frame", be.Frame);
+                    rack.Attributes.SetString("interior", be.Interior);
+                    codeParts = drop.Collectible.Code.Path.ToString().Split("-");
+                    idx = i;
+                }
+            }
+
+            if (rack == null) return drops;
+
+            if (codeParts.Length > 2)
+            {
+                Dictionary<string, string[]> plankTypesByDomain = [];
+                plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
+                plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
+
+                foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
+                {
+                    if (plankTypes.Contains(codeParts[1]))
+                    {
+                        rack.Attributes.SetString("frame", $"{domain}:plank-{codeParts[1]}");
+                    }
+
+                    if (plankTypes.Contains(codeParts[2]))
+                    {
+                        rack.Attributes.SetString("interior", $"{domain}:plank-{codeParts[2]}");
+                    }
+                }
+            }
+
+            drops[idx] = rack;
+
+            return drops;
         }
     }
 

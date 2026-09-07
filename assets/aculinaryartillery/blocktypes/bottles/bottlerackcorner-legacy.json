@@ -9,7 +9,6 @@
       "exclude": true
     }
   },
-  "creativeinventoryStacks": [ { "tabs": [], "stacks": [] } ],
   "materialDensity": 700,
   "variantgroups": [
     {
@@ -40,11 +39,7 @@
       "quantity": { "avg": 1 }
     }
   ],
-  "creativeinventory": {
-    "general": [ "*-north" ],
-    "terrain": [ "*-north" ],
-    "aculinaryartillery": ["*-north"]
-  },
+  "creativeinventory": {},
     "texturesByType": {
         "@*-veryaged-veryaged-(north|east|south|west)": {
             "frame": { "base": "game:block/wood/planks/aged/veryaged1" },

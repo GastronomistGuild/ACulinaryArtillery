@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -62,6 +64,28 @@ namespace ACulinaryArtillery
 
             CompositeTexture? frameTexture = capi.World.GetItem(Frame)?.FirstTexture;
             CompositeTexture? interiorTexture = capi.World.GetItem(Interior)?.FirstTexture;
+
+            // STABLERACK
+            string[] codeParts = bottleRack.Code.Path.Split("-");
+            if (frameTexture == null && interiorTexture == null && codeParts.Length > 2)
+            {
+                Dictionary<string, string[]> plankTypesByDomain = [];
+                plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
+                plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
+
+                foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
+                {
+                    if (plankTypes.Contains(codeParts[1]))
+                    {
+                        frameTexture = capi.World.GetItem($"{domain}:plank-{codeParts[1]}")?.FirstTexture;
+                    }
+
+                    if (plankTypes.Contains(codeParts[2]))
+                    {
+                        interiorTexture = capi.World.GetItem($"{domain}:plank-{codeParts[2]}")?.FirstTexture;
+                    }
+                }
+            }
 
             BottleRackTextureSource textureSource = new(capi, frameTexture, interiorTexture);
 
