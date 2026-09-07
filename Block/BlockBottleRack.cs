@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
@@ -62,7 +64,7 @@ namespace ACulinaryArtillery
             AssetLocation shapeLoc = Shape.Base;
             if (capi?.Assets.TryGet(shapeLoc.CopyWithPathPrefixAndAppendixOnce("shapes/", ".json")) is not IAsset asset) return new();
 
-            capi.Tesselator.TesselateShape("aculinaryartillery:bottlerack" + Code.FirstCodePart() == "bottlerackcorner" ? "corner" : "", asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+            capi.Tesselator.TesselateShape("aculinaryartillery:" + Code.FirstCodePart(), asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
 
             return mesh;
         }
@@ -139,12 +141,10 @@ namespace ACulinaryArtillery
                 string[] codeParts = inputStack.Collectible.Code.Path.ToString().Split("-");
 
                 // Unfortunately, we have no way to determine the domain from the block code, so we have to hardcode it.
+                // Note that other compatibilities are new and thus do not need conversion matching.
                 Dictionary<string, string[]> plankTypesByDomain = [];
                 plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
                 plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
-                plankTypesByDomain["floralzonescircumborealregion"] = ["abiesbalsamea", "alnusglutinosa", "piceaglauca"];
-                plankTypesByDomain["floralzonesneozeylandicregion"] = ["araucariaheterophylla", "dacrydiumcupressinum", "nothofagusmenziesii", "podocarpustotara"];
-                plankTypesByDomain["floralzonesmediterraneanregion"] = ["populusalba", "taxusbaccata"];
 
                 foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
                 {
@@ -161,6 +161,27 @@ namespace ACulinaryArtillery
             }
 
             base.OnCreatedByCrafting(allInputslots, outputSlot, byRecipe);
+        }
+
+        public override string GetHeldItemName(ItemStack itemStack)
+        {
+            // STABLERACK
+            if (!itemStack.Attributes.HasAttribute("frame") || !itemStack.Attributes.HasAttribute("interior"))
+            {
+                return Lang.Get($"aculinaryartillery:block-{itemStack.Collectible.FirstCodePart()}-legacy");
+            }
+
+            string woodName1 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["frame"]);
+            string woodName2 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["interior"]).ToLowerInvariant();
+
+            if (woodName1 == woodName2)
+            {
+                return Lang.Get("aculinaryartillery:block-" + itemStack.Collectible.FirstCodePart() + "-single", woodName1);
+            }
+            else
+            {
+                return Lang.Get("aculinaryartillery:block-" + itemStack.Collectible.FirstCodePart() + "-double", woodName1, woodName2);
+            }
         }
     }
 

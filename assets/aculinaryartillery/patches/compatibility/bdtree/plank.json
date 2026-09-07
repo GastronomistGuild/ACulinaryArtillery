@@ -1,8 +1,8 @@
 [
     {
         "file": "bdtree:itemtypes/resource/plank.json",
-        "op": "addmerge",
-        "path": "/tags",
+        "op": "addeach",
+        "path": "/tags/-",
         "value": [ "plank-wood" ],
         "dependsOn": [{ "modid": "bdtree" }]
     },
