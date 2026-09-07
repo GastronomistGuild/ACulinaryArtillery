@@ -174,7 +174,7 @@ namespace ACulinaryArtillery
             string woodName1 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["frame"]);
             string woodName2 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["interior"]).ToLowerInvariant();
 
-            if (woodName1 == woodName2)
+            if (itemStack.Attributes["frame"] == itemStack.Attributes["interior"])
             {
                 return Lang.Get("aculinaryartillery:block-" + itemStack.Collectible.FirstCodePart() + "-single", woodName1);
             }
