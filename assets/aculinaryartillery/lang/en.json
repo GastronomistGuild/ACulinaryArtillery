@@ -247,6 +247,8 @@
   "game:incontainer-item-eggyolkportion-chicken": "Chicken egg yolk",
   "game:meal-ingredient-stew-primary-eggyolkportion-chicken": "chicken egg",
   "game:meal-ingredient-stew-secondary-eggyolkportion-chicken": "chicken egg",
+  "game:meal-ingredient-soup-primary-eggyolkportion-chicken": "chicken egg",
+  "game:meal-ingredient-soup-secondary-eggyolkportion-chicken": "chicken egg",
 
   "item-eggyolkportion-pheasant": "Pheasant egg yolk portion",
   "game:recipeingredient-item-eggyolkportion-pheasant": "pheasant egg yolk",
@@ -255,6 +257,8 @@
   "game:incontainer-item-eggyolkportion-pheasant": "Pheasant egg yolk",
   "game:meal-ingredient-stew-primary-eggyolkportion-pheasant": "pheasant egg",
   "game:meal-ingredient-stew-secondary-eggyolkportion-pheasant": "pheasant egg",
+  "game:meal-ingredient-soup-primary-eggyolkportion-pheasant": "pheasant egg",
+  "game:meal-ingredient-soup-secondary-eggyolkportion-pheasant": "pheasant egg",
 
   "item-eggyolkportion-goldenpheasant": "Golden pheasant egg yolk portion",
   "game:recipeingredient-item-eggyolkportion-goldenpheasant": "golden pheasant egg yolk",
@@ -263,6 +267,8 @@
   "game:incontainer-item-eggyolkportion-goldenpheasant": "Golden pheasant egg yolk",
   "game:meal-ingredient-stew-primary-eggyolkportion-goldenpheasant": "golden pheasant egg",
   "game:meal-ingredient-stew-secondary-eggyolkportion-goldenpheasant": "golden pheasant egg",
+  "game:meal-ingredient-soup-primary-eggyolkportion-goldenpheasant": "golden pheasant egg",
+  "game:meal-ingredient-soup-secondary-eggyolkportion-goldenpheasant": "golden pheasant egg",
 
   "item-eggyolkportion-capercaillie": "Capercaillie egg yolk portion",
   "game:recipeingredient-item-eggyolkportion-capercaillie": "capercaillie egg yolk",
@@ -271,6 +277,8 @@
   "game:incontainer-item-eggyolkportion-capercaillie": "Capercaillie egg yolk",
   "game:meal-ingredient-stew-primary-eggyolkportion-capercaillie": "capercaillie egg",
   "game:meal-ingredient-stew-secondary-eggyolkportion-capercaillie": "capercaillie egg",
+  "game:meal-ingredient-soup-primary-eggyolkportion-capercaillie": "capercaillie egg",
+  "game:meal-ingredient-soup-secondary-eggyolkportion-capercaillie": "capercaillie egg",
 
   "itemdesc-eggyolkportion-*": "One half of an unfertilized life form.",
   "item-handbooktitle-eggyolkportion": "Egg Yolk",
@@ -302,6 +310,8 @@
   "game:incontainer-item-eggyolkfullportion-chicken": "Liquid chicken egg",
   "game:meal-ingredient-stew-primary-eggyolkfullportion-chicken": "chicken egg",
   "game:meal-ingredient-stew-secondary-eggyolkfullportion-chicken": "chicken egg",
+  "game:meal-ingredient-soup-primary-eggyolkfullportion-chicken": "chicken egg",
+  "game:meal-ingredient-soup-secondary-eggyolkfullportion-chicken": "chicken egg",
 
   "item-eggyolkfullportion-pheasant": "Liquid pheasant egg portion",
   "game:recipeingredient-item-eggyolkfullportion-pheasant": "liquid pheasant egg",
@@ -310,6 +320,8 @@
   "game:incontainer-item-eggyolkfullportion-pheasant": "Liquid pheasant egg",
   "game:meal-ingredient-stew-primary-eggyolkfullportion-pheasant": "pheasant egg",
   "game:meal-ingredient-stew-secondary-eggyolkfullportion-pheasant": "pheasant egg",
+  "game:meal-ingredient-soup-primary-eggyolkfullportion-pheasant": "pheasant egg",
+  "game:meal-ingredient-soup-secondary-eggyolkfullportion-pheasant": "pheasant egg",
 
   "item-eggyolkfullportion-goldenpheasant": "Liquid golden pheasant egg portion",
   "game:recipeingredient-item-eggyolkfullportion-goldenpheasant": "liquid golden pheasant egg",
@@ -318,6 +330,8 @@
   "game:incontainer-item-eggyolkfullportion-goldenpheasant": "Liquid golden pheasant egg",
   "game:meal-ingredient-stew-primary-eggyolkfullportion-goldenpheasant": "golden pheasant egg",
   "game:meal-ingredient-stew-secondary-eggyolkfullportion-goldenpheasant": "golden pheasant egg",
+  "game:meal-ingredient-soup-primary-eggyolkfullportion-goldenpheasant": "golden pheasant egg",
+  "game:meal-ingredient-soup-secondary-eggyolkfullportion-goldenpheasant": "golden pheasant egg",
 
   "item-eggyolkfullportion-capercaillie": "Liquid capercaillie egg portion",
   "game:recipeingredient-item-eggyolkfullportion-capercaillie": "liquid capercaillie egg",
@@ -326,6 +340,8 @@
   "game:incontainer-item-eggyolkfullportion-capercaillie": "Liquid capercaillie egg",
   "game:meal-ingredient-stew-primary-eggyolkfullportion-capercaillie": "capercaillie egg",
   "game:meal-ingredient-stew-secondary-eggyolkfullportion-capercaillie": "capercaillie egg",
+  "game:meal-ingredient-soup-primary-eggyolkfullportion-capercaillie": "capercaillie egg",
+  "game:meal-ingredient-soup-secondary-eggyolkfullportion-capercaillie": "capercaillie egg",
 
   "itemdesc-eggyolkfullportion-*": "A wholly unfertilized life form. You'll put it to good use.",
   "item-handbooktitle-eggyolkfullportion": "Liquid Egg",
@@ -444,6 +460,8 @@
   "game:incontainer-item-eggyolkportion-wildturkey": "Wild turkey egg yolk",
   "game:meal-ingredient-stew-primary-eggyolkportion-wildturkey": "wild turkey egg",
   "game:meal-ingredient-stew-secondary-eggyolkportion-wildturkey": "wild turkey egg",
+  "game:meal-ingredient-soup-primary-eggyolkportion-wildturkey": "wild turkey egg",
+  "game:meal-ingredient-soup-secondary-eggyolkportion-wildturkey": "wild turkey egg",
 
   "item-eggyolkfullportion-wildturkey": "Liquid wild turkey egg portion",
   "game:recipeingredient-item-eggyolkfullportion-wildturkey": "liquid wild turkey egg",
@@ -452,6 +470,8 @@
   "game:incontainer-item-eggyolkfullportion-wildturkey": "Liquid wild turkey egg",
   "game:meal-ingredient-stew-primary-eggyolkfullportion-wildturkey": "wild turkey egg",
   "game:meal-ingredient-stew-secondary-eggyolkfullportion-wildturkey": "wild turkey egg",
+  "game:meal-ingredient-soup-primary-eggyolkfullportion-wildturkey": "wild turkey egg",
+  "game:meal-ingredient-soup-secondary-eggyolkfullportion-wildturkey": "wild turkey egg",
   
   "handbook-crackinghelp-title": "Egg Cracking Tips",
   "handbook-crackinghelp-text": "To crack eggs into a bowl or bucket, equip an egg and target the container, then hold <hk>Shift</hk>+<icon name='rightmousebutton'></icon> to 'partially' crack it, resulting in an <a href=\"handbook://item-aculinaryartillery:eggyolk-chicken\">cracked egg</a> in your hand and <a href=\"handbook://item-aculinaryartillery:eggwhiteportion\">egg white</a> in the container. Cracked eggs can be further cracked with <hk>Shift</hk>+<icon name='rightmousebutton'></icon> to leave an <a href=\"handbook://item-aculinaryartillery:eggshell\">egg shell</a> in your hand and <a href=\"handbook://item-aculinaryartillery:eggyolkportion-chicken\">egg yolk</a> in the container.<br>Alternately, hold <hk>Shift</hk>+<hk>Ctrl</hk>+<icon name='rightmousebutton'></icon> to 'fully' crack the egg, resulting in an <a href=\"handbook://item-aculinaryartillery:eggshell\">egg shell</a> in your hand and <a href=\"handbook://item-aculinaryartillery:eggyolkfullportion-chicken\">liquid egg</a> in the container.",
@@ -469,6 +489,7 @@
   "game:piemaking-notenoughliquid": "Need at least {0:0.#}L liquid for this filling.",
   "game:piemaking-notenoughitems": "Need at least {0} items for this filling.",
   "game:blockhelp-pie-addcrustortopping": "Add crust or topping",
+  
   "pie-single-aculinaryartillery:eggyolkfullportion-chicken-raw": "Liquid chicken egg pie (raw)",
   "pie-single-aculinaryartillery:eggyolkfullportion-chicken-partbaked": "Liquid chicken egg pie (part-baked)",
   "pie-single-aculinaryartillery:eggyolkfullportion-chicken-perfect": "Liquid chicken egg pie",
