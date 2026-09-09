@@ -358,9 +358,10 @@ namespace ACulinaryArtillery
             base.OnHeldInteractStart(itemslot, byEntity, blockSel, entitySel, firstEvent, ref handHandling);
         }
 
+        // Fixes a vanilla bug where holding shift overrides these checks.
         protected override void tryEatBegin(ItemSlot slot, EntityAgent byEntity, ref EnumHandHandling handling, string eatSound = "eat", int eatSoundRepeats = 1)
         {
-            if (GetNutritionProperties(byEntity.World, slot.Itemstack, byEntity) == null || Variant["type"] != "fired") return;
+            if (GetNutritionProperties(byEntity.World, slot.Itemstack, byEntity) == null || !CanDrinkFrom) return;
 
             base.tryEatBegin(slot, byEntity, ref handling, eatSound, eatSoundRepeats);
         }
