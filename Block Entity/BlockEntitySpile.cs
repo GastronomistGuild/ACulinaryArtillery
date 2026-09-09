@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
@@ -19,7 +20,15 @@ namespace ACulinaryArtillery
 
     public class BlockEntitySpile : BlockEntity
     {
+        public static HashSet<BlockPos> CachedSpiledTreeBlocks = [];
+        public static Dictionary<BlockPos, Stack<BlockPos>> CachedTreesBySpilePos = [];
         public double timer;
+
+        public BlockFacing Facing()
+        {
+            string[] parts = Block.Code.Path.Split('-');
+            return BlockFacing.FromCode(parts[parts.Length - 1]);
+        }
 
         public override void Initialize(ICoreAPI api)
         {
@@ -27,6 +36,12 @@ namespace ACulinaryArtillery
 
             RegisterGameTickListener(SapDrip, 5000);
             if (timer == -1000) timer = Api.World.Calendar.TotalHours;
+
+            if ((Block as BlockSpile)?.FindTree(Api.World.BlockAccessor, Pos.AddCopy(Facing())) is Stack<BlockPos> tree)
+            {
+                CachedSpiledTreeBlocks.AddRange(tree);
+                CachedTreesBySpilePos.TryAdd(Pos, tree);
+            }
         }
 
         public override void OnBlockPlaced(ItemStack? byItemStack = null)
@@ -34,6 +49,18 @@ namespace ACulinaryArtillery
             base.OnBlockPlaced(byItemStack);
 
             timer = Api.World.Calendar.TotalHours;
+        }
+
+        public override void OnBlockRemoved()
+        {
+            if (CachedTreesBySpilePos.TryGetValue(Pos) is Stack<BlockPos> tree)
+            {
+                CachedTreesBySpilePos.Remove(Pos);
+                foreach (BlockPos pos in tree)
+                {
+                    CachedSpiledTreeBlocks.Remove(pos);
+                }
+            }
         }
 
         public void SapDrip(float dt)

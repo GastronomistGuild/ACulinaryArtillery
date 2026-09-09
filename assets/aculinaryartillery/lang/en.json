@@ -43,10 +43,10 @@
   "block-spile-titanium-*" : "Titanium spile",
   "block-spile-steel-*": "Steel spile",
   "blockdesc-spile-*": "Gently siphon the liquid nectar from the trees around you.",
-  "game:placefailure-alreadyhasspile": "This block already has a spile.",
-  "game:placefailure-notspileable": "This block cannot be tapped.",
+  "game:placefailure-alreadyhasspile": "This tree already has a spile.",
+  "game:placefailure-notspileable": "This tree cannot be tapped.",
   "block-handbooktitle-spile": "Metal Spile",
-  "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Whether or not a tree produces liquid depends on the time of year, as trees produce more or less sap, gum, or nectar during certain seasons. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly.",
+  "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Whether or not a tree produces liquid depends on the time of year, as trees produce more or less sap, gum, or nectar during certain seasons. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly. Tapping is hard on the tree, so you can only use one spile each; Any more would put the tree's health at risk.",
   
   "block-saucepan-blue-fired" : "Earthy brown ceramic saucepan",
   "block-saucepan-earthyorange-fired" : "Earthy orange ceramic saucepan",
