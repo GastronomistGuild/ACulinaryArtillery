@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
 namespace ACulinaryArtillery
@@ -26,6 +28,61 @@ namespace ACulinaryArtillery
             base.Initialize(api);
             RegisterGameTickListener(RotDrop, 3000);
             Inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
+        }
+
+        protected override MeshData getOrCreateMesh(ItemSlot slot, int index)
+        {
+            MeshData mesh = getMesh(slot);
+            if (mesh != null) return mesh;
+
+            var stack = slot.Itemstack;
+            if (stack == null) return new();
+
+            CompositeShape? customShape = stack.ItemAttributes?["meatHookShape"].AsObject<CompositeShape>(null, stack.Collectible.Code.Domain);
+
+            Dictionary<string, CompositeTexture> stackTextures = (Dictionary<string, CompositeTexture>)(stack.Collectible is Item ? stack.Item.Textures : stack.Block.Textures);
+            Dictionary<string, AssetLocation> stackTextureLocs = [];
+            foreach ((string name, CompositeTexture texture) in stackTextures)
+            {
+                stackTextureLocs[name] = texture.Base;
+            }
+
+            if (customShape != null)
+            {
+                string customkey = $"meatHookShape-{stack.Collectible.Code}-{customShape?.ToString() ?? ""}";
+                mesh = ObjectCacheUtil.GetOrCreate(capi, customkey, () =>
+                    capi.TesselatorManager.CreateMesh(
+                        "meathook item shape",
+                        customShape,
+                        (shape, name) =>
+                        {
+                            shape.Textures.AddRange(stackTextureLocs);
+                            return new ShapeTextureSource(capi, shape, string.Format("For meathook item {0}", stack?.Collectible.Code));
+                        },
+                        null
+                ));
+            }
+            else
+            {
+                IContainedMeshSource? meshSource = stack?.Collectible?.GetCollectibleInterface<IContainedMeshSource>();
+
+                if (meshSource != null)
+                {
+                    mesh = meshSource.GenMesh(slot, capi.BlockTextureAtlas, Pos);
+                }
+            }
+
+            if (mesh == null)
+            {
+                mesh = getDefaultMesh(stack);
+            }
+
+            applyDefaultTranforms(stack, mesh);
+
+            string key = getMeshCacheKey(slot);
+            MeshCache[key] = mesh;
+
+            return mesh;
         }
 
         Vec3d? dropPos;
@@ -143,6 +200,11 @@ namespace ACulinaryArtillery
                     rnd = GameMath.MurmurHash3Mod(Pos.X, Pos.Y + index * 50, Pos.Z, 30) - 15;
                 }
 
+                ModelTransform customTransform = inventory[index]?.Itemstack?.ItemAttributes?["meatHookTransform"].AsObject<ModelTransform>() ?? new();
+                Vec3f customTranslate = customTransform.Translation.ToVec3f();
+                Vec3f customRotate = customTransform.Rotation.ToVec3f();
+                Vec3f customScale = customTransform.ScaleXYZ.ToVec3f();
+
                 tfMatrices[index] =
                     new Matrixf()
                     .Translate(0.5f, 0, 0.5f)
@@ -150,6 +212,9 @@ namespace ACulinaryArtillery
                     .RotateYDeg(getRotateOnHook(index) + rnd)
                     .Scale(0.75f, 0.75f, 0.75f)
                     .Translate(-0.5f, 0, -0.5f)
+                    .Translate(customTranslate)
+                    .RotateDeg(customRotate)
+                    .Scale(customScale.X, customScale.Y, customScale.Z)
                     .Values
                 ;
 
