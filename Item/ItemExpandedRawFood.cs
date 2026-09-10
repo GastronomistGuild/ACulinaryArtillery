@@ -152,7 +152,6 @@ namespace ACulinaryArtillery
             output.Attributes["madeWith"] = new StringArrayAttribute([.. ingredients.Order()]);
             if (output.Collectible is not ItemExpandedLiquid)
             {
-                sat = Array.ConvertAll(sat, i => i / output.StackSize);
                 output.Attributes.RemoveAttribute("waterTightContainerProps");
             }
             output.Attributes["expandedSats"] = new FloatArrayAttribute([.. sat]);
