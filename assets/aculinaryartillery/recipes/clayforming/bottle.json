@@ -19,11 +19,6 @@
 		"###",
 		"#_#",
 		"###",
-	],
-	[
-		"___",
-		"_#_",
-		"___",
 	]],
 	name: "bottle",
 	output: { type: "block", code: "aculinaryartillery:bottle-clay-{color}-raw" }

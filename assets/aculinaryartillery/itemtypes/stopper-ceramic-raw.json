@@ -1,0 +1,55 @@
+{
+	"code": "stopper",
+	"inheritFrom": "itemtypes/stopper-bark",
+	"tags": [],
+	"variantgroups": [
+		{ "code": "material", "states": [ "ceramic" ] },
+		{ "code": "color", "states": [ "blue", "fire", "red" ] },
+		{ "code": "type", "states": [ "raw" ] }
+	],
+	"texture": { "base": "game:block/clay/{color}clay" },
+    "attributesByType" : {
+		"stopper-ceramic-red-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-tan-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-orange-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-red-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-brown-fired" }
+			}
+		},
+		"stopper-ceramic-blue-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-cream-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-gray-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-black-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-black-fired" }
+			}
+		},
+		"stopper-ceramic-fire-raw": {
+			"beehivekiln": {
+				"0": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"1": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"2": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" },
+				"3": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-fire-fired" }
+			}
+		}
+	},
+	"combustiblePropsByType": {
+		"*-red-raw": {
+			"meltingPoint": 600,
+			"meltingDuration": 30,
+			"smeltedRatio": 1,
+			"smeltingType": "fire",
+			"smeltedStack": {"type": "item", "code": "aculinaryartillery:stopper-ceramic-earthyorange-fired" },
+			"requiresContainer": false
+		},
+		"*": {
+			"meltingPoint": 600,
+			"meltingDuration": 30,
+			"smeltedRatio": 1,
+			"smeltingType": "fire",
+			"smeltedStack": {"type": "item", "code": "aculinaryartillery:stopper-ceramic-{color}-fired" },
+			"requiresContainer": false
+		}
+	}
+}

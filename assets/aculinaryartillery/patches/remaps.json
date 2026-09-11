@@ -4,6 +4,8 @@
     "op": "add",
     "path": "/aculinaryartillery:aculinaryartillery",
     "value": [
+		"/bir remapq aculinaryartillery:stopper-bark-cork aculinaryartillery:cork-generic force",
+
 	    "/bir remapq aculinaryartillery:bottle-clay-blue-raw aculinaryartillery:bottle-clay-raw force",
 	    "/bir remapq aculinaryartillery:bottle-clay-blue-corked aculinaryartillery:bottle-clay-burned force",
 	    "/bir remapq aculinaryartillery:bottle-glass-green-corked aculinaryartillery:bottle-green-burned force",

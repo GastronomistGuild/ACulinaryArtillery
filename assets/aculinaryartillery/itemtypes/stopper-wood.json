@@ -1,0 +1,12 @@
+{
+    "code": "stopper",
+    "inheritFrom": "itemtypes/stopper-bark",
+    "variantgroups": [
+        { "code": "material", "states": [ "wood" ] },
+        { "code": "color", "states": [ "aged", "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut" ] }
+    ],
+	"attributes": {
+		"bottleStopperPerishRate": 0.9
+	},
+    "texture": { "base": "game:block/wood/planks/{color}1" }
+}
