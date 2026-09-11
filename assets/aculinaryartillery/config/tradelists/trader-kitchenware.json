@@ -904,8 +904,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-acacia-acacia-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-acacia", "interior": "game:plank-acacia" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -917,8 +918,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-baldcypress-baldcypress-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-baldcypress", "interior": "game:plank-baldcypress" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -930,8 +932,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-birch-birch-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-birch", "interior": "game:plank-birch" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -943,8 +946,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-ebony-ebony-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-ebony", "interior": "game:plank-ebony" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -956,8 +960,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-kapok-kapok-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-kapok", "interior": "game:plank-kapok" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -969,8 +974,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-larch-larch-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-larch", "interior": "game:plank-larch" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -982,8 +988,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-maple-maple-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-maple", "interior": "game:plank-maple" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -995,8 +1002,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-oak-oak-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-oak", "interior": "game:plank-oak" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1008,8 +1016,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-pine-pine-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-pine", "interior": "game:plank-pine" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1021,8 +1030,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-purpleheart-purpleheart-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-purpleheart", "interior": "game:plank-purpleheart" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1034,8 +1044,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-redwood-redwood-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-redwood", "interior": "game:plank-redwood" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1047,8 +1058,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-walnut-walnut-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-walnut", "interior": "game:plank-walnut" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1060,8 +1072,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-aged-aged-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-aged", "interior": "game:plank-aged" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -1988,8 +2001,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-acacia-acacia-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-acacia", "interior": "game:plank-acacia" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2001,8 +2015,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-baldcypress-baldcypress-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-baldcypress", "interior": "game:plank-baldcypress" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2014,8 +2029,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-birch-birch-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-birch", "interior": "game:plank-birch" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2027,8 +2043,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-ebony-ebony-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-ebony", "interior": "game:plank-ebony" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2040,8 +2057,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-kapok-kapok-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-kapok", "interior": "game:plank-kapok" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2053,8 +2071,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-larch-larch-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-larch", "interior": "game:larch-ebony" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2066,8 +2085,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-maple-maple-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-maple", "interior": "game:plank-maple" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2079,8 +2099,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-oak-oak-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-oak", "interior": "game:plank-oak" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2092,8 +2113,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-pine-pine-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-pine", "interior": "game:plank-pine" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2105,8 +2127,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-purpleheart-purpleheart-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-purpleheart", "interior": "game:plank-purpleheart" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2118,8 +2141,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-redwood-redwood-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-redwood", "interior": "game:plank-redwood" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2131,8 +2155,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-walnut-walnut-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-walnut", "interior": "game:plank-walnut" },
         "stacksize": 1,
         "stock": {
           "avg": 1,
@@ -2144,8 +2169,9 @@
         }
       },
       {
-        "code": "aculinaryartillery:bottlerack-aged-aged-north",
+        "code": "aculinaryartillery:bottlerack-north",
         "type": "block",
+        "attributes": { "frame": "game:plank-aged", "interior": "game:plank-aged" },
         "stacksize": 1,
         "stock": {
           "avg": 1,

@@ -1,0 +1,642 @@
+[
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescaperegion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-afrocarpusfalcatus", "interior": "floralzonescaperegion:plank-afrocarpusfalcatus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-ocoteabullata", "interior": "floralzonescaperegion:plank-ocoteabullata" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-searsialancea", "interior": "floralzonescaperegion:plank-searsialancea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescentralaustralianregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-corymbiaaparrerinja", "interior": "floralzonescentralaustralianregion:plank-corymbiaaparrerinjaa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis", "interior": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescircumborealregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-abiesbalsamea", "interior": "floralzonescircumborealregion:plank-abiesbalsamea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-alnusglutinosa", "interior": "floralzonescircumborealregion:plank-alnusglutinosa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-piceaglauca", "interior": "floralzonescircumborealregion:plank-piceaglauca" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescentralaustralianregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-corymbiaaparrerinja", "interior": "floralzonescentralaustralianregion:plank-corymbiaaparrerinjaa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis", "interior": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-abiesbalsamea", "interior": "floralzonescircumborealregion:plank-abiesbalsamea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-alnusglutinosa", "interior": "floralzonescircumborealregion:plank-alnusglutinosa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-piceaglauca", "interior": "floralzonescircumborealregion:plank-piceaglauca" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonesmediterraneanregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesmediterraneanregion:plank-populusalba", "interior": "floralzonesmediterraneanregion:plank-populusalba" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesmediterraneanregion:plank-taxusbaccata", "interior": "floralzonesmediterraneanregion:plank-taxusbaccata" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/selling/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonesneozeylandicregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-araucariaheterophylla", "interior": "floralzonesneozeylandicregion:plank-araucariaheterophylla" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-dacrydiumcupressinum", "interior": "floralzonesneozeylandicregion:plank-dacrydiumcupressinum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-nothofagusmenziesii", "interior": "floralzonesneozeylandicregion:plank-nothofagusmenziesii" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-podocarpustotara", "interior": "floralzonesneozeylandicregion:plank-podocarpustotara" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 10,
+                    "var": 2.5
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescaperegion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-afrocarpusfalcatus", "interior": "floralzonescaperegion:plank-afrocarpusfalcatus" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-ocoteabullata", "interior": "floralzonescaperegion:plank-ocoteabullata" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescaperegion:plank-searsialancea", "interior": "floralzonescaperegion:plank-searsialancea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescentralaustralianregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-corymbiaaparrerinja", "interior": "floralzonescentralaustralianregion:plank-corymbiaaparrerinjaa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis", "interior": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescircumborealregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-abiesbalsamea", "interior": "floralzonescircumborealregion:plank-abiesbalsamea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-alnusglutinosa", "interior": "floralzonescircumborealregion:plank-alnusglutinosa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-piceaglauca", "interior": "floralzonescircumborealregion:plank-piceaglauca" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonescentralaustralianregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-corymbiaaparrerinja", "interior": "floralzonescentralaustralianregion:plank-corymbiaaparrerinjaa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis", "interior": "floralzonescentralaustralianregion:plank-eucalyptuscamaldulensis" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-abiesbalsamea", "interior": "floralzonescircumborealregion:plank-abiesbalsamea" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-alnusglutinosa", "interior": "floralzonescircumborealregion:plank-alnusglutinosa" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonescircumborealregion:plank-piceaglauca", "interior": "floralzonescircumborealregion:plank-piceaglauca" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonesmediterraneanregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesmediterraneanregion:plank-populusalba", "interior": "floralzonesmediterraneanregion:plank-populusalba" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesmediterraneanregion:plank-taxusbaccata", "interior": "floralzonesmediterraneanregion:plank-taxusbaccata" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    },
+    {
+        "op": "addeach",
+        "path": "/buying/list/-",
+        "side": "server",
+        "file": "aculinaryartillery:config/tradelists/trader-kitchenware.json",
+        "dependsOn": [ {"modid": "floralzonesneozeylandicregion"} ],
+        "value": [
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-araucariaheterophylla", "interior": "floralzonesneozeylandicregion:plank-araucariaheterophylla" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-dacrydiumcupressinum", "interior": "floralzonesneozeylandicregion:plank-dacrydiumcupressinum" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-nothofagusmenziesii", "interior": "floralzonesneozeylandicregion:plank-nothofagusmenziesii" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            },
+            {
+                "code": "aculinaryartillery:bottlerack-north",
+                "type": "block",
+                "attributes": { "frame": "floralzonesneozeylandicregion:plank-podocarpustotara", "interior": "floralzonesneozeylandicregion:plank-podocarpustotara" },
+                "stacksize": 1,
+                "stock": {
+                    "avg": 1,
+                    "var": 0
+                },
+                "price": {
+                    "avg": 4,
+                    "var": 1
+                }
+            }
+        ]
+    }
+]
