@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+using System.Text;
 using System.Linq;
+using System.Collections.Generic;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -237,6 +239,54 @@ namespace ACulinaryArtillery
             }
 
             return false;
+        }
+
+        public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
+        {
+            StringBuilder sb = new();
+
+            sb.AppendLine(Lang.Get("aculinaryartillery:blockdesc-spile"));
+
+            if (GetBlockEntity<BlockEntitySpile>(pos) is BlockEntitySpile bes)
+            {
+                if (SapProperties.ReadFrom(world.BlockAccessor.GetBlock(bes.PosForward(1, 0, 0))) is SapProperties xylem)
+                {
+                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-produces", Lang.Get($"{xylem.sap.Domain}:spile-product-{xylem.sap.Path}")));
+
+                    switch (bes.GetClimateStatus(xylem, (float)world.Calendar.TotalDays))
+                    {
+                        case BlockEntitySpile.EnumSpileClimateStatus.Boosted:
+                            {
+                                // Reflect that the xylem may be configured to have no seasonal bonus
+                                if (xylem.boostedDripLitres > xylem.dripLitres)
+                                {
+                                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-boosted"));
+                                }
+                                else
+                                {
+                                    sb.AppendLine(Lang.Get("aculinaryartillery:spile-inseason"));
+                                }
+                                break;
+                            }
+                        case BlockEntitySpile.EnumSpileClimateStatus.Active:
+                            {
+                                sb.AppendLine(Lang.Get("aculinaryartillery:spile-inseason"));
+                                break;
+                            }
+                        case BlockEntitySpile.EnumSpileClimateStatus.Inactive:
+                            {
+                                sb.AppendLine(Lang.Get("aculinaryartillery:spile-outofseason"));
+                                break;
+                            }
+                    }
+                }
+                else
+                {
+                    sb.AppendLine(Lang.Get("placefailure-notspileable"));
+                }
+            }
+
+            return sb.ToString();
         }
     }
 }
