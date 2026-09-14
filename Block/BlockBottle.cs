@@ -372,9 +372,9 @@ namespace ACulinaryArtillery
             pos.Y += byEntity.LocalEyePos.Y - 0.4f;
             pos.Z += byEntity.LocalEyePos.Z;
 
-            if (secondsUsed > 0.5f && (int)(30 * secondsUsed) % 7 == 1)
+            if (secondsUsed > 0.5f && (int)(30 * secondsUsed) % 7 == 1 && !slot.Empty && GetContent(slot.Itemstack) is ItemStack contentStack)
             {
-                byEntity.World.SpawnCubeParticles(pos, GetContent(slot.Itemstack), 0.3f, 4, 0.5f, (byEntity as EntityPlayer)?.Player);
+                byEntity.World.SpawnCubeParticles(pos, contentStack, 0.3f, 4, 0.5f, (byEntity as EntityPlayer)?.Player);
             }
 
             if (byEntity.World is IClientWorldAccessor)
