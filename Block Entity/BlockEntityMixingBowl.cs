@@ -83,7 +83,7 @@ namespace ACulinaryArtillery
 
         public virtual float MaxMixingTime => 4;
         public override string InventoryClassName => Block.FirstCodePart();
-        public virtual string DialogTitle => Lang.Get("aculinaryartillery:Mixing Bowl");
+        public virtual string DialogTitle => Lang.Get($"{Block.Code.Domain}:{Block.FirstCodePart()}-dialogtitle");
         public override InventoryBase Inventory => inventory;
 
         #endregion
@@ -111,14 +111,14 @@ namespace ACulinaryArtillery
             {
                 ambientSound ??= capi.World.LoadSound(new SoundParams()
                 {
-                    Location = new AssetLocation("aculinaryartillery:sounds/block/mixing.ogg"),
+                    Location = new AssetLocation($"{Block.Code.Domain}:sounds/block/mixing.ogg"),
                     ShouldLoop = true,
                     Position = Pos.ToVec3f().Add(0.5f, 0.25f, 0.5f),
                     DisposeOnFinish = false,
                     Volume = 0.75f
                 });
 
-                renderer = new (capi, Pos, GenMesh("top") ?? new()) { mechPowerPart = mpc };
+                renderer = new(capi, Pos, GenMesh("top") ?? new()) { mechPowerPart = mpc };
                 if (automated)
                 {
                     renderer.ShouldRender = true;
@@ -359,7 +359,9 @@ namespace ACulinaryArtillery
             Block block = Api.World.BlockAccessor.GetBlock(Pos);
             if (block.BlockId == 0 || Api is not ICoreClientAPI capi) return null;
 
-            capi.Tesselator.TesselateShape(block, Api.Assets.TryGet("aculinaryartillery:shapes/block/" + Block.FirstCodePart() + "/" + type + ".json").ToObject<Shape>(), out var mesh);
+            if (Api.Assets.TryGet($"{Block.Code.Domain}:shapes/block/{Block.FirstCodePart()}/{type}.json") is not IAsset asset) return new();
+
+            capi.Tesselator.TesselateShape(block, asset.ToObject<Shape>(), out var mesh);
 
             return mesh;
         }
@@ -515,14 +517,14 @@ namespace ACulinaryArtillery
         public ItemStack InputStack
         {
             get => inventory[0].Itemstack;
-            set 
+            set
             {
                 inventory[0].Itemstack = value;
                 inventory[0].MarkDirty();
             }
         }
 
-        public ItemSlot[] IngredSlots => [ inventory[2], inventory[3], inventory[4], inventory[5], inventory[6], inventory[7] ];
+        public ItemSlot[] IngredSlots => [inventory[2], inventory[3], inventory[4], inventory[5], inventory[6], inventory[7]];
         public ItemStack[] IngredStacks => [.. IngredSlots.Select(slot => slot.Itemstack).Where(stack => stack != null)];
 
         public ItemStack OutputStack
