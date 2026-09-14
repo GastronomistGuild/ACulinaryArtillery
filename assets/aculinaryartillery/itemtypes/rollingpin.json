@@ -43,7 +43,14 @@
                 "frontrightside": { "base": "aculinaryartillery:item/wearable/hooved/elk/rollingpinr" },
                 "frontleftside": { "base": "aculinaryartillery:item/wearable/hooved/elk/rollingpinl" }
             }
-        }
+        },
+		"meathookable": true,
+		"meatHookShape": { "base": "aculinaryartillery:item/rollingpinmeatrack.json" },
+		"meatHookTransform": {
+			"translation": { "x": 0, "y": -0.825, "z": -0.02 },
+			"rotation": { "x": 0, "y": 0, "z": 0 },
+			"scale": 1
+		}
     },
     "materialDensityByType": {
       "*-copper": 8960,
