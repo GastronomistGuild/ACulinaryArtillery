@@ -1217,6 +1217,7 @@ namespace ACulinaryArtillery
             }
 
             StringBuilder sb = new StringBuilder();
+            sb.AppendLine(Lang.Get("When eaten: {0} sat", Math.Round(totalSaturation.Values.Sum())));
             sb.AppendLine(Lang.Get("Nutrition Facts"));
 
             foreach (var val in totalSaturation)
