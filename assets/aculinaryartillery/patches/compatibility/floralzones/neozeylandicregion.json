@@ -1,0 +1,28 @@
+[
+    {
+        "file": "floralzonesneozeylandicregion:itemtypes/resource/plank.json",
+        "op": "addmerge",
+        "path": "/tags",
+        "value": [ "plank-wood" ],
+        "dependsOn": [{ "modid": "floralzonesneozeylandicregion" }]
+    },
+    {
+        "file": "recipes/grid/blocks/bottlerack.json",
+        "op": "addmerge",
+        "path": "/-",
+        "value": {
+            "ingredientPattern": "PLN,PLP,PLP",
+            "recipeGroup": 1,
+            "ingredients": {
+                "P": { "type": "item", "code": "floralzonesneozeylandicregion:plank-*", "name": "frame" },
+                "L": { "type": "item", "code": "floralzonesneozeylandicregion:plank-*", "name": "interior" },
+                "N": { "type": "item", "code": "game:metalnailsandstrips-*" }
+            },
+            "width": 3,
+            "height": 3,
+            "name": "bottlerack-handbookdisplay",
+            "output": { "type": "block", "code": "aculinaryartillery:bottlerack-north" }
+        },
+        "dependsOn": [{ "modid": "floralzonesneozeylandicregion" }]
+    }
+]
