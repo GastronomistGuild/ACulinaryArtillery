@@ -8,7 +8,7 @@
 	"textureHeight": 16,
 	"textureSizes": {
 		"material": [16,16],
-		"map": [16,16],
+		"stopper": [16,16],
 		"sides": [16,16]
 	},
 	"elements": [

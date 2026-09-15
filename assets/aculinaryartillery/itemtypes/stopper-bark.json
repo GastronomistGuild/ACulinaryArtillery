@@ -1,0 +1,48 @@
+{
+    "code": "stopper",
+    "tags": [ "bottle-stopper" ],
+    "maxstacksize": 64,
+    "variantgroups": [
+        { "code": "material", "states": [ "bark" ] },
+        { "code": "color", "states": [ "cork" ] }
+    ],
+    "behaviors": [ { "name": "GroundStorable", "properties": { "layout": "Quadrants" } } ],
+    "storageFlags": 257,
+    "attributes": {
+        "bottleStopperPerishRateByType": {
+            "*-bark-cork": 0.5,
+            "*-bark-*": 0.9
+        },
+        "isTransparent": false,
+        "handbook": {
+            "groupBy": [ "stopper-*" ],
+            "extraSections": [
+                {
+                    "title": "aculinaryartillery:block-handbooktitle-stopper",
+                    "text": "aculinaryartillery:block-handbooktext-stopper"
+                }
+            ]
+        }
+    },
+    "materialDensity": 100,
+    "shape": { "base": "item/stopper" },
+    "texture": { "base": "game:item/utility/map" },
+    "creativeinventory": { "general": ["*"], "items": ["*"], "aculinaryartillery": ["*"] },
+    "guiTransform": {
+        "translation": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": -125, "y": -10, "z": 0 },
+        "origin": { "x": 0.5, "y": 0.125, "z": 0.5 },
+        "scale": 8
+    },
+    "tpHandTransform": {
+        "translation": { "x": -1.23, "y": -0.5, "z": -0.7 },
+        "rotation": { "x": 13, "y": -180, "z": 52 },
+        "scale": 0.71
+    },
+    "groundTransform": {
+        "translation": { "x": 0, "y": 0, "z": 0 },
+        "rotation": { "x": 0, "y": 0, "z": 0 },
+        "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+        "scale": 5
+    }
+}

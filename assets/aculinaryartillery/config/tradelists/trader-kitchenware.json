@@ -566,7 +566,7 @@
         }
       },
       {
-        "code": "aculinaryartillery:cork-generic",
+        "code": "aculinaryartillery:stopper-bark-cork",
         "type": "item",
         "stacksize": 8,
         "stock": {
@@ -1650,7 +1650,7 @@
         }
       },
       {
-        "code": "aculinaryartillery:cork-generic",
+        "code": "aculinaryartillery:stopper-bark-cork",
         "type": "item",
         "stacksize": 8,
         "stock": {
