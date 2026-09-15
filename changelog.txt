@@ -7,12 +7,22 @@
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
 - Meat/bottle racks now indicate wood/metal type in item description
 - Dedicated cork/uncork button?
-- Meat racks can have dedicated shapes like elks
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 - Spiles passively drip when "in season", UI shows if tree is 'in season' or not
 - Egg yolk updated to use pie mixingCodes
 - Egg liquids have proper text when in soups - DONE!!!
+- Change single-item simmer recipes to proceed and discard the extra, extra GUI info (thanks to orborde!) - DONE!!!
+- Add custom shapes and transforms to meathooks (thanks to Lazula!) - DONE!!!
+- Limit spiles to one per tree and fix placement being blocked by adjacent spiles attached to a different tree (thanks to Lazula!) - DONE!!!
+- Fix particle crash when bottle content stack is null (thanks to Lazula!) - DONE!!!
+- Make BlockEntityMixingBowl work correctly with non-ACA block domains (thanks to Lazula!) - DONE!!! 
+- Display tapped liquid in spiles and show drip particles (thanks to Lazula!) - DONE!!!
+- Add total meal satiety to held info (thanks to Lazula!) - DONE!!!
+- Russian translation updated (thanks to ChimMAG!) - DONE!!!
+- Simmer recipe outputs should no longer have diminishing extra nutrients when simmered in large batches (thanks to LavaLamp4708!) - DONE!!!
+
+
 
 ~1.22_v2.0.0-dev.23~
 - Trader prices increased by 25% to reflect ability to deconstruct bottle racks, and cauldrons
