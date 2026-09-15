@@ -37,10 +37,12 @@
 	"entityclass": "Spile",
 	"class": "BlockSpile",
 	"variantgroups": [
-		{ "code":"metal", "states": ["copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "titanium", "steel"] },
-		{ "code":"side", "loadFromProperties": "abstract/horizontalorientation" }
+		{ "code": "metal", "states": ["copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "titanium", "steel"] },
+		{ "code": "side", "loadFromProperties": "abstract/horizontalorientation" }
 	],
-	"texture": { "base": "game:block/metal/ingot/{metal}" },
+	"textures": {
+		"material": { "base": "game:block/metal/ingot/{metal}" }
+	},
 	"creativeinventory": { "general": ["*-north"], "decorative": ["*-north"], "aculinaryartillery": ["*-north"] },
 	"shapebytype": {
 		"*-north": { "base": "block/spile", "rotateY": 0 },
