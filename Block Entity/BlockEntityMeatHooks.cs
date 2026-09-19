@@ -40,7 +40,16 @@ namespace ACulinaryArtillery
 
             CompositeShape? customShape = stack.ItemAttributes?["meatHookShape"].AsObject<CompositeShape>(null, stack.Collectible.Code.Domain);
 
-            Dictionary<string, CompositeTexture> stackTextures = (Dictionary<string, CompositeTexture>)(stack.Collectible is Item ? stack.Item.Textures : stack.Block.Textures);
+            Dictionary<string, CompositeTexture> stackTextures = [];
+            if (stack.Collectible is Block)
+            {
+                stackTextures.AddRange(stack.Block.Textures);
+            }
+            else
+            {
+                stackTextures.AddRange(stack.Item.Textures);
+            }
+
             Dictionary<string, AssetLocation> stackTextureLocs = [];
             foreach ((string name, CompositeTexture texture) in stackTextures)
             {
