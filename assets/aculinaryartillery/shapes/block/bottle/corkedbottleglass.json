@@ -8,7 +8,7 @@
 	"textureHeight": 16,
 	"textureSizes": {
 		"material": [16,16],
-		"map": [16,16]
+		"stopper": [16,16]
 	},
 	"elements": [
 		{
@@ -25,11 +25,11 @@
 					"to": [ 2.0, 5.05, 2.0 ],
 					"rotationOrigin": [ 7.0, 4.0, 7.0 ],
 					"faces": {
-						"north": { "texture": "#map", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
-						"east": { "texture": "#map", "uv": [ 11.5, 6.5, 12.5, 7.5 ] },
-						"south": { "texture": "#map", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
-						"west": { "texture": "#map", "uv": [ 11.5, 6.0, 12.5, 7.0 ] },
-						"down": { "texture": "#map", "uv": [ 11.5, 10.5, 12.5, 11.5 ] }
+						"north": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
+						"east": { "texture": "#stopper", "uv": [ 11.5, 6.5, 12.5, 7.5 ] },
+						"south": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
+						"west": { "texture": "#stopper", "uv": [ 11.5, 6.0, 12.5, 7.0 ] },
+						"down": { "texture": "#stopper", "uv": [ 11.5, 10.5, 12.5, 11.5 ] }
 					},
 					"children": [
 						{
@@ -38,12 +38,12 @@
 							"to": [ 1.25, 1.7, 1.25 ],
 							"rotationOrigin": [ 0.0, 1.0, 0.0 ],
 							"faces": {
-								"north": { "texture": "#map", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
-								"east": { "texture": "#map", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
-								"south": { "texture": "#map", "uv": [ 11.25, 5.0, 12.0, 6.5 ], "rotation": 270, "autoUv": false },
-								"west": { "texture": "#map", "uv": [ 12.75, 4.0, 13.5, 5.5 ], "rotation": 270, "autoUv": false },
-								"up": { "texture": "#map", "uv": [ 10.5, 5.0, 12.0, 6.5 ] },
-								"down": { "texture": "#map", "uv": [ 11.0, 4.0, 12.5, 5.5 ] }
+								"north": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
+								"east": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
+								"south": { "texture": "#stopper", "uv": [ 11.25, 5.0, 12.0, 6.5 ], "rotation": 270, "autoUv": false },
+								"west": { "texture": "#stopper", "uv": [ 12.75, 4.0, 13.5, 5.5 ], "rotation": 270, "autoUv": false },
+								"up": { "texture": "#stopper", "uv": [ 10.5, 5.0, 12.0, 6.5 ] },
+								"down": { "texture": "#stopper", "uv": [ 11.0, 4.0, 12.5, 5.5 ] }
 							}
 						}
 					]

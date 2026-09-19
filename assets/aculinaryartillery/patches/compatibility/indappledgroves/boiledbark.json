@@ -3,7 +3,7 @@
     "file": "aculinaryartillery:itemtypes/bark.json",
     "op": "add",
     "path": "/skipVariants",
-    "value": [ "bark-oak-dry"],
+    "value": [ "bark-*-dry" ],
     "side": "server",
     "dependsOn": [{ "modid": "indappledgroves"}]
   },

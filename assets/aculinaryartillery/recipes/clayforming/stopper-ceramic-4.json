@@ -1,0 +1,23 @@
+{
+	"ingredient": { "type": "item", "code": "game:clay-*", "name": "color", "allowedVariants": ["blue", "fire", "red"] },
+	"pattern": [[
+		"###_###_",
+		"###_###_",
+		"###_###_",
+        "________",
+        "_###_###",
+		"_###_###",
+		"_###_###"
+	],
+    [
+        "________",
+		"_#___#__",
+		"________",
+        "________",
+        "________",
+		"__#___#_",
+		"________"
+    ]],
+	"name": "stopper-ceramic-raw-4",
+	"output": { "type": "item", "code": "aculinaryartillery:stopper-ceramic-{color}-raw", "quantity": 4 }
+}
