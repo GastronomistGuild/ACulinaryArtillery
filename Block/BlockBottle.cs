@@ -107,7 +107,13 @@ namespace ACulinaryArtillery
                     shape = SliceFlattenedShape(shape.FlattenElementHierarchy(), fullness, isSideways);
 
                     var bottleMesh = mesh;
-                    capi.Tesselator.TesselateShape("bottle", shape, out mesh, new BottleTextureSource(capi, contentStack, props.Texture, this), new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+
+                    DynamicTextureSource textureSource = new(capi, this, "material");
+                    textureSource.AddTexturePosition("map", capi.BlockTextureAtlas.GetPosition(this, "map"));
+                    if (props.Texture != null) textureSource.GetOrInsertTexture("content", props.Texture);
+
+
+                    capi.Tesselator.TesselateShape("bottle", shape, out mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
                     for (int i = 0; i < mesh.Flags.Length; i++) mesh.Flags[i] = mesh.Flags[i] & ~(1 << 12); // Remove water waving flag
 
                     mesh.AddMeshData(bottleMesh);
@@ -529,58 +535,5 @@ namespace ACulinaryArtillery
                 },
             ];
         }
-    }
-
-    /*************************************************************************************************************/
-    public class BottleTextureSource : ITexPositionSource
-    {
-        public ItemStack forContents;
-        private readonly ICoreClientAPI capi;
-        private TextureAtlasPosition? contentTextPos;
-        private readonly TextureAtlasPosition blockTextPos;
-        private readonly TextureAtlasPosition corkTextPos;
-        private readonly CompositeTexture contentTexture;
-
-        public BottleTextureSource(ICoreClientAPI capi, ItemStack forContents, CompositeTexture contentTexture, Block bottle)
-        {
-            this.capi = capi;
-            this.forContents = forContents;
-            this.contentTexture = contentTexture;
-            this.corkTextPos = capi.BlockTextureAtlas.GetPosition(bottle, "map");
-            this.blockTextPos = capi.BlockTextureAtlas.GetPosition(bottle, "material");
-        }
-
-        public TextureAtlasPosition this[string textureCode]
-        {
-            get
-            {
-                if (textureCode == "map" && corkTextPos != null) return corkTextPos;
-                if (textureCode == "material" && blockTextPos != null) return blockTextPos;
-
-                if (contentTextPos == null)
-                {
-                    int textureSubId = ObjectCacheUtil.GetOrCreate(capi, "contenttexture-" + contentTexture?.ToString() ?? "unknowncontent", () =>
-                    {
-                        capi.BlockTextureAtlas.GetOrInsertTexture(
-                            contentTexture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"),
-                            out var id,
-                            out _,
-                            new CreateTextureDelegate(() =>
-                            {
-                                var bmp = capi.Assets.TryGet(contentTexture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"))?.ToBitmap(capi);
-                                if (bmp != null && contentTexture.Alpha != 255) bmp.MulAlpha(contentTexture.Alpha);
-                                return bmp;
-                            })
-                        );
-                        return id;
-                    });
-
-                    contentTextPos = capi.BlockTextureAtlas.Positions[textureSubId];
-                }
-
-                return contentTextPos ?? blockTextPos;
-            }
-        }
-        public Size2i AtlasSize => capi.BlockTextureAtlas.Size;
     }
 }
