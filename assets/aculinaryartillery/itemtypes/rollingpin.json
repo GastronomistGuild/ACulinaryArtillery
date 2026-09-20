@@ -47,7 +47,7 @@
 		"meathookable": true,
 		"meatHookShape": { "base": "aculinaryartillery:item/rollingpinmeatrack.json" },
 		"meatHookTransform": {
-			"translation": { "x": 0, "y": -0.825, "z": -0.02 },
+			"translation": { "x": 0, "y": -1.65, "z": -0.02 },
 			"rotation": { "x": 0, "y": 0, "z": 0 },
 			"scale": 1
 		}
