@@ -305,59 +305,12 @@ namespace ACulinaryArtillery
             AssetLocation shapeLoc = sap != null ? DripShapeLoc : EmptyShapeLoc;
             if (capi?.Assets.TryGet(shapeLoc.CopyWithPathPrefixAndAppendixOnce("shapes/", ".json")) is not IAsset asset) return new MeshData();
 
-            CompositeTexture? sapTexture = sap?.FirstTexture;
+            DynamicTextureSource textureSource = new(capi, this, "material");
+            if (sap != null) textureSource.GetOrInsertTexture("sap", sap.FirstTexture);
 
-            tessThreadTesselator.TesselateShape("aculinaryartillery:spile", asset.ToObject<Shape>(), out MeshData mesh, new SpileTextureSource(capi, this, sapTexture), new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+            tessThreadTesselator.TesselateShape("aculinaryartillery:spile", asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
 
             return mesh;
         }
-    }
-
-    public class SpileTextureSource : ITexPositionSource
-    {
-        private readonly ICoreClientAPI capi;
-
-        // Used for loading dynamic textures
-        private readonly Dictionary<string, TextureAtlasPosition?> texturePositions = [];
-
-        // Stored as a default to avoid a double lookup
-        private readonly TextureAtlasPosition blockTexPos;
-
-        public SpileTextureSource(ICoreClientAPI capi, Block spile, CompositeTexture? sapTexture)
-        {
-            this.capi = capi;
-            if (sapTexture != null) texturePositions["sap"] = GetOrInsertTexture(capi.BlockTextureAtlas, "sap", sapTexture);
-            texturePositions["material"] = capi.BlockTextureAtlas.GetPosition(spile, "material");
-
-            blockTexPos = capi.BlockTextureAtlas.GetPosition(spile, "material");
-        }
-
-        public TextureAtlasPosition GetOrInsertTexture(ITextureAtlasAPI atlas, string name, CompositeTexture texture)
-        {
-            int textureSubId = ObjectCacheUtil.GetOrCreate(capi, $"{name}texture-{texture}", () =>
-            {
-                capi.BlockTextureAtlas.GetOrInsertTexture(
-                    texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"),
-                    out var id,
-                    out _,
-                    new CreateTextureDelegate(() =>
-                    {
-                        var bmp = capi.Assets.TryGet(texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"))?.ToBitmap(capi);
-                        if (bmp != null && texture.Alpha != 255) bmp.MulAlpha(texture.Alpha);
-                        return bmp;
-                    })
-                );
-                return id;
-            });
-
-            return atlas.Positions[textureSubId];
-        }
-
-        public TextureAtlasPosition this[string textureCode]
-        {
-            get => texturePositions.GetValueOrDefault(textureCode) ?? blockTexPos;
-        }
-
-        public Size2i AtlasSize => capi.BlockTextureAtlas.Size;
     }
 }
