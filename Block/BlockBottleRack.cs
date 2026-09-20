@@ -83,15 +83,19 @@ namespace ACulinaryArtillery
                 }
             }
 
-            return GenMesh(capi, new BottleRackTextureSource(capi, frameTexture, interiorTexture));
+            DynamicTextureSource textureSource = new(capi, this, "frame");
+            if (frameTexture != null) textureSource.GetOrInsertTexture("frame", frameTexture);
+            if (interiorTexture != null) textureSource.GetOrInsertTexture("interior", interiorTexture);
+
+            return GenMesh(capi, textureSource);
         }
 
-        public MeshData GenMesh(ICoreClientAPI? capi, BottleRackTextureSource textureSource)
+        public MeshData GenMesh(ICoreClientAPI? capi, DynamicTextureSource textureSource)
         {
             AssetLocation shapeLoc = Shape.Base;
             if (capi?.Assets.TryGet(shapeLoc.CopyWithPathPrefixAndAppendixOnce("shapes/", ".json")) is not IAsset asset) return new();
 
-            capi.Tesselator.TesselateShape("aculinaryartillery:" + Code.FirstCodePart(), asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
+            capi.Tesselator.TesselateShape(Code, asset.ToObject<Shape>(), out MeshData mesh, textureSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
 
             return mesh;
         }
@@ -175,7 +179,7 @@ namespace ACulinaryArtillery
             string woodName1 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["frame"]);
             string woodName2 = Lang.Get("bottlerack-woodname-" + itemStack.Attributes["interior"]).ToLowerInvariant();
 
-            if (itemStack.Attributes["frame"] == itemStack.Attributes["interior"])
+            if (itemStack.Attributes["frame"].ToString() == itemStack.Attributes["interior"].ToString())
             {
                 return Lang.Get("aculinaryartillery:block-" + itemStack.Collectible.FirstCodePart() + "-single", woodName1);
             }
@@ -232,60 +236,5 @@ namespace ACulinaryArtillery
 
             return drops;
         }
-    }
-
-    public class BottleRackTextureSource : ITexPositionSource
-    {
-        private readonly ICoreClientAPI capi;
-
-        // Used for loading dynamic textures
-        private readonly Dictionary<string, TextureAtlasPosition?> texturePositions = [];
-
-        // Stored as a default to avoid a double lookup
-        private readonly TextureAtlasPosition blockTexPos;
-
-        public BottleRackTextureSource(ICoreClientAPI capi, CompositeTexture? frameTexture, CompositeTexture? interiorTexture)
-        {
-            this.capi = capi;
-            if (frameTexture != null) texturePositions["frame"] = GetOrInsertTexture(capi.BlockTextureAtlas, "frame", frameTexture);
-            if (interiorTexture != null) texturePositions["interior"] = GetOrInsertTexture(capi.BlockTextureAtlas, "interior", interiorTexture);
-
-            if (capi.World.GetItem("game:plank-oak")?.FirstTexture is CompositeTexture plankTexture)
-            {
-                blockTexPos = GetOrInsertTexture(capi.BlockTextureAtlas, "fallback-plank-oak", plankTexture);
-            }
-            else
-            {
-                blockTexPos = capi.BlockTextureAtlas.UnknownTexturePosition;
-            }
-        }
-
-        public TextureAtlasPosition GetOrInsertTexture(ITextureAtlasAPI atlas, string name, CompositeTexture texture)
-        {
-            int textureSubId = ObjectCacheUtil.GetOrCreate(capi, $"{name}texture-{texture}", () =>
-            {
-                capi.BlockTextureAtlas.GetOrInsertTexture(
-                    texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"),
-                    out var id,
-                    out _,
-                    new CreateTextureDelegate(() =>
-                    {
-                        var bmp = capi.Assets.TryGet(texture.Base.CopyWithPathPrefixAndAppendixOnce("textures/", ".png"))?.ToBitmap(capi);
-                        if (bmp != null && texture.Alpha != 255) bmp.MulAlpha(texture.Alpha);
-                        return bmp;
-                    })
-                );
-                return id;
-            });
-
-            return atlas.Positions[textureSubId];
-        }
-
-        public TextureAtlasPosition this[string textureCode]
-        {
-            get => texturePositions.GetValueOrDefault(textureCode) ?? blockTexPos;
-        }
-
-        public Size2i AtlasSize => capi.BlockTextureAtlas.Size;
     }
 }

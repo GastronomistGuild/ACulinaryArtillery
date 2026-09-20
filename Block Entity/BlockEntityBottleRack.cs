@@ -77,17 +77,21 @@ namespace ACulinaryArtillery
                 {
                     if (plankTypes.Contains(codeParts[1]))
                     {
-                        frameTexture = capi.World.GetItem($"{domain}:plank-{codeParts[1]}")?.FirstTexture;
+                        frameTexture = capi.World.GetItem($"{domain}:plank-{codeParts[1]}")?.FirstTexture
+                            ?? capi.World.GetItem("game:plank-oak")?.FirstTexture;
                     }
 
                     if (plankTypes.Contains(codeParts[2]))
                     {
-                        interiorTexture = capi.World.GetItem($"{domain}:plank-{codeParts[2]}")?.FirstTexture;
+                        interiorTexture = capi.World.GetItem($"{domain}:plank-{codeParts[2]}")?.FirstTexture
+                            ?? capi.World.GetItem("game:plank-oak")?.FirstTexture;
                     }
                 }
             }
 
-            BottleRackTextureSource textureSource = new(capi, frameTexture, interiorTexture);
+            DynamicTextureSource textureSource = new(capi, Block, "frame");
+            if (frameTexture != null) textureSource.GetOrInsertTexture("frame", frameTexture);
+            if (interiorTexture != null) textureSource.GetOrInsertTexture("interior", interiorTexture);
 
             mesh = bottleRack.GenMesh(capi, textureSource);
         }
