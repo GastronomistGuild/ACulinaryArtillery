@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
@@ -103,33 +104,6 @@ namespace ACulinaryArtillery
             }
 
             return stack;
-        }
-
-        public override void OnCreatedByCrafting(ItemSlot[] allInputslots, ItemSlot outputSlot, IRecipeBase byRecipe)
-        {
-            if (byRecipe.Name?.FirstCodePart() == "meathook")
-            {
-                bool matches = false;
-                for (int i = 0; i < allInputslots.Length; i++)
-                {
-                    if (i != 2 && i != 5 && i != 8
-                        && allInputslots[i]?.Itemstack?.Collectible.Tags.Overlaps(BlockBottleRack.plankWoodTag) == true
-                        && allInputslots[i + 1]?.Itemstack?.Collectible.Code == allInputslots[i]?.Itemstack?.Collectible.Code
-                        && allInputslots[i + 3]?.Itemstack?.Collectible.FirstCodePart() == "bighook"
-                        && allInputslots[i + 4]?.Itemstack?.Collectible.FirstCodePart() == "bighook")
-                    {
-                        outputSlot.Itemstack?.Attributes.SetString("wood", allInputslots[i].Itemstack!.Collectible.Code);
-                        outputSlot.Itemstack?.Attributes.SetString("metal", allInputslots[i + 3].Itemstack!.Collectible.Code);
-
-                        matches = true;
-                        break;
-                    }
-                }
-
-                if (!matches) outputSlot.Itemstack = null;
-            }
-
-            base.OnCreatedByCrafting(allInputslots, outputSlot, byRecipe);
         }
 
         // STABLERACK
