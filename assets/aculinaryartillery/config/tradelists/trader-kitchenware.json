@@ -1084,6 +1084,19 @@
           "avg": 10,
           "var": 2.5
         }
+      },
+      {
+        "code": "aculinaryartillery:meathooks-east",
+        "type": "block",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 6,
+          "var": 1.5
+        }
       }
     ]
   },
@@ -2089,6 +2102,19 @@
         "price": {
           "avg": 4,
           "var": 1
+        }
+      },
+      {
+        "code": "aculinaryartillery:meathooks-east",
+        "type": "block",
+        "stacksize": 1,
+        "stock": {
+          "avg": 1,
+          "var": 0
+        },
+        "price": {
+          "avg": 6,
+          "var": 1.5
         }
       }
     ]
