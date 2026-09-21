@@ -2,6 +2,7 @@
 using System.Linq;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -173,6 +174,14 @@ namespace ACulinaryArtillery
             drops[idx] = rack;
 
             return drops;
+        }
+
+        // STABLERACK
+        public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
+        {
+            return world.BlockAccessor.GetBlock(pos).Code.Path.Split("-").Length > 2
+                ? Lang.Get("aculinaryartillery:blockdesc-meathooks-legacy")
+                : Lang.Get("aculinaryartillery:blockdesc-meathooks");
         }
     }
 }
