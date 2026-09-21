@@ -177,7 +177,7 @@
       "owner": "player",
       "type": "talk",
       "text": [
-        { "value": "It's good to meet you, I'm {playername}. You look like you eat pretty well, {{npcname}}.", "jumpTo": "eatwell" }
+        { "value": "It's good to meet you, I'm {playername}. You look like you eat pretty well.", "jumpTo": "eatwell" }
       ],
     },
     {
