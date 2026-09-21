@@ -30,7 +30,6 @@ namespace ACulinaryArtillery
             string key = Code + "-" + Wood + "-" + Metal;
             if (!meshRefs.TryGetValue(key, out var meshref))
             {
-                capi.Logger.Debug($"generating mesh for key {key}");
                 var mesh = GenMesh(capi, itemstack);
                 meshref = capi.Render.UploadMultiTextureMesh(mesh);
                 meshRefs[key] = meshref;
@@ -72,7 +71,6 @@ namespace ACulinaryArtillery
         public string GetMeshCacheKey(ItemSlot slot)
         {
             if (slot.Itemstack is not ItemStack stack) return "unknown";
-            api.Logger.Debug("mesh cache key: " + stack.Collectible.Code.ToShortString() + "-" + stack.Attributes.GetString("wood", "game:plank-oak") + "-" + stack.Attributes.GetString("metal", "aculinaryartillery:bighook-copper"));
             return stack.Collectible.Code.ToShortString() + "-" + stack.Attributes.GetString("wood", "unknownwood") + "-" + stack.Attributes.GetString("metal", "unknownmetal");
         }
 
