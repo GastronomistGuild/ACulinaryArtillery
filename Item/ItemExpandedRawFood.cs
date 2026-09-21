@@ -66,7 +66,7 @@ namespace ACulinaryArtillery
                 if (slot.Itemstack == null) continue;
 
                 IRecipeIngredient? match = byRecipe?.RecipeIngredients?.FirstOrDefault(ing => ing.SatisfiesAsIngredient(slot.Itemstack));
-                if(match is CraftingRecipeIngredient recipeIngredient && recipeIngredient.IsTool) continue;
+                if(match is CraftingRecipeIngredient recipeIngredient && (recipeIngredient.IsTool || match.Code?.FirstCodePart() == "stone")) continue;
 
                 if (slot.Itemstack.Collectible is ItemExpandedRawFood)
                 {
