@@ -1096,7 +1096,8 @@
         "price": {
           "avg": 6,
           "var": 1.5
-        }
+        },
+        "attributes": { "wood": "game:plank-oak", "metal": "aculinaryartillery:bighook-copper" }
       }
     ]
   },
