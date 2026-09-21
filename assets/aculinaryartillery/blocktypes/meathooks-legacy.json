@@ -1,0 +1,74 @@
+{
+	"code": "meathooks",
+	"class": "BlockMeatHooks",
+	"entityClass": "MeatHooks",
+	"behaviors": [{"name": "HorizontalOrientable"}],
+	"variantgroups": [
+		{ "code": "wood", "states": ["acacia", "birch", "kapok", "maple", "oak", "pine", "aged", "baldcypress", "larch", "redwood", "ebony", "walnut", "purpleheart", "veryaged"] },
+		{ "code": "metal", "states": ["copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "titanium", "steel"] },
+		{ "code":"side", "loadFromProperties": "abstract/horizontalorientation" }
+	],
+	"skipVariants": ["*-{wood}-{metal}-west", "*-{wood}-{metal}-north", "*-{wood}-{metal}-south"],
+	"shapebytype": {
+		"*-north": { "base": "aculinaryartillery:block/meathooks", "rotateY": 0 },
+		"*-east": { "base": "aculinaryartillery:block/meathooks", "rotateY": 270 },
+		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
+		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 }
+	},
+	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
+    "texturesByType": {
+        "@*-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(copper|brass|tinbronze|bismuthbronze|blackbronze|titanium|steel)-(north|east|south|west)": {
+            "wood": { "base": "wildcrafttree:block/wood/planks/{wood}1" },
+			"metal": { "base": "game:block/metal/ingot/{metal}" }
+        },
+        "@*-veryaged-(copper|brass|tinbronze|bismuthbronze|blackbronze|titanium|steel)-(north|east|south|west)": {
+          "wood": { "base": "game:block/wood/planks/aged/veryaged1" },
+          "metal": { "base": "game:block/metal/ingot/{metal}" }
+        },
+        "*": {
+			"wood": { "base": "game:block/wood/planks/{wood}1" },
+			"metal": { "base": "game:block/metal/ingot/{metal}" }
+        }
+    },
+	"attributes": {
+        "cureRate": 3,
+		"dryRate": 10
+	},
+    "materialDensity": 1050,
+	"drawtype": "json",
+	"blockmaterial": "Wood",
+	"replaceable": 600,
+	"resistance": 3,
+	"heldTpIdleAnimation": "holdbothhandslarge", 
+	"heldTpUseAnimation": "twohandplaceblock",
+    "sounds": {
+      "place": "game:block/planks",
+      "hit": "game:block/planks",
+      "break": "game:block/planks",
+      "walk": "game:walk/wood*"
+    },
+	"collisionSelectionBoxes": [
+		{ "x1": 0.125, "y1": 0.5, "z1": 0.0625, "x2": 0.5, "y2": 1, "z2": 0.5 },
+		{ "x1": 0.5, "y1": 0.5, "z1": 0.0625, "x2": 0.875, "y2": 1, "z2": 0.5 },
+		{ "x1": 0.125, "y1": 0.5, "z1": 0.5, "x2": 0.5, "y2": 1, "z2": 0.9375 },
+		{ "x1": 0.5, "y1": 0.5, "z1": 0.5, "x2": 0.875, "y2": 1, "z2": 0.9375 }
+	],
+	"guiTransform": {
+		"origin": { "x": 0.5, "y": 0.75, "z": 0.5 },
+		"scale": 1.5
+	},
+	"tpHandTransform": {
+		"translation": { "x": -0.75, "y": -1, "z": -0.675 },
+		"rotation": { "x": 12, "y": 15, "z": -80 },
+		"scale": 0.5
+	},
+	"groundTransform": {
+		"translation": { "x": 0, "y": 0, "z": 0 },
+		"rotation": { "x": 0, "y": -45, "z": 0 },
+		"scale": 3
+	},
+	"sideopaque": { "all": false },
+	"sideao": { "all": true },
+	"emitsideao": { "all": false },
+	"sidesolid": { "all": false }
+}
