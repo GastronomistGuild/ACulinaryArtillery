@@ -73,7 +73,7 @@ namespace ACulinaryArtillery
             }
             else
             {
-                IContainedMeshSource? meshSource = stack?.Collectible?.GetCollectibleInterface<IContainedMeshSource>();
+                IContainedMeshSource? meshSource = stack.Collectible?.GetCollectibleInterface<IContainedMeshSource>();
 
                 if (meshSource != null)
                 {
@@ -209,11 +209,6 @@ namespace ACulinaryArtillery
                     rnd = GameMath.MurmurHash3Mod(Pos.X, Pos.Y + index * 50, Pos.Z, 30) - 15;
                 }
 
-                ModelTransform customTransform = inventory[index]?.Itemstack?.ItemAttributes?["meatHookTransform"].AsObject<ModelTransform>() ?? new();
-                Vec3f customTranslate = customTransform.Translation.ToVec3f();
-                Vec3f customRotate = customTransform.Rotation.ToVec3f();
-                Vec3f customScale = customTransform.ScaleXYZ.ToVec3f();
-
                 tfMatrices[index] =
                     new Matrixf()
                     .Translate(0.5f, 0, 0.5f)
@@ -221,9 +216,6 @@ namespace ACulinaryArtillery
                     .RotateYDeg(getRotateOnHook(index) + rnd)
                     .Scale(0.75f, 0.75f, 0.75f)
                     .Translate(-0.5f, 0, -0.5f)
-                    .Translate(customTranslate)
-                    .RotateDeg(customRotate)
-                    .Scale(customScale.X, customScale.Y, customScale.Z)
                     .Values
                 ;
 
