@@ -1,17 +1,24 @@
 {
+    "___comment": "STABLERACK",
     "code": "bottlerack",
     "class": "BlockBottleRack",
     "entityClass": "BottleRack",
-    "behaviors": [ { "name": "HorizontalOrientable" } ],
     "attributes": {
-        "shape": { "base": "block/bottlerack" },
-        "handbook": {
-            "groupBy": ["bottlerack-*"],
-            "extraSections": [ { "title": "aculinaryartillery:block-handbooktitle-bottlerack", "text": "aculinaryartillery:block-handbooktext-bottlerack" } ]
-        }
+      "handbook": {
+        "exclude": true
+      }
     },
     "materialDensity": 700,
+    "behaviors": [ { "name": "HorizontalOrientable" } ],
     "variantgroups": [
+        {
+            "code": "frame",
+            "states": [ "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged" ]
+        },
+        {
+            "code": "interior",
+            "states": [ "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged" ]
+        },
         {
             "code": "side",
             "loadFromProperties": "abstract/horizontalorientation"
@@ -28,18 +35,40 @@
     "drops": [
         {
             "type": "block",
-            "code": "bottlerack-north",
+            "code": "bottlerack-{frame}-{interior}-north",
             "quantity": { "avg": 1 }
         }
     ],
-    "creativeinventory": {
-        "general": [ "*-north" ],
-        "terrain": [ "*-north" ],
-        "aculinaryartillery": ["*-north"]
-    },
-    "textures": {
-        "frame": { "base": "game:block/wood/planks/oak1" },
-        "interior": { "base": "game:block/wood/planks/oak1" }
+    "creativeinventory": {},
+    "texturesByType": {
+        "@*-veryaged-veryaged-(north|east|south|west)": {
+            "frame": { "base": "game:block/wood/planks/aged/veryaged1" },
+            "interior": { "base": "game:block/wood/planks/aged/veryaged1" }
+        },
+        "@*-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(north|east|south|west)": {
+            "frame": { "base": "wildcrafttree:block/wood/planks/{frame}1" },
+            "interior": { "base": "wildcrafttree:block/wood/planks/{interior}1" }
+        },
+        "@*-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(aged|birch|oak|maple|pine|acacia|kapok|baldcypress|larch|redwood|ebony|walnut|purpleheart)-(north|east|south|west)": {
+            "frame": { "base": "wildcrafttree:block/wood/planks/{frame}1" },
+            "interior": { "base": "game:block/wood/planks/{interior}1" }
+        },
+        "@*-(aged|birch|oak|maple|pine|acacia|kapok|baldcypress|larch|redwood|ebony|walnut|purpleheart)-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(north|east|south|west)": {
+            "frame": { "base": "game:block/wood/planks/{frame}1" },
+            "interior": { "base": "wildcrafttree:block/wood/planks/{interior}1" }
+        },
+        "@*-veryaged-(aged|birch|oak|maple|pine|acacia|kapok|baldcypress|larch|redwood|ebony|walnut|purpleheart)-(north|east|south|west)": {
+            "frame": { "base": "game:block/wood/planks/aged/veryaged1" },
+            "interior": { "base": "game:block/wood/planks/{interior}1" }
+        },
+        "@*-(aged|birch|oak|maple|pine|acacia|kapok|baldcypress|larch|redwood|ebony|walnut|purpleheart)-veryaged-(north|east|south|west)": {
+            "frame": { "base": "game:block/wood/planks/{frame}1" },
+            "interior": { "base": "game:block/wood/planks/aged/veryaged1" }
+        },
+        "*": {
+            "frame": { "base": "game:block/wood/planks/{frame}1" },
+            "interior": { "base": "game:block/wood/planks/{interior}1" }
+        }
     },
     "drawtype": "json",
     "blockmaterial": "Wood",
