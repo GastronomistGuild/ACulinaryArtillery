@@ -66,7 +66,8 @@ namespace ACulinaryArtillery
                     }
                 }
 
-                metalTexture = capi.World.GetItem(rack.Metal)?.FirstTexture
+                string metalCode = $"aculinaryartillery:bighook-{codeParts[2]}";
+                metalTexture = capi.World.GetItem(metalCode)?.FirstTexture
                     ?? capi.World.GetItem("aculinaryartillery:bighook-copper")?.FirstTexture;
             }
 
