@@ -206,6 +206,7 @@ namespace ACulinaryArtillery
             if (inventory[index].Empty && slot.TryPutInto(Api.World, inventory[index]) > 0)
             {
                 updateMesh(index);
+                GenMesh();
                 MarkDirty(true);
                 return true;
             }
