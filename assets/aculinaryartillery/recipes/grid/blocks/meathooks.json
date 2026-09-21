@@ -1,14 +1,27 @@
 [
-{
-	"ingredientPattern": "PP,HH",
-	"recipeGroup": 1,
-	"ingredients": {
-		"P": { "type": "item", "tags": [ "plank-wood" ], "name": "wood" },
-		"H": { "type": "item", "code": "bighook-*", "name": "metal", "quantity": 2 }
+	{
+		"ingredientPattern": "PP,HH",
+		"recipeGroup": 1,
+		"ingredients": {
+			"P": { "type": "item", "tags": [ "plank-wood" ], "name": "wood" },
+			"H": { "type": "item", "code": "bighook-*", "name": "metal", "quantity": 2 }
+		},
+		"width": 2,
+		"height": 2,
+		"name": "meathook",
+		"showInCreatedBy": false,
+		"output": { "type": "block", "code": "meathooks-east" }
 	},
-	"width": 2,
-	"height": 2,
-	"name": "meathook",
-	"output": { "type": "block", "code": "meathooks-east" }
-}
+	{
+		"ingredientPattern": "PP,HH",
+		"recipeGroup": 1,
+		"ingredients": {
+			"P": { "type": "item", "code": "game:plank-*", "name": "wood" },
+			"H": { "type": "item", "code": "bighook-*", "name": "metal", "quantity": 2 }
+		},
+		"width": 2,
+		"height": 2,
+		"name": "meathook-handbookdisplay",
+		"output": { "type": "block", "code": "meathooks-east" }
+	}
 ]

@@ -15,7 +15,6 @@
 		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
 		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 }
 	},
-	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
     "texturesByType": {
         "@*-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(copper|brass|tinbronze|bismuthbronze|blackbronze|titanium|steel)-(north|east|south|west)": {
             "wood": { "base": "wildcrafttree:block/wood/planks/{wood}1" },

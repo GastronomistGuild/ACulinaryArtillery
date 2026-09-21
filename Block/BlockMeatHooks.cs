@@ -106,24 +106,27 @@ namespace ACulinaryArtillery
 
         public override void OnCreatedByCrafting(ItemSlot[] allInputslots, ItemSlot outputSlot, IRecipeBase byRecipe)
         {
-            bool matches = false;
-            for (int i = 0; i < allInputslots.Length; i++)
+            if (byRecipe.Name?.FirstCodePart() == "meathook")
             {
-                if (i != 2 && i != 5 && i != 8
-                    && allInputslots[i]?.Itemstack?.Collectible.Tags.Overlaps(BlockBottleRack.plankWoodTag) == true
-                    && allInputslots[i + 1]?.Itemstack?.Collectible.Code == allInputslots[i]?.Itemstack?.Collectible.Code
-                    && allInputslots[i + 3]?.Itemstack?.Collectible.FirstCodePart() == "bighook"
-                    && allInputslots[i + 4]?.Itemstack?.Collectible.FirstCodePart() == "bighook")
+                bool matches = false;
+                for (int i = 0; i < allInputslots.Length; i++)
                 {
-                    outputSlot.Itemstack?.Attributes.SetString("wood", allInputslots[i].Itemstack!.Collectible.Code);
-                    outputSlot.Itemstack?.Attributes.SetString("metal", allInputslots[i + 3].Itemstack!.Collectible.Code);
+                    if (i != 2 && i != 5 && i != 8
+                        && allInputslots[i]?.Itemstack?.Collectible.Tags.Overlaps(BlockBottleRack.plankWoodTag) == true
+                        && allInputslots[i + 1]?.Itemstack?.Collectible.Code == allInputslots[i]?.Itemstack?.Collectible.Code
+                        && allInputslots[i + 3]?.Itemstack?.Collectible.FirstCodePart() == "bighook"
+                        && allInputslots[i + 4]?.Itemstack?.Collectible.FirstCodePart() == "bighook")
+                    {
+                        outputSlot.Itemstack?.Attributes.SetString("wood", allInputslots[i].Itemstack!.Collectible.Code);
+                        outputSlot.Itemstack?.Attributes.SetString("metal", allInputslots[i + 3].Itemstack!.Collectible.Code);
 
-                    matches = true;
-                    break;
+                        matches = true;
+                        break;
+                    }
                 }
-            }
 
-            if (!matches) outputSlot.Itemstack = null;
+                if (!matches) outputSlot.Itemstack = null;
+            }
 
             base.OnCreatedByCrafting(allInputslots, outputSlot, byRecipe);
         }
