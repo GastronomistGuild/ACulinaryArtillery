@@ -5,6 +5,7 @@ using System.Text;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
@@ -18,6 +19,11 @@ namespace ACulinaryArtillery
         public override string InventoryClassName => "meathooks";
         public override string AttributeTransformCode => "meatHookTransform";
 
+        public string Wood = "";
+        public string Metal = "";
+
+        public MeshData? mesh = null;
+
         public BlockEntityMeatHooks()
         {
             inventory = new InventoryDisplayed(this, 4, "meathooks-0", null, null);
@@ -28,6 +34,54 @@ namespace ACulinaryArtillery
             base.Initialize(api);
             RegisterGameTickListener(RotDrop, 3000);
             Inventory.OnAcquireTransitionSpeed += Inventory_OnAcquireTransitionSpeed;
+
+            if (Api.World.BlockAccessor.GetBlock(Pos) is BlockMeatHooks rack)
+            {
+                rack.Wood = Wood;
+                rack.Metal = Metal;
+            }
+        }
+
+        public void GenMesh()
+        {
+            if (Block is not BlockMeatHooks rack || Api is not ICoreClientAPI capi) return;
+
+            CompositeTexture? woodTexture = capi.World.GetItem(Wood)?.FirstTexture;
+            CompositeTexture? metalTexture = capi.World.GetItem(Metal)?.FirstTexture;
+
+            // STABLERACK
+            string[] codeParts = rack.Code.Path.Split("-");
+            if (woodTexture == null && metalTexture == null && codeParts.Length > 2)
+            {
+                Dictionary<string, string[]> plankTypesByDomain = [];
+                plankTypesByDomain["game"] = ["acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "aged", "veryaged"];
+                plankTypesByDomain["wildcrafttree"] = ["douglasfir", "willow", "honeylocust", "bearnut", "poplar", "catalpa", "mahogany", "sal", "saxaul", "spruce", "sycamore", "elm", "beech", "eucalyptus", "cedar", "tuja", "redcedar", "yew", "kauri", "ginkgo", "dalbergia", "umnini", "banyan", "guajacum", "ghostgum", "ohia", "satinash", "bluemahoe", "jacaranda", "empresstree", "chlorociboria", "petrified", "fir", "tamanu", "spurgetree", "azobe", "leadwood", "linden", "horsechestnut", "tigerwood", "sapele", "ash", "mangrove", "charred"];
+
+                foreach ((string domain, string[] plankTypes) in plankTypesByDomain)
+                {
+                    if (plankTypes.Contains(codeParts[1]))
+                    {
+                        woodTexture = capi.World.GetItem($"{domain}:plank-{codeParts[1]}")?.FirstTexture
+                            ?? capi.World.GetItem("game:plank-oak")?.FirstTexture;
+                    }
+                }
+
+                metalTexture = capi.World.GetItem(rack.Metal)?.FirstTexture
+                    ?? capi.World.GetItem("aculinaryartillery:bighook-copper")?.FirstTexture;
+            }
+
+            DynamicTextureSource textureSource = new(capi, Block, "wood");
+            if (woodTexture != null) textureSource.GetOrInsertTexture("wood", woodTexture);
+            if (metalTexture != null) textureSource.GetOrInsertTexture("metal", metalTexture);
+
+            mesh = rack.GenMesh(capi, textureSource);
+        }
+
+        public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
+        {
+            GenMesh();
+            mesher.AddMeshData(mesh);
+            return base.OnTesselation(mesher, tessThreadTesselator);
         }
 
         protected override MeshData getOrCreateMesh(ItemSlot slot, int index)
@@ -99,6 +153,22 @@ namespace ACulinaryArtillery
         {
             dropPos ??= Pos.ToVec3d().Add(0.5, -1, 0.5);
             inventory.DropSlots(dropPos, [.. inventory.Where(slot => slot.Itemstack?.Collectible.FirstCodePart() == "rot").Select(inventory.GetSlotId)]);
+        }
+
+        public override void OnBlockPlaced(ItemStack? itemStack = null)
+        {
+            base.OnBlockPlaced(itemStack);
+
+            Wood = itemStack?.Attributes.GetString("wood") ?? "game:plank-oak";
+            Metal = itemStack?.Attributes.GetString("metal") ?? "aculinaryartillery:bighook-copper";
+
+            if (Api.World.BlockAccessor.GetBlock(Pos) is BlockMeatHooks rack)
+            {
+                rack.Wood = Wood;
+                rack.Metal = Metal;
+            }
+
+            GenMesh();
         }
 
         internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel)
@@ -356,6 +426,26 @@ namespace ACulinaryArtillery
             }
 
             return dsc.ToString();
+        }
+
+        public override void FromTreeAttributes(ITreeAttribute tree, IWorldAccessor worldForResolving)
+        {
+            base.FromTreeAttributes(tree, worldForResolving);
+
+            Wood = tree.GetString("wood");
+            Metal = tree.GetString("metal");
+
+            GenMesh();
+
+            RedrawAfterReceivingTreeAttributes(worldForResolving);
+        }
+
+        public override void ToTreeAttributes(ITreeAttribute tree)
+        {
+            base.ToTreeAttributes(tree);
+
+            tree.SetString("wood", Wood);
+            tree.SetString("metal", Metal);
         }
     }
 }

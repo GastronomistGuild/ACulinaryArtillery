@@ -4,32 +4,22 @@
 	"entityClass": "MeatHooks",
 	"behaviors": [{"name": "HorizontalOrientable"}],
 	"variantgroups": [
-		{ "code": "wood", "states": ["acacia", "birch", "kapok", "maple", "oak", "pine", "aged", "baldcypress", "larch", "redwood", "ebony", "walnut", "purpleheart", "veryaged"] },
-		{ "code": "metal", "states": ["copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "titanium", "steel"] },
-		{ "code":"side", "loadFromProperties": "abstract/horizontalorientation" }
+		{ "code": "side", "loadFromProperties": "abstract/horizontalorientation" }
 	],
-	"skipVariants": ["*-{wood}-{metal}-west", "*-{wood}-{metal}-north", "*-{wood}-{metal}-south"],
 	"shapebytype": {
 		"*-north": { "base": "aculinaryartillery:block/meathooks", "rotateY": 0 },
 		"*-east": { "base": "aculinaryartillery:block/meathooks", "rotateY": 270 },
 		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
 		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 }
 	},
-	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
-    "texturesByType": {
-        "@*-(douglasfir|willow|honeylocust|bearnut|poplar|catalpa|mahogany|sal|saxaul|spruce|sycamore|elm|beech|eucalyptus|cedar|tuja|redcedar|yew|kauri|ginkgo|dalbergia|umnini|banyan|guajacum|ghostgum|ohia|satinash|bluemahoe|jacaranda|empresstree|chlorociboria|petrified|fir|tamanu|spurgetree|azobe|leadwood|linden|horsechestnut|tigerwood|sapele|ash|mangrove|charred)-(copper|brass|tinbronze|bismuthbronze|blackbronze|titanium|steel)-(north|east|south|west)": {
-            "wood": { "base": "wildcrafttree:block/wood/planks/{wood}1" },
-			"metal": { "base": "game:block/metal/ingot/{metal}" }
-        },
-        "@*-veryaged-(copper|brass|tinbronze|bismuthbronze|blackbronze|titanium|steel)-(north|east|south|west)": {
-          "wood": { "base": "game:block/wood/planks/aged/veryaged1" },
-          "metal": { "base": "game:block/metal/ingot/{metal}" }
-        },
-        "*": {
-			"wood": { "base": "game:block/wood/planks/{wood}1" },
-			"metal": { "base": "game:block/metal/ingot/{metal}" }
+    "drops": [
+        {
+            "type": "block",
+            "code": "meathooks-east",
+            "quantity": { "avg": 1 }
         }
-    },
+    ],
+	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
 	"attributes": {
         "cureRate": 3,
 		"dryRate": 10,
