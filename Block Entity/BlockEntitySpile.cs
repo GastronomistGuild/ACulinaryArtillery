@@ -31,7 +31,7 @@ namespace ACulinaryArtillery
         /// The liquid produced by this xylem.
         /// </summary>
         [DocumentAsJson("Recommended")]
-        public string sap = "game:waterportion";
+        public AssetLocation sap = "game:waterportion";
 
         /// <summary>
         /// The amount of liquid produced by this xylem per tick.
@@ -109,8 +109,6 @@ namespace ACulinaryArtillery
             base.Initialize(api);
 
             RegisterGameTickListener(SapDrip, 5000);
-            if (timer == -1000) timer = Api.World.Calendar.TotalHours;
-
             if ((Block as BlockSpile)?.FindTree(Api.World.BlockAccessor, Pos.AddCopy(Facing())) is Stack<BlockPos> tree)
             {
                 CachedSpiledTreeBlocks.AddRange(tree);
@@ -120,6 +118,9 @@ namespace ACulinaryArtillery
             roomreg = api.ModLoader.GetModSystem<RoomRegistry>();
             if (Api.Side == EnumAppSide.Client) RegisterGameTickListener(dripParticleAndSound, 1000);
             if (sapDripTimer == -1000) sapDripTimer = Api.World.Calendar.TotalHours;
+
+            if (SapProperties.ReadFrom(Api.World.BlockAccessor.GetBlock(PosForward(1, 0, 0))) is not SapProperties xylem) return;
+            CachedClimateStatus = GetClimateStatus(xylem, (float)(sapDripTimer / Api.World.Calendar.HoursPerDay));
         }
 
         public override void OnBlockPlaced(ItemStack? byItemStack = null)
@@ -146,6 +147,11 @@ namespace ACulinaryArtillery
             Active,
             Boosted
         }
+
+        /// <summary>
+        /// Used for updating block info and checking if sap particles should drip without constantly checking climate info.
+        /// </summary>
+        public EnumSpileClimateStatus CachedClimateStatus = EnumSpileClimateStatus.Inactive;
 
         public EnumSpileClimateStatus GetClimateStatus(SapProperties xylem, float baseDays)
         {
@@ -218,9 +224,9 @@ namespace ACulinaryArtillery
                 // Makes things a little more natural by not all ticking at the same time.
                 sapDripTimer += xylem.dripHours + (Api.World.Rand.NextDouble() / 10 * xylem.dripHours);
 
-                EnumSpileClimateStatus status = GetClimateStatus(xylem, (float)(sapDripTimer / Api.World.Calendar.HoursPerDay));
-                bool active = status is EnumSpileClimateStatus.Active or EnumSpileClimateStatus.Boosted;
-                bool boosted = status is EnumSpileClimateStatus.Boosted;
+                CachedClimateStatus = GetClimateStatus(xylem, (float)(sapDripTimer / Api.World.Calendar.HoursPerDay));
+                bool active = CachedClimateStatus is EnumSpileClimateStatus.Active or EnumSpileClimateStatus.Boosted;
+                bool boosted = CachedClimateStatus is EnumSpileClimateStatus.Boosted;
 
                 if (Api.World.Rand.NextDouble() > xylem.dripChance || !active) continue;
                 totalOutput += boosted ? xylem.boostedDripLitres : xylem.dripLitres;
@@ -228,7 +234,7 @@ namespace ACulinaryArtillery
 
             if (Api.World.GetItem(xylem.sap) is not Item sap)
             {
-                Api.Logger.Error($"Spile at {Pos} tried to drip invalid sap {xylem.sap}");
+                Api.Logger.Error($"{Block.Code} at {Pos} tried to drip invalid sap {xylem.sap}");
                 return;
             }
 
@@ -244,7 +250,7 @@ namespace ACulinaryArtillery
 
         private void dripParticleAndSound(float dt)
         {
-            if (sap == null || Api is not ICoreClientAPI capi) return;
+            if (sap == null || CachedClimateStatus == EnumSpileClimateStatus.Inactive || Api is not ICoreClientAPI capi) return;
 
             // 5 seconds per drip on average, randomized for natural appearance.
             if (Api.World.Rand.Next(0, 6) != 0) return;
@@ -287,7 +293,7 @@ namespace ACulinaryArtillery
 
         public MeshData? GetOrCreateMesh(ITesselatorAPI tessThreadTesselator)
         {
-            Dictionary<string, MeshData> meshes = ObjectCacheUtil.GetOrCreate(Api, $"{Block.Code.Domain}:blockspileMeshes", () => new Dictionary<string, MeshData>());
+            Dictionary<string, MeshData> meshes = ObjectCacheUtil.GetOrCreate(Api, $"{Block.Code.Domain}:block{Block.FirstCodePart()}Meshes", () => new Dictionary<string, MeshData>());
 
             if (Api.World.BlockAccessor.GetBlock(Pos) is not BlockSpile spile) return null;
 
@@ -313,6 +319,7 @@ namespace ACulinaryArtillery
         {
             base.FromTreeAttributes(tree, worldAccessForResolve);
             sapDripTimer = tree.GetDouble("timer", -1000);
+
             if (tree.GetString("sap") is string sap)
             {
                 this.sap = worldAccessForResolve.GetItem(sap);
