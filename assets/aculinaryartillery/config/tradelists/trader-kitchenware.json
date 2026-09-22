@@ -1086,7 +1086,7 @@
         }
       },
       {
-        "code": "aculinaryartillery:meathooks-acacia-copper-east",
+        "code": "aculinaryartillery:meathooks-east",
         "type": "block",
         "stacksize": 1,
         "stock": {
@@ -1096,85 +1096,8 @@
         "price": {
           "avg": 6,
           "var": 1.5
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-baldcypress-brass-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
         },
-        "price": {
-          "avg": 8,
-          "var": 2
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-kapok-tinbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 8,
-          "var": 2
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-kapok-bismuthbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 8.5,
-          "var": 2.5
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-ebony-blackbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 10,
-          "var": 2.5
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-walnut-titanium-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 12,
-          "var": 3
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-oak-steel-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 12,
-          "var": 3
-        }
+        "attributes": { "wood": "game:plank-oak", "metal": "aculinaryartillery:bighook-copper" }
       }
     ]
   },
@@ -2183,85 +2106,7 @@
         }
       },
       {
-        "code": "aculinaryartillery:meathooks-acacia-copper-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 3,
-          "var": 0.75
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-baldcypress-brass-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 4,
-          "var": 1
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-kapok-tinbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 4,
-          "var": 1
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-kapok-bismuthbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 4.5,
-          "var": 1
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-ebony-blackbronze-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 5,
-          "var": 1.25
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-walnut-titanium-east",
-        "type": "block",
-        "stacksize": 1,
-        "stock": {
-          "avg": 1,
-          "var": 0
-        },
-        "price": {
-          "avg": 6,
-          "var": 1.5
-        }
-      },
-      {
-        "code": "aculinaryartillery:meathooks-oak-steel-east",
+        "code": "aculinaryartillery:meathooks-east",
         "type": "block",
         "stacksize": 1,
         "stock": {

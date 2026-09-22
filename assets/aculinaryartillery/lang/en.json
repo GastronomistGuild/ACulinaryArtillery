@@ -1,6 +1,7 @@
 ﻿{
   "block-meathooks-*": "Meat rack",
-  "blockdesc-meathooks-*": "Best placed somewhere cold and dry - sealed in stone.",
+  "blockdesc-meathooks-legacy": "Break this block to update it to the new version. This legacy block will be removed in a future update.",
+  "blockdesc-meathooks": "Best placed somewhere cold and dry - sealed in stone.",
   "block-handbooktitle-meathooks": "Meat Rack",
   "block-handbooktext-meathooks": "Used to <a href=\"handbook://aculinaryartilleryguide\">dry age</a> meat, a process by which fatty cuts of meat are stored near freezing temperatures in climate-controlled environments. Moisture evaporates, desiccating the meat, tenderizing it and concentrating the flavor. This promotes the growth of mold on the external surface, which must be trimmed off before cooking.<br>When holding a compatible item and targeting the meat rack, click <icon name='rightmousebutton'></icon> to hang your item.<br><br>The meat rack can hold items besides meat, such as the <a href=\"handbook://item-cleaver-steel\">cleaver</a>, <a href=\"handbook://block-aculinaryartillery:cauldronmini-iron\">small cauldron</a>, and <a href=\"handbook://block-aculinaryartillery:saucepan-blue-fired\">saucepan</a>.",
 
