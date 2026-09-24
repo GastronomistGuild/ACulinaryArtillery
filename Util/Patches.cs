@@ -1276,6 +1276,18 @@ namespace ACulinaryArtillery
         }
     }
 
+    [HarmonyPatch(typeof(InventoryQuern))]
+    public class InventoryQuernPatch
+    {
+        // Require a liquid container to take liquid outputs.
+        [HarmonyPrefix]
+        [HarmonyPatch("NewSlot")]
+        public static bool WaterTightOutputSlot(ref InventoryQuern __instance, ref ItemSlot __result, int i)
+        {
+            __result = i == 1 ? new ItemSlotWatertight(__instance) : new ItemSlotSurvival(__instance);
+            return false;
+        }
+    }
 
     [HarmonyPatch(typeof(MealMeshCache))]
     public class MealMeshCachePatch
