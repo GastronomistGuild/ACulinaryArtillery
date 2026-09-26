@@ -3,24 +3,37 @@
 - Mixing bowl locking function should work with a liquid container and not block fluids when locked
 - Place on Slabs integration?
 
-~1.22_v2.0.0-dev.24~
+~1.22_v2.0.0-dev.25~
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
 - Meat/bottle racks now indicate wood/metal type in item description
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
-- Spiles passively drip when "in season", UI shows if tree is 'in season' or not
 - Egg yolk updated to use pie mixingCodes
-- Egg liquids have proper text when in soups - DONE!!!
-- Change single-item simmer recipes to proceed and discard the extra, extra GUI info (thanks to orborde!) - DONE!!!
-- Add custom shapes and transforms to meathooks (thanks to Lazula!) - DONE!!!
-- Limit spiles to one per tree and fix placement being blocked by adjacent spiles attached to a different tree (thanks to Lazula!) - DONE!!!
-- Fix particle crash when bottle content stack is null (thanks to Lazula!) - DONE!!!
-- Make BlockEntityMixingBowl work correctly with non-ACA block domains (thanks to Lazula!) - DONE!!! 
-- Display tapped liquid in spiles and show drip particles (thanks to Lazula!) - DONE!!!
-- Add total meal satiety to held info (thanks to Lazula!) - DONE!!!
-- Russian translation updated (thanks to ChimMAG!) - DONE!!!
-- Simmer recipe outputs should no longer have diminishing extra nutrients when simmered in large batches (thanks to LavaLamp4708!) - DONE!!!
+- Kneading handbook page fixed
+
+Lazula changes:
+- Change spiles to use temperature instead of months
+- Update bottle racks to use one variant per shape
+- Update meat racks to use one variant
+- Fix crash caused by direct cast from IDictionary
+- Fix duplicate meathook transforms
+- Fixed simmering recipe outputs which had their satiety multiplied by the batch size
+
+
+
+
+~1.22_v2.0.0-dev.24~
+- Egg liquids have proper text when in soups
+- Change single-item simmer recipes to proceed and discard the extra, extra GUI info (thanks to orborde!)
+- Add custom shapes and transforms to meathooks (thanks to Lazula!)
+- Limit spiles to one per tree and fix placement being blocked by adjacent spiles attached to a different tree (thanks to Lazula!)
+- Fix particle crash when bottle content stack is null (thanks to Lazula!)
+- Make BlockEntityMixingBowl work correctly with non-ACA block domains (thanks to Lazula!) 
+- Display tapped liquid in spiles and show drip particles (thanks to Lazula!)
+- Add total meal satiety to held info (thanks to Lazula!)
+- Russian translation updated (thanks to ChimMAG!)
+- Simmer recipe outputs should no longer have diminishing extra nutrients when simmered in large batches (thanks to LavaLamp4708!)
 
 
 

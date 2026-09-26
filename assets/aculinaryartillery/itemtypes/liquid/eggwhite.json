@@ -34,7 +34,13 @@
         "inPieProperties": {
           "texture": "game:item/liquid/eggwhite",
           "partType": "Filling",
-          "mixingCodes": ["cheesequiche","bluequiche","cottagequiche","vegquiche"]
+          "mixingCodes": [
+            "cottagequiche","bluequiche","cheddarquiche","cheesequiche",
+            "bushmeatquiche","poultryquiche","redmeatquiche","fishquiche","bugquiche","meatquiche",
+            "mushroomquicheblack","mushroomquicheyellow","mushroomquicheoffwhite","mushroomquicheorange","mushroomquichedevilstooth","mushroomquichered","mushroomquichegreen","mushroomquicheblue","mushroomquichelobster","mushroomquichebrown","mushroomquichewhite","mushroomquichepurple","mushroomquichepink","mushroomquiche",
+            "bellpepperquiche","cabbagequiche","carrotquiche","cassavaquiche","fennelquiche","olivequiche","onionquiche","parsnipquiche","pumpkinquiche","turnipquiche","walnutquiche","vegquiche",
+            "meatvegquiche", "meatmushroomquiche","vegmushroomquiche"
+          ]
         }
     },
 	"transitionableProps": [{
