@@ -9,8 +9,9 @@
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
-- Egg yolk updated to use pie mixingCodes
+- Egg yolk updated to use pie mixingCodes - DONE!!!
 - Kneading handbook page fixed
+- Meat hooks and bottle racks can be destroyed at half the cost - DONE!!!
 
 Lazula changes:
 - Change spiles to use temperature instead of months

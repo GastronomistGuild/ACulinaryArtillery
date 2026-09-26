@@ -3,7 +3,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-copper-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-copper", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -13,7 +13,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-brass-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-brass", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -23,7 +23,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-tinbronze-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-tinbronze", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -33,7 +33,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-bismuthbronze-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-bismuthbronze", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -43,7 +43,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-blackbronze-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-blackbronze", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -53,7 +53,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-titanium-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-titanium", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
@@ -63,7 +63,7 @@
     "ingredientPattern": "MC",
     "ingredients": {
       "M": { "type": "block", "code": "meathooks-*-steel-north", "name": "wood", "returnedStack": { "type": "item", "code": "bighook-steel", "quantity": 2 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 300 }
+      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
