@@ -3,15 +3,20 @@
 - Mixing bowl locking function should work with a liquid container and not block fluids when locked
 - Place on Slabs integration?
 
-~1.22_v2.0.0-dev.25~
+~1.22_v2.0.0-dev.26~
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
-- Egg yolk updated to use pie mixingCodes - DONE!!!
 - Kneading handbook page fixed
-- Meat hooks and bottle racks can be destroyed at half the cost - DONE!!!
-- Added a check for when a grid crafting ingredient is a tool (thanks to Lavalamp4708!) - DONE!!!
+
+
+
+
+~1.22_v2.0.0-dev.25~
+- Egg yolk updated to use pie mixingCodes
+- Meat hooks and bottle racks can be destroyed at half the cost
+- Added a check for when a grid crafting ingredient is a tool (thanks to Lavalamp4708!)
 
 Lazula changes:
 - Update meat racks to use one variant
@@ -26,9 +31,6 @@ Lazula changes:
 - Fixed simmering recipe outputs which had their satiety multiplied by the batch size
 - Remove trader name from greeting dialog
 - Display only 4 rows of random pies to prevent performance issues
-
-
-
 
 ~1.22_v2.0.0-dev.24~
 - Egg liquids have proper text when in soups
