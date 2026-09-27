@@ -832,6 +832,10 @@ namespace ACulinaryArtillery
                 components.InsertRange(insertIndex, newComponents);
             }
 
+
+            int pieRecipeCount = 0;
+            List<RichTextComponentBase> excessivePieRecipeComponents = [];
+
             // Toppings need to have the default crust type because they have only one shape.
             foreach (MealstackTextComponent? comp in components.OfType<MealstackTextComponent>())
             {
@@ -846,6 +850,19 @@ namespace ACulinaryArtillery
                 {
                     mealBlock.Attributes.SetString("topCrustType", "full");
                 }
+
+
+                pieRecipeCount++;
+                if (pieRecipeCount > 48)
+                {
+                    excessivePieRecipeComponents.Add(comp);
+                }
+            }
+
+            // Rendering too many new meals in one frame overburdens MealMeshCache.
+            foreach (RichTextComponentBase comp in excessivePieRecipeComponents)
+            {
+                components.Remove(comp);
             }
         }
     }
