@@ -5,6 +5,10 @@
 	},
 	"textureWidth": 16,
 	"textureHeight": 16,
+	"textures": {
+		"wood": "game:block/wood/planks/oak1",
+		"metal": "game:block/metal/ingot/copper"
+	},
 	"elements": [
 		{
 			"name": "Plank1",

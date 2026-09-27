@@ -1,21 +1,21 @@
 [
     {
-        "file": "recipes/grid/blocks/bottlerack.json",
+        "file": "recipes/grid/blocks/meathooks.json",
         "op": "addmerge",
         "path": "/-",
         "value": {
             "ingredientPattern": "PP,HH",
             "recipeGroup": 1,
             "ingredients": {
-                "P": { "type": "item", "code": "wildcrafttree:plank-*", "name": "wood" },
+                "P": { "type": "item", "code": "bdtree:plank-*", "name": "wood" },
                 "H": { "type": "item", "code": "bighook-*", "name": "metal", "quantity": 2 }
             },
             "width": 2,
             "height": 2,
             "name": "meathook",
             "showInCreatedBy": false,
-            "output": { "type": "block", "code": "meathooks-east", "attributes": { "wood": "wildcrafttree:plank-{wood}", "metal": "aculinaryartillery:bighook-{metal}"} }
+            "output": { "type": "block", "code": "meathooks-east", "attributes": { "wood": "bdtree:plank-{wood}", "metal": "aculinaryartillery:bighook-{metal}"} }
         },
-        "dependsOn": [{ "modid": "wildcrafttree" }]
+        "dependsOn": [{ "modid": "bdtree" }]
     }
 ]

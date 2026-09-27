@@ -1,0 +1,8 @@
+[
+    {
+        "file": "game:itemtypes/resource/plank.json",
+        "op": "addmerge",
+        "path": "/tags",
+        "value": [ "plank-wood" ]
+    }
+]
