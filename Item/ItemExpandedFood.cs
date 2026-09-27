@@ -29,7 +29,17 @@ namespace ACulinaryArtillery
 
                     float healthChange = prop.Health * healthLossMul;
 
-                    if (healthChange != 0) byEntity.ReceiveDamage(new() { Source = EnumDamageSource.Internal, Type = healthChange > 0 ? EnumDamageType.Heal : EnumDamageType.Poison }, Math.Abs(healthChange));
+                    float durationSec = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectDurationSec"].AsFloat(180) ?? 180;
+                    int ticks = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(18) ?? 18;
+
+                    if (healthChange != 0) byEntity.ReceiveDamage(new()
+                    {
+                        Source = EnumDamageSource.Internal,
+                        Type = healthChange > 0 ? EnumDamageType.Heal : EnumDamageType.Poison,
+                        Duration = TimeSpan.FromSeconds(durationSec),
+                        TicksPerDuration = ticks,
+                    },
+                    Math.Abs(healthChange));
                 }
             }
 
