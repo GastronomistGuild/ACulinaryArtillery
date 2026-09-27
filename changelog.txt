@@ -5,21 +5,27 @@
 
 ~1.22_v2.0.0-dev.25~
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
-- Meat/bottle racks now indicate wood/metal type in item description
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 - Egg yolk updated to use pie mixingCodes - DONE!!!
 - Kneading handbook page fixed
 - Meat hooks and bottle racks can be destroyed at half the cost - DONE!!!
+- Added a check for when a grid crafting ingredient is a tool (thanks to Lavalamp4708!) - DONE!!!
 
 Lazula changes:
+- Update meat racks to use one variant
+- Update bottle racks to use two variants
+- Expanded nutrition healing now applies over time
 - Change spiles to use temperature instead of months
 - Update bottle racks to use one variant per shape
 - Update meat racks to use one variant
 - Fix crash caused by direct cast from IDictionary
 - Fix duplicate meathook transforms
+- Quern output slot is now watertight
 - Fixed simmering recipe outputs which had their satiety multiplied by the batch size
+- Remove trader name from greeting dialog
+- Display only 4 rows of random pies to prevent performance issues
 
 
 
