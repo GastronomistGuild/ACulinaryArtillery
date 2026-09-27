@@ -201,11 +201,12 @@ namespace ACulinaryArtillery
                 if (drop.Collectible is BlockBottleRack)
                 {
                     rack = new ItemStack(world.GetBlock(new AssetLocation("aculinaryartillery:" + drop.Collectible.FirstCodePart() + "-north")));
-                    if (world.BlockAccessor.GetBlockEntity<BlockEntityBottleRack>(pos) is not BlockEntityBottleRack be) return drops;
-                    rack.Attributes.SetString("frame", be.Frame);
-                    rack.Attributes.SetString("interior", be.Interior);
                     codeParts = drop.Collectible.Code.Path.ToString().Split("-");
                     idx = i;
+
+                    if (world.BlockAccessor.GetBlockEntity<BlockEntityBottleRack>(pos) is not BlockEntityBottleRack be) continue;
+                    rack.Attributes.SetString("frame", be.Frame);
+                    rack.Attributes.SetString("interior", be.Interior);
                 }
             }
 
