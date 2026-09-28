@@ -17,8 +17,6 @@ Lazula fixes:
 - Fixed: Meat hook recipe did not appear in handbook
 - Fix meat hooks missing base PlacedBlockInfo 
 
-
-
 ~1.22_v2.0.0-dev.25~
 - Egg yolk updated to use pie mixingCodes
 - Meat hooks and bottle racks can be destroyed at half the cost
@@ -50,8 +48,6 @@ Lazula changes:
 - Russian translation updated (thanks to ChimMAG!)
 - Simmer recipe outputs should no longer have diminishing extra nutrients when simmered in large batches (thanks to LavaLamp4708!)
 
-
-
 ~1.22_v2.0.0-dev.23~
 - Trader prices increased by 25% to reflect ability to deconstruct bottle racks, and cauldrons
 - Egg yolk has proper text when in stew
@@ -60,7 +56,6 @@ Lazula changes:
 - Fixed crash when creating cached meal recipe stacks with no handbook stacks (thanks to Lazula & Tsu!) 
 - Can no longer drink from corked bottles (thanks to Lazula!)
 - Oak bark can be used to make vanilla tannins
-
 
 ~1.22_v2.0.0-dev.22~
 - Bottles fixed so they can get water from source blocks properly
@@ -90,7 +85,6 @@ Lazula changes:
 - Replace custom tryEatStop override with standard usage of DrinkPortionSize (thanks to InsanityGod!)
 
 - Tags added to rolling pin
-
 
 ~1.22_v2.0.0-dev.21~
 - Hook smithing recipe output doubled to match mold output, singular hook smithing recipe removed
@@ -168,7 +162,6 @@ Lazula changes:
 - Handbook links fixed (thanks to Laerinok!)
 - Spanish Spain (es-es) translation added (thanks to C4BR4R4)
 
-
 ~1.21_v2.0.0-dev.10~
 - Egg cracking no longer crashes when targeting nothing (thanks pizza2004!)
 - Space correctly added between ingredient strings and the "and" text string
@@ -241,7 +234,6 @@ Goose Things:
 --Fixed molds not being fireable
 --Fixed cork transmutation into empty bottle bug via dodgy prefix patch, hopefully will be rewritable later
 -Added support for customizable stackCapacity to mixing bowl (thanks MisterAndyDandy!)
-
 
 ~1.20_v1.2.5~
 - Japanese translation updated (thanks to macoto_hino)
