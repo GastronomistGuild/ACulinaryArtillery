@@ -2,10 +2,10 @@
     "ingredientPattern": "K,L",
     "ingredients": {
         "K": { "type": "item", "tags": ["tool-knife"], "isTool": true  },
-        "L": { "type": "item", "code": "aculinaryartillery:bark-*-boiled" }
+        "L": { "type": "item", "code": "bark-oak-boiled" }
     },
     "width": 1,
     "height": 2,
-    "name": "cork",
-    "output": { "type": "item", "code": "cork-generic", "quantity": 16 }
+    "name": "stopper-bark-cork",
+    "output": { "type": "item", "code": "stopper-bark-cork", "quantity": 16 }
 }

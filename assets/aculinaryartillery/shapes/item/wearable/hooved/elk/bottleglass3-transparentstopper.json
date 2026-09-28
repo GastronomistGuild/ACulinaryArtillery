@@ -116,6 +116,7 @@
 															"name": "cork9",
 															"from": [ 0.75, 3.0375, 0.75 ],
 															"to": [ 1.5, 3.7875, 1.5 ],
+															"renderPass": 3,
 															"rotationOrigin": [ 5.25, 3.0, 5.25 ],
 															"faces": {
 																"north": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ], "autoUv": false },
@@ -129,6 +130,7 @@
 																	"name": "cork10",
 																	"from": [ -0.1875, 0.7125, -0.1875 ],
 																	"to": [ 0.9375, 1.275, 0.9375 ],
+																	"renderPass": 3,
 																	"rotationOrigin": [ 0.0, 0.75, 0.0 ],
 																	"faces": {
 																		"north": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },

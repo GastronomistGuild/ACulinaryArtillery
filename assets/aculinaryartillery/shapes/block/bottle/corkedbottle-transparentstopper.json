@@ -1,6 +1,6 @@
 {
 	"editor": {
-		"collapsedPaths": "Root/ceramicBase/cork1,Root/ceramicBase/ceramicLid1",
+		"collapsedPaths": "Root/ceramicBase/ceramicLid1",
 		"allAngles": false,
 		"entityTextureMode": false
 	},
@@ -20,6 +20,37 @@
 			"faces": {
 			},
 			"children": [
+				{
+					"name": "cork1",
+					"from": [ 1.0, 4.05, 1.0 ],
+					"to": [ 2.0, 5.05, 2.0 ],
+					"renderPass": 3,
+					"rotationOrigin": [ 7.0, 4.0, 7.0 ],
+					"faces": {
+						"north": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
+						"east": { "texture": "#stopper", "uv": [ 11.5, 6.5, 12.5, 7.5 ] },
+						"south": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ] },
+						"west": { "texture": "#stopper", "uv": [ 11.5, 6.0, 12.5, 7.0 ] },
+						"down": { "texture": "#stopper", "uv": [ 11.5, 10.5, 12.5, 11.5 ] }
+					},
+					"children": [
+						{
+							"name": "cork2",
+							"from": [ -0.25, 0.95, -0.25 ],
+							"to": [ 1.25, 1.7, 1.25 ],
+							"renderPass": 3,
+							"rotationOrigin": [ 0.0, 1.0, 0.0 ],
+							"faces": {
+								"north": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
+								"east": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
+								"south": { "texture": "#stopper", "uv": [ 11.25, 5.0, 12.0, 6.5 ], "rotation": 270, "autoUv": false },
+								"west": { "texture": "#stopper", "uv": [ 12.75, 4.0, 13.5, 5.5 ], "rotation": 270, "autoUv": false },
+								"up": { "texture": "#stopper", "uv": [ 10.5, 5.0, 12.0, 6.5 ] },
+								"down": { "texture": "#stopper", "uv": [ 11.0, 4.0, 12.5, 5.5 ] }
+							}
+						}
+					]
+				},
 				{
 					"name": "ceramicLidBase",
 					"from": [ 0.74, 4.0, 1.0 ],

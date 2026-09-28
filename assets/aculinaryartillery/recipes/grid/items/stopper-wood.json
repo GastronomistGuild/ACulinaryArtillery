@@ -1,0 +1,12 @@
+{
+    "ingredientPattern": "SLK",
+    "ingredients": {
+        "K": { "type": "item", "tags": ["tool-knife"], "isTool": true  },
+        "S": { "type": "item", "tags": ["tool-saw"], "isTool": true },
+        "L": { "type": "block", "code": "game:debarkedlog-*-ud", "name": "wood", "skipVariants": [ "veryaged", "rotten", "veryrotten" ] }
+    },
+    "width": 3,
+    "height": 1,
+    "name": "stopper-wood",
+    "output": { "type": "item", "code": "stopper-wood-{wood}", "quantity": 16 }
+}

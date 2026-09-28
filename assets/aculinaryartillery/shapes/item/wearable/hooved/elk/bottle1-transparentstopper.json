@@ -1,7 +1,7 @@
 {
 	"editor": {
 		"backDropShape": "entity/land/hooved/deer/elk/female",
-		"collapsedPaths": "Root/ceramicBase/ceramicSide1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOrigin/holsterOrigin3,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOrigin/ceramicSide9,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOrigin/cork5,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOrigin/ceramicLidBase3,Root/ceramicBase/cork1,Root/ceramicBase/ceramicLidBase",
+		"collapsedPaths": "Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOriginDELETE/holsterOrigin,Root/ceramicBase/ceramicSide1,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOriginDELETE/ceramicLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOriginDELETE/cork1,Root/ceramicBase/cork1,Root/ceramicBase/ceramicLidBase,Root/hideme/thongR1/thongDown/thongDown2/thongDown3/ceramicBaseOriginDELETE/ceramicSide1",
 		"allAngles": true,
 		"entityTextureMode": false
 	},
@@ -104,12 +104,12 @@
 											"children": [
 												{
 													"name": "ceramicBase",
-													"from": [ -1.9, 2.5, -1.2 ],
-													"to": [ -1.9, 2.5, -1.2 ],
-													"rotationOrigin": [ -1.9, 2.5, -1.2 ],
-													"rotationX": 91.0,
-													"rotationY": 6.0,
-													"rotationZ": -56.0,
+													"from": [ -1.2, 1.9, 6.9 ],
+													"to": [ -1.2, 1.9, 6.9 ],
+													"rotationOrigin": [ -1.2, 1.9, 6.9 ],
+													"rotationX": 111.0,
+													"rotationY": 12.0,
+													"rotationZ": -62.0,
 													"faces": {
 													},
 													"children": [
@@ -117,6 +117,7 @@
 															"name": "cork1",
 															"from": [ 0.75, 3.0375, 0.75 ],
 															"to": [ 1.5, 3.7875, 1.5 ],
+															"renderPass": 3,
 															"rotationOrigin": [ 5.25, 3.0, 5.25 ],
 															"faces": {
 																"north": { "texture": "#stopper", "uv": [ 10.5, 7.5, 11.5, 8.5 ], "autoUv": false },
@@ -130,6 +131,7 @@
 																	"name": "cork2",
 																	"from": [ -0.1875, 0.7125, -0.1875 ],
 																	"to": [ 0.9375, 1.275, 0.9375 ],
+																	"renderPass": 3,
 																	"rotationOrigin": [ 0.0, 0.75, 0.0 ],
 																	"faces": {
 																		"north": { "texture": "#stopper", "uv": [ 10.5, 4.0, 11.25, 5.5 ], "rotation": 90, "autoUv": false },
@@ -316,7 +318,7 @@
 															]
 														},
 														{
-															"name": "holsterOrigin3",
+															"name": "holsterOrigin",
 															"from": [ 0.56, -0.25, 0.56 ],
 															"to": [ 0.56, -0.25, 0.56 ],
 															"rotationOrigin": [ 1.0625, -0.25, 1.0625 ],
@@ -333,7 +335,7 @@
 															},
 															"children": [
 																{
-																	"name": "holsterBase3",
+																	"name": "holsterBase",
 																	"from": [ 0.0, 0.0, 0.0 ],
 																	"to": [ 1.125, 0.25, 1.125 ],
 																	"rotationOrigin": [ 0.5025, 0.0, 0.5025 ],
@@ -347,7 +349,7 @@
 																	},
 																	"children": [
 																		{
-																			"name": "holsterCornerBase9",
+																			"name": "holsterCornerBase1",
 																			"from": [ -0.8125, 0.25, -0.81 ],
 																			"to": [ -0.8125, 0.25, -0.81 ],
 																			"rotationOrigin": [ -0.8125, 0.25, -0.81 ],
@@ -361,7 +363,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster25",
+																					"name": "holster1",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -374,7 +376,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster26",
+																					"name": "holster2",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -388,7 +390,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster27",
+																					"name": "holster3",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -402,7 +404,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap9",
+																					"name": "holsterOverStrap1",
 																					"from": [ -0.0025, 1.99, 0.0 ],
 																					"to": [ 2.7625, 2.49, 0.25 ],
 																					"rotationOrigin": [ -0.0025, 1.99, 0.0 ],
@@ -418,7 +420,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase10",
+																			"name": "holsterCornerBase2",
 																			"from": [ -0.81, 0.25, 1.95 ],
 																			"to": [ -0.81, 0.25, 1.95 ],
 																			"rotationOrigin": [ -0.8125, 0.25, 1.95 ],
@@ -433,7 +435,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster28",
+																					"name": "holster4",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -446,7 +448,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster29",
+																					"name": "holster5",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -460,7 +462,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster30",
+																					"name": "holster6",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -474,7 +476,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap10",
+																					"name": "holsterOverStrap2",
 																					"from": [ 0.25, 1.99, -0.0022 ],
 																					"to": [ 3.015, 2.49, 0.2478 ],
 																					"rotationOrigin": [ 0.25, 1.99, -0.0025 ],
@@ -493,7 +495,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase11",
+																			"name": "holsterCornerBase3",
 																			"from": [ 1.95, 0.25, -0.81 ],
 																			"to": [ 1.95, 0.25, -0.81 ],
 																			"rotationOrigin": [ 1.95, 0.25, -0.81 ],
@@ -508,7 +510,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster31",
+																					"name": "holster7",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -521,7 +523,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster32",
+																					"name": "holster8",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -535,7 +537,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster33",
+																					"name": "holster9",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -549,7 +551,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap11",
+																					"name": "holsterOverStrap3",
 																					"from": [ 0.25, 1.99, 2.765 ],
 																					"to": [ 0.5, 2.49, 5.035 ],
 																					"rotationOrigin": [ 0.25, 1.99, 2.765 ],
@@ -568,7 +570,7 @@
 																			]
 																		},
 																		{
-																			"name": "holsterCornerBase12",
+																			"name": "holsterCornerBase4",
 																			"from": [ 1.95, 0.25, 1.95 ],
 																			"to": [ 1.95, 0.25, 1.95 ],
 																			"rotationOrigin": [ 1.95, 0.25, 1.95 ],
@@ -583,7 +585,7 @@
 																			},
 																			"children": [
 																				{
-																					"name": "holster34",
+																					"name": "holster10",
 																					"from": [ 0.0, 0.0, 0.0 ],
 																					"to": [ 0.25, 2.0, 0.5 ],
 																					"faces": {
@@ -596,7 +598,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster35",
+																					"name": "holster11",
 																					"from": [ 0.249, 0.0, -0.0025 ],
 																					"to": [ 0.499, 2.0, 0.2475 ],
 																					"rotationOrigin": [ 0.2525, 0.0, -0.0025 ],
@@ -610,7 +612,7 @@
 																					}
 																				},
 																				{
-																					"name": "holster36",
+																					"name": "holster12",
 																					"from": [ 0.0, -0.25, -0.0025 ],
 																					"to": [ 0.5, 0.0, 0.4975 ],
 																					"rotationOrigin": [ 0.0, -0.25, -0.0025 ],
@@ -624,7 +626,7 @@
 																					}
 																				},
 																				{
-																					"name": "holsterOverStrap12",
+																					"name": "holsterOverStrap4",
 																					"from": [ 0.25, 1.99, 2.51 ],
 																					"to": [ 0.5, 2.49, 4.78 ],
 																					"rotationOrigin": [ 0.25, 1.99, 2.51 ],
@@ -644,7 +646,7 @@
 																	]
 																},
 																{
-																	"name": "holsterUnderStrap5",
+																	"name": "holsterUnderStrap1",
 																	"from": [ -0.5, 0.001, 1.0 ],
 																	"to": [ 2.7, 0.251, 1.5 ],
 																	"rotationOrigin": [ 0.0, 0.001, 1.5 ],
@@ -659,7 +661,7 @@
 																	}
 																},
 																{
-																	"name": "holsterUnderStrap6",
+																	"name": "holsterUnderStrap2",
 																	"from": [ -0.825, 0.001, -0.475 ],
 																	"to": [ 2.375, 0.251, 0.025 ],
 																	"rotationOrigin": [ -0.315, 0.001, 0.025 ],
