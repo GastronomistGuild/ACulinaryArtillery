@@ -151,9 +151,12 @@ namespace ACulinaryArtillery
         // STABLERACK
         public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
         {
-            return world.BlockAccessor.GetBlock(pos).Code.Path.Split("-").Length > 2
+            string output = base.GetPlacedBlockInfo(world, pos, forPlayer);
+            output += "\n\n";
+            output += world.BlockAccessor.GetBlock(pos).Code.Path.Split("-").Length > 2
                 ? Lang.Get("aculinaryartillery:blockdesc-meathooks-legacy")
                 : Lang.Get("aculinaryartillery:blockdesc-meathooks");
+            return output;
         }
     }
 }
