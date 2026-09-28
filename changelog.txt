@@ -11,8 +11,12 @@
 - Kneading handbook page fixed
 
 
-~1.22_v2.0.0-dev.27~
-- Fixed: Crash when looking at bottle rack ingredient handbook pages (thanks to Lazula!)
+~1.22_v2.0.0-dev.26~
+Lazula fixes:
+- Fixed: Crash when looking at bottle rack ingredient handbook pages
+- Fixed: Meat hook recipe did not appear in handbook
+- Fix meat hooks missing base PlacedBlockInfo 
+
 
 
 ~1.22_v2.0.0-dev.25~
