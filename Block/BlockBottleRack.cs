@@ -135,27 +135,28 @@ namespace ACulinaryArtillery
 
         public override void OnCreatedByCrafting(ItemSlot[] allInputslots, ItemSlot outputSlot, IRecipeBase byRecipe)
         {
-            if (byRecipe.Name?.FirstCodePart() == "bottlerack")
+            if (byRecipe.Name?.FirstCodePart().StartsWith("bottlerack") == true)
             {
-                outputSlot.Itemstack?.Attributes.SetString("frame", allInputslots[0].Itemstack!.Collectible.Code);
-                outputSlot.Itemstack?.Attributes.SetString("interior", allInputslots[1].Itemstack!.Collectible.Code);
+                if (allInputslots.Any(slot => slot.Itemstack == null)) return;
+                outputSlot.Itemstack?.Attributes.SetString("frame", allInputslots[0].Itemstack?.Collectible.Code);
+                outputSlot.Itemstack?.Attributes.SetString("interior", allInputslots[1].Itemstack?.Collectible.Code);
 
                 // This matching enforces the recipe shape to prevent the behavior
                 // where all tagged ingredients accept any item with a matching tag
                 // regardless of which ingredient it is without differentiating.
 
-                AssetLocation[] woodtype1 = [
-                    allInputslots[0].Itemstack!.Collectible.Code,
-                    allInputslots[3].Itemstack!.Collectible.Code,
-                    allInputslots[5].Itemstack!.Collectible.Code,
-                    allInputslots[6].Itemstack!.Collectible.Code,
-                    allInputslots[8].Itemstack!.Collectible.Code
+                AssetLocation?[] woodtype1 = [
+                    allInputslots[0].Itemstack?.Collectible.Code,
+                    allInputslots[3].Itemstack?.Collectible.Code,
+                    allInputslots[5].Itemstack?.Collectible.Code,
+                    allInputslots[6].Itemstack?.Collectible.Code,
+                    allInputslots[8].Itemstack?.Collectible.Code
                 ];
 
-                AssetLocation[] woodtype2 = [
-                    allInputslots[1].Itemstack!.Collectible.Code,
-                    allInputslots[4].Itemstack!.Collectible.Code,
-                    allInputslots[7].Itemstack!.Collectible.Code
+                AssetLocation?[] woodtype2 = [
+                    allInputslots[1].Itemstack?.Collectible.Code,
+                    allInputslots[4].Itemstack?.Collectible.Code,
+                    allInputslots[7].Itemstack?.Collectible.Code
                 ];
 
                 if (woodtype1.Any(code => code != woodtype1[0]) || woodtype2.Any(code => code != woodtype2[0]))
