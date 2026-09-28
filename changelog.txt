@@ -3,7 +3,7 @@
 - Mixing bowl locking function should work with a liquid container and not block fluids when locked
 - Place on Slabs integration?
 
-~1.22_v2.0.0-dev.26~
+~1.22_v2.0.0-dev.27~
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
@@ -11,6 +11,8 @@
 - Kneading handbook page fixed
 
 
+~1.22_v2.0.0-dev.27~
+- Fixed: Crash when looking at bottle rack ingredient handbook pages (thanks to Lazula!)
 
 
 ~1.22_v2.0.0-dev.25~
