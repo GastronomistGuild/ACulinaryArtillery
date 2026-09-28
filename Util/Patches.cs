@@ -1160,6 +1160,29 @@ namespace ACulinaryArtillery
         {
             __result ??= world.Api.GetMixingRecipes().FirstOrDefault(rec => rec.Code == __instance.GetRecipeCode(world, containerStack));
         }
+
+        // Fixes a vanilla bug.
+        // Prevent pies from disappearing and sealed crocks from accepting servings.
+        [HarmonyPrefix]
+        [HarmonyPatch("GetMergableQuantity")]
+        public static bool mergeQuantityFix(BlockCookedContainerBase __instance, ref int __result, ItemStack sinkStack, ItemStack sourceStack, EnumMergePriority priority)
+        {
+            if (priority == EnumMergePriority.AutoMerge) return true;
+
+            if (sourceStack.Collectible is BlockPie)
+            {
+                __result = 0;
+                return false;
+            }
+
+            if (sourceStack.Collectible is BlockCrock && sourceStack.Attributes?.GetBool("sealed") == true)
+            {
+                __result = 0;
+                return false;
+            }
+
+            return true;
+        }
     }
 
     [HarmonyPatch(typeof(BlockMeal))]
