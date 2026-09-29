@@ -7,6 +7,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using ACulinaryArtillery.Util;
 
 namespace ACulinaryArtillery
 {
@@ -43,9 +44,11 @@ namespace ACulinaryArtillery
                     return false;
                 }
 
-                if (!BlockEntitySpile.CachedTreesBySpilePos.ContainsKey(blockSel.Position) && TreeHasSpile(world.BlockAccessor, attachingTo))
+                if (TreeSpilesSaturated(world.BlockAccessor, attachingTo.Copy()))
                 {
-                    failureCode = "alreadyhasspile";
+                    failureCode = ACulinaryArtilleryConfig.Current.BlockSpileCountPerTree > 1
+                        ? "toomanyspiles"
+                        : "alreadyhasspile";
                     return false;
                 }
             }
@@ -68,7 +71,7 @@ namespace ACulinaryArtillery
                     return false;
                 }
 
-                if (!BlockEntitySpile.CachedTreesBySpilePos.ContainsKey(blockSel.Position) && TreeHasSpile(world.BlockAccessor, attachingTo.Copy()))
+                if (TreeSpilesSaturated(world.BlockAccessor, attachingTo.Copy()))
                 {
                     return false;
                 }
@@ -78,20 +81,25 @@ namespace ACulinaryArtillery
         }
 
         /// <summary>
-        /// Check if there is a spile anywhere on the tree. Checks cache, then searches in all directions.
+        /// Find the total number of spiles on a tree, then return true if we can't add another.
         /// </summary>
-        public bool TreeHasSpile(IBlockAccessor blockAccess, BlockPos startPos)
+        public bool TreeSpilesSaturated(IBlockAccessor blockAccess, BlockPos startPos)
         {
-            if (BlockEntitySpile.CachedSpiledTreeBlocks.Contains(startPos))
-            {
-                return true;
-            }
+            int max = ACulinaryArtilleryConfig.Current.BlockSpileCountPerTree;
+            if (max == 0) return false;
 
             Stack<BlockPos> tree = FindTree(blockAccess, startPos);
 
             // Check the cache before using block accesses.
-            return tree.Any(BlockEntitySpile.CachedSpiledTreeBlocks.Contains)
-                || tree.Any(pos => BlockHasSpile(blockAccess, pos));
+            // int count = tree.Count(BlockEntitySpile.CachedSpiledTreeBlocks.Contains);
+            // api.World.Logger.Debug($"cached: {count}");
+            // if (count >= max) return true;
+
+            int count = tree.Sum(pos => SpilesOnBlock(blockAccess, pos));
+            // api.World.Logger.Debug($"found: {count}");
+            if (count >= max) return true;
+
+            return false;
         }
 
         // Adapted with slight modification from ItemAxe.FindTree, can probably be trimmed down more but it works
@@ -224,14 +232,13 @@ namespace ACulinaryArtillery
         }
 
         /// <summary>
-        /// Check if a block has a spile attached to it.
-        ///
-        /// Does *not* check the cache. Use this as a fallback.
+        /// Find the number of spiles attached to a block.
         /// </summary>
         /// <param name="pos">The block to check, *not* the spile block location.</param>
         /// <returns></returns>
-        public bool BlockHasSpile(IBlockAccessor blockAccess, BlockPos pos)
+        public int SpilesOnBlock(IBlockAccessor blockAccess, BlockPos pos)
         {
+            int count = 0;
             foreach (BlockFacing face in BlockFacing.HORIZONTALS)
             {
                 if (blockAccess.GetBlockOnSide(pos, face) is BlockSpile spile)
@@ -241,12 +248,12 @@ namespace ACulinaryArtillery
                     string[] parts = spile.Code.Path.Split('-');
                     if (BlockFacing.FromCode(parts[parts.Length - 1]).Opposite == face)
                     {
-                        return true;
+                        count++;
                     }
                 }
             }
 
-            return false;
+            return count;
         }
 
         public override string GetPlacedBlockInfo(IWorldAccessor world, BlockPos pos, IPlayer forPlayer)
