@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using Vintagestory.API;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
-using Vintagestory.API.Server;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 
@@ -70,9 +67,9 @@ namespace ACulinaryArtillery
 
     public class BlockEntitySpile : BlockEntity
     {
-        public static HashSet<BlockPos> CachedSpiledTreeBlocks = [];
-        public static Dictionary<BlockPos, Stack<BlockPos>> CachedTreesBySpilePos = [];
-        public double timer;
+        // public static HashSet<BlockPos> CachedSpiledTreeBlocks = [];
+        // public static Dictionary<BlockPos, (int, Stack<BlockPos>)> CachedTreesBySpilePos = [];
+        // public static Dictionary<BlockPos, Stack<BlockPos>> CachedTreesBySpilePos = [];
         public RoomRegistry? roomreg = null;
         public double sapDripTimer;
 
@@ -111,8 +108,19 @@ namespace ACulinaryArtillery
             RegisterGameTickListener(SapDrip, 5000);
             if ((Block as BlockSpile)?.FindTree(Api.World.BlockAccessor, Pos.AddCopy(Facing())) is Stack<BlockPos> tree)
             {
-                CachedSpiledTreeBlocks.AddRange(tree);
-                CachedTreesBySpilePos.TryAdd(Pos, tree);
+                // CachedSpiledTreeBlocks.AddRange(tree);
+                // CachedTreesBySpilePos.TryAdd(Pos, tree);
+                // CachedSpiledTreeBlocks.AddRange(tree);
+                // (int cachedSpileCount, Stack<BlockPos>? cachedTree) = CachedTreesBySpilePos.GetValueOrDefault(Pos, (0, []));
+
+                // if (cachedSpileCount > 0)
+                // {
+                //     CachedTreesBySpilePos.Add(Pos, (cachedSpileCount + 1, tree));
+                // }
+                // else
+                // {
+                //     CachedTreesBySpilePos.TryAdd(Pos, (1, tree));
+                // }
             }
 
             roomreg = api.ModLoader.GetModSystem<RoomRegistry>();
@@ -198,17 +206,19 @@ namespace ACulinaryArtillery
             }
         }
 
-        public override void OnBlockRemoved()
-        {
-            if (CachedTreesBySpilePos.TryGetValue(Pos) is Stack<BlockPos> tree)
-            {
-                CachedTreesBySpilePos.Remove(Pos);
-                foreach (BlockPos pos in tree)
-                {
-                    CachedSpiledTreeBlocks.Remove(pos);
-                }
-            }
-        }
+        // public override void OnBlockRemoved()
+        // {
+        //     if (CachedTreesBySpilePos.TryGetValue(Pos) is Stack<BlockPos> tree)
+        //     {
+        //         CachedTreesBySpilePos.Remove(Pos);
+        //         foreach (BlockPos pos in tree)
+        //         {
+        //             CachedSpiledTreeBlocks.Remove(pos);
+        //         }
+        //     }
+
+        //     base.OnBlockRemoved();
+        // }
 
         public void SapDrip(float dt)
         {
