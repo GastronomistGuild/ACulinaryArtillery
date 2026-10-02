@@ -82,7 +82,7 @@ namespace ACulinaryArtillery
         {
             GenMesh();
             mesher.AddMeshData(mesh);
-            return base.OnTesselation(mesher, tessThreadTesselator);
+            return true;
         }
 
         protected override MeshData getOrCreateMesh(ItemSlot slot, int index)
