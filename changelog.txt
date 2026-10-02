@@ -9,6 +9,7 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 - Kneading handbook page fixed
+- Fixed: Duplicate rendering for bottle racks and meat hooks caused Z-fighting
 
 
 ~1.22_v2.0.0-dev.26~
