@@ -98,8 +98,9 @@ namespace ACulinaryArtillery
 
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tessThreadTesselator)
         {
+            GenMesh();
             mesher.AddMeshData(mesh);
-            return base.OnTesselation(mesher, tessThreadTesselator);
+            return true;
         }
 
         internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel)
