@@ -549,6 +549,7 @@ namespace ACulinaryArtillery.Util
                     if (container.TryTakeContent(slot.Itemstack, pieProps.ItemsPerPortion()) is ItemStack taken && taken.StackSize >= pieProps.ItemsPerPortion())
                     {
                         ingStack = taken;
+                        slot.MarkDirty();
                     }
                     else
                     {
