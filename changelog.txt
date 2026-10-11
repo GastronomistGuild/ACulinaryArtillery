@@ -9,21 +9,20 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 - Kneading handbook page fixed
-- Fixed: Duplicate rendering for bottle racks and meat hooks caused Z-fighting
-- Add healing over time to meals
-- Add configuration option for meal healing duration and tick count
-- Fix mod config not applying correct defaults to new variables
 
 ~1.22_v2.0.0-dev.27~
 - Fixed: Mixing recipes were overlooked in satiety calculations (thanks to Sirkku!)
 - Fixed: Missing mark dirty call in ExpandedPieUtils (thanks to InsanityGod!)
 
 Lazula fixes:
-- Add healing over time to meals and fix mod config defaults
+- Feature: Add healing over time to food and meals
+- Feature: Add configuration option for food and meal healing duration and tick count
 - Feature: Added mod config for the number of spiles allowed on one tree
+- Fixed: Mod config did not apply correct defaults to new variables
+- Fixed: Vanilla bug caused sealed crocks to accept meal servings and pie slices to disappear when clicking on a meal container
 - Fixed: Pie ingredients without ACA handbook components did not limit displayed pies
 - Fixed: Powered mixing bowl dialog title was missing
-- Fixed: Bottle rack and meat hook OnTesselation did not return true
+- Fixed: Duplicate rendering for bottle racks and meat hooks caused Z-fighting
 - Fixed: Spile tree detection counted leaves as connecting trees.
 - Fixed: Vanilla bug caused pies and sealed crocks to try to accept meal servings
 - Tweak: Improve clay oven interactionm; Items are added with shift and removed without shift. Also added more detailed world interaction conditions and interaction errors

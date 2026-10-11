@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Text;
+using ACulinaryArtillery.Util;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Config;
@@ -29,8 +30,8 @@ namespace ACulinaryArtillery
 
                     float healthChange = prop.Health * healthLossMul;
 
-                    float durationSec = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectDurationSec"].AsFloat(180) ?? 180;
-                    int ticks = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(18) ?? 18;
+                    float durationSec = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectDurationSec"].AsFloat(ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec;
+                    int ticks = slot.Itemstack?.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
 
                     if (healthChange != 0) byEntity.ReceiveDamage(new()
                     {
