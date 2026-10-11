@@ -512,7 +512,9 @@ namespace ACulinaryArtillery
             if (!mulWithStacksize)
             {
                 nutriStack.StackSize = (int)(BlockLiquidContainerBase.GetContainableProps(nutriStack)?.ItemsPerLitre ?? 1);
-                var cookingIngreds = world.Api.GetCookingRecipe(inSlot.Itemstack!.Attributes.GetString("recipeCode"))?.Ingredients?.Select(ingred => ingred.Clone()).ToList();
+                string recipeCode = inSlot.Itemstack!.Attributes.GetString("recipeCode");
+                var cookingIngreds = world.Api.GetCookingRecipe(recipeCode)?.Ingredients?.Select(ingred => ingred.Clone()).ToList();
+                cookingIngreds ??= world.Api.GetMixingRecipes().Find(rec => rec.Code == recipeCode)?.Ingredients?.Select(ingred => ingred.Clone()).ToList();
                 if (cookingIngreds?.FirstOrDefault(ing => ing.Matches(nutriStack)) is CookingRecipeIngredient ingred)
                 {
                     mul = ingred.GetMatchingStack(nutriStack)?.StackSize ?? 1;

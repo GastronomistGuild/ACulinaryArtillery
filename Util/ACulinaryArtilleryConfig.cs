@@ -2,31 +2,22 @@
 {
     class ACulinaryArtilleryConfig
     {
-        public string OvenDTMod = "Modifies The Rate At Which The Oven Heats, Cools, and Bakes (1.25 for Vanilla)";
-        public float BEExpandedOvenDTMod;
-        public string FuelBurnRateMod = "Multiplier Applied To BurnRate of Fuels Used In Oven (1.25 for Vanilla)";
-        public float BEExpandedOvenFuelBurnRateMod;
-        public string OvenBakeTimeMod = "Additional Direct Modifier To Bake Rate (Does Not Affect Heating/Cooling Time (1.2 for Vanilla)";
-        public float BEExpandedOvenBakeTimeMod;
-
-        public ACulinaryArtilleryConfig()
-        {
-        
-        }
+        public string OvenDTMod = "Modifies the rate at which the oven heats, cools, and bakes (1.25 for vanilla)";
+        public float BEExpandedOvenDTMod = 1.25f;
+        public string FuelBurnRateMod = "Multiplier applied to burn rate of fuels used in oven (1.25 for vanilla)";
+        public float BEExpandedOvenFuelBurnRateMod = 1.25f;
+        public string OvenBakeTimeMod = "Additional direct modifier to bake rate (does not affect heating/cooling time (1.2 for vanilla)";
+        public float BEExpandedOvenBakeTimeMod = 1.2f;
+        public string MealHealDuration = "The amount of time it takes for healing from eating a meal to complete. Default is 180 seconds, or 3 minutes.";
+        public float MealHealDurationSec = 180;
+        public string MealHealTickCount = "The number of ticks that occur while healing from eating a meal. Defaults to 18, i.e. one tick every 10 seconds with the default duration of 180 seconds.";
+        public int MealHealTicks = 18;
 
         public static ACulinaryArtilleryConfig Current { get; set; } = GetDefault();
 
         public static ACulinaryArtilleryConfig GetDefault()
         {
-            ACulinaryArtilleryConfig defaultConfig = new();
-
-            defaultConfig.OvenDTMod.ToString();
-            defaultConfig.BEExpandedOvenDTMod = 1.25f;
-            defaultConfig.FuelBurnRateMod.ToString();
-            defaultConfig.BEExpandedOvenFuelBurnRateMod = 1.25f;
-            defaultConfig.OvenBakeTimeMod.ToString();
-            defaultConfig.BEExpandedOvenBakeTimeMod = 1.2f;
-            return defaultConfig;
+            return new();
         }
     }
 }

@@ -10,6 +10,9 @@
 - New, larger spile mold shape
 - Kneading handbook page fixed
 - Fixed: Duplicate rendering for bottle racks and meat hooks caused Z-fighting
+- Add healing over time to meals
+- Add configuration option for meal healing duration and tick count
+- Fix mod config not applying correct defaults to new variables
 
 
 ~1.22_v2.0.0-dev.26~
