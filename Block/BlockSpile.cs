@@ -192,7 +192,9 @@ namespace ACulinaryArtillery
                 if (checkedPositions.Contains(neibPos)) continue;
 
                 Block block = blockAccessor.GetBlock(neibPos, BlockLayersAccess.Solid);
-                if (block.Code == null || block.Id == 0) continue;   // Skip air blocks
+                // Modified to avoid counting leaves as part of the tree.
+                if (!block.Code.PathStartsWith("log")) continue;   // Skip any non-logs
+                // if (block.Code == null || block.Id == 0) continue;   // Skip air blocks
 
                 string ngcode = block.Attributes?["treeFellingGroupCode"].AsString() ?? "";
 
