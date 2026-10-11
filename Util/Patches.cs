@@ -12,6 +12,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
+using System.Runtime.CompilerServices;
 
 namespace ACulinaryArtillery
 {
@@ -814,25 +815,6 @@ namespace ACulinaryArtillery
     {
         public static void Postfix(ref bool __result, ICoreClientAPI capi, ItemStack[] allStacks, ActionConsumable<string> openDetailPageFor, ItemStack stack, List<RichTextComponentBase> components, float marginTop, List<ItemStack> containers, List<ItemStack> fuels, List<ItemStack> molds, bool haveText)
         {
-            var newComponents = HandbookInfoExtensions.ACAHandbookIngredientForComponents(capi, allStacks, openDetailPageFor, stack);
-            if (newComponents.Count == 0) return;
-
-            if (!components.Any(comp => (comp as RichTextComponent)?.DisplayText == Lang.Get("Ingredient for") + "\n"))
-            {
-                CollectibleBehaviorHandbookTextAndExtraInfo.AddHeading(components, capi, "Ingredient for", ref __result);
-                components.Add(new ClearFloatTextComponent(capi, 2));
-                components.AddRange(newComponents);
-                components.Add(new ClearFloatTextComponent(capi, 3));
-            }
-            else
-            {
-                var firstMealstack = components.FirstOrDefault(comp => comp is MealstackTextComponent);
-                int insertIndex = components.Count - 1;
-                if (firstMealstack != null) insertIndex = components.IndexOf(firstMealstack);
-                components.InsertRange(insertIndex, newComponents);
-            }
-
-
             int pieRecipeCount = 0;
             List<RichTextComponentBase> excessivePieRecipeComponents = [];
 
@@ -863,6 +845,24 @@ namespace ACulinaryArtillery
             foreach (RichTextComponentBase comp in excessivePieRecipeComponents)
             {
                 components.Remove(comp);
+            }
+
+            var newComponents = HandbookInfoExtensions.ACAHandbookIngredientForComponents(capi, allStacks, openDetailPageFor, stack);
+            if (newComponents.Count == 0) return;
+
+            if (!components.Any(comp => (comp as RichTextComponent)?.DisplayText == Lang.Get("Ingredient for") + "\n"))
+            {
+                CollectibleBehaviorHandbookTextAndExtraInfo.AddHeading(components, capi, "Ingredient for", ref __result);
+                components.Add(new ClearFloatTextComponent(capi, 2));
+                components.AddRange(newComponents);
+                components.Add(new ClearFloatTextComponent(capi, 3));
+            }
+            else
+            {
+                var firstMealstack = components.FirstOrDefault(comp => comp is MealstackTextComponent);
+                int insertIndex = components.Count - 1;
+                if (firstMealstack != null) insertIndex = components.IndexOf(firstMealstack);
+                components.InsertRange(insertIndex, newComponents);
             }
         }
     }
@@ -1160,6 +1160,29 @@ namespace ACulinaryArtillery
         {
             __result ??= world.Api.GetMixingRecipes().FirstOrDefault(rec => rec.Code == __instance.GetRecipeCode(world, containerStack));
         }
+
+        // Fixes a vanilla bug.
+        // Prevent pies from disappearing and sealed crocks from accepting servings.
+        [HarmonyPrefix]
+        [HarmonyPatch("GetMergableQuantity")]
+        public static bool mergeQuantityFix(BlockCookedContainerBase __instance, ref int __result, ItemStack sinkStack, ItemStack sourceStack, EnumMergePriority priority)
+        {
+            if (priority == EnumMergePriority.AutoMerge) return true;
+
+            if (sourceStack.Collectible is BlockPie)
+            {
+                __result = 0;
+                return false;
+            }
+
+            if (sourceStack.Collectible is BlockCrock && sourceStack.Attributes?.GetBool("sealed") == true)
+            {
+                __result = 0;
+                return false;
+            }
+
+            return true;
+        }
     }
 
     [HarmonyPatch(typeof(BlockMeal))]
@@ -1248,6 +1271,95 @@ namespace ACulinaryArtillery
             }
 
             __result = sb.ToString();
+            return false;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch("Consume")]
+        public static bool HealingOverTimePatch(BlockMeal __instance, ref float __result, IWorldAccessor world, IPlayer eatingPlayer, ItemSlot inSlot, ItemStack[] contentStacks, float remainingServings, bool mulwithStackSize)
+        {
+            float[] nmul = __instance.GetNutritionHealthMul(null, inSlot, eatingPlayer.Entity);
+
+            FoodNutritionProperties[] multiProps = BlockMeal.GetContentNutritionProperties(world, inSlot, contentStacks, eatingPlayer.Entity, mulwithStackSize, nmul[0], nmul[1]);
+            if (multiProps == null) { __result = remainingServings; return false; }
+
+            float totalHealth = 0;
+            float totalIntox = 0;
+            float totalPsyche = 0;
+            EntityBehaviorHunger? ebh = eatingPlayer.Entity.GetBehavior<EntityBehaviorHunger>();
+            if (ebh == null) throw new Exception(eatingPlayer.Entity.Code.ToString() + "does not have EntityBehaviorHunger defined properly");
+            float satiablePoints = ebh.MaxSaturation - ebh.Saturation;
+
+
+            float mealSatpoints = 0;
+            for (int i = 0; i < multiProps.Length; i++)
+            {
+                FoodNutritionProperties nutriProps = multiProps[i];
+                if (nutriProps == null) continue;
+
+                mealSatpoints += nutriProps.Satiety;
+            }
+
+            float servingsNeeded = GameMath.Clamp(satiablePoints / Math.Max(1, mealSatpoints), 0, 1);
+            float servingsToEat = Math.Min(remainingServings, servingsNeeded);
+
+            // Affect the players body temperature by eating meals with a larger temperature difference
+            float temp = inSlot.Itemstack?.Collectible.GetTemperature(world, inSlot.Itemstack) ?? 20;
+            var bh = eatingPlayer.Entity.GetBehavior<EntityBehaviorBodyTemperature>();
+            if (bh != null && Math.Abs(temp - bh.CurBodyTemperature) > 10)
+            {
+                float intensity = Math.Min(1, (temp - bh.CurBodyTemperature) / 30f);
+                bh.CurBodyTemperature += GameMath.Clamp(mealSatpoints * servingsToEat / 80f * intensity, 0, 5);
+            }
+
+
+            for (int i = 0; i < multiProps.Length; i++)
+            {
+                FoodNutritionProperties nutriProps = multiProps[i];
+                if (nutriProps == null) continue;
+
+                float mul = servingsToEat;
+                float sat = mul * nutriProps.Satiety;
+                float satLossDelay = Math.Min(1.3f, mul * 3) * 10 + sat / 70f * 60f;
+
+                eatingPlayer.Entity.ReceiveSaturation(sat, nutriProps.FoodCategory, satLossDelay, 1f);
+
+                if (nutriProps.EatenStack?.ResolvedItemstack != null)
+                {
+                    if (!eatingPlayer.InventoryManager.TryGiveItemstack(nutriProps.EatenStack.ResolvedItemstack.Clone(), true))
+                    {
+                        world.SpawnItemEntity(nutriProps.EatenStack.ResolvedItemstack.Clone(), eatingPlayer.Entity.Pos.XYZ);
+                    }
+                }
+
+                totalHealth += mul * nutriProps.Health;
+                totalIntox += mul * nutriProps.Intoxication;
+                totalPsyche += mul * nutriProps.Psychedelic;
+            }
+
+
+            float intox = eatingPlayer.Entity.WatchedAttributes.GetFloat("intoxication");
+            eatingPlayer.Entity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + totalIntox));
+
+            float psyche = eatingPlayer.Entity.WatchedAttributes.GetFloat("psychedelic");
+            eatingPlayer.Entity.WatchedAttributes.SetFloat("psychedelic", Math.Min(2.0f, psyche + totalPsyche));
+
+            float durationSec = ACulinaryArtilleryConfig.Current.MealHealDurationSec;
+            int ticks = ACulinaryArtilleryConfig.Current.MealHealTicks;
+
+            if (totalHealth != 0)
+            {
+                eatingPlayer.Entity.ReceiveDamage(new DamageSource()
+                {
+                    Source = EnumDamageSource.Internal,
+                    Type = totalHealth > 0 ? EnumDamageType.Heal : EnumDamageType.Poison,
+                    Duration = TimeSpan.FromSeconds(durationSec),
+                    TicksPerDuration = ticks,
+                }, Math.Abs(totalHealth));
+            }
+
+
+            __result = Math.Max(0, remainingServings - servingsToEat);
             return false;
         }
     }
@@ -1458,6 +1570,386 @@ namespace ACulinaryArtillery
             if (transform != null) mesh.ModelTransform(transform);
 
             __result = mesh;
+            return false;
+        }
+    }
+
+    // Giant patch to improve clay oven interaction
+    [HarmonyPatch(typeof(BlockClayOven))]
+    public class BlockClayOvenPatch
+    {
+        [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "ovenInv")]
+        extern static ref InventoryOven BEOvenInv(BlockEntityOven instance);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "interactions")]
+        extern static ref WorldInteraction[] Interactions(BlockClayOven instance);
+
+
+        [HarmonyPrefix]
+        [HarmonyPatch("OnLoaded")]
+        public static bool OnLoadedPatch(BlockClayOven __instance, ICoreAPI api)
+        {
+            __instance.PlacedPriorityInteract = true;
+
+            if (api is not ICoreClientAPI capi) return true;
+
+            Interactions(__instance) = ObjectCacheUtil.GetOrCreate(api, "ovenInteractions", () =>
+            {
+                List<ItemStack> bakeableStacklist = [];
+                List<ItemStack> fuelStacklist = [];
+                List<ItemStack> canIgniteStacks = BlockBehaviorCanIgnite.CanIgniteStacks(api, true);
+
+                foreach (CollectibleObject obj in api.World.Collectibles)
+                {
+                    // we test firewood first because LazyWarlock's mod adds a wood baking recipe, which we don't want to be treated as a bakeable item here
+                    if (obj.Attributes?.IsTrue("isClayOvenFuel") == true)
+                    {
+                        List<ItemStack> stacks = obj.GetHandBookStacks(capi);
+                        if (stacks != null) fuelStacklist.AddRange(stacks);
+                    }
+                    else if (obj.Attributes?["bakingProperties"]?.AsObject<BakingProperties>() != null || obj.CombustibleProps?.SmeltingType == EnumSmeltType.Bake && obj.CombustibleProps.SmeltedStack != null && obj.CombustibleProps.MeltingPoint < BlockEntityOven.maxBakingTemperatureAccepted)
+                    {
+                        List<ItemStack> stacks = obj.GetHandBookStacks(capi);
+                        if (stacks != null) bakeableStacklist.AddRange(stacks);
+                    }
+                }
+
+                foreach (var stack in bakeableStacklist)
+                {
+                    if (stack.Collectible is not BlockPie pieBlock) continue;
+
+                    stack.Attributes.SetInt("pieSize", 4);
+                    stack.Attributes.SetString("topCrustType", "square");
+                    stack.Attributes.SetInt("bakeLevel", 0);
+
+                    ItemStack doughStack = new(api.World.GetItem("dough-spelt"), 2);
+                    ItemStack fillingStack = new(api.World.GetItem("fruit-redapple"), 2);
+                    pieBlock.SetContents(stack, [doughStack, fillingStack, fillingStack, fillingStack, fillingStack, doughStack]);
+                    stack.Attributes.SetFloat("quantityServings", 1);
+                }
+
+                return new WorldInteraction[] {
+                    new ()
+                    {
+                        ActionLangCode = "blockhelp-oven-take",
+                        MouseButton = EnumMouseButton.Right,
+                        ShouldApply = (wi, bs, es) => {
+                            return api.World.BlockAccessor.GetBlockEntity<BlockEntityOven>(bs.Position) is BlockEntityOven beo && !BEOvenInv(beo).Empty && !beo.IsBurning;
+                        }
+                    },
+                    new ()
+                    {
+                        ActionLangCode = "blockhelp-oven-fuel",
+                        HotKeyCode = "shift",
+                        MouseButton = EnumMouseButton.Right,
+                        Itemstacks = [.. fuelStacklist],
+                        GetMatchingStacks = (wi, bs, es) => {
+                            return wi.Itemstacks.Where(stack => api.World.BlockAccessor.GetBlockEntity<BlockEntityOven>(bs.Position) is BlockEntityOven beo && BlockEntityOvenPatch.CanAddFuel(beo, stack) == true).ToArray();
+                        }
+                    },
+                    new (){
+                        ActionLangCode = "blockhelp-oven-bakeable",
+                        HotKeyCode = "shift",
+                        MouseButton = EnumMouseButton.Right,
+                        Itemstacks = [.. bakeableStacklist],
+                        GetMatchingStacks = (wi, bs, es) => {
+                            return wi.Itemstacks.Where(stack => api.World.BlockAccessor.GetBlockEntity<BlockEntityOven>(bs.Position) is BlockEntityOven beo && BlockEntityOvenPatch.CanAddBakeable(beo, stack) == true).ToArray();
+                        }
+                    },
+                    new ()
+                    {
+                        ActionLangCode = "blockhelp-oven-ignite",
+                        MouseButton = EnumMouseButton.Right,
+                        HotKeyCode = "shift",
+                        Itemstacks = [.. canIgniteStacks],
+                        GetMatchingStacks = (wi, bs, es) => {
+                            if (wi.Itemstacks.Length == 0) return null;
+                            return api.World.BlockAccessor.GetBlockEntity<BlockEntityOven>(bs.Position) is BlockEntityOven beo && beo.CanIgnite() ? wi.Itemstacks : null;
+                        }
+                    }
+                };
+            });
+
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(BlockEntityOven))]
+    public class BlockEntityOvenPatch
+    {
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "TryTake")]
+        extern static bool TryTake(BlockEntityOven instance, IPlayer byPlayer);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "TryAddFuel")]
+        extern static bool TryAddFuel(BlockEntityOven instance, ItemSlot slot);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "TryPut")]
+        extern static bool TryPut(BlockEntityOven instance, ItemSlot slot);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "ovenInv")]
+        extern static ref InventoryOven OvenInv(BlockEntityOven instance);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "EnvironmentTemperature")]
+        extern static int EnvironmentTemperature(BlockEntityOven instance);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Field, Name = "bakingData")]
+        extern static ref OvenItemData[] BakingData(BlockEntityOven instance);
+
+        [UnsafeAccessor(UnsafeAccessorKind.Method, Name = "updateMesh")]
+        extern static void UpdateMesh(BlockEntityDisplay instance, int index);
+
+        [HarmonyPrefix]
+        [HarmonyPatch("TryPut")]
+        public static bool TryPutPatch(BlockEntityOven __instance, ref bool __result, ItemSlot slot)
+        {
+            __result = TryPut(__instance, slot, out _, out _);
+            return false;
+        }
+
+        public static bool TryPut(BlockEntityOven beo, ItemSlot slot, out string? errCode, out string? errMessage)
+        {
+            // CanAddBakeable checks for large item requirements
+            if (!CanAddBakeable(beo, slot.Itemstack, out errCode, out errMessage)) return false;
+
+            int empty = Array.FindIndex(OvenInv(beo).Take(4).ToArray(), slot => slot.Empty);
+            if (empty == -1) return false;
+
+            int moved = slot.TryPutInto(beo.Api.World, OvenInv(beo)[empty]);
+
+            if (moved > 0)
+            {
+                // We store the baked level data into the BlockEntity itself, for continuity and to avoid adding unwanted attributes to the ItemStacks (which e.g. could cause them not to stack)
+                BakingData(beo)[empty] = new OvenItemData(OvenInv(beo)[empty].Itemstack);
+                UpdateMesh(beo, empty);
+
+                beo.MarkDirty();
+            }
+
+            return moved > 0;
+        }
+
+        public static bool CanAddBakeable(BlockEntityOven beo, ItemStack stack)
+        {
+            return CanAddBakeable(beo, stack, out _, out _);
+        }
+
+        /// <summary>
+        /// Whether or not the oven can currently accept a given bakeable item.
+        /// </summary>
+        /// <returns>True if either the oven is empty or there is enough space to accept the given item. Oven must not be burning or contain fuel.</returns>
+        public static bool CanAddBakeable(BlockEntityOven beo, ItemStack? stack, out string? errCode, out string? errMessage)
+        {
+            errCode = null;
+            errMessage = null;
+
+            if (beo.IsBurning)
+            {
+                errCode = "fuelburning";
+                errMessage = Lang.Get("Wait until the fire is out");
+                return false;
+            }
+
+            if (beo.HasFuel)
+            {
+                errCode = "fuelpresent";
+                errMessage = Lang.Get("ovenerror-notfuel");
+                return false;
+            }
+
+            // Don't invite player to insert bakeable items in a cold oven - 25 degrees allows some hysteresis if SEASONS causes changes in enviro temperature
+            if (beo.ovenTemperature <= EnvironmentTemperature(beo) + 25)
+            {
+                errCode = "toocold";
+                errMessage = Lang.Get("ovenerror-toocold");
+                return false;
+            }
+
+
+            if (OvenInv(beo)[0].Empty) return true;
+
+
+            if (stack?.ItemAttributes?.KeyExists("bakingProperties") == false)
+            {
+                errCode = "notbakeable";
+                errMessage = Lang.Get("This item is not bakeable.");
+                return false;
+            }
+
+            // Large items take up all slots
+            if (BakingProperties.ReadFrom(OvenInv(beo)[0].Itemstack)?.LargeItem ?? false)
+            {
+                errCode = "ovenfull";
+                errMessage = Lang.Get("Oven is full");
+                return false;
+            }
+
+            if (OvenInv(beo).Take(4).All(slot => !slot.Empty))
+            {
+                errCode = "ovenfull";
+                errMessage = Lang.Get("Oven is full");
+                return false;
+            }
+
+            // Handle held large item separately if not all slots are full
+            if (BakingProperties.ReadFrom(stack)?.LargeItem ?? false && !OvenInv(beo)[0].Empty)
+            {
+                errCode = "notenoughspace";
+                errMessage = Lang.Get("ovenerror-notenoughspace");
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool CanAddFuel(BlockEntityOven beo, ItemStack? stack)
+        {
+            return CanAddFuel(beo, stack, out _, out _);
+        }
+
+        /// <summary>
+        /// Whether or not the oven can currently accept a given fuel item.
+        /// </summary>
+        /// <returns>True if either the oven is empty or the fuel slot is of the same type and has space. Oven must not be burning or contain bakeables.</returns>
+        public static bool CanAddFuel(BlockEntityOven beo, ItemStack? stack, out string? errCode, out string? errMessage)
+        {
+            errCode = null;
+            errMessage = null;
+
+            if (beo.FuelSlot.Empty) return true;
+
+            if (beo.IsBurning)
+            {
+                errCode = "fuelburning";
+                errMessage = Lang.Get("Wait until the fire is out");
+                return false;
+            }
+
+            if (stack?.ItemAttributes?.IsTrue("isClayOvenFuel") == false)
+            {
+                errCode = "notfuel";
+                errMessage = Lang.Get("ovenerror-notfuel");
+                return false;
+            }
+
+            if (beo.HasFuel && beo.FuelSlot.StackSize < beo.fuelitemCapacity && !beo.FuelSlot.Itemstack.Satisfies(stack))
+            {
+                errCode = "nonmatchingfuel";
+                errMessage = Lang.Get("ovenerror-nonmatchingfuel");
+                return false;
+            }
+
+            // Bakeables are already present
+            if (!beo.FuelSlot.Empty && !beo.HasFuel)
+            {
+                errCode = "notbakeable";
+                errMessage = Lang.Get("This item is not bakeable.");
+                return false;
+            }
+
+            if (beo.FuelSlot.StackSize >= beo.fuelitemCapacity)
+            {
+                errCode = "ovenfull";
+                errMessage = Lang.Get("Oven is full");
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool TryAddFuel(BlockEntityOven beo, ItemSlot slot, out string? errCode, out string? errMessage)
+        {
+            errCode = null;
+            errMessage = null;
+
+            if (!CanAddFuel(beo, slot.Itemstack, out errCode, out errMessage)) return false;
+
+            int moved = slot.TryPutInto(beo.Api.World, beo.FuelSlot);
+
+            if (moved > 0)
+            {
+                UpdateMesh(beo, 0);
+                beo.MarkDirty();
+            }
+
+            return moved > 0;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch("OnInteract")]
+        public static bool OnInteractPatch(BlockEntityOven __instance, ref bool __result, IPlayer byPlayer, BlockSelection bs)
+        {
+            ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
+
+            if (!byPlayer.Entity.Controls.ShiftKey)
+            {
+                if (TryTake(__instance, byPlayer))
+                {
+                    byPlayer.InventoryManager.BroadcastHotbarSlot();
+                    __result = true;
+                    return false;
+                }
+
+                __result = false;
+                return false;
+            }
+
+            if (slot.Itemstack?.Collectible is not CollectibleObject co) { __result = false; return false; }
+            AssetLocation stackName = co.Code;
+            CombustibleProperties? combustibleProperties = co.GetCombustibleProperties(__instance.Api.World, slot.Itemstack, null);
+
+            string? errCode;
+            string? errMessage;
+
+            if (co.Attributes?.IsTrue("isClayOvenFuel") == true)
+            {
+                if (TryAddFuel(__instance, slot, out errCode, out errMessage))
+                {
+                    SoundAttributes? sound = slot.Itemstack?.Block?.Sounds?.Place;
+                    __instance.Api.World.PlaySoundAt(sound ?? GlobalConstants.DefaultBuildSound, byPlayer.Entity, byPlayer);
+                    byPlayer.InventoryManager.BroadcastHotbarSlot();
+                    __instance.Api.World.Logger.Audit("{0} Put 1x{1} into Clay oven at {2}.",
+                        byPlayer.PlayerName,
+                        stackName,
+                        __instance.Pos
+                    );
+                    (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+
+                    __result = true;
+                    return false;
+                }
+
+                (__instance.Api as ICoreClientAPI)?.TriggerIngameError(__instance, errCode, errMessage);
+
+                __result = false;
+                return false;
+            }
+
+
+            // Can't meaningfully bake anything requiring heat over 260 in the basic clay oven
+            if (co?.Attributes?.KeyExists("bakingProperties") == true || combustibleProperties?.SmeltingType == EnumSmeltType.Bake && combustibleProperties.MeltingPoint < BlockEntityOven.maxBakingTemperatureAccepted)
+            {
+                if (TryPut(__instance, slot, out errCode, out errMessage))
+                {
+                    SoundAttributes? sound = slot.Itemstack?.Block?.Sounds?.Place;
+                    __instance.Api.World.PlaySoundAt(sound ?? new SoundAttributes(new AssetLocation("sounds/player/buildhigh"), true) { Range = 16 }, byPlayer.Entity, byPlayer);
+                    byPlayer.InventoryManager.BroadcastHotbarSlot();
+                    __instance.Api.World.Logger.Audit("{0} Put 1x{1} into Clay oven at {2}.",
+                        byPlayer.PlayerName,
+                        stackName,
+                        __instance.Pos
+                    );
+                    (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+                }
+                else if (slot.Itemstack.Block?.GetBehavior<BlockBehaviorCanIgnite>() == null)
+                {
+                    (__instance.Api as ICoreClientAPI)?.TriggerIngameError(__instance, errCode, errMessage);
+                }
+
+                __result = true;
+                return false;
+            }
+
+            __result = false;
             return false;
         }
     }
