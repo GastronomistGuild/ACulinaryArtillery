@@ -117,7 +117,13 @@
   "item-bark-oak-boiled": "Boiled oak bark",
   "item-handbooktitle-bark": "Oak bark",
   "item-handbooktext-bark": "After bark is separated from an oak tree, it is boiled to sterilize and soften it. During this cleaning process, the bark is made easier to work with and can be cut into workable <a href=\"handbook://item-aculinaryartillery:cork-generic\">cork</a> pieces.",
-  
+
+  "game:blockhelp-oven-take": "Take",
+  "game:ovenerror-notfuel": "Need to add fuel first",
+  "game:ovenerror-toocold": "Can't bake in a cold oven",
+  "game:ovenerror-notenoughspace": "Oven is full",
+  "game:ovenerror-nonmatchingfuel": "Can't mix fuel types",
+
   "efrecipes:Will make {0}" : "Will make {0}",
   "efrecipes:Squeezing x{0} {1}" : "Squeezing x{0} {1}",
   "efrecipes:x{0} {1} inserted" : "x{0} {1} inserted",
