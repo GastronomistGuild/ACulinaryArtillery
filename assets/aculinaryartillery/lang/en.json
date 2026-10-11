@@ -53,7 +53,7 @@
   "game:placefailure-notspileable-placed": "Spiles can only be placed on naturally grown trees.",
   "game:placefailure-notspileable-other": "Spiles can only be placed on trees.",
   "block-handbooktitle-spile": "Metal Spile",
-  "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly. Whether or not a tree produces liquid depends on the local temperature. Trees produce more sap, gum, or nectar at the beginning and end of their tapping seasons, while the changes in weather stimulate the movement of sap.",
+  "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly. Whether or not a tree produces liquid depends on the local temperature. Trees produce more sap, gum, or nectar at the beginning and end of their tapping seasons, while the changes in weather stimulate the movement of sap. To find the production temperature for a tree product, see its handbook page.",
 
   "block-saucepan-blue-fired" : "Earthy brown ceramic saucepan",
   "block-saucepan-earthyorange-fired" : "Earthy orange ceramic saucepan",
