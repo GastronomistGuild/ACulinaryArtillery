@@ -1250,6 +1250,95 @@ namespace ACulinaryArtillery
             __result = sb.ToString();
             return false;
         }
+
+        [HarmonyPrefix]
+        [HarmonyPatch("Consume")]
+        public static bool HealingOverTimePatch(BlockMeal __instance, ref float __result, IWorldAccessor world, IPlayer eatingPlayer, ItemSlot inSlot, ItemStack[] contentStacks, float remainingServings, bool mulwithStackSize)
+        {
+            float[] nmul = __instance.GetNutritionHealthMul(null, inSlot, eatingPlayer.Entity);
+
+            FoodNutritionProperties[] multiProps = BlockMeal.GetContentNutritionProperties(world, inSlot, contentStacks, eatingPlayer.Entity, mulwithStackSize, nmul[0], nmul[1]);
+            if (multiProps == null) { __result = remainingServings; return false; }
+
+            float totalHealth = 0;
+            float totalIntox = 0;
+            float totalPsyche = 0;
+            EntityBehaviorHunger? ebh = eatingPlayer.Entity.GetBehavior<EntityBehaviorHunger>();
+            if (ebh == null) throw new Exception(eatingPlayer.Entity.Code.ToString() + "does not have EntityBehaviorHunger defined properly");
+            float satiablePoints = ebh.MaxSaturation - ebh.Saturation;
+
+
+            float mealSatpoints = 0;
+            for (int i = 0; i < multiProps.Length; i++)
+            {
+                FoodNutritionProperties nutriProps = multiProps[i];
+                if (nutriProps == null) continue;
+
+                mealSatpoints += nutriProps.Satiety;
+            }
+
+            float servingsNeeded = GameMath.Clamp(satiablePoints / Math.Max(1, mealSatpoints), 0, 1);
+            float servingsToEat = Math.Min(remainingServings, servingsNeeded);
+
+            // Affect the players body temperature by eating meals with a larger temperature difference
+            float temp = inSlot.Itemstack?.Collectible.GetTemperature(world, inSlot.Itemstack) ?? 20;
+            var bh = eatingPlayer.Entity.GetBehavior<EntityBehaviorBodyTemperature>();
+            if (bh != null && Math.Abs(temp - bh.CurBodyTemperature) > 10)
+            {
+                float intensity = Math.Min(1, (temp - bh.CurBodyTemperature) / 30f);
+                bh.CurBodyTemperature += GameMath.Clamp(mealSatpoints * servingsToEat / 80f * intensity, 0, 5);
+            }
+
+
+            for (int i = 0; i < multiProps.Length; i++)
+            {
+                FoodNutritionProperties nutriProps = multiProps[i];
+                if (nutriProps == null) continue;
+
+                float mul = servingsToEat;
+                float sat = mul * nutriProps.Satiety;
+                float satLossDelay = Math.Min(1.3f, mul * 3) * 10 + sat / 70f * 60f;
+
+                eatingPlayer.Entity.ReceiveSaturation(sat, nutriProps.FoodCategory, satLossDelay, 1f);
+
+                if (nutriProps.EatenStack?.ResolvedItemstack != null)
+                {
+                    if (!eatingPlayer.InventoryManager.TryGiveItemstack(nutriProps.EatenStack.ResolvedItemstack.Clone(), true))
+                    {
+                        world.SpawnItemEntity(nutriProps.EatenStack.ResolvedItemstack.Clone(), eatingPlayer.Entity.Pos.XYZ);
+                    }
+                }
+
+                totalHealth += mul * nutriProps.Health;
+                totalIntox += mul * nutriProps.Intoxication;
+                totalPsyche += mul * nutriProps.Psychedelic;
+            }
+
+
+            float intox = eatingPlayer.Entity.WatchedAttributes.GetFloat("intoxication");
+            eatingPlayer.Entity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + totalIntox));
+
+            float psyche = eatingPlayer.Entity.WatchedAttributes.GetFloat("psychedelic");
+            eatingPlayer.Entity.WatchedAttributes.SetFloat("psychedelic", Math.Min(2.0f, psyche + totalPsyche));
+
+            float durationSec = ACulinaryArtilleryConfig.Current.MealHealDurationSec;
+            int ticks = ACulinaryArtilleryConfig.Current.MealHealTicks;
+
+            if (totalHealth != 0)
+            {
+                eatingPlayer.Entity.ReceiveDamage(new DamageSource()
+                {
+                    Source = EnumDamageSource.Internal,
+                    Type = totalHealth > 0 ? EnumDamageType.Heal : EnumDamageType.Poison,
+                    Duration = TimeSpan.FromSeconds(durationSec),
+                    TicksPerDuration = ticks,
+                }, Math.Abs(totalHealth));
+            }
+
+
+            __result = Math.Max(0, remainingServings - servingsToEat);
+            return false;
+        }
     }
 
 
