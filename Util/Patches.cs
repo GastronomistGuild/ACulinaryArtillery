@@ -815,25 +815,6 @@ namespace ACulinaryArtillery
     {
         public static void Postfix(ref bool __result, ICoreClientAPI capi, ItemStack[] allStacks, ActionConsumable<string> openDetailPageFor, ItemStack stack, List<RichTextComponentBase> components, float marginTop, List<ItemStack> containers, List<ItemStack> fuels, List<ItemStack> molds, bool haveText)
         {
-            var newComponents = HandbookInfoExtensions.ACAHandbookIngredientForComponents(capi, allStacks, openDetailPageFor, stack);
-            if (newComponents.Count == 0) return;
-
-            if (!components.Any(comp => (comp as RichTextComponent)?.DisplayText == Lang.Get("Ingredient for") + "\n"))
-            {
-                CollectibleBehaviorHandbookTextAndExtraInfo.AddHeading(components, capi, "Ingredient for", ref __result);
-                components.Add(new ClearFloatTextComponent(capi, 2));
-                components.AddRange(newComponents);
-                components.Add(new ClearFloatTextComponent(capi, 3));
-            }
-            else
-            {
-                var firstMealstack = components.FirstOrDefault(comp => comp is MealstackTextComponent);
-                int insertIndex = components.Count - 1;
-                if (firstMealstack != null) insertIndex = components.IndexOf(firstMealstack);
-                components.InsertRange(insertIndex, newComponents);
-            }
-
-
             int pieRecipeCount = 0;
             List<RichTextComponentBase> excessivePieRecipeComponents = [];
 
@@ -864,6 +845,24 @@ namespace ACulinaryArtillery
             foreach (RichTextComponentBase comp in excessivePieRecipeComponents)
             {
                 components.Remove(comp);
+            }
+
+            var newComponents = HandbookInfoExtensions.ACAHandbookIngredientForComponents(capi, allStacks, openDetailPageFor, stack);
+            if (newComponents.Count == 0) return;
+
+            if (!components.Any(comp => (comp as RichTextComponent)?.DisplayText == Lang.Get("Ingredient for") + "\n"))
+            {
+                CollectibleBehaviorHandbookTextAndExtraInfo.AddHeading(components, capi, "Ingredient for", ref __result);
+                components.Add(new ClearFloatTextComponent(capi, 2));
+                components.AddRange(newComponents);
+                components.Add(new ClearFloatTextComponent(capi, 3));
+            }
+            else
+            {
+                var firstMealstack = components.FirstOrDefault(comp => comp is MealstackTextComponent);
+                int insertIndex = components.Count - 1;
+                if (firstMealstack != null) insertIndex = components.IndexOf(firstMealstack);
+                components.InsertRange(insertIndex, newComponents);
             }
         }
     }
