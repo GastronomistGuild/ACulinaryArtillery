@@ -3,12 +3,16 @@
 - Mixing bowl locking function should work with a liquid container and not block fluids when locked
 - Place on Slabs integration?
 
-~1.22_v2.0.0-dev.28~
+~1.22_v2.0.0-dev.XX~
 - Mechanized Mixer & Cutting Board partially added; no they don't work yet stop asking me
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 - Kneading handbook page fixed
+
+~1.22_v2.0.0-dev.28~
+- Hydrate or Diedrate compatiblity fixed (thanks to InsanityGod!) 
+- Fixed: Bottle and meat racks did not display held items (thanks to Lazula!)
 
 ~1.22_v2.0.0-dev.27~
 - Fixed: Mixing recipes were overlooked in satiety calculations (thanks to Sirkku!)
@@ -25,7 +29,7 @@ Lazula fixes:
 - Fixed: Duplicate rendering for bottle racks and meat hooks caused Z-fighting
 - Fixed: Spile tree detection counted leaves as connecting trees.
 - Fixed: Vanilla bug caused pies and sealed crocks to try to accept meal servings
-- Tweak: Improve clay oven interactionm; Items are added with shift and removed without shift. Also added more detailed world interaction conditions and interaction errors
+- Tweak: Improve clay oven interaction; Items are added with shift and removed without shift. Also added more detailed world interaction conditions and interaction errors
 - Tweak: Potential fix for getCanSimmer null reference crash
 - Tweak: Added instructions on how to find spile product temperatures to the handbook
 
