@@ -82,6 +82,22 @@ namespace ACulinaryArtillery
         {
             GenMesh();
             mesher.AddMeshData(mesh);
+
+            if (tfMatrices == null)
+            {
+                updateMeshes();
+            }
+
+            for (int i = 0; i < DisplayedItems; i++)
+            {
+                ItemSlot slot = Inventory[i];
+                if (slot.Empty || tfMatrices == null || slot.Itemstack.Collectible.Code == null)
+                {
+                    continue;
+                }
+                mesher.AddMeshData(getMesh(slot), tfMatrices[i]);
+            }
+
             return true;
         }
 
