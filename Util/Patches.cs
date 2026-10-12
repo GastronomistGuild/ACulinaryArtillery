@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Diagnostics;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.Common.Entities;
@@ -13,7 +12,7 @@ using Vintagestory.API.MathTools;
 using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 using System.Runtime.CompilerServices;
-using Vintagestory.API.Server;
+using System.Reflection.Emit;
 
 namespace ACulinaryArtillery
 {
@@ -95,59 +94,38 @@ namespace ACulinaryArtillery
             return num2;
         }
 
-        [HarmonyPrefix]
+        [HarmonyTranspiler]
         [HarmonyPatch("tryEatStop")]
-        public static bool AddHealOverTimePatch(BlockLiquidContainerBase __instance, float secondsUsed, ItemSlot slot, EntityAgent byEntity)
+        public static IEnumerable<CodeInstruction> AddHealOverTimePatch(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
         {
-            var stack = slot.Itemstack;
-            if (stack == null || __instance.IsEmpty(stack))
-            {
-                return true;
-            }
+            var matcher = new CodeMatcher(instructions, generator);
+            matcher.Start()
+                .MatchEndForward(
+                    CodeMatch.IsLdloc(),
+                    CodeMatch.LoadsField(AccessTools.Field(typeof(FoodNutritionProperties), nameof(FoodNutritionProperties.Health))),
+                    CodeMatch.LoadsConstant(0f),
+                    new CodeMatch(code => code.opcode == OpCodes.Beq || code.opcode == OpCodes.Beq_S)
+                );
 
-            if (secondsUsed < 0.95f || byEntity.World is not IServerWorldAccessor world) return false;
+            matcher.MatchEndForward(
+                new CodeMatch(OpCodes.Newobj, AccessTools.Constructor(typeof(DamageSource)))
+            );
 
-            var containableProps = __instance.GetContentProps(stack);
-            var nutriProps = __instance.GetNutritionPropertiesPerLitre(world, stack, byEntity)?.Clone();
-            if (containableProps == null || nutriProps == null) return false;
+            matcher.InsertAfter(
+                new CodeInstruction(OpCodes.Dup), // the new damage source
+                CodeInstruction.LoadLocal(1), // the stack
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(AntiCorkTransmutationPatch), nameof(SetHealingOverTimeOnSource)))
+            );
 
-            float litresToDrink = Math.Max(1.0f / containableProps.ItemsPerLitre, __instance.DrinkPortionSize);
+            return matcher.InstructionEnumeration();
+        }
 
-            int itemPortionsDrank = __instance.SplitStackAndPerformAction(byEntity, slot, (stack) => __instance.TryTakeLiquid(stack, litresToDrink).StackSize);
-            if (itemPortionsDrank == 0) return false;
-            float itemsPerLitreMul = itemPortionsDrank / containableProps.ItemsPerLitre;
-
-            nutriProps.Satiety *= itemsPerLitreMul;
-            nutriProps.Health *= itemsPerLitreMul;
-            nutriProps.Intoxication *= itemsPerLitreMul;
-            nutriProps.Psychedelic *= itemsPerLitreMul;
-
-            byEntity.ReceiveSaturation(nutriProps.Satiety, nutriProps.FoodCategory);
-
-            float intox = byEntity.WatchedAttributes.GetFloat("intoxication");
-            byEntity.WatchedAttributes.SetFloat("intoxication", Math.Min(1.1f, intox + nutriProps.Intoxication));
-
-            float psyche = byEntity.WatchedAttributes.GetFloat("psychedelic");
-            byEntity.WatchedAttributes.SetFloat("psychedelic", Math.Min(2.0f, psyche + nutriProps.Psychedelic));
-
-            if (nutriProps.Health != 0)
-            {
-                float durationSec = stack.Collectible?.Attributes?["eatHealthEffectDurationSec"].AsFloat(ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec;
-                int ticks = stack.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
-
-                byEntity.ReceiveDamage(new DamageSource
-                {
-                    Source = EnumDamageSource.Internal,
-                    Type = nutriProps.Health > 0 ? EnumDamageType.Heal : EnumDamageType.Poison,
-                    Duration = TimeSpan.FromSeconds(durationSec),
-                    TicksPerDuration = ticks
-                }, Math.Abs(nutriProps.Health));
-            }
-
-            slot.MarkDirty();
-            world.PlayerByUid((byEntity as EntityPlayer)?.PlayerUID)?.InventoryManager.BroadcastHotbarSlot();
-
-            return false;
+        public static void SetHealingOverTimeOnSource(DamageSource source, ItemStack stack)
+        {
+            float durationSec = stack.Collectible?.Attributes?["eatHealthEffectDurationSec"].AsFloat(ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec;
+            int ticks = stack.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
+            source.Duration = TimeSpan.FromSeconds(durationSec);
+            source.TicksPerDuration = ticks;
         }
     }
 
