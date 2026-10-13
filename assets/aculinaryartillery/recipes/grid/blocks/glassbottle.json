@@ -2,7 +2,7 @@
 	"ingredientPattern": "S,G",
 	"ingredients": {
         "S": { "type": "item", "tags": ["tool-saw"], "isTool": true },
-		"G": { "type": "block", "code": "game:glassslab-*-down-free", "name": "color" }
+		"G": { "type": "block", "code": "game:glassslab-*-down-free", "name": "color", "allowedVariants": [ "green", "blue", "brown", "pink", "plain", "quartz", "red", "smoky", "vintage", "violet", "yellow" ] }
 	},
 	"width": 1,
 	"height": 2,
