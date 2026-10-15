@@ -129,6 +129,68 @@ namespace ACulinaryArtillery
         }
     }
 
+    [HarmonyPatch(typeof(CollectibleObject))]
+    public static class CollectibleObjectPatches
+    {
+        // This patch lets us shim in the healing timer and ticks
+        // set in the mod config. Only uses them as a fallback
+        // should they not be explicitly set in the attributes.
+        [HarmonyTranspiler]
+        [HarmonyPatch(typeof(CollectibleObject), "tryEatStop")]
+        public static IEnumerable<CodeInstruction> AddHealOverTimePatch(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+        {
+            var matcher = new CodeMatcher(instructions, generator);
+
+            matcher.DeclareLocal(typeof(double), out var durationLocal);
+            matcher.DeclareLocal(typeof(int), out var ticksLocal);
+
+            // Load the ItemSlot and get the proper duration and ticks
+            matcher.Start().Insert(
+                CodeInstruction.LoadArgument(2),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CollectibleObjectPatches), nameof(GetHealDuration))),
+                CodeInstruction.StoreLocal(durationLocal.LocalIndex),
+
+                CodeInstruction.LoadArgument(2),
+                new CodeInstruction(OpCodes.Call, AccessTools.Method(typeof(CollectibleObjectPatches), nameof(GetHealTicks))),
+                CodeInstruction.StoreLocal(ticksLocal.LocalIndex)
+            );
+
+            // Navigate to loading the duration local
+            matcher.MatchStartForward(
+                CodeMatch.Calls(AccessTools.Method(typeof(TimeSpan), nameof(TimeSpan.FromSeconds), [typeof(double)])),
+                CodeMatch.StoresField(AccessTools.Field(typeof(DamageSource), nameof(DamageSource.Duration)))
+            );
+
+            // Replace the duration with our own
+            matcher.Insert(
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldloc, durationLocal.LocalIndex)
+            );
+
+            // Navigate to loading the ticks local
+            matcher.MatchStartForward(
+                CodeMatch.StoresField(AccessTools.Field(typeof(DamageSource), nameof(DamageSource.TicksPerDuration)))
+            );
+
+            // Replace the ticks with our own
+            matcher.Insert(
+                new CodeInstruction(OpCodes.Pop),
+                new CodeInstruction(OpCodes.Ldloc, ticksLocal.LocalIndex)
+            );
+
+            return matcher.InstructionEnumeration();
+        }
+
+        public static double GetHealDuration(ItemSlot slot)
+        {
+            return slot.Itemstack?.ItemAttributes?["eatHealthEffectDurationSec"].AsDouble(ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealDurationSec;
+        }
+
+        public static int GetHealTicks(ItemSlot slot)
+        {
+            return slot.Itemstack?.ItemAttributes?["eatHealthEffectEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
+        }
+    }
 
     [HarmonyPatch(typeof(BlockPie))]
     public static class BlockPiePatches
