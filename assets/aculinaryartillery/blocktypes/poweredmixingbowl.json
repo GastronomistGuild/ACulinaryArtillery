@@ -15,7 +15,8 @@
                     "text": "aculinaryartillery:block-handbooktext-poweredmixingbowl"
                 }
             ]
-		}
+		},
+		"cookingPotYTranslate": 0.75
 	},
 	"variantgroups": [
 		{ "code": "color", "states": ["blue", "earthyorange", "fire", "black", "brown", "cream", "gray", "orange", "red", "tan"] },

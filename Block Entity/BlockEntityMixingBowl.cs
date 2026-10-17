@@ -7,6 +7,7 @@ using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.MathTools;
 using Vintagestory.API.Server;
+using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 using Vintagestory.GameContent.Mechanics;
 
@@ -59,22 +60,44 @@ namespace ACulinaryArtillery
 
         MeshData? mixingBowlBaseMesh
         {
-            get
-            {
-                Api.ObjectCache.TryGetValue(Block.FirstCodePart() + "-basemesh-" + Block.Variant["color"] + "-" + Block.Variant["material"], out object? value);
-                return value as MeshData;
-            }
-            set => Api.ObjectCache[Block.FirstCodePart() + "-basemesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]] = value;
+            get => ObjectCacheUtil.TryGet<MeshData>(Api, Block.Code.Domain + ":" + Block.FirstCodePart() + "-basemesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]);
+            set => Api.ObjectCache[Block.Code.Domain + ":" + Block.FirstCodePart() + "-basemesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]] = value;
         }
 
         MeshData? mixingBowlTopMesh
         {
-            get
+            get => ObjectCacheUtil.TryGet<MeshData>(Api, Block.Code.Domain + ":" + Block.FirstCodePart() + "-topmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]);
+            set => Api.ObjectCache[Block.Code.Domain + ":" + Block.FirstCodePart() + "-topmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]] = value;
+        }
+
+        MeshData? mixingBowlTopWithPotMesh
+        {
+            get => ObjectCacheUtil.TryGet<MeshData>(Api, Block.Code.Domain + ":" + Block.FirstCodePart() + "-topwithpotmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]);
+            set => Api.ObjectCache[Block.Code.Domain + ":" + Block.FirstCodePart() + "-topwithpotmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]] = value;
+        }
+
+        MeshData? cookingPotMesh(ITesselatorAPI tessThreadTesselator)
+        {
+            if (Api is not ICoreClientAPI capi) return new();
+
+            if (!Inventory[1].Empty)
             {
-                Api.ObjectCache.TryGetValue(Block.FirstCodePart() + "-topmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"], out object? value);
-                return value as MeshData;
+                return (Inventory[1].Itemstack?.Block as BlockCookedContainer)?.GenMesh(Inventory[1], capi.BlockTextureAtlas, Pos);
             }
-            set => Api.ObjectCache[Block.FirstCodePart() + "-topmesh-" + Block.Variant["color"] + "-" + Block.Variant["material"]] = value;
+
+            if (!Inventory[0].Empty)
+            {
+                if (capi.World.GetBlock(Inventory[0].Itemstack!.Collectible.CodeWithVariant("type", "cooked")) is not BlockCookedContainer potBlock)
+                {
+                    capi.Logger.Error($"Mixing bowl couldn't load cooked pot variant {Inventory[0].Itemstack!.Collectible.CodeWithVariant("type", "cooked")}");
+                    return new();
+                }
+
+                tessThreadTesselator.TesselateShape(potBlock, Shape.TryGet(capi, "shapes/block/clay/pot-opened-empty.json"), out MeshData mesh);
+                return mesh;
+            }
+
+            return new();
         }
 
         #endregion
@@ -92,7 +115,7 @@ namespace ACulinaryArtillery
         public BlockEntityMixingBowl()
         {
             inventory = new InventoryMixingBowl(null, null, this);
-            inventory.SlotModified += OnSlotModifid;
+            inventory.SlotModified += OnSlotModified;
         }
 
         public override void Initialize(ICoreAPI api)
@@ -118,7 +141,13 @@ namespace ACulinaryArtillery
                     Volume = 0.75f
                 });
 
-                renderer = new(capi, Pos, GenMesh("top") ?? new()) { mechPowerPart = mpc };
+                renderer = new(capi, Pos, GenMesh("top") ?? new(), GenMesh("topwithpot") ?? new())
+                {
+                    mechPowerPart = mpc,
+                    HasPot = !inventory[0].Empty || !inventory[1].Empty,
+                    ShouldRender = true
+                };
+
                 if (automated)
                 {
                     renderer.ShouldRender = true;
@@ -129,6 +158,7 @@ namespace ACulinaryArtillery
 
                 mixingBowlBaseMesh ??= GenMesh("base");
                 mixingBowlTopMesh ??= GenMesh("top");
+                mixingBowlTopWithPotMesh ??= GenMesh("topwithpot");
             }
         }
 
@@ -322,8 +352,9 @@ namespace ACulinaryArtillery
             if (nowMixing != beforeMixing)
             {
                 if (renderer != null) renderer.ShouldRotateManual = quantityPlayersMixing > 0;
+                if (renderer != null) renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
 
-                Api.World.BlockAccessor.MarkBlockDirty(Pos, OnRetesselated);
+                Api.World.BlockAccessor.MarkBlockDirty(Pos, OnRetesselatedMixing);
 
                 if (nowMixing) ambientSound?.Start();
                 else ambientSound?.Stop();
@@ -334,7 +365,7 @@ namespace ACulinaryArtillery
             beforeMixing = nowMixing;
         }
 
-        private void OnSlotModifid(int slotid)
+        private void OnSlotModified(int slotid)
         {
             clientDialog?.Update(inputMixTime, MaxMixingTime, GetOutputText());
 
@@ -345,13 +376,27 @@ namespace ACulinaryArtillery
 
                 if (clientDialog?.IsOpened() == true) clientDialog.SingleComposer.ReCompose();
             }
+
+            // Regenerate the cooking pot mesh if it entered or left one of its slots
+            if (slotid == 0 || slotid == 1)
+            {
+                if (renderer != null) renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
+                Api.World.BlockAccessor.MarkBlockDirty(Pos, OnRetesselatedPot);
+            }
         }
 
-        private void OnRetesselated()
+        private void OnRetesselatedMixing()
         {
             if (renderer == null) return; // Maybe already disposed
 
             renderer.ShouldRender = quantityPlayersMixing > 0 || automated;
+        }
+
+        public void OnRetesselatedPot()
+        {
+            if (renderer == null) return;
+
+            renderer.ShouldRender = true;
         }
 
         internal MeshData? GenMesh(string type = "base")
@@ -562,17 +607,26 @@ namespace ACulinaryArtillery
 
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tesselator)
         {
-            if (Block == null || mixingBowlTopMesh == null || renderer == null) return false;
+            MeshData? topMesh = inventory[0].Empty ? mixingBowlTopMesh : mixingBowlTopWithPotMesh;
+            if (Block == null || topMesh == null || renderer == null) return false;
 
             mesher.AddMeshData(mixingBowlBaseMesh);
             if (quantityPlayersMixing == 0 && !automated)
             {
+                renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
+                float translateY = !inventory[0].Empty || !inventory[1].Empty ? 12.5f / 16f : 11 / 16f;
+
                 mesher.AddMeshData(
-                    mixingBowlTopMesh.Clone()
+                    topMesh.Clone()
                     .Rotate(new Vec3f(0.5f, 0.5f, 0.5f), 0, renderer.AngleRad, 0)
-                    .Translate(0 / 16f, 11 / 16f, 0 / 16f)
+                    .Translate(0 / 16f, translateY, 0 / 16f)
                 );
             }
+
+            mesher.AddMeshData(
+                cookingPotMesh(tesselator)?.Clone()
+                .Translate(0 / 16f, Block.Attributes["cookingPotYTranslate"].AsFloat(), 0 / 16f)
+            );
 
             return true;
         }
