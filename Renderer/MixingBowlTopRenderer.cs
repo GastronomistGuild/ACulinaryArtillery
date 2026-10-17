@@ -16,15 +16,19 @@ namespace ACulinaryArtillery
         private BlockPos pos;
 
         MeshRef meshref;
+        MeshRef meshrefWithPot;
         public Matrixf ModelMat = new Matrixf();
+
+        public bool HasPot;
 
         public float AngleRad;
 
-        public MixingBowlTopRenderer(ICoreClientAPI capi, BlockPos pos, MeshData mesh)
+        public MixingBowlTopRenderer(ICoreClientAPI capi, BlockPos pos, MeshData mesh, MeshData meshWithPot)
         {
             this.api = capi;
             this.pos = pos;
             meshref = capi.Render.UploadMesh(mesh);
+            meshrefWithPot = capi.Render.UploadMesh(meshWithPot);
         }
 
         public double RenderOrder => 0.5;
@@ -43,10 +47,12 @@ namespace ACulinaryArtillery
             IStandardShaderProgram prog = rpi.PreparedStandardShader(pos.X, pos.Y, pos.Z);
             prog.Tex2D = api.BlockTextureAtlas.AtlasTextures[0].TextureId;
 
+            float translateY = HasPot ? 12.5f / 16f : 11 / 16f;
+
             prog.ModelMatrix = ModelMat
                 .Identity()
                 .Translate(pos.X - camPos.X, pos.Y - camPos.Y, pos.Z - camPos.Z)
-                .Translate(0.5f, 11f / 16f, 0.5f)
+                .Translate(0.5f, translateY, 0.5f)
                 .RotateY(AngleRad)
                 .Translate(-0.5f, 0, -0.5f)
                 .Values
@@ -54,7 +60,7 @@ namespace ACulinaryArtillery
 
             prog.ViewMatrix = rpi.CameraMatrixOriginf;
             prog.ProjectionMatrix = rpi.CurrentProjectionMatrix;
-            rpi.RenderMesh(meshref);
+            rpi.RenderMesh(HasPot ? meshrefWithPot : meshref);
             prog.Stop();
 
             if (ShouldRotateManual)
