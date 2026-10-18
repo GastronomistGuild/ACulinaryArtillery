@@ -65,7 +65,7 @@ namespace ACulinaryArtillery
         public override void FromTreeAttributes(ITreeAttribute tree)
         {
             slots = SlotsFromTreeAttributes(tree, slots);
-            
+
             if (Api != null)
             {
                 for (int i = 2; i < Count; i++)
@@ -74,7 +74,7 @@ namespace ACulinaryArtillery
                     (this[i] as ItemSlotMixingBowl)?.Set(machine, i - 2);
                 }
             }
-            
+
         }
 
         public override void ToTreeAttributes(ITreeAttribute tree)
@@ -102,7 +102,7 @@ namespace ACulinaryArtillery
         }
     }
 
-    public class ItemSlotMixingBowl : ItemSlot
+    public class ItemSlotMixingBowl : ItemSlotWatertight
     {
         BlockEntityMixingBowl machine;
         int stackNum;
@@ -143,8 +143,6 @@ namespace ACulinaryArtillery
 
             if (sourceSlot.Itemstack.Collectible is ILiquidSource source && source.AllowHeldLiquidTransfer)
             {
-                ItemSlotMixingBowl? mixingSlot = inventory[1] as ItemSlotMixingBowl;
-
                 ItemStack? liquidcontainerbaseContents = source.GetContent(sourceSlot.Itemstack);
                 bool stackable = !Empty && Itemstack.Equals(world, liquidcontainerbaseContents, GlobalConstants.IgnoredStackAttributes);
 
@@ -155,7 +153,7 @@ namespace ACulinaryArtillery
                     var lprops = BlockLiquidContainerBase.GetContainableProps(liquidcontainerbaseContents);
                     float itemsPerLitre = lprops?.ItemsPerLitre ?? 1;
 
-                    float toMoveLitres = op.CtrlDown ? source.TransferSizeLitres : source.CapacityLitres;
+                    float toMoveLitres = op.ShiftDown ? source.TransferSizeLitres : source.CapacityLitres;
                     float curSourceLitres = liquidcontainerbaseContents.StackSize / itemsPerLitre * liquidcontainerbaseStack.StackSize;
                     float curDestLitres = this.StackSize / itemsPerLitre;
                     // Cap by source amount
