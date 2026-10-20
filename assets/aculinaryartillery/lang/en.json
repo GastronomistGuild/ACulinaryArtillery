@@ -56,6 +56,9 @@
   "block-handbooktitle-spile": "Metal Spile",
   "block-handbooktext-spile": "A metal peg that broaches liquid from various trees. Tapping a tree creates a small wound in the bark that allows sap to flow like blood, albeit slowly. Whether or not a tree produces liquid depends on the local temperature. Trees produce more sap, gum, or nectar at the beginning and end of their tapping seasons, while the changes in weather stimulate the movement of sap. To find the production temperature for a tree product, see its handbook page.",
 
+  "game:blockhelp-cheese-shear": "Shear off coating",
+  "cheesemaking-notenoughliquid": "Need at least {0} litres to create a bundle of this liquid",
+
   "block-saucepan-blue-fired" : "Earthy brown ceramic saucepan",
   "block-saucepan-earthyorange-fired" : "Earthy orange ceramic saucepan",
   "block-saucepan-black-fired" : "Black ceramic saucepan",

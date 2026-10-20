@@ -1,0 +1,8 @@
+[
+    {
+        "file": "game:blocktypes/cloth/linen.json",
+        "path": "/class",
+        "op": "replace",
+        "value": "BlockExpandedLinen"
+    }
+]
