@@ -13,6 +13,9 @@ using Vintagestory.API.Util;
 using Vintagestory.GameContent;
 using System.Runtime.CompilerServices;
 using System.Reflection.Emit;
+using Vintagestory.API.Datastructures;
+using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace ACulinaryArtillery
 {
@@ -189,6 +192,100 @@ namespace ACulinaryArtillery
         public static int GetHealTicks(ItemSlot slot)
         {
             return slot.Itemstack?.ItemAttributes?["eatHealthEffectEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
+        }
+    }
+
+    [HarmonyPatch(typeof(ItemSlotCreative))]
+    public static class ItemSlotCreativePatches
+    {
+        [HarmonyPostfix]
+        [HarmonyPatch(nameof(ItemSlotCreative.TakeOut))]
+        public static void TakeOutPostfix(ItemSlotCreative __instance, ItemStack __result, int quantity)
+        {
+            float[] sat = new float[6];
+            List<string> ingredients = [];
+
+            if (__result.Collectible is ItemExpandedRawFood erf)
+            {
+                if ((__result.Attributes["madeWith"] as StringArrayAttribute)?.value is string[] addIngs)
+                {
+                    for (int i = 0; i < addIngs.Length; i++)
+                    {
+                        bool hasCount = false;
+                        // Look ahead for the quantity
+                        if (i + 1 < addIngs.Length && int.TryParse(addIngs[i + 1], out int count))
+                        {
+                            hasCount = true;
+                        }
+                        else
+                        {
+                            count = 1;
+                        }
+
+                        CollectibleObject? obj = __instance.Inventory.Api.World.GetItem(addIngs[i]);
+                        obj ??= __instance.Inventory.Api.World.GetBlock(addIngs[i]);
+
+                        if (obj != null)
+                        {
+                            erf.GetNutrientsFromIngredient(ref sat, obj, count);
+                            ingredients.Add(addIngs[i]);
+                        }
+
+                        if (hasCount) i++;
+                    }
+                }
+
+                __result.Attributes.RemoveAttribute("madeWith");
+                __result.Attributes.RemoveAttribute("expandedSats");
+
+                __result.Attributes["madeWith"] = new StringArrayAttribute([.. ingredients]);
+                __result.Attributes["expandedSats"] = new FloatArrayAttribute([.. sat]);
+            }
+        }
+
+        [HarmonyPostfix]
+        [HarmonyPatch(nameof(ItemSlotCreative.TakeOutWhole))]
+        public static void TakeOutWholePostfix(ItemSlotCreative __instance, ItemStack __result)
+        {
+            float[] sat = new float[6];
+            List<string> ingredients = [];
+
+            if (__result.Collectible is ItemExpandedRawFood erf)
+            {
+                if ((__result.Attributes["madeWith"] as StringArrayAttribute)?.value is string[] addIngs)
+                {
+                    for (int i = 0; i < addIngs.Length; i++)
+                    {
+                        bool hasCount = false;
+                        // Look ahead for the quantity
+                        if (i + 1 < addIngs.Length && int.TryParse(addIngs[i + 1], out int count))
+                        {
+                            hasCount = true;
+                        }
+                        else
+                        {
+                            count = 1;
+                        }
+
+                        CollectibleObject? obj = __instance.Inventory.Api.World.GetItem(addIngs[i]);
+                        obj ??= __instance.Inventory.Api.World.GetBlock(addIngs[i]);
+
+                        if (obj != null)
+                        {
+                            erf.GetNutrientsFromIngredient(ref sat, obj, count);
+                            ingredients.Add(addIngs[i]);
+                        }
+
+                        if (hasCount) i++;
+                    }
+                }
+
+                __result.Attributes.RemoveAttribute("madeWith");
+                __result.Attributes.RemoveAttribute("expandedSats");
+
+                __result.Attributes["madeWith"] = new StringArrayAttribute([.. ingredients]);
+                __result.Attributes["expandedSats"] = new FloatArrayAttribute([.. sat]);
+            }
         }
     }
 

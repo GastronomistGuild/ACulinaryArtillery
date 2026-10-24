@@ -66,7 +66,7 @@ namespace ACulinaryArtillery
                 if (slot.Itemstack == null) continue;
 
                 IRecipeIngredient? match = byRecipe?.RecipeIngredients?.FirstOrDefault(ing => ing.SatisfiesAsIngredient(slot.Itemstack));
-                if(match is CraftingRecipeIngredient recipeIngredient && (recipeIngredient.IsTool || match.Code?.FirstCodePart() == "stone")) continue;
+                if (match is CraftingRecipeIngredient recipeIngredient && (recipeIngredient.IsTool || match.Code?.FirstCodePart() == "stone")) continue;
 
                 if (slot.Itemstack.Collectible is ItemExpandedRawFood)
                 {
@@ -328,7 +328,7 @@ namespace ACulinaryArtillery
             for (int i = 0; i < addShapes.Count; i++)
             {
                 if (!addShapes[i].Valid) continue;
-                Shape? addShape = capi.Assets.TryGet(addShapes[i]).ToObject<Shape>();
+                Shape? addShape = capi.Assets.TryGet(addShapes[i])?.ToObject<Shape>();
                 if (addShape == null) continue;
 
                 Shape clonedAddShape = addShape.Clone();
