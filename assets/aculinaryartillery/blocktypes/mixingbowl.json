@@ -18,7 +18,8 @@
                 }
             ]
         },
-        "shelvable": "SingleCenter"
+        "shelvable": "SingleCenter",
+		"cookingPotYTranslate": 0.0625
     },
 	"creativeinventory": {
 		"general": [ "*" ],
