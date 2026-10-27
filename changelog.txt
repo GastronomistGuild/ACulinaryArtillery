@@ -8,7 +8,19 @@
 - Dedicated cork/uncork button?
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
+
+~1.22_v2.0.0-dev.29~
 - Kneading handbook page fixed
+- ACA containers with aqua vitae can make alcohol soaked bandages
+
+- Russian translation updated (thanks to ChimMAG!)
+
+Lazula changes:
+- Feature: Display cooking pot and finished meal in mixing bowl
+- Tweak: Use a transpiler for meal healing over time patch to improve compatibility
+- Tweak: Inherit ItemSlotMixingBowl from ItemSlotWatertight for better compatibility
+- Fixed: Glass bottle recipe did not limit variants, causing unresolved recipe outputs with new glass types
+- Fixed: Healing over time did not apply to all foods
 
 ~1.22_v2.0.0-dev.28~
 - Hydrate or Diedrate compatiblity fixed (thanks to InsanityGod!) 
