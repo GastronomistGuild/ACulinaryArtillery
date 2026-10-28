@@ -144,7 +144,7 @@ namespace ACulinaryArtillery
                 renderer = new(capi, Pos, GenMesh("top") ?? new(), GenMesh("topwithpot") ?? new())
                 {
                     mechPowerPart = mpc,
-                    HasPot = !inventory[0].Empty || !inventory[1].Empty,
+                    HasPot = HasPot,
                     ShouldRender = true
                 };
 
@@ -239,14 +239,14 @@ namespace ACulinaryArtillery
                 string? mealBlockCode = InputStack.ItemAttributes?["mealBlockCode"].AsString();
                 if (mealBlockCode == null) return;
 
-                Block mealBlock = Api.World.GetBlock(new AssetLocation(mealBlockCode));
+                Block? mealBlock = Api.World.GetBlock(new AssetLocation(mealBlockCode));
                 mixedStack = new ItemStack(mealBlock);
                 servings = mrecipe.GetQuantityServings(stacks);
 
                 for (int i = 0; i < stacks.Length; i++)
                 {
                     CookingRecipeIngredient? ingred = mrecipe.GetIngrendientFor(stacks[i]);
-                    ItemStack? cookedStack = ingred?.GetMatchingStack(stacks[i])?.CookedStack?.ResolvedItemstack.Clone();
+                    ItemStack? cookedStack = ingred?.GetMatchingStack(stacks[i])?.CookedStack?.ResolvedItemstack?.Clone();
                     if (cookedStack != null) stacks[i] = cookedStack;
                 }
 
@@ -261,7 +261,7 @@ namespace ACulinaryArtillery
                     stacks[i].StackSize /= servings; // This makes sure that there's only one serving worth of items in the pot, which is needed for rot
                 }
 
-                ((BlockCookedContainer)mealBlock).SetContents(mrecipe.Code, servings, mixedStack, stacks);
+                (mealBlock as BlockCookedContainer)?.SetContents(mrecipe.Code, servings, mixedStack, stacks);
             }
             else if (drecipe != null) mixedStack = drecipe.TryGetOutput(IngredSlots);
 
@@ -298,7 +298,7 @@ namespace ACulinaryArtillery
                     //the recipe must be valid at this point, so can't we just take out everything? Like so
                     if (IngredSlots[i].Itemstack != null)
                     {
-                        IngredSlots[i].TakeOut(IngredSlots[i].Itemstack.StackSize);
+                        IngredSlots[i].TakeOut(IngredSlots[i].Itemstack?.StackSize ?? 1);
                         IngredSlots[i].MarkDirty();
                     }
                 }
@@ -352,7 +352,7 @@ namespace ACulinaryArtillery
             if (nowMixing != beforeMixing)
             {
                 if (renderer != null) renderer.ShouldRotateManual = quantityPlayersMixing > 0;
-                if (renderer != null) renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
+                if (renderer != null) renderer.HasPot = HasPot;
 
                 Api.World.BlockAccessor.MarkBlockDirty(Pos, OnRetesselatedMixing);
 
@@ -380,7 +380,7 @@ namespace ACulinaryArtillery
             // Regenerate the cooking pot mesh if it entered or left one of its slots
             if (slotid == 0 || slotid == 1)
             {
-                if (renderer != null) renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
+                if (renderer != null) renderer.HasPot = HasPot;
                 Api.World.BlockAccessor.MarkBlockDirty(Pos, OnRetesselatedPot);
             }
         }
@@ -559,7 +559,7 @@ namespace ACulinaryArtillery
         public BlockCookingContainer? Pot => inventory[0].Itemstack?.Collectible as BlockCookingContainer;
         public ItemSlot OutputSlot => inventory[1];
 
-        public ItemStack InputStack
+        public ItemStack? InputStack
         {
             get => inventory[0].Itemstack;
             set
@@ -569,10 +569,12 @@ namespace ACulinaryArtillery
             }
         }
 
+        public bool HasPot => inventory[0].Itemstack?.Collectible is BlockCookingContainer || inventory[1].Itemstack?.Collectible is BlockCookedContainer;
+
         public ItemSlot[] IngredSlots => [inventory[2], inventory[3], inventory[4], inventory[5], inventory[6], inventory[7]];
         public ItemStack[] IngredStacks => [.. IngredSlots.Select(slot => slot.Itemstack).Where(stack => stack != null)];
 
-        public ItemStack OutputStack
+        public ItemStack? OutputStack
         {
             get => inventory[1].Itemstack;
             set
@@ -607,14 +609,14 @@ namespace ACulinaryArtillery
 
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tesselator)
         {
-            MeshData? topMesh = inventory[0].Empty ? mixingBowlTopMesh : mixingBowlTopWithPotMesh;
+            MeshData? topMesh = HasPot ? mixingBowlTopWithPotMesh : mixingBowlTopMesh;
             if (Block == null || topMesh == null || renderer == null) return false;
 
             mesher.AddMeshData(mixingBowlBaseMesh);
             if (quantityPlayersMixing == 0 && !automated)
             {
-                renderer.HasPot = !inventory[0].Empty || !inventory[1].Empty;
-                float translateY = !inventory[0].Empty || !inventory[1].Empty ? 12.5f / 16f : 11 / 16f;
+                renderer.HasPot = HasPot;
+                float translateY = HasPot ? 12.5f / 16f : 11 / 16f;
 
                 mesher.AddMeshData(
                     topMesh.Clone()
