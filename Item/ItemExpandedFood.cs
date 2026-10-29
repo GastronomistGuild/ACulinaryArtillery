@@ -6,6 +6,7 @@ using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 using Vintagestory.API.Datastructures;
 using Vintagestory.API.Server;
+using Vintagestory.GameContent;
 
 namespace ACulinaryArtillery
 {
@@ -24,9 +25,16 @@ namespace ACulinaryArtillery
                 float satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, slot.Itemstack, byEntity);
                 float healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, slot.Itemstack, byEntity);
 
+                if (byEntity.GetBehavior<EntityBehaviorHunger>() is not EntityBehaviorHunger ebh) return;
+
                 foreach (FoodNutritionProperties prop in addProps)
                 {
-                    byEntity.ReceiveSaturation(prop.Satiety * satLossMul, prop.FoodCategory);
+                    float sat = prop.Satiety * satLossMul;
+                    // Don't add more delay than there would be for the available satiety
+                    // Need this check because you can eat normal food beyond max hunger
+                    float satForLossDelay = Math.Min(sat, ebh.MaxSaturation - ebh.Saturation);
+                    float satLossDelay = slot.Itemstack?.ItemAttributes["mealSatLossDelay"].AsBool() == true ? Math.Min(1.3f, satForLossDelay * 3) * 10 + satForLossDelay / 70f * 60f : 10;
+                    byEntity.ReceiveSaturation(sat, prop.FoodCategory, saturationLossDelay: satLossDelay);
 
                     float healthChange = prop.Health * healthLossMul;
 
