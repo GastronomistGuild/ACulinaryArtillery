@@ -71,7 +71,7 @@ namespace ACulinaryArtillery
                     ?? capi.World.GetItem("aculinaryartillery:bighook-copper")?.FirstTexture;
             }
 
-            DynamicTextureSource textureSource = new(capi, Block, "wood");
+            DynamicTextureSource textureSource = new(capi, Block);
             if (woodTexture != null) textureSource.GetOrInsertTexture("wood", woodTexture);
             if (metalTexture != null) textureSource.GetOrInsertTexture("metal", metalTexture);
 

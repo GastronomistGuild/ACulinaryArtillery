@@ -20,6 +20,7 @@ namespace ACulinaryArtillery
             api.RegisterBlockClass("BlockBottle", typeof(BlockBottle));
             api.RegisterBlockClass("BlockSpile", typeof(BlockSpile));
             api.RegisterBlockClass("BlockSaucepan", typeof(BlockSaucepan));
+            api.RegisterBlockClass("BlockStoppableContainer", typeof(BlockStoppableContainer));
 
             api.RegisterBlockEntityClass("MeatHooks", typeof(BlockEntityMeatHooks));
             api.RegisterBlockEntityClass("BottleRack", typeof(BlockEntityBottleRack));

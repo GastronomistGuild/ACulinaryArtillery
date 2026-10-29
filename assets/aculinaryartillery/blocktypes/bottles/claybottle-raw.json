@@ -12,17 +12,17 @@
 		"perishRate": 0.1,
 		"handbook": { "groupBy": [ "bottle-clay-*-raw" ] }
 	},
-	attributesByType:{
-		"bottle-clay-red-raw":{
-			beehivekiln:{
+	"attributesByType" : {
+		"bottle-clay-red-raw": {
+			"beehivekiln": {
 				"0": { "type": "block", "code": "aculinaryartillery:bottle-clay-tan-fired" },
 				"1": { "type": "block", "code": "aculinaryartillery:bottle-clay-orange-fired" },
 				"2": { "type": "block", "code": "aculinaryartillery:bottle-clay-red-fired" },
 				"3": { "type": "block", "code": "aculinaryartillery:bottle-clay-brown-fired" }
 			}
 		},
-		"bottle-clay-blue-raw":{
-			beehivekiln:{
+		"bottle-clay-blue-raw": {
+			"beehivekiln": {
 				"0": { "type": "block", "code": "aculinaryartillery:bottle-clay-cream-fired"},
 				"1": { "type": "block", "code": "aculinaryartillery:bottle-clay-gray-fired"},
 				"2": { "type": "block", "code": "aculinaryartillery:bottle-clay-black-fired"},
@@ -30,7 +30,7 @@
 			}
 		},
 		"bottle-clay-fire-raw":{
-			beehivekiln:{
+			"beehivekiln": {
 				"0": { "type": "block", "code": "aculinaryartillery:bottle-clay-fire-fired"},
 				"1": { "type": "block", "code": "aculinaryartillery:bottle-clay-fire-fired"},
 				"2": { "type": "block", "code": "aculinaryartillery:bottle-clay-fire-fired"},
@@ -42,7 +42,7 @@
 	"replaceable": 1,
 	"behaviors": [
 		{ "name": "GroundStorable", "properties": { "layout": "Quadrants", "collisionBox": { "x1": 0, "y1": 0, "z1": 0, "x2": 1, "y2": 0.125, "z2": 1 } } },
-		{ "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"},
+		{ "name": "Unplaceable", "__comment": "The ground storable obsoletes this being a block. Should be an item, but is kept a block for backwards compatibility"}
 	],
 	"combustiblePropsByType": {
 		"*-red-raw": {
@@ -60,7 +60,7 @@
 			"smeltingType": "fire",
 			"smeltedStack": {"type": "block", "code": "bottle-{material}-{color}-fired" },
 			"requiresContainer": false
-		},
+		}
 	},
 	"maxstacksize": 64,
 	"blockmaterial": "Ceramic",

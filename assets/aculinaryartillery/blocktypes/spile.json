@@ -32,7 +32,8 @@
             "translation": { "x": -0.175, "y": -0.4125, "z": 0.325 },
             "rotation": { "x": 0, "y": 0, "z": 90 },
             "scale": 0.7
-        }
+        },
+		"dynamicTextureSourceDefaultName": "material"
 	},
 	"entityclass": "Spile",
 	"class": "BlockSpile",

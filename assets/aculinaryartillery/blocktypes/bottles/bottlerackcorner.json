@@ -7,7 +7,8 @@
     "handbook": {
       "groupBy": ["bottlerackcorner-*"],
       "extraSections": [ {"title": "aculinaryartillery:block-handbooktitle-bottlerackcorner", "text": "aculinaryartillery:block-handbooktext-bottlerackcorner" } ]
-    }
+    },
+    "dynamicTextureSourceDefaultName": "frame"
   },
   "materialDensity": 700,
   "variantgroups": [
