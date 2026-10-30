@@ -16,15 +16,15 @@
 - Russian translation updated (thanks to ChimMAG!)
 
 Lazula changes:
+- Feature: Add liquid container stopper varieties and wax sealant
 - Feature: Display cooking pot and finished meal in mixing bowl
+- Feature: Add expandedSats from madeWith when taking from ItemSlotCreative
+- Feature: Add ability for expanded foods to have the meal satiety delay
 - Tweak: Use a transpiler for meal healing over time patch to improve compatibility
 - Tweak: Inherit ItemSlotMixingBowl from ItemSlotWatertight for better compatibility
 - Fixed: Glass bottle recipe did not limit variants, causing unresolved recipe outputs with new glass types
 - Fixed: Healing over time did not apply to all foods
-
-~1.22_v2.0.0-dev.29~
 - Fixed: Crash when ItemExpandedRawFood couldn't find shapes for additional ingredients
-- Feature: Extra nutrients are now added when creative inventory items have the madeWith attribute
 
 ~1.22_v2.0.0-dev.29~
 - Added new glass, ceramic, metal, and wood stoppers in addition to the normal oak bark cork
