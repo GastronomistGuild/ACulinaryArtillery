@@ -154,7 +154,7 @@ namespace ACulinaryArtillery
 
             if (isStopping && op.CurrentPriority == EnumMergePriority.DirectMerge && sinkSlot.Itemstack != null && sourceSlot.Itemstack != null)
             {
-                ItemStack stopperedContainer = new(op.World.GetBlock(sinkSlot.Itemstack.Collectible.CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = sinkSlot.Itemstack.Attributes };
+                ItemStack stopperedContainer = new(op.World.GetBlock(sinkSlot.Itemstack.Collectible.CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = sinkSlot.Itemstack.Attributes.Clone() };
                 ItemStack stopper = sourceSlot.Itemstack.Clone();
                 SetStopper(stopperedContainer, stopper);
 
@@ -181,7 +181,7 @@ namespace ACulinaryArtillery
 
             if (isSealing && op.CurrentPriority == EnumMergePriority.DirectMerge && sinkSlot.Itemstack != null && sourceSlot.Itemstack != null)
             {
-                ItemStack sealedContainer = new(op.World.GetBlock(sinkSlot.Itemstack.Collectible.CodeWithVariant(CorkedTypeVariant, "waxed"))) { Attributes = sinkSlot.Itemstack.Attributes };
+                ItemStack sealedContainer = new(op.World.GetBlock(sinkSlot.Itemstack.Collectible.CodeWithVariant(CorkedTypeVariant, "waxed"))) { Attributes = sinkSlot.Itemstack.Attributes.Clone() };
                 ItemStack sealant = sourceSlot.Itemstack.Clone();
                 SetSealant(sealedContainer, sealant);
 
@@ -200,6 +200,8 @@ namespace ACulinaryArtillery
                 op.MovedQuantity = 1;
                 sourceSlot.TakeOut(1);
                 sinkSlot.MarkDirty();
+
+                return;
             }
 
             if (!sourceSlot.Empty) base.TryMergeStacks(op);
@@ -228,7 +230,7 @@ namespace ACulinaryArtillery
                 if (offhandSlot != null && (offhandSlot.Empty || offhandSlot.Itemstack.Collectible == GetStopper(itemslot.Itemstack)?.Collectible))
                 {
                     ItemStack? stopper = GetStopper(itemslot.Itemstack);
-                    ItemStack unstopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "fired"))) { Attributes = itemslot.Itemstack.Attributes };
+                    ItemStack unstopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "fired"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                     SetStopper(unstopperedContainer, null);
 
                     if (itemslot.StackSize == 1)
@@ -268,7 +270,7 @@ namespace ACulinaryArtillery
                 && Variant[CorkedTypeVariant] == "fired"
                 && offhandSlot.Itemstack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true)
             {
-                ItemStack stopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes };
+                ItemStack stopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                 ItemStack stopper = offhandSlot.Itemstack.Clone();
                 stopper.StackSize = 1;
                 SetStopper(stopperedContainer, stopper);
@@ -300,7 +302,7 @@ namespace ACulinaryArtillery
             // Unsealing waxed container
             if (player != null && blockSel == null && Variant[CorkedTypeVariant] == "waxed" && !byEntity.Controls.ShiftKey && itemslot.Itemstack != null)
             {
-                ItemStack unsealedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes };
+                ItemStack unsealedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                 SetSealant(unsealedContainer, null);
 
                 if (itemslot.StackSize == 1)
@@ -328,7 +330,7 @@ namespace ACulinaryArtillery
                 && Variant[CorkedTypeVariant] == "corked"
                 && offhandSlot.Itemstack?.ItemAttributes?["isLiquidContainerSealant"]?.AsBool() == true)
             {
-                ItemStack sealedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "waxed"))) { Attributes = itemslot.Itemstack.Attributes };
+                ItemStack sealedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "waxed"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                 ItemStack sealant = offhandSlot.Itemstack.Clone();
                 sealant.StackSize = 1;
                 SetSealant(sealedContainer, sealant);
