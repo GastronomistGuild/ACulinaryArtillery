@@ -25,11 +25,19 @@ Lazula changes:
 - Fixed: Glass bottle recipe did not limit variants, causing unresolved recipe outputs with new glass types
 - Fixed: Healing over time did not apply to all foods
 - Fixed: Crash when ItemExpandedRawFood couldn't find shapes for additional ingredients
+- Feature: New expanded classes for customizing the cheesemaking process
 
 ~1.22_v2.0.0-dev.29~
 - Added new glass, ceramic, metal, and wood stoppers in addition to the normal oak bark cork
 - Liquid containers other than bottles can be stopped and sealed (currently just the vanilla jug with ACA, but other mods can add their own!)
 - Stopped containers can be sealed with wax to further extend their lifespan
+
+~1.22_v2.0.0-dev.29~
+- Feature: Added a more flexible ExpandedCheese class. Allows for configuration of sliceable objects. Includes support for:
+  - Shearing to any variant, with the option for additional outputs
+  - Custom outputs when slicing
+  - Custom ripening output under blue cheese conditions
+  - Arbitrary slice counts
 
 ~1.22_v2.0.0-dev.28~
 - Hydrate or Diedrate compatiblity fixed (thanks to InsanityGod!) 
