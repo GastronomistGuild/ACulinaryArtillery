@@ -1,0 +1,64 @@
+{
+  "code": "sealingwax",
+  "class": "ItemLiquidPortion",
+  "variantgroups": [
+    { "code":"type", "states": ["wax"] },
+    { "code":"color", "states": ["black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
+    { "code":"state", "states": ["hot","cold"] }
+  ],
+  "matterState": "liquid",
+  "attributes": {
+    "handbook": {
+      "ignoreCreativeInvStacks": true,
+      "groupBy": ["sealingwax-*-{color}-*"],
+      "extraSections": [
+        {
+          "title": "aculinaryartillery:item-handbooktitle-sealingwax",
+          "text": "aculinaryartillery:item-handbooktext-sealingwax"
+        }
+      ]
+    },
+    "inContainerTexture": { "base": "block/liquid/sealingwax/{state}/{color}" },
+    "inBowlShape": { "base": "block/food/meal/liquid" },
+    "waterTightContainerProps": {
+      "containable": true,
+      "itemsPerLitre": 100,
+      "texture": { "base": "block/liquid/sealingwax/{state}/{color}" },
+      "allowSpill": true,
+      "whenSpilled": {
+        "action": "DropContents",
+        "stack": { "type": "item", "code": "sealingwax-{type}-{color}-{state}" }
+      }
+    }
+  },
+  "attributesByType": {
+    "*-hot": {
+      "isLiquidContainerSealant": true,
+      "liquidContainerSealantPerishRate": 0.5,
+      "liquidContainerSealantTexture": { "base": "block/liquid/sealingwax/cold/{color}" }
+    }
+  },
+  "shape": { "base": "item/goop" },
+  "texture": { "base": "block/liquid/sealingwax/{state}/{color}" },
+  "creativeinventoryStacks": [ { "tabs": ["general", "liquids", "aculinaryartillery"], "stacks": [ { "type": "block", "code": "game:woodbucket", "attributes": { "ucontents": [ { "type":"item", "code": "aculinaryartillery:sealingwax-{type}-{color}-{state}", "makefull": true } ] } } ] } ],
+  "maxstacksize": 5000,
+  "materialDensity": 250,
+  "guiTransform": {
+    "translation": { "x": 0, "y": 1, "z": 0 },
+    "rotation": { "x": 123, "y": -33, "z": -13 },
+    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+    "scale": 1.4
+  },
+  "tpHandTransform": {
+    "translation": { "x": -1.5, "y": -1, "z": -1.4 }
+  },
+  "transitionablePropsByType": {
+    "*-hot": [{
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionedStack": { "type": "item", "code": "sealingwax-{type}-{color}-cold" },
+      "transitionRatio": 1
+    }]
+  }
+}
