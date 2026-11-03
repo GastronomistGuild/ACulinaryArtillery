@@ -35,7 +35,7 @@
     "*-hot": {
       "isLiquidContainerSealant": true,
       "liquidContainerSealantPerishRate": 0.5,
-      "liquidContainerSealantTexture": { "base": "block/liquid/sealingwax/cold/{color}" }
+      "liquidContainerSealantTexture": { "base": "aculinaryartillery:textures/block/liquid/sealingwax/cold/{color}" }
     }
   },
   "shape": { "base": "item/goop" },

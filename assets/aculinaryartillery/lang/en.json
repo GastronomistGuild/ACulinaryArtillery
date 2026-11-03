@@ -177,12 +177,11 @@
   "block-handbooktitle-bottle": "Bottle",
   "block-handbooktext-bottle": "A narrow-necked container used for storing and preserving liquids. When combined with a high-quality stopper, such as a <a href=\"handbook://item-aculinaryartillery:stopper-bark-cork\">cork</a>, the aging of liquids becomes possible. Liquids placed into a bottle spoil at a slightly slower rate, but stoppering the bottle greatly extends the shelf life of any liquid inside it.",
 
-  "bottle-name-stopped": "Stopped {0}",
-  "bottle-name-sealed": "Wax-sealed {0}",
-  "bottle-perish-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} perish rate</font>",
-  "bottle-cure-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} cure rate</font>",
+  "liquid-container-perish-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} perish rate</font>",
+  "liquid-container-cure-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} cure rate</font>",
+  "liquid-container-fulloffhandslot": "You must have an empty offhand slot to open a container.",
+  "not-enough-liquid-wax": "Need {0}L of this liquid to seal a container.",
 
-  "container-fulloffhandslot": "You must have an empty offhand slot to open a container.",
   "bottle-toofullforrack": "There's too much liquid in this bottle. It would spill if you put it on the rack.",
 
   "item-stopper-bark-cork": "Cork",

@@ -321,7 +321,7 @@
       },
       {
         "code": "dye",
-        "validStacks": [ { "type": "item", "code": "game:dye-gray" } ],
+        "validStacks": [ { "type": "item", "code": "game:dye-pink" } ],
         "minQuantity": 1,
         "maxQuantity": 1,
         "portionSizeLitres": 1
@@ -354,7 +354,7 @@
       },
       {
         "code": "dye",
-        "validStacks": [ { "type": "item", "code": "game:dye-gray" } ],
+        "validStacks": [ { "type": "item", "code": "game:dye-white" } ],
         "minQuantity": 1,
         "maxQuantity": 1,
         "portionSizeLitres": 1

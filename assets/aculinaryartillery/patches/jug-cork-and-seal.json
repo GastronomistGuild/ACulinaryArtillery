@@ -35,10 +35,7 @@
                 "base": "game:block/clay/hardened/{color}"
             },
             "sides": {
-                "base": "game:block/clay/hardened/{color}",
-                "overlays": [
-                    "block/clay/overlay/bottle"
-                ]
+                "base": "game:block/clay/hardened/{color}"
             },
             "stopper": {
                 "base": "game:item/utility/map"
@@ -51,23 +48,17 @@
     {
         "file": "game:blocktypes/clay/fired/jug.json",
         "op": "addmerge",
-        "path": "/",
+        "path": "/attributesByType",
         "value": {
-            "attributesByType": {
-                "*-waxed": {
-                    "liquidContainerProps": {
-                        "canDrinkFrom": false,
-                        "isTopOpened": false,
-                        "allowHeldLiquidTransfer": false
-                    }
-                },
-                "*-corked": {
-                    "liquidContainerProps": {
-                        "canDrinkFrom": false,
-                        "isTopOpened": false,
-                        "allowHeldLiquidTransfer": false
-                    }
-                }
+            "*-waxed": {
+                "canDrinkFrom": false,
+                "isTopOpened": false,
+                "allowHeldLiquidTransfer": false
+            },
+            "*-corked": {
+                "canDrinkFrom": false,
+                "isTopOpened": false,
+                "allowHeldLiquidTransfer": false
             }
         }
     },

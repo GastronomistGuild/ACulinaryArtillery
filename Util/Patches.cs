@@ -14,8 +14,6 @@ using Vintagestory.GameContent;
 using System.Runtime.CompilerServices;
 using System.Reflection.Emit;
 using Vintagestory.API.Datastructures;
-using Newtonsoft.Json;
-using System.ComponentModel;
 
 namespace ACulinaryArtillery
 {
@@ -24,12 +22,12 @@ namespace ACulinaryArtillery
     {
         [HarmonyPrefix]
         [HarmonyPatch(nameof(BlockLiquidContainerBase.SplitStackAndPerformAction))]
-        public static bool BottleStopperTransmutationFix(ref BlockLiquidContainerBase __instance, ref int __result, Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
+        public static bool StopperTransmutationFix(ref BlockLiquidContainerBase __instance, ref int __result, Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
         {
-            __result = BottleSplitStackAndPerformAction(byEntity, slot, action);
+            __result = SplitStackAndPerformAction(byEntity, slot, action);
             return false;
         }
-        public static int BottleSplitStackAndPerformAction(Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
+        public static int SplitStackAndPerformAction(Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
         {
             if (slot.Itemstack == null)
             {

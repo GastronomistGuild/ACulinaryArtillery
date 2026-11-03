@@ -18,11 +18,6 @@ namespace ACulinaryArtillery
     {
         protected virtual AssetLocation ContentShapeLoc => props.OpaqueContentShapeLoc;
         protected virtual AssetLocation LiquidContentShapeLoc => props.LiquidContentShapeLoc;
-        public override float TransferSizeLitres => props.TransferSizeLitres;
-        public override float CapacityLitres => props.CapacityLitres;
-        public override bool CanDrinkFrom => Attributes["canDrinkFrom"].AsBool(true);
-        public override bool IsTopOpened => Attributes["isTopOpened"].AsBool(true);
-        public override bool AllowHeldLiquidTransfer => Attributes["allowHeldLiquidTransfer"].AsBool(true);
         protected virtual bool IsClear => Attributes["isClear"].AsBool();
         public virtual float MinFillY => Attributes["minFill"].AsFloat();
         public virtual float MaxFillY => Attributes["maxFill"].AsFloat();
