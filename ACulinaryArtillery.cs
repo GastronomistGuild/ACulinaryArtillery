@@ -33,6 +33,7 @@ namespace ACulinaryArtillery
             api.RegisterBlockEntityClass("Saucepan", typeof(BlockEntitySaucepan));
             api.RegisterBlockEntityClass("ExpandedOven", typeof(BlockEntityExpandedOven));
             api.RegisterBlockEntityClass("ExpandedCheese", typeof(BlockEntityExpandedCheese));
+            api.RegisterBlockEntityClass("ExpandedCheeseCurdsBundle", typeof(BlockEntityExpandedCheeseCurdsBundle));
 
             api.RegisterItemClass("ExpandedRawFood", typeof(ItemExpandedRawFood));
             api.RegisterItemClass("ExpandedFood", typeof(ItemExpandedFood));
