@@ -19,8 +19,9 @@ namespace ACulinaryArtillery
         protected virtual string MeshRefsCacheKey => Code.ToShortString() + "meshRefs";
         public virtual ItemStack DefaultStopper => new(api.World.GetItem("aculinaryartillery:stopper-bark-cork"));
         public bool HasTransparentStopper(ItemStack stack) => GetStopper(stack)?.ItemAttributes?["isTransparent"].AsBool() == true;
-        public virtual ItemStack DefaultSealant => new(api.World.GetItem("game:beeswax"));
+        public virtual ItemStack DefaultSealant => new(api.World.GetItem("aculinaryartillery:sealingwax-wax-blue-hot"));
         public string CorkedTypeVariant => Attributes["corkedTypeVariant"]?.AsString() ?? "type";
+        public string UncorkedVariant => Attributes["uncorkedVariant"]?.AsString() ?? "fired";
         public override float TransferSizeLitres => props.TransferSizeLitres;
         public override float CapacityLitres => props.CapacityLitres;
         public override bool CanDrinkFrom => Attributes["canDrinkFrom"].AsBool(true);
@@ -47,7 +48,6 @@ namespace ACulinaryArtillery
         {
             if (HasTransparentStopper(stack))
             {
-                api.Logger.Debug($"{stack.ItemAttributes["transparentStopperShapeLoc"].AsString("missing-transparentStopperShapeLoc")}");
                 return stack.ItemAttributes["transparentStopperShapeLoc"].AsString("missing-transparentStopperShapeLoc");
             }
 
@@ -165,7 +165,7 @@ namespace ACulinaryArtillery
 
         public override int GetMergableQuantity(ItemStack sinkStack, ItemStack sourceStack, EnumMergePriority priority)
         {
-            bool isStopping = sourceStack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true && Variant[CorkedTypeVariant] == "fired";
+            bool isStopping = sourceStack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true && Variant[CorkedTypeVariant] == UncorkedVariant;
             bool isSealing = sourceStack != null && StackCanSeal(sourceStack) == true && Variant[CorkedTypeVariant] == "corked";
 
             if (priority == EnumMergePriority.DirectMerge && (isStopping || isSealing))
@@ -181,7 +181,7 @@ namespace ACulinaryArtillery
             ItemSlot sourceSlot = op.SourceSlot;
             ItemSlot sinkSlot = op.SinkSlot;
 
-            bool isStopping = sourceSlot.Itemstack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true && Variant[CorkedTypeVariant] == "fired";
+            bool isStopping = sourceSlot.Itemstack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true && Variant[CorkedTypeVariant] == UncorkedVariant;
             bool isSealing = StackCanSeal(sourceSlot.Itemstack) && Variant[CorkedTypeVariant] == "corked";
 
             if (isStopping && op.CurrentPriority == EnumMergePriority.DirectMerge && sinkSlot.Itemstack != null && sourceSlot.Itemstack != null)
@@ -204,6 +204,7 @@ namespace ACulinaryArtillery
                 }
                 op.MovedQuantity = 1;
                 sourceSlot.TakeOut(1);
+                sourceSlot.MarkDirty();
                 sinkSlot.MarkDirty();
 
                 if (api is ICoreServerAPI sapi) PlayCorkingSound(sapi, sinkSlot.Itemstack, op.ActingPlayer.Entity);
@@ -251,6 +252,7 @@ namespace ACulinaryArtillery
 
                 op.MovedQuantity = container != null ? 0 : 1;
                 sourceSlot.TakeOut(container != null ? 0 : 1);
+                sourceSlot.MarkDirty();
                 sinkSlot.MarkDirty();
 
                 return;
@@ -280,7 +282,7 @@ namespace ACulinaryArtillery
                 if (offhandSlot != null && (offhandSlot.Empty || offhandSlot.Itemstack.Collectible == GetStopper(itemslot.Itemstack)?.Collectible))
                 {
                     ItemStack? stopper = GetStopper(itemslot.Itemstack);
-                    ItemStack unstopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "fired"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
+                    ItemStack unstopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, UncorkedVariant))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                     SetStopper(unstopperedContainer, null);
 
                     if (itemslot.StackSize == 1)
@@ -317,7 +319,7 @@ namespace ACulinaryArtillery
 
             // Corking open container
             if (blockSel == null && byEntity.Controls.ShiftKey && player != null && offhandSlot != null && itemslot.Itemstack != null
-                && Variant[CorkedTypeVariant] == "fired"
+                && Variant[CorkedTypeVariant] == UncorkedVariant
                 && offhandSlot.Itemstack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true)
             {
                 ItemStack stopperedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
@@ -408,10 +410,10 @@ namespace ACulinaryArtillery
             }
 
             // Try to seal from a container of wax
-            if (blockSel?.Block != null && blockSel.Position != null && byEntity.Controls.ShiftKey && player != null && itemslot.Itemstack != null
+            if (blockSel != null && byEntity.Controls.ShiftKey && player != null && itemslot.Itemstack != null
                 && Variant[CorkedTypeVariant] == "corked")
             {
-                ILiquidSource? container = blockSel.Block.GetCollectibleInterface<ILiquidSource>();
+                ILiquidSource? container = byEntity.World.BlockAccessor.GetBlock(blockSel.Position).GetCollectibleInterface<ILiquidSource>();
                 ItemStack? liquidStack = container?.GetContent(blockSel.Position);
                 WaterTightContainableProps? liquidProps = container?.GetContentProps(blockSel.Position);
                 if (container == null || liquidStack == null || liquidProps == null)
@@ -420,7 +422,7 @@ namespace ACulinaryArtillery
                     return;
                 }
 
-                float litres = liquidStack.ItemAttributes["liquidContainerSealantPortionSizeLitres"]?.AsFloat(0.1f) ?? 0.1f;
+                float litres = liquidStack.ItemAttributes?["liquidContainerSealantPortionSizeLitres"]?.AsFloat(0.1f) ?? 0.1f;
                 if (container.GetCurrentLitres(blockSel.Position) < litres)
                 {
                     (api as ICoreClientAPI)?.TriggerIngameError(this, "notenoughwax", Lang.Get("aculinaryartillery:not-enough-liquid-wax", litres));
@@ -702,7 +704,7 @@ namespace ACulinaryArtillery
                     HotKeyCode = "shift",
                     MouseButton = EnumMouseButton.Right,
                     Itemstacks = stopperStacks,
-                    GetMatchingStacks = (wi, bs, es) => Variant[CorkedTypeVariant] == "fired" ? wi.Itemstacks : null
+                    GetMatchingStacks = (wi, bs, es) => Variant[CorkedTypeVariant] == UncorkedVariant ? wi.Itemstacks : null
                 },
                 new()
                 {
