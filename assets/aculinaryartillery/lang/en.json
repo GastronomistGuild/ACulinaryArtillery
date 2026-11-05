@@ -59,6 +59,16 @@
   "game:blockhelp-cheese-shear": "Shear off coating",
   "cheesemaking-notenoughliquid": "Need at least {0} litres to create a bundle of this liquid",
 
+	"meal-seasoned": "<font color=\"#84ff84\">Seasoned with {0}</font>",
+	"cant-season-sealed-crock": "Can't season meals inside of a sealed crock",
+	"not-enough-seasoning-singular": "Need {0} of this seasoning for 1 meal",
+	"not-enough-seasoning-plural": "Need {0} of this seasoning for {1} meals",
+	"not-enough-seasoning-liquid-singular": "Need {0}L of this seasoning for 1 meal",
+	"not-enough-seasoning-liquid-plural": "Need {0}L of this seasoning for {1} meals",
+	"cant-mix-seasonings": "Can't mix meals with different seasonings",
+	"seasoning-wrong-recipe": "Can't season {0} with {1}",
+	"seasoning-cant-transfer-liquid": "Can't use liquid from this container",
+
   "block-saucepan-blue-fired" : "Earthy brown ceramic saucepan",
   "block-saucepan-earthyorange-fired" : "Earthy orange ceramic saucepan",
   "block-saucepan-black-fired" : "Black ceramic saucepan",
