@@ -51,6 +51,8 @@ namespace ACulinaryArtillery
         /// </summary>
         public virtual JsonItemStack[]? ReturnedShearingStacks => Attributes["returnedShearingStacks"].AsObject<JsonItemStack[]>();
 
+        public virtual int TotalSliceCount => Attributes["totalSlices"].AsInt(4);
+
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
         {
             if (byEntity.Controls.ShiftKey && blockSel != null)
