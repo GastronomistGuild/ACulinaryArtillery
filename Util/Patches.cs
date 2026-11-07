@@ -22,12 +22,12 @@ namespace ACulinaryArtillery
     {
         [HarmonyPrefix]
         [HarmonyPatch(nameof(BlockLiquidContainerBase.SplitStackAndPerformAction))]
-        public static bool StopperTransmutationFix(ref BlockLiquidContainerBase __instance, ref int __result, Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
+        public static bool BottleStopperTransmutationFix(ref BlockLiquidContainerBase __instance, ref int __result, Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
         {
-            __result = SplitStackAndPerformAction(byEntity, slot, action);
+            __result = BottleSplitStackAndPerformAction(byEntity, slot, action);
             return false;
         }
-        public static int SplitStackAndPerformAction(Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
+        public static int BottleSplitStackAndPerformAction(Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
         {
             if (slot.Itemstack == null)
             {
@@ -1250,7 +1250,7 @@ namespace ACulinaryArtillery
     {
         public static bool Prefix(ref CookingRecipe __instance, ref ICoreClientAPI api, ref Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? cachedValidStacksByIngredient)
         {
-            if (__instance.Ingredients == null || __instance.Ingredients.Length == 0) return false;
+            if (__instance.Ingredients == null) return false;
             cachedValidStacksByIngredient ??= HandbookInfoExtensions.CreateCachedMealRecipeStacks(api, __instance);
             return true;
         }
@@ -1381,7 +1381,7 @@ namespace ACulinaryArtillery
     {
         [HarmonyPostfix]
         [HarmonyPatch("GetCookingRecipe")]
-        public static void recipeFix(ref CookingRecipe? __result, ItemStack containerStack, IWorldAccessor world, BlockCookedContainerBase __instance)
+        public static void GetMixingRecipe(ref CookingRecipe? __result, ItemStack containerStack, IWorldAccessor world, BlockCookedContainerBase __instance)
         {
             __result ??= world.Api.GetMixingRecipes().FirstOrDefault(rec => rec.Code == __instance.GetRecipeCode(world, containerStack));
         }
@@ -1389,22 +1389,23 @@ namespace ACulinaryArtillery
 
         [HarmonyPrefix]
         [HarmonyPatch("GetContentNutritionProperties", typeof(IWorldAccessor), typeof(ItemSlot), typeof(ItemStack[]), typeof(EntityAgent), typeof(bool), typeof(float), typeof(float))]
-        public static bool nutriFix(IWorldAccessor world, ItemSlot inSlot, ItemStack[] contentStacks, EntityAgent forEntity, ref FoodNutritionProperties[] __result, bool mulWithStacksize = false, float nutritionMul = 1, float healthMul = 1)
+        public static bool AddExpandedNutritionProperties(IWorldAccessor world, ItemSlot inSlot, ItemStack[] contentStacks, EntityAgent forEntity, ref FoodNutritionProperties[] __result, bool mulWithStacksize = false, float nutritionMul = 1, float healthMul = 1)
         {
-            List<FoodNutritionProperties> props = new List<FoodNutritionProperties>();
+            List<FoodNutritionProperties> props = [];
+
             for (int i = 0; i < contentStacks.Length; i++)
             {
-                if (contentStacks[i] == null)
-                    continue;
+                if (contentStacks[i] == null) continue;
+
                 props.AddRange(ItemExpandedRawFood.GetExpandedContentNutritionProperties(
-                                                                                            world,
-                                                                                            inSlot,
-                                                                                            contentStacks[i],
-                                                                                            forEntity,
-                                                                                            mulWithStacksize,
-                                                                                            nutritionMul,
-                                                                                            healthMul
-                                                                                            ));
+                    world,
+                    inSlot,
+                    contentStacks[i],
+                    forEntity,
+                    mulWithStacksize,
+                    nutritionMul,
+                    healthMul
+                ));
             }
 
             __result = [.. props];
@@ -1414,47 +1415,58 @@ namespace ACulinaryArtillery
 
         [HarmonyPrefix]
         [HarmonyPatch("GetContentNutritionFacts", typeof(IWorldAccessor), typeof(ItemSlot), typeof(ItemStack[]), typeof(EntityAgent), typeof(bool), typeof(float), typeof(float))]
-        public static bool nutriFactsFix(IWorldAccessor world, ItemSlot inSlotorFirstSlot, ItemStack[] contentStacks, EntityAgent forEntity, ref string __result, bool mulWithStacksize = false, float nutritionMul = 1, float healthMul = 1)
+        public static bool AddExtraNutritionFacts(IWorldAccessor world, ItemSlot inSlotorFirstSlot, ItemStack[] contentStacks, EntityAgent forEntity, ref string __result, bool mulWithStacksize = false, float nutritionMul = 1, float healthMul = 1)
         {
             FoodNutritionProperties[] props;
 
-            Dictionary<EnumFoodCategory, float> totalSaturation = new Dictionary<EnumFoodCategory, float>();
+            Dictionary<EnumFoodCategory, float> totalSatiety = [];
             float totalHealth = 0;
-            float satLossMul = 1;
-            float healthLossMul = 1;
 
             for (int i = 0; i < contentStacks.Length; i++)
             {
-                if (contentStacks[i] == null)
-                    continue;
+                if (contentStacks[i] == null) continue;
                 DummySlot slot = new DummySlot(contentStacks[i], inSlotorFirstSlot.Inventory);
                 TransitionState state = contentStacks[i].Collectible.UpdateAndGetTransitionState(world, slot, EnumTransitionType.Perish);
                 float spoilState = state != null ? state.TransitionLevel : 0;
 
-                satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, slot.Itemstack, forEntity);
-                healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, slot.Itemstack, forEntity);
+                float satLossMul = GlobalConstants.FoodSpoilageSatLossMul(spoilState, slot.Itemstack, forEntity);
+                float healthLossMul = GlobalConstants.FoodSpoilageHealthLossMul(spoilState, slot.Itemstack, forEntity);
 
                 props = ItemExpandedRawFood.GetExpandedContentNutritionProperties(world, inSlotorFirstSlot, contentStacks[i], forEntity, mulWithStacksize, nutritionMul, healthMul);
                 for (int j = 0; j < props.Length; j++)
                 {
                     FoodNutritionProperties prop = props[j];
-                    if (prop == null)
-                        continue;
-                    float sat = 0;
-                    totalSaturation.TryGetValue(prop.FoodCategory, out sat);
+                    if (prop == null) continue;
+                    totalSatiety.TryGetValue(prop.FoodCategory, out float sat);
                     totalHealth += prop.Health * healthLossMul;
-                    totalSaturation[prop.FoodCategory] = sat + prop.Satiety * satLossMul;
+                    totalSatiety[prop.FoodCategory] = sat + prop.Satiety * satLossMul;
                 }
             }
 
-            StringBuilder sb = new StringBuilder();
-            sb.AppendLine(Lang.Get("When eaten: {0} sat", Math.Round(totalSaturation.Values.Sum())));
+            if (inSlotorFirstSlot.Itemstack?.Attributes.GetItemstack("seasoning") is ItemStack seasoning)
+            {
+                seasoning.ResolveBlockOrItem(world);
+                props = ItemExpandedRawFood.GetExpandedContentNutritionProperties(world, inSlotorFirstSlot, seasoning, forEntity, mulWithStacksize, nutritionMul, healthMul);
+                for (int j = 0; j < props.Length; j++)
+                {
+                    FoodNutritionProperties prop = props[j];
+                    if (prop == null)
+                        continue;
+                    totalSatiety.TryGetValue(prop.FoodCategory, out float sat);
+                    totalHealth += prop.Health;
+                    totalSatiety[prop.FoodCategory] = sat + prop.Satiety;
+                }
+            }
+
+            StringBuilder sb = new();
+            sb.AppendLine(Lang.Get("When eaten: {0} sat", Math.Round(totalSatiety.Values.Sum())));
             sb.AppendLine(Lang.Get("Nutrition Facts"));
 
-            foreach (var val in totalSaturation)
+            foreach (var val in totalSatiety)
             {
                 sb.AppendLine(Lang.Get("efrecipes:- {0} {1} sat", Math.Round(val.Value, 1), ItemExpandedFood.GetLocalizedFoodCategory(val.Key)));
             }
+
             double roundedHealth = Math.Round(totalHealth, 1);
             if (roundedHealth != 0)
             {
