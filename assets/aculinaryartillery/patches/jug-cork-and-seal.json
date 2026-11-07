@@ -31,19 +31,10 @@
         "op": "addmerge",
         "path": "/textures",
         "value": {
-            "material": {
-                "base": "game:block/clay/hardened/{color}"
-            },
-            "sides": {
-                "base": "game:block/clay/hardened/{color}",
-                "overlays": [ "block/clay/overlay/jug" ]
-            },
-            "stopper": {
-                "base": "game:item/utility/map"
-            },
-            "wax": {
-                "base": "game:block/fire-blue"
-            }
+            "material": { "base": "game:block/clay/hardened/{color}" },
+            "sides": { "base": "game:block/clay/hardened/{color}", "overlays": [ "block/clay/overlay/jug" ] },
+            "stopper": { "base": "game:item/utility/map" },
+            "wax": { "base": "game:block/fire-blue" }
         }
     },
     {
