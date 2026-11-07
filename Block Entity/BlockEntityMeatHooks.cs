@@ -109,10 +109,10 @@ namespace ACulinaryArtillery
             var stack = slot.Itemstack;
             if (stack == null) return new();
 
-            CompositeShape? customShape = stack.ItemAttributes?["meatHookShape"].AsObject<CompositeShape>(null, stack.Collectible.Code.Domain);
+            Shape? shape = capi.Assets.TryGet(stack.ItemAttributes["meatHookShapeLoc"].AsString(""))?.ToObject<Shape>();
 
             Dictionary<string, CompositeTexture> stackTextures = [];
-            if (stack.Collectible is Block)
+            if (stack.Collectible.ItemClass == EnumItemClass.Block)
             {
                 stackTextures.AddRange(stack.Block.Textures);
             }
@@ -127,20 +127,28 @@ namespace ACulinaryArtillery
                 stackTextureLocs[name] = texture.Base;
             }
 
-            if (customShape != null)
+            if (shape != null)
             {
-                string customkey = $"meatHookShape-{stack.Collectible.Code}-{customShape?.ToString() ?? ""}";
-                mesh = ObjectCacheUtil.GetOrCreate(capi, customkey, () =>
-                    capi.TesselatorManager.CreateMesh(
-                        "meathook item shape",
-                        customShape,
-                        (shape, name) =>
-                        {
-                            shape.Textures.AddRange(stackTextureLocs);
-                            return new ShapeTextureSource(capi, shape, string.Format("For meathook item {0}", stack?.Collectible.Code));
-                        },
-                        null
-                ));
+                List<string> selectiveElements = ["display"];
+
+                for (int i = 0; i < stack.StackSize; i++)
+                {
+                    selectiveElements.Add($"origin/item{i + 1}/*");
+                }
+
+                shape.Textures.AddRange(stackTextureLocs);
+                nowTesselatingObj = stack.Collectible;
+                nowTesselatingShape = shape;
+
+                // Render without selective elements if none of them exist
+                if (shape.GetElementByName("origin/item1") != null)
+                {
+                    capi.Tesselator.TesselateShape("meathook item shape", shape, out mesh, this, null, 0, 0, 0, null, [.. selectiveElements]);
+                }
+                else
+                {
+                    capi.Tesselator.TesselateShape("meathook item shape", shape, out mesh, this, null, 0, 0, 0, null);
+                }
             }
             else
             {
@@ -152,10 +160,7 @@ namespace ACulinaryArtillery
                 }
             }
 
-            if (mesh == null)
-            {
-                mesh = getDefaultMesh(stack);
-            }
+            mesh ??= getDefaultMesh(stack);
 
             applyDefaultTranforms(stack, mesh);
 
@@ -163,6 +168,11 @@ namespace ACulinaryArtillery
             MeshCache[key] = mesh;
 
             return mesh;
+        }
+
+        protected override string getMeshCacheKey(ItemSlot slot)
+        {
+            return $"meatHookShape-{slot.Itemstack?.Collectible.Code.ToShortString()}-{slot.Itemstack?.StackSize}-{Block.Shape.rotateY}-{inventory.ToArray().IndexOf(slot)}";
         }
 
         Vec3d? dropPos;
@@ -191,8 +201,12 @@ namespace ACulinaryArtillery
         internal bool OnInteract(IPlayer byPlayer, BlockSelection blockSel)
         {
             ItemSlot slot = byPlayer.InventoryManager.ActiveHotbarSlot;
-            if (slot.Empty) return TryTake(byPlayer, blockSel);
-            else if (slot.Itemstack.Collectible.Attributes?["meathookable"].AsBool() == true && TryPut(slot, blockSel))
+
+            if (slot.Empty)
+            {
+                return TryTake(byPlayer, blockSel);
+            }
+            else if (slot.Itemstack?.ItemAttributes?["meathookable"].AsBool() == true && TryPut(slot, blockSel, byPlayer.Entity.Controls.CtrlKey))
             {
                 if (slot.Itemstack?.Block?.Sounds?.Place != null)
                 {
@@ -216,11 +230,14 @@ namespace ACulinaryArtillery
             return baseMul;
         }
 
-        private bool TryPut(ItemSlot slot, BlockSelection blockSel)
+        private bool TryPut(ItemSlot slot, BlockSelection blockSel, bool bulk)
         {
             int index = blockSel.SelectionBoxIndex;
+            int maxStackSize = inventory[index].Itemstack?.ItemAttributes["meatHookStackSize"].AsInt(1) ?? 1;
+            int count = bulk ? slot.Itemstack?.ItemAttributes["meatHookBulkMoveCount"].AsInt(maxStackSize) ?? maxStackSize : 1;
+            count = Math.Min(count, maxStackSize - inventory[index].StackSize);
 
-            if (inventory[index].Empty && slot.TryPutInto(Api.World, inventory[index]) > 0)
+            if (count > 0 && slot.TryPutInto(Api.World, inventory[index], count) > 0)
             {
                 updateMesh(index);
                 GenMesh();
@@ -234,10 +251,13 @@ namespace ACulinaryArtillery
         private bool TryTake(IPlayer byPlayer, BlockSelection blockSel)
         {
             int index = blockSel.SelectionBoxIndex;
+            bool bulk = byPlayer.Entity.Controls.CtrlKey;
+            int maxStackSize = inventory[index].Itemstack?.ItemAttributes["meatHookStackSize"].AsInt(1) ?? 1;
+            int count = bulk ? inventory[index].Itemstack?.ItemAttributes["meatHookBulkMoveCount"].AsInt(maxStackSize) ?? maxStackSize : 1;
 
             if (!inventory[index].Empty)
             {
-                ItemStack stack = inventory[index].TakeOut(1);
+                ItemStack stack = inventory[index].TakeOut(count);
 
                 if (byPlayer.InventoryManager.TryGiveItemstack(stack))
                 {
@@ -251,12 +271,13 @@ namespace ACulinaryArtillery
                     }
                 }
 
-                if (stack.StackSize > 0)
+                if (stack?.StackSize > 0)
                 {
                     Api.World.SpawnItemEntity(stack, Pos.ToVec3d().Add(0.5, 0.5, 0.5));
                 }
 
                 updateMesh(index);
+                GenMesh();
                 MarkDirty(true);
                 return true;
             }
@@ -274,21 +295,21 @@ namespace ACulinaryArtillery
 
             if (!inventory[index].Empty)
             {
-                if (inventory[index].Itemstack.Collectible.TransitionableProps != null && inventory[index].Itemstack.Collectible.TransitionableProps.Length > 0)
+                if (inventory[index].Itemstack?.Collectible.TransitionableProps != null && inventory[index].Itemstack?.Collectible.TransitionableProps.Length > 0)
                 {
                     sb.AppendLine(PerishableInfoCompact(Api, inventory[index], 0));
                 }
-                else sb.AppendLine(inventory[index].Itemstack.GetName());
+                else sb.AppendLine(inventory[index].Itemstack?.GetName());
             }
         }
 
         protected override float[][] genTransformationMatrices()
         {
-            float[][] tfMatrices = new float[4][];
+            float[][] tfMatrices = new float[DisplayedItems][];
             Cuboidf selectionBox;
             int rnd = 0;
 
-            for (int index = 0; index < 4; index++)
+            for (int index = 0; index < Block.SelectionBoxes.Length; index++)
             {
                 selectionBox = Block.SelectionBoxes[index];
 
@@ -301,7 +322,7 @@ namespace ACulinaryArtillery
                     new Matrixf()
                     .Translate(0.5f, 0, 0.5f)
                     .Translate(selectionBox.MidX - 0.5f, selectionBox.MaxY, selectionBox.MidZ - 0.5f)
-                    .RotateYDeg(getRotateOnHook(index) + rnd)
+                    .RotateYDeg(RackRotationBySlotIndex(index) + rnd)
                     .Scale(0.75f, 0.75f, 0.75f)
                     .Translate(-0.5f, 0, -0.5f)
                     .Values
@@ -313,7 +334,7 @@ namespace ACulinaryArtillery
             return tfMatrices;
         }
 
-        private float getRotateOnHook(int index)
+        public float RackRotationBySlotIndex(int index)
         {
             return Block.Shape.rotateY switch
             {
@@ -324,6 +345,7 @@ namespace ACulinaryArtillery
                 var rot => index < 2 ? rot + 180 : rot
             };
         }
+
         public string PerishableInfoCompact(ICoreAPI Api, ItemSlot contentSlot, float ripenRate, bool withStackName = true)
         {
             if (contentSlot.Empty) return "";

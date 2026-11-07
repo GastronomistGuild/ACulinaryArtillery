@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Vintagestory.API.Client;
@@ -12,13 +12,88 @@ namespace ACulinaryArtillery
 {
     public class BlockMeatHooks : Block, IContainedMeshSource
     {
+        static WorldInteraction[] interactions = null!;
+        static ItemStack[] meathookable = null!;
+
         public string Wood = "game:plank-oak";
         public string Metal = "aculinaryartillery:bighook-copper";
 
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
-            // Todo: Add interaction help
+
+            if (api.Side.IsClient() && interactions == null)
+            {
+                List<ItemStack> rackstacks = [];
+                foreach (CollectibleObject? obj in api.World.Collectibles)
+                {
+                    if (obj?.Attributes?.IsTrue("meathookable") == true)
+                    {
+                        rackstacks.Add(new(obj));
+                    }
+                }
+
+                meathookable = [.. rackstacks];
+
+                interactions = [
+                    new()
+                {
+                    ActionLangCode = "aculinaryartillery:blockhelp-meathook-add-one",
+                    MouseButton = EnumMouseButton.Right,
+                    Itemstacks = meathookable,
+                    GetMatchingStacks = (wi, bs, es) =>
+                    {
+                        if (api.World.BlockAccessor.GetBlockEntity<BlockEntityMeatHooks>(bs.Position) is not BlockEntityMeatHooks be) return null;
+
+                        ItemSlot slot = be.Inventory[bs.SelectionBoxIndex];
+                        if (slot.Empty) return meathookable;
+
+                        int maxStackSize = slot.Itemstack?.ItemAttributes["meatHookStackSize"].AsInt(1) ?? 1;
+
+                        return slot.Itemstack?.StackSize < maxStackSize ? [new(slot.Itemstack.Collectible)] : null;
+                    }
+                },
+                new()
+                {
+                    ActionLangCode = "aculinaryartillery:blockhelp-meathook-add-bulk",
+                    MouseButton = EnumMouseButton.Right,
+                    Itemstacks = meathookable,
+                    HotKeyCode = "ctrl",
+                    GetMatchingStacks = (wi, bs, es) =>
+                    {
+                        if (api.World.BlockAccessor.GetBlockEntity<BlockEntityMeatHooks>(bs.Position) is not BlockEntityMeatHooks be) return null;
+
+                        ItemSlot slot = be.Inventory[bs.SelectionBoxIndex];
+                        if (slot.Empty) return meathookable;
+
+                        int maxStackSize = slot.Itemstack?.ItemAttributes["meatHookStackSize"].AsInt(1) ?? 1;
+
+                        return slot.Itemstack?.StackSize < maxStackSize ? [new(slot.Itemstack.Collectible)] : null;
+                    }
+                },
+                new()
+                {
+                    ActionLangCode = "aculinaryartillery:blockhelp-meathook-remove-one",
+                    MouseButton = EnumMouseButton.Right,
+                    RequireFreeHand = true,
+                    ShouldApply = (wi, bs, es) => {
+                        if (api.World.BlockAccessor.GetBlockEntity<BlockEntityMeatHooks>(bs.Position) is not BlockEntityMeatHooks be) return false;
+                        return !be.Inventory[bs.SelectionBoxIndex].Empty;
+                    }
+                },
+                new()
+                {
+                    ActionLangCode = "aculinaryartillery:blockhelp-meathook-remove-bulk",
+                    MouseButton = EnumMouseButton.Right,
+                    RequireFreeHand = true,
+                    HotKeyCode = "ctrl",
+                    ShouldApply = (wi, bs, es) => {
+                        if (api.World.BlockAccessor.GetBlockEntity<BlockEntityMeatHooks>(bs.Position) is not BlockEntityMeatHooks be) return false;
+                        return !be.Inventory[bs.SelectionBoxIndex].Empty;
+                    }
+                }
+                ];
+            }
         }
 
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
