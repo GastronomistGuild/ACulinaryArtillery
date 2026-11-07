@@ -10,8 +10,8 @@
 - New, larger spile mold shape
 
 ~1.22_v2.0.0-dev.29~
-- Kneading handbook page fixed
 - ACA containers with aqua vitae can make alcohol soaked bandages
+- Liquid pie topping defaults at 0.2L instead of 0.4L - DONE!!!
 
 - Russian translation updated (thanks to ChimMAG!)
 

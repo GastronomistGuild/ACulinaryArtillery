@@ -44,10 +44,9 @@
   "maxstacksize": 5000,
   "materialDensity": 250,
   "guiTransform": {
-    "translation": { "x": 0, "y": 1, "z": 0 },
-    "rotation": { "x": 123, "y": -33, "z": -13 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 1.4
+      "rotation": { "x": 123, "y": -33, "z": -13 },
+      "origin": { "x": 0.35, "y": 0.1, "z": 0.5 },
+      "scale": 1.4
   },
   "tpHandTransform": {
     "translation": { "x": -1.5, "y": -1, "z": -1.4 }
