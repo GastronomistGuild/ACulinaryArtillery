@@ -46,7 +46,7 @@ namespace ACulinaryArtillery
         public new ItemStack[] TakeSlice()
         {
             if (Inventory[0].Empty) return [];
-            ITreeAttribute? attr = Inventory[0].Itemstack!.Attributes;
+            ITreeAttribute attr = Inventory[0].Itemstack!.Attributes.Clone();
             if (Inventory[0].Itemstack!.Collectible is not ItemExpandedCheese cheese) return [];
             MarkDirty(true);
 
@@ -72,6 +72,16 @@ namespace ACulinaryArtillery
             else
             {
                 outputStacks.Add(new ItemStack(Api.World.GetItem(cheese.CodeWithVariant("part", "1slice"))) { Attributes = attr });
+            }
+
+            foreach (ItemStack outputStack in outputStacks)
+            {
+                if (outputStack.Collectible is IExpandedFood)
+                {
+                    // Divide expanded sats on the outputs by the total slice count
+                    float[]? sats = (Inventory[0].Itemstack?.Attributes["expandedSats"] as FloatArrayAttribute)?.value;
+                    if (sats != null) outputStack.Attributes["expandedSats"] = new FloatArrayAttribute(Array.ConvertAll(sats, i => i / (cheese.TotalSliceCount * outputStack.StackSize)));
+                }
             }
 
             int slicesLeft = SlicesLeft - 1;
