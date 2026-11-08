@@ -1,0 +1,70 @@
+[
+  {
+    "ingredientPattern": "BF",
+    "ingredients": {
+      "B": { "type": "block", "code": "game:oillamp-genie-*-fired", "name": "color" },
+      "F": { "type": "block", "code": "bottle-*-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:oilportion-olive" },
+        "requiresLitres": 0.5
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "shapeless": true,
+    "output": { "type": "block", "code": "game:oillamp-{color}-up"  }
+  },
+  {
+    "ingredientPattern": "BF",
+    "ingredients": {
+      "B": { "type": "block", "code": "game:oillamp-genie-*-fired", "name": "color" },
+      "F": { "type": "block", "code": "cauldron-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:oilportion-olive" },
+        "requiresLitres": 0.5
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "shapeless": true,
+    "output": { "type": "block", "code": "game:oillamp-{color}-up"  }
+  },
+  {
+    "ingredientPattern": "BF",
+    "ingredients": {
+      "B": { "type": "block", "code": "game:oillamp-genie-*-fired", "name": "color" },
+      "F": { "type": "block", "code": "cauldronmini-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:oilportion-olive" },
+        "requiresLitres": 0.5
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "shapeless": true,
+    "output": { "type": "block", "code": "game:oillamp-{color}-up"  }
+  },
+  {
+    "ingredientPattern": "BF",
+    "ingredients": {
+      "B": { "type": "block", "code": "game:oillamp-genie-*-fired", "name": "color" },
+      "F": { "type": "block", "code": "saucepan-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:oilportion-olive" },
+        "requiresLitres": 0.5
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "shapeless": true,
+    "output": { "type": "block", "code": "game:oillamp-{color}-up"  }
+  }
+]

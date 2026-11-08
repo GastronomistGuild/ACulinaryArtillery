@@ -1,0 +1,98 @@
+[
+  {
+    "ingredientPattern": "WB",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "bottle-*-*-fired"
+      },
+      "B": {
+        "type": "item",
+        "code": "game:bandage-clean"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "recipeGroup": 3,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:alcoholportion" },
+        "requiresLitres": 0.2
+      }
+    },
+    "shapeless": true,
+    "output": { "type": "item", "code": "game:bandage-alcoholed"  }
+  },
+  {
+    "ingredientPattern": "WB",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "cauldron-*"
+      },
+      "B": {
+        "type": "item",
+        "code": "game:bandage-clean"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "recipeGroup": 4,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:alcoholportion" },
+        "requiresLitres": 0.2
+      }
+    },
+    "shapeless": true,
+    "output": { "type": "item", "code": "game:bandage-alcoholed"  }
+  },
+  {
+    "ingredientPattern": "WB",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "cauldronmini-*"
+      },
+      "B": {
+        "type": "item",
+        "code": "game:bandage-clean"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "recipeGroup": 4,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:alcoholportion" },
+        "requiresLitres": 0.2
+      }
+    },
+    "shapeless": true,
+    "output": { "type": "item", "code": "game:bandage-alcoholed"  }
+  },
+  {
+    "ingredientPattern": "WB",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "saucepan-*-fired"
+      },
+      "B": {
+        "type": "item",
+        "code": "game:bandage-clean"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "recipeGroup": 5,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:alcoholportion" },
+        "requiresLitres": 0.2
+      }
+    },
+    "shapeless": true,
+    "output": { "type": "item", "code": "game:bandage-alcoholed"  }
+  }
+]

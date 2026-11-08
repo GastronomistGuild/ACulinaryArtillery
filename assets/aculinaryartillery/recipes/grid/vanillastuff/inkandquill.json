@@ -1,0 +1,27 @@
+[
+  {
+    "ingredientPattern": "WF",
+    "ingredients": {
+      "W": {
+        "type": "block",
+        "code": "bottle-*-*-fired"
+      },
+      "F": {
+        "type": "item",
+        "code": "game:feather"
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:dye-black" },
+        "requiresLitres": 1,
+        "consumeContainer": true
+      }
+    },
+    "name": "ink and quill",
+    "shapeless": true,
+    "output": { "type": "item", "code": "game:inkandquill"  }
+  }
+]

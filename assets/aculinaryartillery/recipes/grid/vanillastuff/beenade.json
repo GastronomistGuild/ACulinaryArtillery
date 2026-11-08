@@ -1,0 +1,146 @@
+[
+  {
+    "ingredientPattern": "_L_,LBL,CLC",
+    "ingredients": {
+      "L": { "type": "item", "code": "game:cattailtops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "bottle-*-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_P_,PBP,CPC",
+    "ingredients": {
+      "P": { "type": "item", "code": "game:papyrustops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "bottle-*-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_L_,LBL,CLC",
+    "ingredients": {
+      "L": { "type": "item", "code": "game:cattailtops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "cauldron-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_P_,PBP,CPC",
+    "ingredients": {
+      "P": { "type": "item", "code": "game:papyrustops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "cauldron-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_L_,LBL,CLC",
+    "ingredients": {
+      "L": { "type": "item", "code": "game:cattailtops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "cauldronmini-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_P_,PBP,CPC",
+    "ingredients": {
+      "P": { "type": "item", "code": "game:papyrustops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "cauldronmini-*" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_L_,LBL,CLC",
+    "ingredients": {
+      "L": { "type": "item", "code": "game:cattailtops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "saucepan-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  },
+  {
+    "ingredientPattern": "_P_,PBP,CPC",
+    "ingredients": {
+      "P": { "type": "item", "code": "game:papyrustops" },
+      "C": { "type": "item", "code": "game:clay-*" },
+      "B": { "type": "block", "code": "saucepan-*-fired" }
+    },
+    "attributes": {
+      "liquidContainerProps": {
+        "requiresContent": { "type": "item", "code": "game:honeyportion" },
+        "requiresLitres": 0.25
+      }
+    },
+    "name": "skep",
+    "width": 3,
+    "height": 3,
+    "output": { "type": "item", "code": "game:beenade-opened"  }
+  }
+]
