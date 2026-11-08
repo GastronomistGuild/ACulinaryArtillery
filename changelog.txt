@@ -11,7 +11,8 @@
 
 
 ~1.22_v2.0.0-dev.30~
-- Egg mixing codes removed from ACA; added to EF via patches
+- Egg pie mixing codes removed from ACA; added to EF via patches - DONE!!!
+- ACTUALLY FIX THE ACA TRADER HOUSE DUDE
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)

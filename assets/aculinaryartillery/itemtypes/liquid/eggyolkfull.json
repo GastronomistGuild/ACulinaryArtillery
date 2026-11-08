@@ -19,14 +19,7 @@
 		"inBowlShape": { "base": "game:block/food/meal/liquid" },
 		"inPieProperties": {
 			"texture": "game:item/liquid/eggyolkfull/{type}",
-			"partType": "Filling",
-            "mixingCodes": [
-              "cottagequiche","bluequiche","cheddarquiche","cheesequiche",
-              "bushmeatquiche","poultryquiche","redmeatquiche","fishquiche","bugquiche","meatquiche",
-              "mushroomquicheblack","mushroomquicheyellow","mushroomquicheoffwhite","mushroomquicheorange","mushroomquichedevilstooth","mushroomquichered","mushroomquichegreen","mushroomquicheblue","mushroomquichelobster","mushroomquichebrown","mushroomquichewhite","mushroomquichepurple","mushroomquichepink","mushroomquiche",
-              "bellpepperquiche","cabbagequiche","carrotquiche","cassavaquiche","fennelquiche","olivequiche","onionquiche","parsnipquiche","pumpkinquiche","turnipquiche","walnutquiche","vegquiche",
-              "meatvegquiche", "meatmushroomquiche","vegmushroomquiche"
-            ]
+			"partType": "Filling"
 		},
 		"waterTightContainerProps": {
 			"nutritionPropsPerLitreWhenInMeal": {
