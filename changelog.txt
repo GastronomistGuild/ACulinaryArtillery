@@ -9,11 +9,13 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 
-~1.22_v2.0.0-dev.29~
-- ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices) - DONE!!!
-- Liquid pie topping defaults at 0.2L instead of 0.4L - DONE!!!
+
+~1.22_v2.0.0-dev.30~
 - Egg mixing codes removed from ACA; added to EF via patches
 
+~1.22_v2.0.0-dev.29~
+- ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)
+- Liquid pie topping defaults at 0.2L instead of 0.4L
 - Russian translation updated (thanks to ChimMAG!)
 
 Lazula changes:
