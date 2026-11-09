@@ -24,7 +24,7 @@
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1400 },
+      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1200 },
       "A": { "type": "block", "code": "cauldron-bismuthbronze" }
     },
     "width": 1,
@@ -101,7 +101,7 @@
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1400 },
+      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1200 },
       "A": { "type": "block", "code": "cauldronmini-bismuthbronze" }
     },
     "width": 1,
