@@ -7,7 +7,16 @@
 	],
 	"attributes": {
 		"isTransparent": true,
-		"liquidContainerStopperPerishRate": 1
+		"liquidContainerStopperPerishRate": 0.9,
+        "handbook": {
+          "groupBy": [ "stopper-*" ],
+          "extraSections": [
+            {
+              "title": "aculinaryartillery:block-handbooktitle-glassstopper",
+              "text": "aculinaryartillery:block-handbooktext-glassstopper"
+            }
+          ]
+        }
 	},
 	"texture": { "base": "game:block/glass/{color}" }
 }

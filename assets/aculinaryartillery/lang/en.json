@@ -175,7 +175,7 @@
   "blockdesc-bottle-*-fired": "An empty bottle becomes desperate for purpose.",
   "mountfailure-transparentstopper": "Glass stoppers are too fragile for travel.",
   "block-handbooktitle-bottle": "Bottle",
-  "block-handbooktext-bottle": "A narrow-necked container used for storing and preserving liquids. When combined with a high-quality stopper, such as a <a href=\"handbook://item-aculinaryartillery:stopper-bark-cork\">cork</a>, the aging of liquids becomes possible. Liquids placed into a bottle spoil at a slightly slower rate, but stoppering the bottle greatly extends the shelf life of any liquid inside it.",
+  "block-handbooktext-bottle": "A narrow-necked container used for storing and preserving liquids. When combined with a high-quality stopper, such as a <a href=\"handbook://item-aculinaryartillery:stopper-bark-cork\">cork</a>, the aging of liquids becomes possible. Liquids placed into a bottle spoil at a slightly slower rate, but stoppering the bottle greatly extends the shelf life of any liquid inside it.<br>Stoppers made from oak cork are superior to all other stoppers, due to their ability to expand inside of the bottle.<br><br><strong>HOW TO CORK</strong>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk> + <icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
 
   "liquid-container-perish-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} perish rate</font>",
   "liquid-container-cure-rate-desc": "<font color=\"lightgreen\">{p0:0.#x||#.#x} cure rate</font>",
@@ -184,7 +184,7 @@
 
   "bottle-toofullforrack": "There's too much liquid in this bottle. It would spill if you put it on the rack.",
 
-  "item-stopper-bark-cork": "Cork",
+  "item-stopper-bark-cork": "Cork stopper",
   "item-stopper-wood-aged": "Aged stopper",
   "item-stopper-wood-acacia": "Acacia stopper",
   "item-stopper-wood-baldcypress": "Bald cypress stopper",
@@ -234,8 +234,17 @@
   "item-stopper-ceramic-orange-fired": "Orange ceramic stopper",
   "item-stopper-ceramic-red-fired": "Red ceramic stopper",
   "item-stopper-ceramic-tan-fired": "Tan ceramic stopper",
-  "block-handbooktitle-stopper": "Stopper",
-  "block-handbooktext-stopper": "These are inserted into a bottle to act as a seal and preserve liquids for extended periods of time. Created from <a href=\"handbook://item-aculinaryartillery:bark-oak-boiled\">boiled oak bark</a>, corks are moisture-resistant, slow to deteriorate, easily compressible, and biodegradable.",
+  "block-handbooktitle-corkstopper": "Cork Stopper",
+  "block-handbooktext-corkstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from <a href=\"handbook://item-aculinaryartillery:bark-oak-boiled\">boiled oak bark</a>, corks are moisture-resistant, slow to deteriorate, easily compressible, and biodegradable. The highest-quality stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
+  "block-handbooktitle-claystopper": "Clay Stopper",
+  "block-handbooktext-claystopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from clay, these stoppers will not degrade over time and are easily compressible, but seal less efficiently than cork. An above-average stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
+  "block-handbooktitle-glassstopper": "Glass Stopper",
+  "block-handbooktext-glassstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from glass, these stoppers are more decorative than functional. The worst stopper in terms of stats, but don't they look nice? Due to their fragility, they cannot be transported on animals.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
+  "block-handbooktitle-metalstopper": "Metal Stopper",
+  "block-handbooktext-metalstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from metal, these stoppers will not degrade over time and are easily compressible, but seal less efficiently than cork. An above-average stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
+  "block-handbooktitle-woodstopper": "Wooden Stopper",
+  "block-handbooktext-woodstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from the interior of trees, these stoppers are easy to make but seal less efficiently than cork, ceramic, or metal. A mediocre stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
+
 
   "item-bark-oak-dry": "Oak bark",
   "item-bark-oak-boiled": "Boiled oak bark",

@@ -7,7 +7,16 @@
 		{ "code": "type", "states": [ "fired" ] }
 	],
 	"attributes": {
-		"liquidContainerStopperPerishRate": 0.9
-	},
+		"liquidContainerStopperPerishRate": 0.75,
+        "handbook": {
+            "groupBy": [ "stopper-*" ],
+            "extraSections": [
+                {
+                  "title": "aculinaryartillery:block-handbooktitle-claystopper",
+                  "text": "aculinaryartillery:block-handbooktext-claystopper"
+                }
+            ]
+      }
+    },
 	"texture": { "base": "game:block/clay/hardened/{color}" }
 }

@@ -6,7 +6,16 @@
         { "code": "color", "states": [ "aged", "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut" ] }
     ],
 	"attributes": {
-		"liquidContainerStopperPerishRate": 0.9
+		"liquidContainerStopperPerishRate": 0.8,
+        "handbook": {
+          "groupBy": [ "stopper-*" ],
+          "extraSections": [
+            {
+              "title": "aculinaryartillery:block-handbooktitle-woodstopper",
+              "text": "aculinaryartillery:block-handbooktext-woodstopper"
+            }
+          ]
+        }
 	},
     "texture": { "base": "game:block/wood/planks/{color}1" }
 }

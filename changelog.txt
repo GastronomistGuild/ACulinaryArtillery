@@ -16,6 +16,8 @@
 - Bismuth bronze cauldron requires less chisel durability to destroy - DONE!!!
 - Grid recipes updated to use tool tags when optimal
 - EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16) - DONE!!!
+- Text added to bottle & stoppers explaining how to use them - DONE!!!
+- Text added to wax sealant explaining its use
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)

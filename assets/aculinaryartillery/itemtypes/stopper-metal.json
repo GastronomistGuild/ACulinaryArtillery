@@ -6,7 +6,16 @@
 		{ "code": "color", "states": [ "copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel", "silver", "gold", "electrum", "molybdochalkos" ] }
 	],
 	"attributes": {
-		"liquidContainerStopperPerishRate": 0.9
+		"liquidContainerStopperPerishRate": 0.75,
+        "handbook": {
+          "groupBy": [ "stopper-*" ],
+          "extraSections": [
+            {
+              "title": "aculinaryartillery:block-handbooktitle-metalstopper",
+              "text": "aculinaryartillery:block-handbooktext-metalstopper"
+            }
+          ]
+        }
 	},
 	"texture": { "base": "game:block/metal/ingot/{color}" }
 }
