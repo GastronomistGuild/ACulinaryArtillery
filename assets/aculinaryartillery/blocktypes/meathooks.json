@@ -1,6 +1,7 @@
 {
 	"code": "meathooks",
 	"class": "BlockMeatHooks",
+    "maxStackSize": 4,
 	"entityClass": "MeatHooks",
 	"behaviors": [{"name": "HorizontalOrientable"}],
 	"variantgroups": [

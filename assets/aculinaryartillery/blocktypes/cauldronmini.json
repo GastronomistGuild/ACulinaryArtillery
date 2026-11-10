@@ -1,6 +1,7 @@
 {
 	"code": "cauldronmini",
 	"class": "BlockSaucepan",
+    "maxStackSize": 4,
 	"behaviorsByType": {
 		"*": [
             { "name": "BoatableGenericTypedContainer" },

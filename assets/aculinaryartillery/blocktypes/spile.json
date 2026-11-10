@@ -1,5 +1,6 @@
 {
 	"code": "spile",
+    "maxStackSize": 16,
 	"behaviors": [
 		{
 			"name": "GroundStorable",

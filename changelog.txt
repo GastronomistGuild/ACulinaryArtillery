@@ -14,6 +14,8 @@
 - Egg pie mixing codes removed from ACA; added to EF via patches - DONE!!!
 - ACA Trader house updated now that vanilla spawning issues have been fixed - DONE!!!
 - Bismuth bronze cauldron requires less chisel durability to destroy - DONE!!!
+- Grid recipes updated to use tool tags when optimal
+- EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16) - DONE!!!
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)

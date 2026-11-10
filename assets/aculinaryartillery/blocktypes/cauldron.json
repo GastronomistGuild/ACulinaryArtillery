@@ -1,6 +1,7 @@
 {
 	"code": "cauldron",
 	"class": "BlockSaucepan",
+    "maxStackSize": 4,
 	"behaviorsByType": {
 		"*": [
 			{ "name": "UnstableFalling" },

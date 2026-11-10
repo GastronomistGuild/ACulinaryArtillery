@@ -1,6 +1,7 @@
 {
 	"code": "poweredmixingbowl",
 	"class": "BlockMixingBowl",
+    "maxStackSize": 4,
 	"entityClass": "MixingBowl",
 	"entityBehaviors": [ { "name": "MPConsumer", "properties": { "resistance": 0.05, "mechPartShape": null }  } ],
 	"behaviors": [ { "name": "Container" } ],

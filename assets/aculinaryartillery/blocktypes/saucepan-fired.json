@@ -1,6 +1,7 @@
 {
 	"code": "saucepan",
 	"class": "BlockSaucepan",
+    "maxStackSize": 4,
 	"behaviors": [
 		{ "name": "UnstableFalling" },
 		{ "name": "RightClickPickup" }

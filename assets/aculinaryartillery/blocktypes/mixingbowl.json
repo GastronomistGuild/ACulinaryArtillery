@@ -1,6 +1,7 @@
 {
 	"code": "mixingbowl",
 	"class": "BlockMixingBowl",
+    "maxStackSize": 4,
 	"entityClass": "MixingBowl",
 	"behaviors": [ { "name": "Container" }, { "name": "UnstableFalling" } ],
 	"variantgroups": [
