@@ -244,7 +244,7 @@
   "block-handbooktext-metalstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from metal, these stoppers will not degrade over time and are easily compressible, but seal less efficiently than cork. An above-average stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
   "block-handbooktitle-woodstopper": "Wooden Stopper",
   "block-handbooktext-woodstopper": "These are inserted into a bottle or jug to act as a seal and preserve liquids for extended periods of time. Created from the interior of trees, these stoppers are easy to make but seal less efficiently than cork, ceramic, or metal. A mediocre stopper.<br><br><strong>HOW TO CORK</strong><br>To cork an empty bottle, drag a cork onto the bottle's inventory slot, or press <hk>Shift</hk>+<icon name='rightmousebutton'></icon> while holding a cork in your off-hand and an open bottle in your main hand.<br>To uncork a bottle, equip it and click <icon name='rightmousebutton'></icon> while not targeting any blocks.",
-
+  "blockdesc-stopper-*": "Time to put a stop to the world's slow decay.",
 
   "item-bark-oak-dry": "Oak bark",
   "item-bark-oak-boiled": "Boiled oak bark",
@@ -830,5 +830,10 @@
   "incontainer-item-sealingwax-wax-yellow-hot": "sealing wax (yellow)",
   "game:incontainer-item-sealingwax-wax-yellow-hot": "sealing wax (yellow)",
   "incontainer-item-sealingwax-wax-yellow-cold": "hardened wax (yellow)",
-  "game:incontainer-item-sealingwax-wax-yellow-cold": "hardened wax (yellow)"
+  "game:incontainer-item-sealingwax-wax-yellow-cold": "hardened wax (yellow)",
+  "item-handbooktitle-sealingwax": "Sealing Wax",
+  "item-handbooktext-sealingwax": "In the past, sealing wax had numerous purposes amongst the now-forgotten nobility. Presently, survivors use it to ensure whatever precious liquids they find last as long as possible, and is still a signifier of status or prestige.<br><br><strong>HOW TO SEAL BOTTLES/JUGS</strong><br>Place an open liquid container with hot wax on the ground, then equip a closed bottle or jug and press <hk>Shift</hk> + <icon name='rightmousebutton'></icon> while targeting the container to dip your bottle/jug into it, using 0.1L of hot wax.<br>To break the wax, equip a knife in your off-hand and a sealed bottle in your main hand, then hold <hk>Shift</hk> + <icon name='rightmousebutton'></icon> until the wax is cut away.",
+  
+  "itemdesc-sealingwax-*-*-hot": "Hot wax is always a great final touch.",
+  "itemdesc-sealingwax-*-*-cold": "For sealing and forgetting."
 }
