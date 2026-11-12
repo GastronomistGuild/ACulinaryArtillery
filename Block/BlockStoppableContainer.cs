@@ -19,7 +19,7 @@ namespace ACulinaryArtillery
         protected virtual string MeshRefsCacheKey => Code.ToShortString() + "meshRefs";
         public virtual ItemStack DefaultStopper => new(api.World.GetItem("aculinaryartillery:stopper-bark-cork"));
         public bool HasTransparentStopper(ItemStack stack) => GetStopper(stack)?.ItemAttributes?["isTransparent"].AsBool() == true;
-        public virtual ItemStack DefaultSealant => new(api.World.GetItem("aculinaryartillery:sealingwax-wax-blue-hot"));
+        public virtual ItemStack DefaultSealant => new(api.World.GetItem("aculinaryartillery:sealingwax-wax-generic-cold"));
         public string CorkedTypeVariant => Attributes["corkedTypeVariant"]?.AsString() ?? "type";
         public string UncorkedVariant => Attributes["uncorkedVariant"]?.AsString() ?? "fired";
         public override float TransferSizeLitres => props.TransferSizeLitres;
