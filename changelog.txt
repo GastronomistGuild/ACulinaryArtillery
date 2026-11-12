@@ -19,6 +19,8 @@
 - Text added to bottle & stoppers explaining how to use them - DONE!!!
 - Text added to wax sealant explaining its use - DONE!!!
 - Non-colored sealing wax added
+- Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
+- Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)
