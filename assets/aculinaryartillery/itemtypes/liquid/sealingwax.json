@@ -3,7 +3,7 @@
   "class": "ItemLiquidPortion",
   "variantgroups": [
     { "code":"type", "states": ["wax"] },
-    { "code":"color", "states": ["black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
+    { "code":"color", "states": ["generic","black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
     { "code":"state", "states": ["hot","cold"] }
   ],
   "matterState": "liquid",

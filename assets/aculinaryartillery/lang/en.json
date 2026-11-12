@@ -770,6 +770,8 @@
   "pie-single-aculinaryartillery:eggyolkfullportion-chicken-perfect": "Liquid chicken egg pie",
   "pie-single-aculinaryartillery:eggyolkfullportion-chicken-charred": "Liquid chicken egg pie (charred)",
 
+  "item-sealingwax-wax-generic-hot": "Sealing wax",
+  "item-sealingwax-wax-generic-cold": "Hardened wax",
   "item-sealingwax-wax-black-hot": "Sealing wax (black)",
   "item-sealingwax-wax-black-cold": "Hardened wax (black)",
   "item-sealingwax-wax-blue-hot": "Sealing wax (blue)",
@@ -791,6 +793,10 @@
   "item-sealingwax-wax-yellow-hot": "Sealing wax (yellow)",
   "item-sealingwax-wax-yellow-cold": "Hardened wax (yellow)",
 
+  "incontainer-item-sealingwax-wax-generic-hot": "sealing wax",
+  "game:incontainer-item-sealingwax-wax-generic-hot": "sealing wax",
+  "incontainer-item-sealingwax-wax-generic-cold": "hardened wax",
+  "game:incontainer-item-sealingwax-wax-generic-cold": "hardened wax",
   "incontainer-item-sealingwax-wax-black-hot": "sealing wax (black)",
   "game:incontainer-item-sealingwax-wax-black-hot": "sealing wax (black)",
   "incontainer-item-sealingwax-wax-black-cold": "hardened wax (black)",

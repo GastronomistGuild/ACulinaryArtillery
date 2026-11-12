@@ -1,5 +1,31 @@
 [
   {
+    "code": "sealingwax-wax-generic-hot",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-generic-cold" }
+    },
+    "shape": { "base": "game:block/food/meal/liquid" },
+    "ingredients": [
+      {
+        "code": "resin",
+        "validStacks": [  { "type": "item", "code": "game:resin" } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      },
+      {
+        "code": "beeswax",
+        "validStacks": [ { "type": "item", "code": "game:beeswax", "quantity": 4 } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-generic-hot", "quantity": 100 }
+  },
+  {
     "code": "sealingwax-wax-black-hot",
     "perishableProps": {
       "type": "Harden",
@@ -361,6 +387,27 @@
       }
     ],
     "cooksInto": { "type": "Item", "code": "sealingwax-wax-yellow-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwax-wax-generic-cold",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-*-cold" }
+    },
+    "shape": { "base": "game:block/food/meal/liquid" },
+    "ingredients": [
+      {
+        "code": "hardenedglue",
+        "validStacks": [ { "type": "item", "code": "sealingwax-wax-generic-cold" } ],
+        "minQuantity": 1,
+        "maxQuantity": 1,
+        "portionSizeLitres": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-generic-hot", "quantity": 100 }
   },
   {
     "code": "sealingwax-wax-black-cold",

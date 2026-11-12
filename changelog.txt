@@ -18,7 +18,10 @@
 - EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16) - DONE!!!
 - Text added to bottle & stoppers explaining how to use them - DONE!!!
 - Text added to wax sealant explaining its use - DONE!!!
-- Non-colored sealing wax added
+- Non-colored sealing wax added - DONE!!!
+
+Lazula changes:
+- Fixed: Couldn't do partial liquid moves into mixing bowl slots
 - Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
 
