@@ -125,7 +125,7 @@
 		"material": { "base": "game:block/clay/hardened/{color}" },
         "sides": { "base": "game:block/clay/hardened/{color}", "overlays": [ "block/clay/overlay/bottle" ] },
 		"stopper": { "base": "game:item/utility/map" },
-		"wax": { "base": "game:block/fire-blue" }
+		"wax": { "base": "aculinaryartillery:block/liquid/sealingwax/cold/generic" }
 	},
 	"resistance": 0.5,
 	"guiTransform": {

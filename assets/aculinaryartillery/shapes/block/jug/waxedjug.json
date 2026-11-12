@@ -13,7 +13,7 @@
 	},
 	"textures": {
 		"orange": "block/clay/hardened/orange",
-		"wax": "block/fire-blue",
+		"wax": "aculinaryartillery:block/liquid/sealingwax/cold/generic",
 		"stopper": "item/utility/map"
 	},
 	"elements": [
