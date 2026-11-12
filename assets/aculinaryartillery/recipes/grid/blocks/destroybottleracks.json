@@ -3,280 +3,308 @@
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-acacia", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-acacia", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-baldcypress", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-baldcypress", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-birch", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-birch", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-ebony", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-ebony", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-kapok", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-kapok", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-larch", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-larch", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-maple", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-maple", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-oak", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-oak", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-pine", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-pine", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-purpleheart", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-purpleheart", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-redwood", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-redwood", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-walnut", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-walnut", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-aged", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-aged", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerack-*-veryaged", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-veryaged", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-acacia", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-acacia", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-baldcypress", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-baldcypress", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-birch", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-birch", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-ebony", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-ebony", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-kapok", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-kapok", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-larch", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-larch", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-maple", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-maple", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-oak", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-oak", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-pine", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-pine", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-purpleheart", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-purpleheart", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-redwood", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-redwood", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-walnut", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-walnut", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-aged", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-aged", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   },
   {
     "ingredientPattern": "BC",
     "ingredients": {
       "B": { "type": "block", "code": "bottlerackcorner-*-veryaged", "name": "woodframe", "returnedStack": { "type": "item", "code": "game:plank-veryaged", "quantity": 3 } },
-      "C": { "type": "item", "code": "game:crowbar-*", "name": "metal", "isTool": true, "toolDurabilityCost": 150 }
+      "C": { "type": "item", "tags": ["tool-crowbar"], "isTool": true, "toolDurabilityCost": 150 }
     },
     "width": 1,
     "height": 2,
-    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 6  }
+    "recipeGroup": 1,
+    "output": { "type": "item", "code": "game:plank-{woodframe}", "quantity": 5  }
   }
 ]
