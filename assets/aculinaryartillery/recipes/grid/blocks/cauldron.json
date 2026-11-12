@@ -2,7 +2,7 @@
   {
     "ingredientPattern": "ST_,U_U,IT_",
     "ingredients": {
-      "S": { "type": "item", "code": "game:solderingiron", "isTool": true, "toolDurabilityCost": 5 },
+      "S": { "type": "item", "tags": ["tool-solderingiron"], "isTool": true, "toolDurabilityCost": 5 },
       "T": { "type": "item", "code": "game:metalplate-*", "name": "metal", "allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "steel", "meteoriciron" ] },
       "U": { "type": "item", "code": "game:metalplate-*", "name": "metal", "quantity": 2, "allowedVariants": [ "copper", "tinbronze", "bismuthbronze", "blackbronze", "steel", "meteoriciron" ] },
       "I": { "type": "item", "code": "game:solderbar-*", "quantity": 6,  "allowedVariants": ["tin", "silver"] }

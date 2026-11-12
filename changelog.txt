@@ -24,6 +24,7 @@ Lazula changes:
 - Fixed: Couldn't do partial liquid moves into mixing bowl slots
 - Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
+- Fixed: Could not place cheese on Food Shelves' pie shelf
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)

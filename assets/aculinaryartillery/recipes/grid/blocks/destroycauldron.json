@@ -2,154 +2,168 @@
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 600 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 600 },
       "A": { "type": "block", "code": "cauldron-copper" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-copper", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1000 },
       "A": { "type": "block", "code": "cauldron-tinbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-tinbronze", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1200 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1200 },
       "A": { "type": "block", "code": "cauldron-bismuthbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-bismuthbronze", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1400 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1400 },
       "A": { "type": "block", "code": "cauldron-blackbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-blackbronze", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 2000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 2000 },
       "A": { "type": "block", "code": "cauldron-iron" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-iron", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 2800 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 2800 },
       "A": { "type": "block", "code": "cauldron-meteoriciron" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-meteoriciron", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 6000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 6000 },
       "A": { "type": "block", "code": "cauldron-steel" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-steel", "quantity": 9 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 600 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 600 },
       "A": { "type": "block", "code": "cauldronmini-copper" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-copper", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1000 },
       "A": { "type": "block", "code": "cauldronmini-tinbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-tinbronze", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1200 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1200 },
       "A": { "type": "block", "code": "cauldronmini-bismuthbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-bismuthbronze", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 1400 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 1400 },
       "A": { "type": "block", "code": "cauldronmini-blackbronze" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-blackbronze", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 2000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 2000 },
       "A": { "type": "block", "code": "cauldronmini-iron" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-iron", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 2800 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 2800 },
       "A": { "type": "block", "code": "cauldronmini-meteoriciron" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-meteoriciron", "quantity": 2 }
   },
   {
     "ingredientPattern": "CA",
     "ingredients": {
-      "C": { "type": "item", "code": "game:chisel-*", "name": "metal", "isTool": true, "toolDurabilityCost": 6000 },
+      "C": { "type": "item", "tags": ["tool-chisel"], "isTool": true, "toolDurabilityCost": 6000 },
       "A": { "type": "block", "code": "cauldronmini-steel" }
     },
     "width": 1,
     "height": 2,
+    "recipeGroup": 1,
     "shapeless": true,
     "output": { "type": "item", "code": "game:ingot-steel", "quantity": 2 }
   }
