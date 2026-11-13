@@ -29,7 +29,7 @@ Lazula changes:
 - Fixed: Missing text in kneading and simmering guides
 - Fixed: Could not place raw cheese on the ground
 - Fixed: Could not mark individual sliceable variants as not sliceable
-
+- Feature: Allow placing saucepans and cauldrons in firepits directly
 
 ~1.22_v2.0.0-dev.29~
 - ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)
