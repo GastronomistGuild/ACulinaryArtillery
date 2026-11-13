@@ -4,20 +4,47 @@
         "op": "addmerge",
         "path": "/CollectibleCodes/-",
         "value": "game:cheese-*",
-        "side": "server"
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
     },
     {
         "file": "foodshelves:config/restrictions/general/holderuniversal.json",
         "op": "addmerge",
         "path": "/CollectibleCodes/-",
         "value": "game:cheese-*",
-        "side": "server"
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
     },
     {
         "file": "foodshelves:config/restrictions/shelves/pieshelf.json",
         "op": "addmerge",
         "path": "/CollectibleCodes/-",
         "value": "game:cheese-*",
-        "side": "server"
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
+    },
+    {
+        "file": "foodshelves:config/restrictions/general/fooduniversal.json",
+        "op": "addmerge",
+        "path": "/CollectibleCodes/-",
+        "value": "game:rawcheese-*",
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
+    },
+    {
+        "file": "foodshelves:config/restrictions/general/holderuniversal.json",
+        "op": "addmerge",
+        "path": "/CollectibleCodes/-",
+        "value": "game:rawcheese-*",
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
+    },
+    {
+        "file": "foodshelves:config/restrictions/shelves/pieshelf.json",
+        "op": "addmerge",
+        "path": "/CollectibleCodes/-",
+        "value": "game:rawcheese-*",
+        "side": "server",
+        "dependsOn": [{ "modid": "foodshelves" }]
     }
 ]
