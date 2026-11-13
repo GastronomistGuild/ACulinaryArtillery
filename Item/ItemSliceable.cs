@@ -6,10 +6,10 @@ using Vintagestory.GameContent;
 
 namespace ACulinaryArtillery
 {
-    public class ItemExpandedCheese : ItemExpandedFood
+    public class ItemSliceable : ItemExpandedFood
     {
         public virtual string Type => Variant["type"];
-        public virtual string Part => Variant["part"];
+        public virtual string Part => Variant["part"] ?? "4slice";
 
         /// <summary>
         /// The block code to be placed when shift-clicking.
@@ -17,18 +17,27 @@ namespace ACulinaryArtillery
         public virtual string? PlaceBlock => Attributes["placeBlock"].AsString();
 
         /// <summary>
+        /// Is this variant actually sliceable?
+        ///
+        /// Not needed for shearable variants.
+        ///
+        /// e.g. Vanilla's raw cheese is not sliceable.
+        /// </summary>
+        public virtual bool IsSliceable => Attributes["isSliceable"].AsBool(true);
+
+        /// <summary>
         /// The item code to be produced under vanilla's blue cheese conditions.
-        /// (i.e. sunlight level less than 2 and not in an enclosed room)
+        /// (i.e. ripened with sunlight level less than 2 and not in an enclosed room)
         /// 
         /// This goes on the *raw* cheese, not the ripened cheese!
         /// </summary>
         public virtual string? BlueCheeseOutput => Attributes["blueCheeseOutput"].AsString();
 
         /// <summary>
-        /// Configure what should be returned when slicing this cheese. Not used when
+        /// Configure what should be returned when slicing this item. Not used when
         /// shearing. See ReturnedShearingStacks.
         ///
-        /// If the first code part matches the cheese currently being sliced, the
+        /// If the first code part matches the item currently being sliced, the
         /// attributes (including freshness) are carried over. This allows you to
         /// return the normal slicing output as normal when using this attribute.
         ///
@@ -51,6 +60,9 @@ namespace ACulinaryArtillery
         /// </summary>
         public virtual JsonItemStack[]? ReturnedShearingStacks => Attributes["returnedShearingStacks"].AsObject<JsonItemStack[]>();
 
+        /// <summary>
+        /// Used to determine how to divide the expandedSats when slicing.
+        /// </summary>
         public virtual int TotalSliceCount => Attributes["totalSlices"].AsInt(4);
 
         public override void OnHeldInteractStart(ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handling)
@@ -80,7 +92,7 @@ namespace ACulinaryArtillery
 
                 if (placeblock?.TryPlaceBlock(api.World, byPlayer, slot.Itemstack, placeSel, ref failureCode) == true)
                 {
-                    if (api.World.BlockAccessor.GetBlockEntity(targetPos) is BlockEntityExpandedCheese)
+                    if (api.World.BlockAccessor.GetBlockEntity(targetPos) is BlockEntitySliceable)
                     {
                         slot.TakeOut(1);
                         slot.MarkDirty();

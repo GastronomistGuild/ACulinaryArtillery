@@ -4,21 +4,21 @@
         "op": "replace",
         "path": "/class",
         "side": "server",
-        "value": "ExpandedCheese"
+        "value": "Sliceable"
     },
     {
         "file": "game:blocktypes/food/cheese.json",
         "op": "replace",
         "path": "/class",
         "side": "server",
-        "value": "BlockExpandedCheese"
+        "value": "BlockSliceable"
     },
     {
         "file": "game:blocktypes/food/cheese.json",
         "op": "replace",
         "path": "/entityClass",
         "side": "server",
-        "value": "ExpandedCheese"
+        "value": "Sliceable"
     },
     {
         "file": "game:itemtypes/food/cheese.json",
@@ -37,7 +37,7 @@
         "op": "replace",
         "path": "/class",
         "side": "server",
-        "value": "ExpandedCheese"
+        "value": "Sliceable"
     },
     {
         "file": "game:itemtypes/food/rawcheese.json",
@@ -45,6 +45,8 @@
         "path": "/attributes",
         "side": "server",
         "value": {
+            "placeBlock": "cheese",
+            "isSliceable": false,
             "blueCheeseOutput": "cheese-blue-4slice"
         }
     }
