@@ -8,7 +8,6 @@ namespace ACulinaryArtillery
 {
     public class ItemSliceable : ItemExpandedFood
     {
-        public virtual string Type => Variant["type"];
         public virtual string Part => Variant["part"] ?? "4slice";
 
         /// <summary>
