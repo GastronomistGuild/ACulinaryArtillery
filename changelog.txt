@@ -26,7 +26,6 @@ Lazula changes:
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
 - Fixed: Could not place cheese on Food Shelves' pie shelf
 - Fixed: Missing text in kneading and simmering guides
-- Fixed: Raw cheese was missing from the Food Shelves pie shelf
 
 
 ~1.22_v2.0.0-dev.29~
