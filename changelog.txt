@@ -19,14 +19,14 @@
 - Text added to bottle & stoppers explaining how to use them - DONE!!!
 - Text added to wax sealant explaining its use - DONE!!!
 - Non-colored sealing wax added - DONE!!!
-- Fixed: Missing text in kneading and simmering guides
 
 Lazula changes:
 - Fixed: Couldn't do partial liquid moves into mixing bowl slots
 - Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
 - Fixed: Could not place cheese on Food Shelves' pie shelf
-- Fixed: Raw cheese was missing from the Food Shelves pie shelf- #226
+- Fixed: Missing text in kneading and simmering guides
+- Fixed: Raw cheese was missing from the Food Shelves pie shelf
 
 
 ~1.22_v2.0.0-dev.29~
