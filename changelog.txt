@@ -21,11 +21,14 @@
 - Non-colored sealing wax added - DONE!!!
 
 Lazula changes:
+- Tweak: Rename ExpandedCheese to the more generic Sliceable
 - Fixed: Couldn't do partial liquid moves into mixing bowl slots
 - Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
 - Fixed: Could not place cheese on Food Shelves' pie shelf
 - Fixed: Missing text in kneading and simmering guides
+- Fixed: Could not place raw cheese on the ground
+- Fixed: Could not mark individual sliceable variants as not sliceable
 
 
 ~1.22_v2.0.0-dev.29~
