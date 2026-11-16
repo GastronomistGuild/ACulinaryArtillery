@@ -5,22 +5,28 @@
 	"entityClass": "MeatHooks",
 	"behaviors": [{"name": "HorizontalOrientable"}],
 	"variantgroups": [
-		{ "code": "side", "loadFromProperties": "abstract/horizontalorientation" }
+		{ "code": "side", "loadFromProperties": "abstract/horizontalorientation", "states": ["cross"] }
 	],
 	"shapebytype": {
 		"*-north": { "base": "aculinaryartillery:block/meathooks", "rotateY": 0 },
 		"*-east": { "base": "aculinaryartillery:block/meathooks", "rotateY": 270 },
 		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
-		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 }
-	},
-    "drops": [
-        {
+		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 },
+        "*-cross": { "base": "aculinaryartillery:block/meathooks-cross" }
+    },
+    "dropsByType": {
+        "*-cross": [{
+            "type": "block",
+            "code": "meathooks-cross",
+            "quantity": { "avg": 1 }
+        }],
+        "*": [{
             "type": "block",
             "code": "meathooks-east",
             "quantity": { "avg": 1 }
-        }
-    ],
-	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
+        }]
+    },
+	"creativeinventory": { "general": ["*-east", "*-cross"], "terrain": ["*-east", "*-cross"], "aculinaryartillery": ["*-east", "*-cross"] },
 	"attributes": {
         "cureRate": 3,
 		"dryRate": 10,
