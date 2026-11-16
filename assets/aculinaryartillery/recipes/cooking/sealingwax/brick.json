@@ -1,0 +1,211 @@
+[
+  {
+    "code": "sealingwaxbrick-wax-generic-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-generic-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-generic-hard", "textureMapping": ["waxbrick", "waxgeneric"] } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-generic-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-black-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-black-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-black-hard", "textureMapping": ["waxbrick", "waxblack"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-black-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-blue-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-blue-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-blue-hard", "textureMapping": ["waxbrick", "waxblue"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-blue-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-gray-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-gray-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-gray-hard", "textureMapping": ["waxbrick", "waxgray"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-gray-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-green-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-green-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-green-hard", "textureMapping": ["waxbrick", "waxgreen"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-green-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-orange-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-orange-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-orange-hard", "textureMapping": ["waxbrick", "waxorange"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-orange-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-pink-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-pink-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-pink-hard", "textureMapping": ["waxbrick", "waxpink"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-pink-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-purple-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-purple-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-purple-hard", "textureMapping": ["waxbrick", "waxpurple"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-purple-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-red-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-red-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-red-hard", "textureMapping": ["waxbrick", "waxred"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-red-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-white-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-white-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-white-hard", "textureMapping": ["waxbrick", "waxwhite"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-white-hot", "quantity": 100 }
+  },
+  {
+    "code": "sealingwaxbrick-wax-yellow-hard",
+    "perishableProps": {
+      "type": "Harden",
+      "freshHours": { "avg": 4 },
+      "transitionHours": { "avg": 0.01 },
+      "transitionRatio": 1,
+      "transitionedStack": { "type": "item", "code": "sealingwax-wax-yellow-cold" }
+    },
+    "ingredients": [
+      {
+        "code": "hardenedwax",
+        "validStacks": [ { "type": "block", "code": "sealingwaxbrick-wax-yellow-hard", "textureMapping": ["waxbrick", "waxyellow"]  } ],
+        "minQuantity": 1,
+        "maxQuantity": 1
+      }
+    ],
+    "cooksInto": { "type": "Item", "code": "sealingwax-wax-yellow-hot", "quantity": 100 }
+  }
+]

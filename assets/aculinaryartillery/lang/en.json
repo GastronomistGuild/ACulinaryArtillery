@@ -841,5 +841,19 @@
   "item-handbooktext-sealingwax": "In the past, sealing wax had numerous purposes amongst the now-forgotten nobility. Presently, survivors use it to ensure whatever precious liquids they find last as long as possible, and is still a signifier of status or prestige.<br><br><strong>HOW TO SEAL BOTTLES/JUGS</strong><br>Place an open liquid container with hot wax on the ground, then equip a closed bottle or jug and press <hk>Shift</hk> + <icon name='rightmousebutton'></icon> while targeting the container to dip your bottle/jug into it, using 0.1L of hot wax.<br>To break the wax, equip a knife in your off-hand and a sealed bottle in your main hand, then hold <hk>Shift</hk> + <icon name='rightmousebutton'></icon> until the wax is cut away.",
   
   "itemdesc-sealingwax-*-*-hot": "Hot wax is always a great final touch.",
-  "itemdesc-sealingwax-*-*-cold": "For sealing and forgetting."
+  "itemdesc-sealingwax-*-*-cold": "For sealing and forgetting.",
+
+  "block-sealingwaxbrick-wax-generic-hard": "Hardened wax brick",
+  "block-sealingwaxbrick-wax-black-hard": "Hardened wax brick (black)",
+  "block-sealingwaxbrick-wax-blue-hard": "Hardened wax brick (blue)",
+  "block-sealingwaxbrick-wax-gray-hard": "Hardened wax brick (gray)",
+  "block-sealingwaxbrick-wax-green-hard": "Hardened wax brick (green)",
+  "block-sealingwaxbrick-wax-orange-hard": "Hardened wax brick (orange)",
+  "block-sealingwaxbrick-wax-pink-hard": "Hardened wax brick (pink)",
+  "block-sealingwaxbrick-wax-purple-hard": "Hardened wax brick (purple)",
+  "block-sealingwaxbrick-wax-red-hard": "Hardened wax brick (red)",
+  "block-sealingwaxbrick-wax-white-hard": "Hardened wax brick (white)",
+  "block-sealingwaxbrick-wax-yellow-hard": "Hardened wax brick (yellow)",
+
+  "blockdesc-sealingwaxbrick-*-*-hard": "Bricks meant to preserve that which rots and corrupts."
 }
