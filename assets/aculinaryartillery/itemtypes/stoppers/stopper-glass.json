@@ -1,6 +1,6 @@
 {
 	"code": "stopper",
-	"inheritFrom": "itemtypes/stopper-bark",
+	"inheritFrom": "itemtypes/stoppers/stopper-bark",
 	"variantgroups": [
 		{ "code": "material", "states": [ "glass" ] },
 		{ "code": "color", "states": [ "blue", "brown", "green", "pink", "plain", "quartz", "red", "smoky", "vintage", "violet", "yellow" ] }
@@ -18,5 +18,21 @@
           ]
         }
 	},
+    "behaviors": [{
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Stacking",
+        "stackingModel": "item/stopperpileglass",
+        "modelItemsToStackSizeRatio": 2,
+        "upSolid": false,
+        "stackingCapacity": 128,
+        "transferQuantity": 1,
+        "bulkTransferQuantity": 4,
+        "stackingTextures": {
+          "stopper": { "base": "game:block/glass/{color}" },
+          "stopperdark": { "base": "game:block/glass/{color}", "overlays": "block/stopperdark" }
+        }
+      }
+    }],
 	"texture": { "base": "game:block/glass/{color}" }
 }

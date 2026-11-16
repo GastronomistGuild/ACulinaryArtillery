@@ -19,6 +19,9 @@
 - Text added to bottle & stoppers explaining how to use them - DONE!!!
 - Text added to wax sealant explaining its use - DONE!!!
 - Non-colored sealing wax added - DONE!!!
+- Cork pile added - DONE!!!
+- Cross-shaped meat rack added
+- Hardened wax bricks added
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable
