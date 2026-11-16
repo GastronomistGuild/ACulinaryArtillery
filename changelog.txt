@@ -21,7 +21,7 @@
 - Non-colored sealing wax added - DONE!!!
 - Cork pile added - DONE!!!
 - Cross-shaped meat rack added
-- Hardened wax bricks added
+- Hardened wax bricks added - DONE!!!
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable
