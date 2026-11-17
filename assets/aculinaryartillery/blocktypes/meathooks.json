@@ -3,7 +3,10 @@
 	"class": "BlockMeatHooks",
     "maxStackSize": 4,
 	"entityClass": "MeatHooks",
-	"behaviors": [{"name": "HorizontalOrientable"}],
+	"behaviorsByType": {
+		"*-cross": [],
+		"*": [{"name": "HorizontalOrientable"}]
+	},
 	"variantgroups": [
 		{ "code": "side", "loadFromProperties": "abstract/horizontalorientation", "states": ["cross"] }
 	],
@@ -12,7 +15,7 @@
 		"*-east": { "base": "aculinaryartillery:block/meathooks", "rotateY": 270 },
 		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
 		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 },
-        "*-cross": { "base": "aculinaryartillery:block/meathooks-cross" }
+		"*-cross": { "base": "aculinaryartillery:block/meathooks-cross" }
     },
     "dropsByType": {
         "*-cross": [{
