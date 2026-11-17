@@ -7,7 +7,7 @@
     { "code":"color", "states": ["generic","black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
     { "code":"state", "states": ["hard"] }
   ],
-  "creativeinventory": { "general": ["*"], "blocks": ["*"], "aculinaryartillery": ["*"] },
+  "creativeinventory": { "general": ["*"], "aculinaryartillery": ["*"] },
   "attributes": {
     "placeSound": "game:block/snow",
     "inContainerTexture": { "base": "block/liquid/sealingwax/cold/{color}" },
