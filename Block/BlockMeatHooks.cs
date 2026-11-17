@@ -87,7 +87,17 @@ namespace ACulinaryArtillery
 
         public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
         {
-            ItemStack stack = new ItemStack(world.GetBlock(new AssetLocation(Code.Domain + ":" + FirstCodePart() + "-east")));
+            Block rack = world.BlockAccessor.GetBlock(pos);
+            ItemStack stack;
+            string side = rack.LastCodePart();
+            if (side is "north" or "south" or "east" or "west")
+            {
+                stack = new ItemStack(world.GetBlock(new AssetLocation($"{rack.Code.Domain}:{rack.FirstCodePart()}-east")));
+            }
+            else
+            {
+                stack = new ItemStack(rack);
+            }
 
             if (world.BlockAccessor.GetBlockEntity<BlockEntityMeatHooks>(pos) is not BlockEntityMeatHooks beRack) return stack;
 
@@ -116,7 +126,16 @@ namespace ACulinaryArtillery
             {
                 if (drop.Collectible is BlockMeatHooks)
                 {
-                    rack = new ItemStack(world.GetBlock(new AssetLocation("aculinaryartillery:" + drop.Collectible.FirstCodePart() + "-east")));
+                    string side = drop.Collectible.LastCodePart();
+                    if (side is "north" or "south" or "east" or "west")
+                    {
+                        rack = new ItemStack(world.GetBlock(new AssetLocation($"{drop.Collectible.Code.Domain}:{drop.Collectible.FirstCodePart()}-east")));
+                    }
+                    else
+                    {
+                        rack = new ItemStack(drop.Collectible);
+                    }
+
                     rack.Attributes.SetString("wood", Wood);
                     rack.Attributes.SetString("metal", Metal);
                     codeParts = drop.Collectible.Code.Path.ToString().Split("-");
