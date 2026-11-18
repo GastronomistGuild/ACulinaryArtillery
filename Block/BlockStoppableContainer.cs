@@ -110,7 +110,7 @@ namespace ACulinaryArtillery
 
             if (stopperStack == null)
             {
-                SetContents(containerStack, [ contentStacks[0] ]);
+                SetContents(containerStack, [contentStacks[0]]);
                 return;
             }
 
@@ -291,7 +291,7 @@ namespace ACulinaryArtillery
             ItemSlot? offhandSlot = player?.InventoryManager?.OffhandHotbarSlot;
 
             // Uncorking corked container
-            if (player != null && blockSel == null && Variant[CorkedTypeVariant] == "corked" && !byEntity.Controls.ShiftKey && itemslot.Itemstack != null)
+            if (player != null && Variant[CorkedTypeVariant] == "corked" && !byEntity.Controls.ShiftKey && itemslot.Itemstack != null)
             {
                 if (offhandSlot != null && (offhandSlot.Empty || offhandSlot.Itemstack.Collectible == GetStopper(itemslot.Itemstack)?.Collectible))
                 {
@@ -332,7 +332,7 @@ namespace ACulinaryArtillery
             }
 
             // Corking open container
-            if (blockSel == null && byEntity.Controls.ShiftKey && player != null && offhandSlot != null && itemslot.Itemstack != null
+            if (byEntity.Controls.ShiftKey && player != null && offhandSlot != null && itemslot.Itemstack != null
                 && Variant[CorkedTypeVariant] == UncorkedVariant
                 && offhandSlot.Itemstack?.ItemAttributes?["isLiquidContainerStopper"]?.AsBool() == true)
             {
@@ -366,7 +366,7 @@ namespace ACulinaryArtillery
             }
 
             // Unsealing waxed container
-            if (player != null && blockSel == null && Variant[CorkedTypeVariant] == "waxed" && !byEntity.Controls.ShiftKey && itemslot.Itemstack != null)
+            if (player != null && Variant[CorkedTypeVariant] == "waxed" && !byEntity.Controls.ShiftKey && itemslot?.Itemstack != null)
             {
                 ItemStack unsealedContainer = new(byEntity.World.GetBlock(CodeWithVariant(CorkedTypeVariant, "corked"))) { Attributes = itemslot.Itemstack.Attributes.Clone() };
                 SetSealant(unsealedContainer, null);
@@ -392,7 +392,7 @@ namespace ACulinaryArtillery
             }
 
             // Sealing corked container
-            if (blockSel == null && byEntity.Controls.ShiftKey && player != null && offhandSlot != null && itemslot.Itemstack != null
+            if (byEntity.Controls.ShiftKey && player != null && offhandSlot?.Itemstack != null && itemslot?.Itemstack != null
                 && Variant[CorkedTypeVariant] == "corked"
                 && StackCanSeal(offhandSlot.Itemstack))
             {
@@ -688,7 +688,7 @@ namespace ACulinaryArtillery
                     ActionLangCode = "heldhelp-empty",
                     HotKeyCode = "ctrl",
                     MouseButton = EnumMouseButton.Right,
-                    ShouldApply = (wi, bs, es) => bs != null && GetCurrentLitres(inSlot.Itemstack) > 0,
+                    ShouldApply = (wi, bs, es) => GetCurrentLitres(inSlot.Itemstack) > 0,
                 },
                 new()
                 {
@@ -700,7 +700,7 @@ namespace ACulinaryArtillery
                 {
                     ActionLangCode = "heldhelp-fill",
                     MouseButton = EnumMouseButton.Right,
-                    ShouldApply = (wi, bs, es) => bs != null && (api.World.BlockAccessor.GetBlock(bs.Position.AddCopy(bs.Face))?.Code.GetName().Contains("water-") == true) && GetCurrentLitres(inSlot.Itemstack) == 0,
+                    ShouldApply = (wi, bs, es) => (api.World.BlockAccessor.GetBlock(bs.Position.AddCopy(bs.Face))?.Code.GetName().Contains("water-") == true) && GetCurrentLitres(inSlot.Itemstack) == 0,
                 },
                 new()
                 {
@@ -734,7 +734,7 @@ namespace ACulinaryArtillery
                     HotKeyCode = "shift",
                     MouseButton = EnumMouseButton.Right,
                     Itemstacks = sealantStacks,
-                    GetMatchingStacks = (wi, bs, es) => bs == null && es == null && Variant[CorkedTypeVariant] == "corked" ? wi.Itemstacks : null
+                    GetMatchingStacks = (wi, bs, es) => Variant[CorkedTypeVariant] == "corked" ? wi.Itemstacks : null
                 },
             ];
         }
