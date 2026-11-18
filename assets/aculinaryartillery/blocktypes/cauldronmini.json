@@ -23,7 +23,7 @@
                 }
               ]
             },
-			"lidPerishRate": 0.75,
+			"lidPerishRate": 0.9,
 			"maxTemperature": 900,
 			"storageType": 1,
 			"maxContainerSlotStackSize": 25,
