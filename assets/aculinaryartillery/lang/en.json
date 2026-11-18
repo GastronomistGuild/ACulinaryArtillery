@@ -1,5 +1,6 @@
 ﻿{
   "block-meathooks-*": "Meat rack",
+  "block-meathookscross-*": "Meat rack (cross)",
   "blockdesc-meathooks-legacy": "Break this block to update it to the new version. This legacy block will be removed in a future update.",
   "blockdesc-meathooks": "Best placed somewhere cold and dry - sealed in stone.",
   "block-handbooktitle-meathooks": "Meat Rack",

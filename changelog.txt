@@ -20,7 +20,8 @@
 - Text added to wax sealant explaining its use - DONE!!!
 - Non-colored sealing wax added - DONE!!!
 - Cork pile added - DONE!!!
-- Cross-shaped meat rack added
+- Cross-shaped meat rack added - DONE!!!
+- Molds grouped together in handbook - DONE!!!
 - Hardened wax bricks added - DONE!!!
 
 Lazula changes:
@@ -32,6 +33,7 @@ Lazula changes:
 - Fixed: Missing text in kneading and simmering guides
 - Fixed: Could not place raw cheese on the ground
 - Fixed: Could not mark individual sliceable variants as not sliceable
+- Fixed: Typo in simmering handbook text markup
 - Feature: Allow placing saucepans and cauldrons in firepits directly
 
 ~1.22_v2.0.0-dev.29~
