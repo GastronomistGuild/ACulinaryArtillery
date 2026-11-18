@@ -27,6 +27,7 @@
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable
+- Tweak: Stopped or sealed containers can now be opened while looking at a block
 - Fixed: Couldn't do partial liquid moves into mixing bowl slots
 - Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
 - Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
