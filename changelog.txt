@@ -23,7 +23,7 @@
 - Cross-shaped meat rack added - DONE!!!
 - Molds grouped together in handbook - DONE!!!
 - Hardened wax bricks added - DONE!!!
-- Cauldron lid perish rate nerfed from x0.75 to x0.9 - DONE!!!
+- Cauldron lid perish rate nerfed from x0.75 to x0.85 - DONE!!!
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable
