@@ -9,6 +9,10 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 
+~1.22_v2.0.0-dev.31~
+- Fixed: Crash when displaying held help for filling stoppable containers
+- Fixed: Cross meat rack shape did not have default textures
+
 
 ~1.22_v2.0.0-dev.30~
 - Cross-shaped meat rack added
