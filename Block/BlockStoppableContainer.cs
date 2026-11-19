@@ -424,7 +424,7 @@ namespace ACulinaryArtillery
             }
 
             // Try to seal from a container of wax
-            if (blockSel != null && byEntity.Controls.ShiftKey && player != null && itemslot.Itemstack != null
+            if (blockSel != null && byEntity.Controls.ShiftKey && player != null && itemslot?.Itemstack != null
                 && Variant[CorkedTypeVariant] == "corked")
             {
                 ILiquidSource? container = byEntity.World.BlockAccessor.GetBlock(blockSel.Position).GetCollectibleInterface<ILiquidSource>();
@@ -688,7 +688,7 @@ namespace ACulinaryArtillery
                     ActionLangCode = "heldhelp-empty",
                     HotKeyCode = "ctrl",
                     MouseButton = EnumMouseButton.Right,
-                    ShouldApply = (wi, bs, es) => GetCurrentLitres(inSlot.Itemstack) > 0,
+                    ShouldApply = (wi, bs, es) => inSlot.Itemstack != null && GetCurrentLitres(inSlot.Itemstack) > 0,
                 },
                 new()
                 {
@@ -700,7 +700,7 @@ namespace ACulinaryArtillery
                 {
                     ActionLangCode = "heldhelp-fill",
                     MouseButton = EnumMouseButton.Right,
-                    ShouldApply = (wi, bs, es) => (api.World.BlockAccessor.GetBlock(bs.Position.AddCopy(bs.Face))?.Code.GetName().Contains("water-") == true) && GetCurrentLitres(inSlot.Itemstack) == 0,
+                    ShouldApply = (wi, bs, es) => bs != null && inSlot.Itemstack != null && (api.World.BlockAccessor.GetBlock(bs.Position.AddCopy(bs.Face))?.Code.GetName().Contains("water-") == true) && GetCurrentLitres(inSlot.Itemstack) == 0,
                 },
                 new()
                 {
