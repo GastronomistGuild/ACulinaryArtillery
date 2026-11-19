@@ -11,19 +11,22 @@
 
 
 ~1.22_v2.0.0-dev.30~
-- Egg pie mixing codes removed from ACA; added to EF via patches - DONE!!!
-- ACA Trader house updated now that vanilla spawning issues have been fixed - DONE!!!
-- Bismuth bronze cauldron requires less chisel durability to destroy - DONE!!!
-- Grid recipes updated to use tool tags when optimal - DONE!!!
-- EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16) - DONE!!!
-- Text added to bottle & stoppers explaining how to use them - DONE!!!
-- Text added to wax sealant explaining its use - DONE!!!
-- Non-colored sealing wax added - DONE!!!
-- Cork pile added - DONE!!!
-- Cross-shaped meat rack added - DONE!!!
-- Molds grouped together in handbook - DONE!!!
-- Hardened wax bricks added - DONE!!!
-- Cauldron lid perish rate nerfed from x0.75 to x0.85 - DONE!!!
+- Cross-shaped meat rack added
+- ACA Trader house updated now that vanilla spawning issues have been fixed
+- EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16)
+- Bismuth bronze cauldron requires less chisel durability to destroy
+- Grid recipes updated to use tool tags when optimal
+- Molds grouped together in handbook
+- Cauldron lid perish rate nerfed from x0.75 to x0.85
+- Egg pie mixing codes removed from ACA; added to EF via patches
+
+Bottle stuff:
+- Text added to bottle & stoppers explaining how to use them
+- Text added to wax sealant explaining its use
+- Cork pile added
+- Non-colored sealing wax added
+- Hardened wax bricks added
+
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable
