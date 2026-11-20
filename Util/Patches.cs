@@ -1273,7 +1273,7 @@ namespace ACulinaryArtillery
 
             bool activated = false;
 
-            if (byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(___api.World, bef.inputSlot, 1) > 0)
+            if (byPlayer.InventoryManager.ActiveHotbarSlot?.TryPutInto(world, bef.inputSlot, 1) > 0)
             {
                 activated = true;
             }
