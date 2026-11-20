@@ -117,7 +117,7 @@ public class BlockEntityExpandedCheeseCurdsBundle : BlockEntityContainer
         }
         else
         {
-            (Api as ICoreServerAPI).Network.BroadcastBlockEntityPacket(Pos, 1010);
+            (Api as ICoreServerAPI).Network.BroadcastBlockEntityPacket(new FastBlockPos(Pos), 1010);
         }
 
         Api.World.PlaySoundAt(new AssetLocation("sounds/player/wetclothsqueeze.ogg"), Pos.X + 0.5, Pos.InternalY + 0.5, Pos.Z + 0.5, byPlayer, false);

@@ -33,7 +33,7 @@ namespace ACulinaryArtillery
                 if (block.Attributes?.IsTrue("pieFormingSurface") == true)
                 {
                     ICoreClientAPI? capi = api as ICoreClientAPI;
-                    ExpandedInPieProperties? pieProps = ExpandedInPieProperties.ReadFrom(slot.Itemstack);
+                    InPieProperties? pieProps = InPieProperties.ReadFrom(slot.Itemstack);
                     if (pieProps == null)
                     {
                         capi?.TriggerIngameError(this, "notpieable", Lang.Get("This item can not be added to pies"));

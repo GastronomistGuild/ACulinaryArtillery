@@ -518,7 +518,7 @@ namespace ACulinaryArtillery
             ambientSound?.Dispose();
         }
 
-        public override void OnReceivedClientPacket(IPlayer player, int packetid, byte[] data)
+        public override void OnReceivedClientPacket(IServerPlayer player, int packetid, SerializedData data, ref CachedAccessPerms perms)
         {
             if (packetid < 1000)
             {
@@ -536,7 +536,7 @@ namespace ACulinaryArtillery
             }
         }
 
-        public override void OnReceivedServerPacket(int packetid, byte[] data)
+        public override void OnReceivedServerPacket(int packetid, SerializedData data)
         {
             if (packetid == (int)EnumBlockStovePacket.OpenGUI && Api is ICoreClientAPI capi && clientDialog?.IsOpened() != true)
             {
