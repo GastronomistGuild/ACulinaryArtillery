@@ -13,10 +13,18 @@
 - Tweak: Can now remove meals from a cooking pot in the mixing bowl by right clicking
 - Tweak: Can now place a cooking pot directly into the mixing bowl by right clicking
 
+~1.22_v2.0.0-dev.32~
+- Chicken eggs crack properly when The Critters Pack is installed
+
+Lazula changes:
+- Performance: Reduce the number of random pies displayed each frame to 12
+- Fixed: Ghosting when stopping containers
+
+
+
 ~1.22_v2.0.0-dev.31~
 - Fixed: Crash when displaying held help for filling stoppable containers
 - Fixed: Cross meat rack shape did not have default textures
-
 
 ~1.22_v2.0.0-dev.30~
 - Cross-shaped meat rack added
@@ -34,7 +42,6 @@ Bottle stuff:
 - Cork pile added
 - Non-colored sealing wax added
 - Hardened wax bricks added
-
 
 Lazula changes:
 - Tweak: Rename ExpandedCheese to the more generic Sliceable

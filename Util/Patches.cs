@@ -1026,7 +1026,7 @@ namespace ACulinaryArtillery
 
 
                 pieRecipeCount++;
-                if (pieRecipeCount > 48)
+                if (pieRecipeCount > 12)
                 {
                     excessivePieRecipeComponents.Add(comp);
                 }
