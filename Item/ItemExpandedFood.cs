@@ -34,7 +34,7 @@ namespace ACulinaryArtillery
                     // Need this check because you can eat normal food beyond max hunger
                     float satForLossDelay = Math.Min(sat, ebh.MaxSaturation - ebh.Saturation);
                     float satLossDelay = slot.Itemstack?.ItemAttributes["mealSatLossDelay"].AsBool() == true ? Math.Min(1.3f, satForLossDelay * 3) * 10 + satForLossDelay / 70f * 60f : 10;
-                    byEntity.ReceiveSaturation(sat, prop.FoodCategory, saturationLossDelay: satLossDelay);
+                    byEntity.ReceiveSaturation(sat, prop.FoodCategory, satietyLossDelay: satLossDelay);
 
                     float healthChange = prop.Health * healthLossMul;
 

@@ -3,7 +3,7 @@
     "inheritFrom": "itemtypes/stoppers/stopper-bark",
     "variantgroups": [
         { "code": "material", "states": [ "wood" ] },
-        { "code": "color", "states": [ "aged", "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut" ] }
+        { "code": "color", "states": [ "aged", "acacia", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "willow" ] }
     ],
 	"attributes": {
 		"liquidContainerStopperPerishRate": 0.8,
