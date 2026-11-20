@@ -199,6 +199,7 @@
   "item-stopper-wood-purpleheart": "Purpleheart stopper",
   "item-stopper-wood-redwood": "Redwood stopper",
   "item-stopper-wood-walnut": "Walnut stopper",
+  "item-stopper-wood-willow": "Willow stopper",
   "item-stopper-metal-copper": "Copper stopper",
   "item-stopper-metal-brass": "Brass stopper",
   "item-stopper-metal-tinbronze": "Tin bronze stopper",
@@ -352,6 +353,7 @@
   "item-rollingpin-purpleheart": "Purpleheart rolling pin",
   "item-rollingpin-redwood": "Redwood rolling pin",
   "item-rollingpin-walnut": "Walnut rolling pin",
+  "item-rollingpin-willow": "Willow rolling pin",
   "item-rollingpin-veryaged": "Very aged rolling pin",
   "item-rollingpin-blackbronze": "Black bronze rolling pin",
   "item-rollingpin-bismuthbronze": "Bismuth bronze rolling pin",
@@ -683,7 +685,6 @@
   "item-handbooktext-l33tapron": "Any unknown person caught wearing the black cotton apron of the highest-ranking gastronomists was harshly punished. To be worthy of the dark regalia, many chefs toiled away for decades - but the right combination of vision and practical experience was hard to acquire. Entire generations went by without any elite gastronomists. Each swore a vow unto the ancient <i>'Source Culinaire'</i> before taking the black and renouncing their former identities, fully consigning their lives to the advancement of culinary enlightenment.",
 
   "item-rollingpin-douglasfir": "Douglas fir rolling pin",
-  "item-rollingpin-willow": "Willow rolling pin",
   "item-rollingpin-honeylocust": "Honey locust rolling pin",
   "item-rollingpin-bearnut": "Bearnut rolling pin",
   "item-rollingpin-poplar": "Poplar rolling pin",

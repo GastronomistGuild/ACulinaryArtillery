@@ -18,13 +18,13 @@ namespace ACulinaryArtillery
     {
         protected virtual AssetLocation ContentShapeLoc => props.OpaqueContentShapeLoc;
         protected virtual AssetLocation LiquidContentShapeLoc => props.LiquidContentShapeLoc;
-        protected virtual bool IsClear => Attributes["isClear"].AsBool();
-        public virtual float MinFillY => Attributes["minFill"].AsFloat();
-        public virtual float MaxFillY => Attributes["maxFill"].AsFloat();
-        public virtual float MinFillZ => Attributes["minFillSideways"].AsFloat();
-        public virtual float MaxFillZ => Attributes["maxFillSideways"].AsFloat();
+        protected virtual bool IsClear => Attributes?["isClear"].AsBool() == true;
+        public virtual float MinFillY => Attributes?["minFill"].AsFloat() ?? 0;
+        public virtual float MaxFillY => Attributes?["maxFill"].AsFloat() ?? 0;
+        public virtual float MinFillZ => Attributes?["minFillSideways"].AsFloat() ?? 0;
+        public virtual float MaxFillZ => Attributes?["maxFillSideways"].AsFloat() ?? 0;
 
-        public override byte[]? GetLightHsv(IBlockAccessor blockAccessor, BlockPos pos, ItemStack? stack = null)
+        public override byte[] GetLightHsv(IBlockAccessor blockAccessor, BlockPos? pos, ItemStack? stack = null)
         {
             return GetContent(stack)?.Item?.LightHsv ?? base.GetLightHsv(blockAccessor, pos, stack);
         }
@@ -174,10 +174,9 @@ namespace ACulinaryArtillery
                 shape.Textures["wax"] = new AssetLocation(sealant.Attributes?["bottleSealantTexture"]?.AsObject<CompositeTexture>()?.Base ?? sealant.FirstTexture.Base);
             }
         }
-
-        public CompositeShape? GetAttachedShape(ItemStack stack, string slotCode)
+        public CompositeShape? GetAttachedShape(ItemStack stack, Entity onentity, string slotCode)
         {
-            if (attrAtta?.GetAttachedShape(stack, slotCode) is not CompositeShape baseShape)
+            if (attrAtta?.GetAttachedShape(stack, onentity, slotCode) is not CompositeShape baseShape)
             {
                 return new();
             }
@@ -222,7 +221,7 @@ namespace ACulinaryArtillery
 
         #endregion
 
-        public string GetContainedInfo(ItemSlot inSlot)
+        public new string GetContainedInfo(ItemSlot inSlot)
         {
             float litres = GetCurrentLitres(inSlot.Itemstack);
             ItemStack? contentStack = GetContent(inSlot.Itemstack);

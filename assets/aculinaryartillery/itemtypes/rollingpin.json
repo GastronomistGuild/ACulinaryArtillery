@@ -3,7 +3,7 @@
     "tags": ["weapon", "weapon-melee", "tool", "tool-rollingpin"],
 	"damagedby": ["blockbreaking", "attacking"],
 	"variantgroups": [
-		{ "code": "type", "states": ["acacia", "aged", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "veryaged",
+		{ "code": "type", "states": ["acacia", "aged", "baldcypress", "birch", "ebony", "kapok", "larch", "maple", "oak", "pine", "purpleheart", "redwood", "walnut", "willow", "veryaged",
 																				"bismuthbronze", "blackbronze", "copper", "iron", "meteoriciron", "steel", "tinbronze" ] }
 	],
 	"shape": { "base": "item/rollingpinshape" }, 
