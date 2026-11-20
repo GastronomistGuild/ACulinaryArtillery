@@ -10,16 +10,13 @@
 - New, larger spile mold shape
 
 ~1.22_v2.0.0-dev.32~
-- Tweak: Can now remove meals from a cooking pot in the mixing bowl by right clicking
-- Tweak: Can now place a cooking pot directly into the mixing bowl by right clicking
-
-~1.22_v2.0.0-dev.32~
 - Chicken eggs crack properly when The Critters Pack is installed
 
 Lazula changes:
 - Performance: Reduce the number of random pies displayed each frame to 12
 - Fixed: Ghosting when stopping containers
-
+- Tweak: Can now remove meals from a cooking pot in the mixing bowl by right clicking
+- Tweak: Can now place a cooking pot directly into the mixing bowl by right clicking
 
 
 ~1.22_v2.0.0-dev.31~
