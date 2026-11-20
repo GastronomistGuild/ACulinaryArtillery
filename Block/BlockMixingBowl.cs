@@ -1,6 +1,7 @@
 ﻿using Vintagestory.API.Client;
 using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
+using Vintagestory.GameContent;
 using Vintagestory.GameContent.Mechanics;
 
 namespace ACulinaryArtillery
@@ -12,7 +13,7 @@ namespace ACulinaryArtillery
         public override void OnLoaded(ICoreAPI api)
         {
             base.OnLoaded(api);
-            
+
             CapacityLitres = Attributes?["capacityLitres"]?.AsInt(CapacityLitres) ?? CapacityLitres;
         }
 
@@ -40,6 +41,33 @@ namespace ACulinaryArtillery
         {
             if (world.BlockAccessor.GetBlockEntity(blockSel.Position) is BlockEntityMixingBowl beBowl)
             {
+                if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Collectible is BlockCookingContainer
+                    && byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(world, beBowl.Inventory[0]) > 0)
+                {
+                    return true;
+                }
+
+                if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack?.Collectible.Attributes?.IsTrue("mealContainer") == true
+                    && beBowl.Inventory[1].Itemstack?.Collectible is BlockCookedContainer pot)
+                {
+                    ItemSlot targetSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
+                    if (byPlayer.InventoryManager.ActiveHotbarSlot.StackSize > 1)
+                    {
+                        targetSlot = new DummySlot(targetSlot.TakeOut(1));
+                        byPlayer.InventoryManager.ActiveHotbarSlot.MarkDirty();
+                        pot.ServeIntoStack(targetSlot, beBowl.Inventory[1], world);
+                        if (!byPlayer.InventoryManager.TryGiveItemstack(targetSlot.Itemstack, true))
+                        {
+                            world.SpawnItemEntity(targetSlot.Itemstack, byPlayer.Entity.Pos.XYZ);
+                        }
+                    }
+                    else
+                    {
+                        pot.ServeIntoStack(targetSlot, beBowl.Inventory[1], world);
+                    }
+                    return true;
+                }
+
                 if (byPlayer.Entity.Controls.CtrlKey && (blockSel.SelectionBoxIndex == 1 || beBowl.Inventory.openedByPlayerGUIds.Contains(byPlayer.PlayerUID)))
                 {
                     beBowl.ToggleLock(byPlayer);
