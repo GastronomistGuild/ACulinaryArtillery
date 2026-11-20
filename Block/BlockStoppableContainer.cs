@@ -106,7 +106,7 @@ namespace ACulinaryArtillery
         public void SetStopper(ItemStack containerStack, ItemStack? stopperStack)
         {
             List<ItemStack?> contentStacks = [.. GetContents(api.World, containerStack)];
-            while (contentStacks.Count() < 1) contentStacks.Add(null);
+            while (contentStacks.Count < 1) contentStacks.Add(null);
 
             if (stopperStack == null)
             {
@@ -146,7 +146,7 @@ namespace ACulinaryArtillery
                 return;
             }
 
-            while (contentStacks.Count() < 3) contentStacks.Add(null);
+            while (contentStacks.Count < 3) contentStacks.Add(null);
 
             ILiquidSource? container = sealantStack?.Collectible.GetCollectibleInterface<ILiquidSource>();
             ItemStack? contentStack = sealantStack;
@@ -306,7 +306,7 @@ namespace ACulinaryArtillery
                     else
                     {
                         itemslot.TakeOut(1);
-                        if (!player.InventoryManager.TryGiveItemstack(unstopperedContainer, true))
+                        if (api.Side.IsServer() && !player.InventoryManager.TryGiveItemstack(unstopperedContainer, true))
                         {
                             byEntity.World.SpawnItemEntity(unstopperedContainer, byEntity.Pos.AsBlockPos);
                         }
@@ -349,7 +349,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     itemslot.TakeOut(1);
-                    if (!player.InventoryManager.TryGiveItemstack(stopperedContainer, true))
+                    if (api.Side.IsServer() && !player.InventoryManager.TryGiveItemstack(stopperedContainer, true))
                     {
                         byEntity.World.SpawnItemEntity(stopperedContainer, byEntity.Pos.AsBlockPos);
                     }
@@ -378,7 +378,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     itemslot.TakeOut(1);
-                    if (!player.InventoryManager.TryGiveItemstack(unsealedContainer, true))
+                    if (api.Side.IsServer() && !player.InventoryManager.TryGiveItemstack(unsealedContainer, true))
                     {
                         byEntity.World.SpawnItemEntity(unsealedContainer, byEntity.Pos.AsBlockPos);
                     }
@@ -409,7 +409,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     itemslot.TakeOut(1);
-                    if (!player.InventoryManager.TryGiveItemstack(sealedContainer, true))
+                    if (api.Side.IsServer() && !player.InventoryManager.TryGiveItemstack(sealedContainer, true))
                     {
                         byEntity.World.SpawnItemEntity(sealedContainer, byEntity.Pos.AsBlockPos);
                     }
@@ -465,7 +465,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     itemslot.TakeOut(1);
-                    if (!player.InventoryManager.TryGiveItemstack(sealedContainer, true))
+                    if (api.Side.IsServer() && !player.InventoryManager.TryGiveItemstack(sealedContainer, true))
                     {
                         byEntity.World.SpawnItemEntity(sealedContainer, byEntity.Pos.AsBlockPos);
                     }
