@@ -16,6 +16,7 @@ namespace ACulinaryArtillery
         {
             return Lang.Get($"game:foodcategory-{category.ToString().ToLowerInvariant()}");
         }
+
         public override void OnHeldInteractStop(float secondsUsed, ItemSlot slot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel)
         {
             if (byEntity.World is IServerWorldAccessor && GetNutritionProperties(byEntity.World, slot.Itemstack, byEntity) != null &&
