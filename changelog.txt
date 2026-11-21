@@ -10,8 +10,6 @@
 - New, larger spile mold shape
 
 ~1.22_v2.0.0-dev.32~
-- Chicken eggs crack properly when The Critters Pack is installed
-
 Lazula changes:
 - Performance: Reduce the number of random pies displayed each frame to 12
 - Fixed: Ghosting when stopping containers
