@@ -9,6 +9,11 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 
+~1.22_v2.0.0-dev.33~
+- Wax brick describes how to get it from liquid containers in the handbook
+- Tweak: Add custom meal naming for au gratin
+
+
 ~1.22_v2.0.0-dev.32~
 Lazula changes:
 - Performance: Reduce the number of random pies displayed each frame to 12

@@ -856,5 +856,6 @@
   "block-sealingwaxbrick-wax-white-hard": "Hardened wax brick (white)",
   "block-sealingwaxbrick-wax-yellow-hard": "Hardened wax brick (yellow)",
 
-  "blockdesc-sealingwaxbrick-*-*-hard": "Bricks meant to preserve that which rots and corrupts."
+  "blockdesc-sealingwaxbrick-*-*-hard": "Bricks meant to preserve that which rots and corrupts.",
+  "block-handbooktext-sealingwaxbrick": "Once you have a liquid container full of hardened wax, press <hk>Ctrl</hk> + <icon name='rightmousebutton'></icon> while targeting the ground to dump its contents, which you can then collect."
 }

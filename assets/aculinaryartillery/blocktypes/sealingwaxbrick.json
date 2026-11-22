@@ -13,7 +13,7 @@
     "inContainerTexture": { "base": "block/liquid/sealingwax/cold/{color}" },
     "handbook": {
       "groupBy": ["sealingwaxbrick-*-{color}-hard"],
-      "extraSections": [{ "title": "aculinaryartillery:item-handbooktitle-sealingwax", "text": "aculinaryartillery:item-handbooktext-sealingwax" }]
+      "extraSections": [{ "title": "aculinaryartillery:block-handbooktitle-sealingwaxbrick", "text": "aculinaryartillery:block-handbooktext-sealingwaxbrick" }]
     }
   },
   "behaviors": [
