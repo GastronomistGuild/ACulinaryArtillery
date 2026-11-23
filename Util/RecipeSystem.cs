@@ -35,9 +35,10 @@ namespace ACulinaryArtillery
                 case "augratin":
                     {
                         string CheeseName = null!;
+                        string? VegetableName = null;
+                        string? MeatName = null;
 
                         List<string> FreshIngredientNames = [];
-                        List<string> ExtraMeatVegetableNames = [];
 
                         int max = 0;
 
@@ -48,14 +49,9 @@ namespace ACulinaryArtillery
 
                             if (ingredient?.TypeName == "cheese")
                             {
-                                if (CheeseName != null)
-                                {
-                                    CheeseName = Lang.Get("meal-ingredient-augratin-primary-generic-cheese");
-                                }
-                                else
-                                {
-                                    CheeseName = getMainIngredientName(stack, recipeCode);
-                                }
+                                CheeseName = CheeseName == null
+                                    ? CheeseName = getMainIngredientName(stack, recipeCode)
+                                    : CheeseName = Lang.Get("meal-ingredient-augratin-primary-generic-cheese");
 
                                 max += quantity;
                                 continue;
@@ -63,16 +59,18 @@ namespace ACulinaryArtillery
 
                             if (ingredient?.TypeName == "vegetable")
                             {
-                                string name = ingredientName(stack);
-                                if (!ExtraMeatVegetableNames.Contains(name)) ExtraMeatVegetableNames.Add(name);
+                                VegetableName = VegetableName == null
+                                    ? VegetableName = getMainIngredientName(stack, recipeCode, true)
+                                    : VegetableName = Lang.Get("meal-ingredient-augratin-primary-generic-vegetable");
 
                                 continue;
                             }
 
                             if (ingredient?.TypeName == "meat")
                             {
-                                string name = ingredientName(stack);
-                                if (!ExtraMeatVegetableNames.Contains(name)) ExtraMeatVegetableNames.Add(name);
+                                MeatName = MeatName == null
+                                    ? MeatName = getMainIngredientName(stack, recipeCode, true)
+                                    : MeatName = Lang.Get("meal-ingredient-augratin-primary-generic-meat");
 
                                 continue;
                             }
@@ -84,9 +82,13 @@ namespace ACulinaryArtillery
                         string FreshIngredientsFormat = "meal-adds-augratin-fresh";
 
                         string ExtraMeatVegetableFormat = "{0}";
+                        List<string> ExtraMeatVegetableNames = [];
+                        if (VegetableName != null) ExtraMeatVegetableNames.Add(VegetableName);
+                        if (MeatName != null) ExtraMeatVegetableNames.Add(MeatName);
+
                         if (ExtraMeatVegetableNames.Count > 1)
                         {
-                            ExtraMeatVegetableFormat = Lang.Get("multi-main-ingredients-format");
+                            ExtraMeatVegetableFormat = "multi-main-ingredients-format";
                         }
 
                         string MealFormat = getMaxMealFormat("meal", recipeCode, max);
