@@ -45,11 +45,9 @@
             }
         },
 		"meathookable": true,
-		"meatHookShape": { "base": "aculinaryartillery:item/rollingpinmeatrack.json" },
+		"meatHookShapeLoc": "aculinaryartillery:shapes/item/rollingpinmeatrack.json",
 		"meatHookTransform": {
-			"translation": { "x": 0, "y": -1.65, "z": -0.02 },
-			"rotation": { "x": 0, "y": 0, "z": 0 },
-			"scale": 1
+			"translation": { "x": 0.04, "y": -1.65, "z": -0.02 }
 		}
     },
     "materialDensityByType": {
