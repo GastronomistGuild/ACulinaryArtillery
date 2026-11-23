@@ -52,6 +52,7 @@
 
   <ItemGroup>
     <Folder Include="assets\aculinaryartillery\shapes\entity\humanoid\trader\clothing\head\" />
+    <Folder Include="assets\aculinaryartillery\textures\block\liquid\sealingwax\" />
     <Folder Include="bin\Debug\net7.0\" />
     <Folder Include="obj\Debug\net7.0\refint\" />
     <Folder Include="obj\Debug\net7.0\ref\" />

@@ -3,7 +3,7 @@
   "class": "ItemLiquidPortion",
   "variantgroups": [
     { "code":"type", "states": ["wax"] },
-    { "code":"color", "states": ["black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
+    { "code":"color", "states": ["generic","black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
     { "code":"state", "states": ["hot","cold"] }
   ],
   "matterState": "liquid",
@@ -22,12 +22,21 @@
     "inBowlShape": { "base": "block/food/meal/liquid" },
     "waterTightContainerProps": {
       "containable": true,
-      "itemsPerLitre": 100,
+      "itemsPerLitreByType": {
+        "*-hot": 100,
+        "*-cold": 1
+      },
       "texture": { "base": "block/liquid/sealingwax/{state}/{color}" },
       "allowSpill": true,
-      "whenSpilled": {
-        "action": "DropContents",
-        "stack": { "type": "item", "code": "sealingwax-{type}-{color}-{state}" }
+      "whenSpilledByType": {
+        "*-hot": {
+          "action": "DropContents",
+          "stack": { "type": "item", "code": "sealingwax-{type}-{color}-{state}" }
+        },
+        "*-cold": {
+          "action": "DropContents",
+          "stack": { "type": "block", "code": "sealingwaxbrick-wax-{color}-hard" }
+        }
       }
     }
   },
@@ -41,13 +50,15 @@
   "shape": { "base": "item/goop" },
   "texture": { "base": "block/liquid/sealingwax/{state}/{color}" },
   "creativeinventoryStacks": [ { "tabs": ["general", "liquids", "aculinaryartillery"], "stacks": [ { "type": "block", "code": "game:woodbucket", "attributes": { "ucontents": [ { "type":"item", "code": "aculinaryartillery:sealingwax-{type}-{color}-{state}", "makefull": true } ] } } ] } ],
-  "maxstacksize": 5000,
+  "maxstacksizeByType": {
+    "*-hot": 5000,
+    "*-cold": 32 
+  },
   "materialDensity": 250,
   "guiTransform": {
-    "translation": { "x": 0, "y": 1, "z": 0 },
-    "rotation": { "x": 123, "y": -33, "z": -13 },
-    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
-    "scale": 1.4
+      "rotation": { "x": 123, "y": -33, "z": -13 },
+      "origin": { "x": 0.35, "y": 0.1, "z": 0.5 },
+      "scale": 1.4
   },
   "tpHandTransform": {
     "translation": { "x": -1.5, "y": -1, "z": -1.4 }
@@ -58,7 +69,7 @@
       "freshHours": { "avg": 4 },
       "transitionHours": { "avg": 0.01 },
       "transitionedStack": { "type": "item", "code": "sealingwax-{type}-{color}-cold" },
-      "transitionRatio": 1
+      "transitionRatio": 0.01
     }]
   }
 }

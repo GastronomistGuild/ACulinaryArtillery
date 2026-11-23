@@ -15,6 +15,7 @@
 		"onmoldrackTransform": { "rotation": { "z": 90 } },
 		"fillHeight": 1,
 		"drop": { "type": "item", "code": "aculinaryartillery:bighook-{metal}", "quantity": 8 },
+        "handbook": { "groupBy": [ "bighookmold-*-fired" ] },
         "shelvable": "SingleCenter"
     },
 	"entityClass": "ToolMold",

@@ -1,6 +1,7 @@
 {
 	"code": "cauldron",
 	"class": "BlockSaucepan",
+    "maxStackSize": 4,
 	"behaviorsByType": {
 		"*": [
 			{ "name": "UnstableFalling" },
@@ -21,7 +22,7 @@
                 }
               ]
             },
-			"lidPerishRate": 0.75,
+			"lidPerishRate": 0.85,
 			"maxTemperature": 900,
 			"storageType": 1,
 			"maxContainerSlotStackSize": 50,

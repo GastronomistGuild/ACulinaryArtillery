@@ -1,8 +1,8 @@
 {
     "ingredientPattern": "SLK",
     "ingredients": {
-        "K": { "type": "item", "tags": ["tool-knife"], "isTool": true  },
-        "S": { "type": "item", "tags": ["tool-saw"], "isTool": true },
+        "K": { "type": "item", "tags": ["tool-knife"], "isTool": true, "toolDurabilityCost": 5  },
+        "S": { "type": "item", "tags": ["tool-saw"], "isTool": true, "toolDurabilityCost": 5 },
         "L": { "type": "block", "code": "game:debarkedlog-*-ud", "name": "wood", "skipVariants": [ "veryaged", "rotten", "veryrotten" ] }
     },
     "width": 3,

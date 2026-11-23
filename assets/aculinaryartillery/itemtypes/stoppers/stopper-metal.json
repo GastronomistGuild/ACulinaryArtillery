@@ -1,0 +1,55 @@
+{
+	"code": "stopper",
+	"inheritFrom": "itemtypes/stoppers/stopper-bark",
+	"variantgroups": [
+		{ "code": "material", "states": [ "metal" ] },
+		{ "code": "color", "states": [ "copper", "brass", "tinbronze", "bismuthbronze", "blackbronze", "iron", "meteoriciron", "steel", "silver", "gold", "electrum", "molybdochalkos" ] }
+	],
+	"attributes": {
+		"liquidContainerStopperPerishRate": 0.75,
+        "handbook": {
+          "groupBy": [ "stopper-*" ],
+          "extraSections": [
+            {
+              "title": "aculinaryartillery:block-handbooktitle-metalstopper",
+              "text": "aculinaryartillery:block-handbooktext-metalstopper"
+            }
+          ]
+        }
+	},
+    "behaviorsByType": {
+      "*-gold": [{
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Stacking",
+          "stackingModel": "item/stopperpilemetalshiny",
+          "modelItemsToStackSizeRatio": 2,
+          "upSolid": false,
+          "stackingCapacity": 128,
+          "transferQuantity": 1,
+          "bulkTransferQuantity": 4,
+          "stackingTextures": {
+            "stopper": { "base": "game:block/metal/ingot/{color}" },
+            "stopperdark": { "base": "game:block/metal/ingot/{color}" }
+          }
+        }
+      }],
+      "*": [{
+        "name": "GroundStorable",
+        "properties": {
+          "layout": "Stacking",
+          "stackingModel": "item/stopperpilemetal",
+          "modelItemsToStackSizeRatio": 2,
+          "upSolid": false,
+          "stackingCapacity": 128,
+          "transferQuantity": 1,
+          "bulkTransferQuantity": 4,
+          "stackingTextures": {
+            "stopper": { "base": "game:block/metal/ingot/{color}" },
+            "stopperdark": { "base": "game:block/metal/ingot/{color}" }
+          }
+        }
+      }]
+    },
+	"texture": { "base": "game:block/metal/ingot/{color}" }
+}

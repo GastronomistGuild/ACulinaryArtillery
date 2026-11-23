@@ -1026,7 +1026,7 @@ namespace ACulinaryArtillery
 
 
                 pieRecipeCount++;
-                if (pieRecipeCount > 48)
+                if (pieRecipeCount > 12)
                 {
                     excessivePieRecipeComponents.Add(comp);
                 }
@@ -1252,6 +1252,47 @@ namespace ACulinaryArtillery
         {
             if (__instance.Ingredients == null || __instance.Ingredients.Length == 0) return false;
             cachedValidStacksByIngredient ??= HandbookInfoExtensions.CreateCachedMealRecipeStacks(api, __instance);
+            return true;
+        }
+    }
+
+    [HarmonyPatch(typeof(BlockFirepit))]
+    public class BlockFirepitPatch
+    {
+        [HarmonyPrefix]
+        [HarmonyPatch("OnBlockInteractStart")]
+        public static bool AllowPlacingSaucepanOnInteract(ref BlockFirepit __instance, ref bool __result, ref ICoreAPI ___api, IWorldAccessor world, IPlayer byPlayer, BlockSelection blockSel)
+        {
+            if (__instance.Stage != 5) return true;
+
+            BlockEntityFirepit? bef = world.BlockAccessor.GetBlockEntity(blockSel.Position) as BlockEntityFirepit;
+            if (bef == null) return true;
+
+            ItemStack? stack = byPlayer.InventoryManager.ActiveHotbarSlot?.Itemstack;
+            if (stack?.Collectible is not BlockSaucepan) return true;
+
+            bool activated = false;
+
+            if (byPlayer.InventoryManager.ActiveHotbarSlot?.TryPutInto(world, bef.inputSlot, 1) > 0)
+            {
+                activated = true;
+            }
+
+            if (activated)
+            {
+                (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
+
+                var loc = stack.ItemAttributes?["placeSound"].Exists == true ? AssetLocation.Create(stack.ItemAttributes["placeSound"].AsString(), stack.Collectible.Code.Domain) : null;
+
+                if (loc != null)
+                {
+                    ___api.World.PlaySoundAt(loc.WithPathPrefixOnce("sounds/"), blockSel.Position.X, blockSel.Position.InternalY, blockSel.Position.Z, byPlayer, 0.88f + (float)___api.World.Rand.NextDouble() * 0.24f, 16);
+                }
+
+                __result = true;
+                return false;
+            }
+
             return true;
         }
     }

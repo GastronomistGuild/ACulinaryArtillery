@@ -14,7 +14,8 @@
 		"moldrackable": false,
 		"fillHeight": 8,
 		"drop": { "type": "block", "code": "aculinaryartillery:cauldronmini-{metal}", "quantity": 1 },
-        "breaksWhenFilled": true
+        "breaksWhenFilled": true,
+        "handbook": { "groupBy": [ "cauldronminimold-*-fired" ] }
 	},
 	"entityClass": "ToolMold",
 	"blockmaterial": "Ceramic",

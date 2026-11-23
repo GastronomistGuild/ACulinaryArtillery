@@ -1,0 +1,20 @@
+{
+  "code": "meathookscross",
+  "inheritFrom": "blocktypes/meathooks",
+  "shapebytype": {
+      "*-north": { "base": "aculinaryartillery:block/meathooks-cross", "rotateY": 0 },
+      "*-east": { "base": "aculinaryartillery:block/meathooks-cross", "rotateY": 270 },
+      "*-south": { "base": "aculinaryartillery:block/meathooks-cross", "rotateY": 180 },
+      "*-west": { "base": "aculinaryartillery:block/meathooks-cross", "rotateY": 90 }
+  },
+  "attributes": {
+      "handbook": {
+        "groupBy": ["meathookscross-*"]
+      }
+  },
+  "drops": [{
+      "type": "block",
+      "code": "meathookscross-east",
+      "quantity": { "avg": 1 }
+  }]
+}

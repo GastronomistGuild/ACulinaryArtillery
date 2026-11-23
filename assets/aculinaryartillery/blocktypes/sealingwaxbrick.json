@@ -1,0 +1,63 @@
+{
+  "code": "sealingwaxbrick",
+  "shape": { "base": "block/wax/sealingwaxbrick" },
+  "texture": { "base": "block/liquid/sealingwax/cold/{color}" },
+  "variantgroups": [
+    { "code":"type", "states": ["wax"] },
+    { "code":"color", "states": ["generic","black","blue","gray","green","orange","pink","purple","red","white","yellow"] },
+    { "code":"state", "states": ["hard"] }
+  ],
+  "creativeinventory": { "general": ["*"], "aculinaryartillery": ["*"] },
+  "attributes": {
+    "placeSound": "game:block/snow",
+    "inContainerTexture": { "base": "block/liquid/sealingwax/cold/{color}" },
+    "handbook": {
+      "groupBy": ["sealingwaxbrick-*-{color}-hard"],
+      "extraSections": [{ "title": "aculinaryartillery:block-handbooktitle-sealingwaxbrick", "text": "aculinaryartillery:block-handbooktext-sealingwaxbrick" }]
+    }
+  },
+  "behaviors": [
+    {
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Stacking",
+        "placeRemoveSound": "game:sounds/block/snow",
+        "stackingModel": "block/wax/waxpile",
+        "tessQuantityElements": 1,
+        "stackingCapacity": 32,
+        "transferQuantity": 1,
+        "bulkTransferQuantity": 4,
+        "collisionBox": {
+          "x1": 0,
+          "y1": 0,
+          "z1": 0,
+          "x2": 1,
+          "y2": 0.25,
+          "z2": 1
+        },
+        "cbScaleYByLayer": 0.125
+      }
+    },
+    { "name": "Unplaceable" }
+  ],
+  "blockmaterial": "other",
+  "maxstacksize": 32,
+  "sounds": {
+    "place": "game:block/snow",
+    "break": "game:block/snow",
+    "hit": "game:block/snow"
+  },
+  "guiTransform": {
+    "origin": { "x": 0.5, "y": 0.125, "z": 0.5 },
+    "scale": 2.65
+  },
+  "groundTransform": {
+    "scale": 3.25
+  },
+  "tpHandTransform": {
+    "translation": { "x": -0.66, "y": 0, "z": -0.51 },
+    "rotation": { "x": -77, "y": 59, "z": -1 },
+    "origin": { "x": 0.5, "y": 0, "z": 0.5 },
+    "scale": 0.73
+  }
+}

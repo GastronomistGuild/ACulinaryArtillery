@@ -6,32 +6,32 @@
 		{ "code": "materialtype", "states": ["raw"] }
 	],
 	"attributes": {
-		"handbook": { "groupBy": [ "cauldronmold-*-raw" ] },
+		"handbook": { "groupBy": [ "spilemold-*-raw" ] },
         "shelvable": "SingleCenter"
     },
 	"attributesByType":{
-		"cauldronmold-red-raw":{
+		"spilemold-red-raw":{
 			"beehivekiln":{
-				"0": { "type": "block", "code": "aculinaryartillery:cauldronmold-tan-fired" },
-				"1": { "type": "block", "code": "aculinaryartillery:cauldronmold-orange-fired" },
-				"2": { "type": "block", "code": "aculinaryartillery:cauldronmold-red-fired" },
-				"3": { "type": "block", "code": "aculinaryartillery:cauldronmold-brown-fired" }
+				"0": { "type": "block", "code": "aculinaryartillery:spilemold-tan-fired" },
+				"1": { "type": "block", "code": "aculinaryartillery:spilemold-orange-fired" },
+				"2": { "type": "block", "code": "aculinaryartillery:spilemold-red-fired" },
+				"3": { "type": "block", "code": "aculinaryartillery:spilemold-brown-fired" }
 			}
 		},
-		"cauldronmold-blue-raw":{
+		"spilemold-blue-raw":{
 			"beehivekiln":{
-				"0": { "type": "block", "code": "aculinaryartillery:cauldronmold-cream-fired"},
-				"1": { "type": "block", "code": "aculinaryartillery:cauldronmold-gray-fired"},
-				"2": { "type": "block", "code": "aculinaryartillery:cauldronmold-black-fired"},
-				"3": { "type": "block", "code": "aculinaryartillery:cauldronmold-black-fired"}
+				"0": { "type": "block", "code": "aculinaryartillery:spilemold-cream-fired"},
+				"1": { "type": "block", "code": "aculinaryartillery:spilemold-gray-fired"},
+				"2": { "type": "block", "code": "aculinaryartillery:spilemold-black-fired"},
+				"3": { "type": "block", "code": "aculinaryartillery:spilemold-black-fired"}
 			}
 		},
-		"cauldronmold-fire-raw":{
+		"spilemold-fire-raw":{
 			"beehivekiln":{
-				"0": { "type": "block", "code": "aculinaryartillery:cauldronmold-fire-fired"},
-				"1": { "type": "block", "code": "aculinaryartillery:cauldronmold-fire-fired"},
-				"2": { "type": "block", "code": "aculinaryartillery:cauldronmold-fire-fired"},
-				"3": { "type": "block", "code": "aculinaryartillery:cauldronmold-fire-fired"}
+				"0": { "type": "block", "code": "aculinaryartillery:spilemold-fire-fired"},
+				"1": { "type": "block", "code": "aculinaryartillery:spilemold-fire-fired"},
+				"2": { "type": "block", "code": "aculinaryartillery:spilemold-fire-fired"},
+				"3": { "type": "block", "code": "aculinaryartillery:spilemold-fire-fired"}
 			}
 		}
 	},

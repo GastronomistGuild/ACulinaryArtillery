@@ -13,14 +13,14 @@ using Vintagestory.GameContent;
 
 namespace ACulinaryArtillery
 {
-    public class BlockEntityExpandedCheese : BECheese
+    public class BlockEntitySliceable : BECheese
     {
-        public override string InventoryClassName => "expandedcheese";
+        public override string InventoryClassName => "sliceable";
 
         public override void Initialize(ICoreAPI api)
         {
             base.Initialize(api);
-            Inventory.LateInitialize("expandedcheese-" + Pos, api);
+            Inventory.LateInitialize("sliceable-" + Pos, api);
         }
 
         /// <summary>
@@ -31,9 +31,10 @@ namespace ACulinaryArtillery
         {
             get
             {
-                if (Inventory[0].Itemstack?.Collectible is not ItemExpandedCheese cheese) return 0;
+                if (Inventory[0].Itemstack?.Collectible is not ItemSliceable sliceable) return 0;
+                if (!sliceable.IsSliceable) return 0;
 
-                string numSlicesStr = Regex.Match(cheese.Part, @"\d+").Value;
+                string numSlicesStr = Regex.Match(sliceable.Part, @"\d+").Value;
                 if (int.TryParse(numSlicesStr, out int numSlices))
                 {
                     return numSlices;
@@ -46,19 +47,20 @@ namespace ACulinaryArtillery
         public new ItemStack[] TakeSlice()
         {
             if (Inventory[0].Empty) return [];
-            ITreeAttribute? attr = Inventory[0].Itemstack!.Attributes;
-            if (Inventory[0].Itemstack!.Collectible is not ItemExpandedCheese cheese) return [];
+            ITreeAttribute attr = Inventory[0].Itemstack!.Attributes.Clone();
+            if (Inventory[0].Itemstack!.Collectible is not ItemSliceable sliceable) return [];
+            if (!sliceable.IsSliceable) return [];
             MarkDirty(true);
 
             List<ItemStack> outputStacks = [];
-            if (cheese.Outputs != null)
+            if (sliceable.Outputs != null)
             {
-                foreach (JsonItemStack jstack in cheese.Outputs)
+                foreach (JsonItemStack jstack in sliceable.Outputs)
                 {
-                    jstack.Resolve(Api.World, "expandedcheese output", true);
+                    jstack.Resolve(Api.World, "sliceable output", true);
                     ItemStack? stack = jstack.ResolvedItemstack;
 
-                    if (stack?.Collectible.FirstCodePart() == cheese.FirstCodePart())
+                    if (stack?.Collectible.FirstCodePart() == sliceable.FirstCodePart())
                     {
                         stack.Attributes = attr;
                     }
@@ -71,7 +73,17 @@ namespace ACulinaryArtillery
             }
             else
             {
-                outputStacks.Add(new ItemStack(Api.World.GetItem(cheese.CodeWithVariant("part", "1slice"))) { Attributes = attr });
+                outputStacks.Add(new ItemStack(Api.World.GetItem(sliceable.CodeWithVariant("part", "1slice"))) { Attributes = attr });
+            }
+
+            foreach (ItemStack outputStack in outputStacks)
+            {
+                if (outputStack.Collectible is IExpandedFood)
+                {
+                    // Divide expanded sats on the outputs by the total slice count
+                    float[]? sats = (Inventory[0].Itemstack?.Attributes["expandedSats"] as FloatArrayAttribute)?.value;
+                    if (sats != null) outputStack.Attributes["expandedSats"] = new FloatArrayAttribute(Array.ConvertAll(sats, i => i / (sliceable.TotalSliceCount * outputStack.StackSize)));
+                }
             }
 
             int slicesLeft = SlicesLeft - 1;
@@ -82,7 +94,7 @@ namespace ACulinaryArtillery
             }
             else
             {
-                Inventory[0].Itemstack = new(Api.World.GetItem(cheese.CodeWithVariant("part", slicesLeft.ToString() + "slice"))) { Attributes = attr };
+                Inventory[0].Itemstack = new(Api.World.GetItem(sliceable.CodeWithVariant("part", slicesLeft.ToString() + "slice"))) { Attributes = attr };
             }
 
             return [.. outputStacks];

@@ -1,7 +1,7 @@
 {
     "ingredientPattern": "K,L",
     "ingredients": {
-        "K": { "type": "item", "tags": ["tool-knife"], "isTool": true  },
+        "K": { "type": "item", "tags": ["tool-knife"], "isTool": true, "toolDurabilityCost": 5  },
         "L": { "type": "item", "code": "bark-oak-boiled" }
     },
     "width": 1,

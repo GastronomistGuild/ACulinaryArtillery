@@ -9,10 +9,56 @@
 - Current trader building changed to spawn in temperate climates; desert + cold trader buildings added
 - New, larger spile mold shape
 
-~1.22_v2.0.0-dev.29~
-- Kneading handbook page fixed
-- ACA containers with aqua vitae can make alcohol soaked bandages
+~1.22_v2.0.0-dev.33~
+- Wax brick describes how to get it from liquid containers in the handbook
+- Tweak: Add custom meal naming for au gratin
 
+
+~1.22_v2.0.0-dev.32~
+Lazula changes:
+- Performance: Reduce the number of random pies displayed each frame to 12
+- Fixed: Ghosting when stopping containers
+- Tweak: Can now remove meals from a cooking pot in the mixing bowl by right clicking
+- Tweak: Can now place a cooking pot directly into the mixing bowl by right clicking
+
+
+~1.22_v2.0.0-dev.31~
+- Fixed: Crash when displaying held help for filling stoppable containers
+- Fixed: Cross meat rack shape did not have default textures
+
+~1.22_v2.0.0-dev.30~
+- Cross-shaped meat rack added
+- ACA Trader house updated now that vanilla spawning issues have been fixed
+- EVERYTHING NERFED TO ONLY STACK TO 4 INSTEAD OF 64 (except for spiles, nerfed to 16)
+- Bismuth bronze cauldron requires less chisel durability to destroy
+- Grid recipes updated to use tool tags when optimal
+- Molds grouped together in handbook
+- Cauldron lid perish rate nerfed from x0.75 to x0.85
+- Egg pie mixing codes removed from ACA; added to EF via patches
+
+Bottle stuff:
+- Text added to bottle & stoppers explaining how to use them
+- Text added to wax sealant explaining its use
+- Cork pile added
+- Non-colored sealing wax added
+- Hardened wax bricks added
+
+Lazula changes:
+- Tweak: Rename ExpandedCheese to the more generic Sliceable
+- Tweak: Stopped or sealed containers can now be opened while looking at a block
+- Fixed: Couldn't do partial liquid moves into mixing bowl slots
+- Fixed: Bug where liquid container attribute failed to prevent drinking from stopped containers
+- Fixed: Lingering attributes when unsealing or unstopping a container prevented stacking
+- Fixed: Could not place cheese on Food Shelves' pie shelf
+- Fixed: Missing text in kneading and simmering guides
+- Fixed: Could not place raw cheese on the ground
+- Fixed: Could not mark individual sliceable variants as not sliceable
+- Fixed: Typo in simmering handbook text markup
+- Feature: Allow placing saucepans and cauldrons in firepits directly
+
+~1.22_v2.0.0-dev.29~
+- ACA containers can be used to make vanilla items (bandages, beenades, dough, ink & quill, oil lamps, poultices)
+- Liquid pie topping defaults at 0.2L instead of 0.4L
 - Russian translation updated (thanks to ChimMAG!)
 
 Lazula changes:

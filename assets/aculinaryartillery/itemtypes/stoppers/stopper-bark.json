@@ -5,7 +5,22 @@
         { "code": "material", "states": [ "bark" ] },
         { "code": "color", "states": [ "cork" ] }
     ],
-    "behaviors": [ { "name": "GroundStorable", "properties": { "layout": "Quadrants" } } ],
+    "behaviors": [{ 
+      "name": "GroundStorable", 
+      "properties": {
+        "layout": "Stacking",
+        "stackingModel": "item/stopperpile",
+        "modelItemsToStackSizeRatio": 2,
+        "upSolid": false,
+        "stackingCapacity": 128,
+        "transferQuantity": 1,
+        "bulkTransferQuantity": 4,
+        "stackingTextures": {
+          "stopper": { "base": "game:item/utility/map" },
+          "stopperdark": { "base": "game:item/utility/map" }
+        }
+      }
+    }],
     "storageFlags": 257,
     "attributes": {
         "isLiquidContainerStopper": true,
@@ -17,8 +32,8 @@
             "groupBy": [ "stopper-*" ],
             "extraSections": [
                 {
-                    "title": "aculinaryartillery:block-handbooktitle-stopper",
-                    "text": "aculinaryartillery:block-handbooktext-stopper"
+                    "title": "aculinaryartillery:block-handbooktitle-corkstopper",
+                    "text": "aculinaryartillery:block-handbooktext-corkstopper"
                 }
             ]
         }

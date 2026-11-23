@@ -117,7 +117,18 @@ namespace ACulinaryArtillery
 
         public override ItemStack OnPickBlock(IWorldAccessor world, BlockPos pos)
         {
-            ItemStack stack = base.OnPickBlock(world, pos);
+            Block rack = world.BlockAccessor.GetBlock(pos);
+            ItemStack stack;
+            string side = rack.LastCodePart();
+            if (side is "north" or "south" or "east" or "west")
+            {
+                stack = new ItemStack(world.GetBlock(new AssetLocation($"{rack.Code.Domain}:{rack.FirstCodePart()}-east")));
+            }
+            else
+            {
+                stack = new ItemStack(rack);
+            }
+
             if (world.BlockAccessor.GetBlockEntity<BlockEntityBottleRack>(pos) is not BlockEntityBottleRack beRack) return stack;
 
             // STABLERACK; Don't need the if block anymore
@@ -201,7 +212,16 @@ namespace ACulinaryArtillery
             {
                 if (drop.Collectible is BlockBottleRack)
                 {
-                    rack = new ItemStack(world.GetBlock(new AssetLocation("aculinaryartillery:" + drop.Collectible.FirstCodePart() + "-north")));
+                    string side = drop.Collectible.LastCodePart();
+                    if (side is "north" or "south" or "east" or "west")
+                    {
+                        rack = new ItemStack(world.GetBlock(new AssetLocation($"{drop.Collectible.Code.Domain}:{drop.Collectible.FirstCodePart()}-east")));
+                    }
+                    else
+                    {
+                        rack = new ItemStack(drop.Collectible);
+                    }
+
                     codeParts = drop.Collectible.Code.Path.ToString().Split("-");
                     idx = i;
 

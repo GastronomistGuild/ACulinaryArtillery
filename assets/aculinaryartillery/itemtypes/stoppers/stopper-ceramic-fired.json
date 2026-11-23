@@ -1,0 +1,38 @@
+{
+	"code": "stopper",
+	"inheritFrom": "itemtypes/stoppers/stopper-bark",
+	"variantgroups": [
+		{ "code": "material", "states": [ "ceramic" ] },
+		{ "code": "color", "states": [ "blue", "fire", "black", "brown", "cream", "earthyorange", "gray", "orange", "red", "tan" ] },
+		{ "code": "type", "states": [ "fired" ] }
+	],
+	"attributes": {
+		"liquidContainerStopperPerishRate": 0.75,
+        "handbook": {
+            "groupBy": [ "stopper-*" ],
+            "extraSections": [
+                {
+                  "title": "aculinaryartillery:block-handbooktitle-claystopper",
+                  "text": "aculinaryartillery:block-handbooktext-claystopper"
+                }
+            ]
+      }
+    },
+    "behaviors": [{
+      "name": "GroundStorable",
+      "properties": {
+        "layout": "Stacking",
+        "stackingModel": "item/stopperpile",
+        "modelItemsToStackSizeRatio": 2,
+        "upSolid": false,
+        "stackingCapacity": 128,
+        "transferQuantity": 1,
+        "bulkTransferQuantity": 4,
+        "stackingTextures": {
+          "stopper": { "base": "game:block/clay/hardened/{color}" },
+          "stopperdark": { "base": "game:block/clay/hardened/{color}", "overlays": "block/stopperdark" }
+        }
+      }
+    }],
+	"texture": { "base": "game:block/clay/hardened/{color}" }
+}

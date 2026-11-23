@@ -1,6 +1,7 @@
 {
 	"code": "meathooks",
 	"class": "BlockMeatHooks",
+    "maxStackSize": 4,
 	"entityClass": "MeatHooks",
 	"behaviors": [{"name": "HorizontalOrientable"}],
 	"variantgroups": [
@@ -11,14 +12,12 @@
 		"*-east": { "base": "aculinaryartillery:block/meathooks", "rotateY": 270 },
 		"*-south": { "base": "aculinaryartillery:block/meathooks", "rotateY": 180 },
 		"*-west": { "base": "aculinaryartillery:block/meathooks", "rotateY": 90 }
-	},
-    "drops": [
-        {
-            "type": "block",
-            "code": "meathooks-east",
-            "quantity": { "avg": 1 }
-        }
-    ],
+    },
+    "drops": [{
+        "type": "block",
+        "code": "meathooks-east",
+        "quantity": { "avg": 1 }
+    }],
 	"creativeinventory": { "general": ["*-east"], "terrain": ["*-east"], "aculinaryartillery": ["*-east"] },
 	"attributes": {
         "cureRate": 3,

@@ -153,7 +153,7 @@ namespace ACulinaryArtillery
                     var lprops = BlockLiquidContainerBase.GetContainableProps(liquidcontainerbaseContents);
                     float itemsPerLitre = lprops?.ItemsPerLitre ?? 1;
 
-                    float toMoveLitres = op.ShiftDown ? source.TransferSizeLitres : source.CapacityLitres;
+                    float toMoveLitres = op.CtrlDown ? source.TransferSizeLitres : source.CapacityLitres;
                     float curSourceLitres = liquidcontainerbaseContents.StackSize / itemsPerLitre * liquidcontainerbaseStack.StackSize;
                     float curDestLitres = this.StackSize / itemsPerLitre;
                     // Cap by source amount

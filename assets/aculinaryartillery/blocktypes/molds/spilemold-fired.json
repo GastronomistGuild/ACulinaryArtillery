@@ -13,6 +13,7 @@
 		"requiredUnits": 100,
 		"fillHeight": 3,
 		"drop": { "type": "block", "code": "aculinaryartillery:spile-{metal}-north", "quantity": 3},
+        "handbook": { "groupBy": [ "spilemold-*-fired" ] },
         "shelvable": "SingleCenter",
         "breaksWhenFilled": true
     },
