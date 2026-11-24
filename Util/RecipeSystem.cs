@@ -101,6 +101,45 @@ namespace ACulinaryArtillery
 
                         return MealFormat.Trim().UcFirst();
                     }
+                case "compote":
+                    {
+                        string FruitName = null!;
+                        string SyrupName = null!;
+
+                        List<string> FreshIngredientNames = [];
+
+                        int max = 0;
+
+                        foreach ((ItemStack stack, int quantity) in quantitiesByStack)
+                        {
+                            CookingRecipeIngredient? ingredient = recipe.GetIngrendientFor(stack);
+
+                            if (ingredient?.TypeName == "fruit")
+                            {
+                                FruitName = FruitName == null
+                                    ? FruitName = getMainIngredientName(stack, recipeCode)
+                                    : FruitName = Lang.Get("meal-ingredient-compote-primary-generic-fruit");
+
+                                max += quantity;
+                                continue;
+                            }
+
+                            if (ingredient?.Code == "syrup-base")
+                            {
+                                SyrupName = getMainIngredientName(stack, recipeCode, true);
+                                continue;
+                            }
+
+                            FreshIngredientNames.Add(ingredientName(stack, EnumIngredientNameType.InsturmentalCase));
+                        }
+
+                        string FreshIngredientsFormat = "meal-adds-compote-fresh";
+
+                        string MealFormat = getMaxMealFormat("meal", recipeCode, max);
+                        MealFormat = Lang.Get(MealFormat, FruitName, SyrupName, getMainIngredientsString(FreshIngredientNames, FreshIngredientsFormat));
+
+                        return MealFormat.Trim().UcFirst();
+                    }
             }
 
             return Lang.Get("unknown");
