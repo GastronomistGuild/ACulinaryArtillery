@@ -214,7 +214,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     sinkSlot.TakeOut(1);
-                    if (!op.ActingPlayer.InventoryManager.TryGiveItemstack(stopperedContainer, true))
+                    if (op.World.Side.IsServer() && !op.ActingPlayer.InventoryManager.TryGiveItemstack(stopperedContainer, true))
                     {
                         op.World.SpawnItemEntity(stopperedContainer, op.ActingPlayer.Entity.Pos.AsBlockPos);
                     }
@@ -266,7 +266,7 @@ namespace ACulinaryArtillery
                 else
                 {
                     sinkSlot.TakeOut(1);
-                    if (!op.ActingPlayer.InventoryManager.TryGiveItemstack(sealedContainer, true))
+                    if (op.World.Side.IsServer() && !op.ActingPlayer.InventoryManager.TryGiveItemstack(sealedContainer, true))
                     {
                         op.World.SpawnItemEntity(sealedContainer, op.ActingPlayer.Entity.Pos.AsBlockPos);
                     }
