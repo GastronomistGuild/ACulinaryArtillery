@@ -14,6 +14,7 @@ using Vintagestory.GameContent;
 using System.Runtime.CompilerServices;
 using System.Reflection.Emit;
 using Vintagestory.API.Datastructures;
+using System.Reflection;
 
 namespace ACulinaryArtillery
 {
@@ -1354,9 +1355,14 @@ namespace ACulinaryArtillery
     [HarmonyPatch(typeof(CookingRecipe))]
     public class CookingRecipePatches
     {
+        private static readonly ACACookingRecipeNames ACARecipeNamer = new();
+
+        // Requires a patch instead of a simple naming registration
+        // because we have to use `GetNameForIngredients`, which is
+        // not virtual.
         [HarmonyPrefix]
         [HarmonyPatch("GetOutputName")]
-        public static bool recipeNameFix(IWorldAccessor worldForResolve, ItemStack[] inputStacks, ref string __result, CookingRecipe __instance)
+        public static bool AddACARecipeNames(IWorldAccessor worldForResolve, ItemStack[] inputStacks, ref string __result, CookingRecipe __instance)
         {
             bool rotten = inputStacks.Any((stack) => stack?.Collectible.Code.Path == "rot");
             if (rotten)
@@ -1373,6 +1379,106 @@ namespace ACulinaryArtillery
 
             __result = new ACACookingRecipeNames().GetNameForIngredients(worldForResolve, __instance.Code, inputStacks);
             return false;
+        }
+
+    }
+
+    // Fixes a bug where stacks are matched to the wrong Ingredient
+    // (Outside of CookingRecipePatches due to needing TargetMethod
+    // to match the ref parameter)
+    [HarmonyPatch]
+    public static class FixCookingRecipeIngredientQuantity
+    {
+        public static MethodBase TargetMethod() =>
+            AccessTools.Method(
+                typeof(CookingRecipe),
+                nameof(CookingRecipe.Matches),
+                [
+                    typeof(ItemStack?[]),
+                    typeof(int).MakeByRefType()
+                ]
+            );
+
+        public static bool Prefix(CookingRecipe __instance, ref bool __result, ItemStack[] inputStacks, ref int quantityServings)
+        {
+            __result = Matches(__instance, inputStacks, ref quantityServings);
+            return false;
+        }
+
+        // Fixed version from 1.23
+        public static bool Matches(CookingRecipe recipe, ItemStack?[] inputStacks, ref int quantityServings)
+        {
+            if (recipe.Ingredients == null || inputStacks.Length == 0) return false;
+
+            var ingredients = recipe.Ingredients;
+            var inputStackSizes = new (int, float)[inputStacks.Length];
+
+            int totalOutputQuantity = 99999;
+
+            int[] curQuantities = new int[ingredients.Length];
+            for (int i = 0; i < curQuantities.Length; i++) curQuantities[i] = 0;
+
+            for (int i = 0; i < inputStacks.Length; i++)
+            {
+                var inputStack = inputStacks[i];
+                if (inputStack == null) continue;
+
+                bool found = false;
+                for (int j = 0; j < ingredients.Length; j++)
+                {
+                    CookingRecipeIngredient ingred = ingredients[j];
+
+                    if (ingred.GetMatchingStack(inputStack) is CookingRecipeStack jstack)
+                    {
+                        if (curQuantities[j] >= ingred.MaxQuantity) continue;
+                        int stackPortion = inputStack.StackSize / jstack.StackSize;
+
+                        if (BlockLiquidContainerBase.GetContainableProps(inputStack) is WaterTightContainableProps props)
+                        {
+                            // Casting to float is necessary if the stack size ratio is not a whole number
+                            stackPortion = (int)(inputStack.StackSize / (jstack.StackSize * props.ItemsPerLitre * ingred.PortionSizeLitres));
+                        }
+
+                        totalOutputQuantity = Math.Min(totalOutputQuantity, stackPortion);
+                        inputStackSizes[i] = (jstack.StackSize, ingred.PortionSizeLitres);
+                        curQuantities[j]++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                // This input stack does not fit in this cooking recipe
+                if (!found) return false;
+            }
+
+            // Any required ingredients left?
+            for (int i = 0; i < ingredients.Length; i++)
+            {
+                if (curQuantities[i] < ingredients[i].MinQuantity) return false;
+            }
+
+            quantityServings = totalOutputQuantity;
+
+            // Too many ingredients?
+            for (int i = 0; i < inputStacks.Length; i++)
+            {
+                var stack = inputStacks[i];
+                if (stack == null) continue;
+                (int jStackSize, float portionSizeLitres) = inputStackSizes[i];
+
+                if (BlockLiquidContainerBase.GetContainableProps(stack) is WaterTightContainableProps props)
+                {
+                    // See SurvivalHandbook.CreateCachedMealRecipeStacks
+                    int haveItems = stack.StackSize / jStackSize;
+                    int wantItems = (int)Math.Ceiling(quantityServings * props.ItemsPerLitre * portionSizeLitres);
+                    if (haveItems != wantItems) quantityServings = -1;
+                }
+                else if (stack.StackSize / jStackSize != quantityServings) quantityServings = -1;
+
+                if (quantityServings == -1) return false;
+            }
+
+            return true;
         }
     }
 
