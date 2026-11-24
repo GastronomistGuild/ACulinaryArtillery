@@ -12,6 +12,9 @@
 ~1.22_v2.0.0-dev.33~
 - Wax brick describes how to get it from liquid containers in the handbook
 - Tweak: Add custom meal naming for au gratin
+- Fixed: Vanilla bug caused item stacks to match wrong cooking recipe ingredient
+    For example, compote now properly matches the wine slot and requires 0.1L.
+    Previously, it matched the syrup slot, thus requiring 0.5L.
 
 
 ~1.22_v2.0.0-dev.32~
