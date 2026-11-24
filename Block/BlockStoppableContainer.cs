@@ -252,11 +252,6 @@ namespace ACulinaryArtillery
                         });
                         DoLiquidMovedEffects(op.ActingPlayer, contentStack, moved, EnumLiquidDirection.Pour);
                     }
-
-                    sourceSlot.MarkDirty();
-                    sinkSlot.MarkDirty();
-
-                    return;
                 }
 
                 if (sinkSlot.StackSize == 1)
