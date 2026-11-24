@@ -28,6 +28,7 @@ namespace ACulinaryArtillery
 
         protected override string GetNameForMergedIngredients(IWorldAccessor worldForResolve, CookingRecipe recipe, Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, int> quantitiesByStack)
         {
+            Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, CookingRecipeIngredient> cookingRecipeIngredientsByStack = GetIngredientsFromRecipe(recipe, [.. quantitiesByStack.Keys]);
             string recipeCode = recipe.Code!;
 
             switch (recipeCode)
@@ -44,7 +45,7 @@ namespace ACulinaryArtillery
 
                         foreach ((ItemStack stack, int quantity) in quantitiesByStack)
                         {
-                            CookingRecipeIngredient? ingredient = recipe.GetIngrendientFor(stack);
+                            CookingRecipeIngredient? ingredient = cookingRecipeIngredientsByStack.TryGetValue(stack);
                             if (ingredient?.TypeName == "milk") continue;
 
                             if (ingredient?.TypeName == "cheese")
@@ -112,7 +113,7 @@ namespace ACulinaryArtillery
 
                         foreach ((ItemStack stack, int quantity) in quantitiesByStack)
                         {
-                            CookingRecipeIngredient? ingredient = recipe.GetIngrendientFor(stack);
+                            CookingRecipeIngredient? ingredient = cookingRecipeIngredientsByStack.TryGetValue(stack);
 
                             if (ingredient?.TypeName == "fruit")
                             {
@@ -143,6 +144,39 @@ namespace ACulinaryArtillery
             }
 
             return Lang.Get("unknown");
+        }
+
+        public static Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, CookingRecipeIngredient> GetIngredientsFromRecipe(CookingRecipe recipe, ItemStack[] stacks)
+        {
+            Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, CookingRecipeIngredient> ingredientsByStack = [];
+
+            if (recipe.Ingredients == null || stacks.Length == 0) return ingredientsByStack;
+
+            var ingredients = recipe.Ingredients;
+
+            int[] curQuantities = new int[ingredients.Length];
+            for (int i = 0; i < curQuantities.Length; i++) curQuantities[i] = 0;
+
+            for (int i = 0; i < stacks.Length; i++)
+            {
+                ItemStack stack = stacks[i];
+
+                for (int j = 0; j < ingredients.Length; j++)
+                {
+                    CookingRecipeIngredient ingred = ingredients[j];
+
+                    if (ingred.GetMatchingStack(stack) is CookingRecipeStack jstack)
+                    {
+                        if (curQuantities[j] >= ingred.MaxQuantity) continue;
+
+                        curQuantities[j]++;
+                        ingredientsByStack[stack] = ingred;
+                        break;
+                    }
+                }
+            }
+
+            return ingredientsByStack;
         }
     }
 
