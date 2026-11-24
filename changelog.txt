@@ -11,7 +11,9 @@
 
 ~1.22_v2.0.0-dev.33~
 - Wax brick describes how to get it from liquid containers in the handbook
-- Tweak: Add custom meal naming for au gratin
+- Tweak: Add custom meal naming for:
+  - Au gratin
+  - Compote
 
 
 ~1.22_v2.0.0-dev.32~
