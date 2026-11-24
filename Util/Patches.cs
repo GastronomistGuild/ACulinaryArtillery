@@ -28,6 +28,7 @@ namespace ACulinaryArtillery
             __result = SplitStackAndPerformAction(byEntity, slot, action);
             return false;
         }
+
         public static int SplitStackAndPerformAction(Entity byEntity, ItemSlot slot, System.Func<ItemStack, int> action)
         {
             if (slot.Itemstack == null)
@@ -128,6 +129,33 @@ namespace ACulinaryArtillery
             int ticks = stack.Collectible?.Attributes?["eatHealthEffectTicks"].AsInt(ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks) ?? ACulinaryArtilleryConfig.Current.ExpandedFoodHealTicks;
             source.Duration = TimeSpan.FromSeconds(durationSec);
             source.TicksPerDuration = ticks;
+        }
+
+        [HarmonyPrefix]
+        [HarmonyPatch("SetContent", [typeof(ItemStack), typeof(ItemStack)])]
+        public static bool SetStopperAndSealantWithContent(BlockLiquidContainerBase __instance, ref ICoreAPI ___api, ItemStack containerStack, ItemStack? content)
+        {
+            if (__instance is not BlockStoppableContainer container) return true;
+
+            ItemStack?[] stacks = container.GetContents(___api.World, containerStack);
+            if (stacks.Length > 0)
+            {
+                stacks[0] = content;
+            }
+            else
+            {
+                stacks = stacks.Append(content);
+            }
+
+            if (stacks.Length == 1 && stacks[0] == null)
+            {
+                container.SetContents(containerStack, null);
+                return false;
+            }
+
+            container.SetContents(containerStack, stacks);
+
+            return false;
         }
     }
 
