@@ -141,7 +141,7 @@ namespace ACulinaryArtillery
                 nowTesselatingShape = shape;
 
                 // Render without selective elements if none of them exist
-                if (shape.GetElementByName("origin/item1") != null)
+                if (shape.GetElementByName("item1") != null)
                 {
                     capi.Tesselator.TesselateShape("meathook item shape", shape, out mesh, this, null, 0, 0, 0, null, [.. selectiveElements]);
                 }
