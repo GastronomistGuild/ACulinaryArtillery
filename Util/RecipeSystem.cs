@@ -154,9 +154,13 @@ namespace ACulinaryArtillery
                         {
                             CookingRecipeIngredient? ingredient = cookingRecipeIngredientsByStack.TryGetValue(stack);
 
-                            if (ingredient?.Code == "uncookedpasta") continue;
+                            if (ingredient?.TypeName == "uncookedpasta")
+                            {
+                                max += quantity;
+                                continue;
+                            }
 
-                            if (ingredient?.Code == "liquidbase")
+                            if (ingredient?.TypeName == "stock")
                             {
                                 if (stack.Collectible.Code.Path == "waterportion") continue;
 
@@ -167,11 +171,7 @@ namespace ACulinaryArtillery
                             bool HavePrimary =
                                    VegetableName != null
                                 || MeatName != null
-                                || CheeseName != null
-                                || NutsName != null
-                                || CookedEggName != null
-                                || ToppingName != null
-                                || SaltName != null;
+                                || CheeseName != null;
                             bool doubled = false;
 
                             if (ingredient?.TypeName == "vegetable")
@@ -203,50 +203,60 @@ namespace ACulinaryArtillery
 
                             if (ingredient?.TypeName == "cookedegg")
                             {
-                                if (CookedEggName != null) doubled = true;
-                                AddMultiIngredient(stack, recipeCode, HavePrimary, "cookedegg", ref CookedEggName);
-                                if (HavePrimary && !doubled) SecondaryIngredient = CookedEggName;
-                                else PrimaryIngredient = CookedEggName;
+                                AddMultiIngredientInstrumental(stack, recipeCode, "eggs", ref CookedEggName);
                                 continue;
                             }
 
                             if (ingredient?.TypeName == "nuts")
                             {
-                                if (NutsName != null) doubled = true;
-                                AddMultiIngredient(stack, recipeCode, HavePrimary, "nuts", ref NutsName);
-                                if (HavePrimary && !doubled) SecondaryIngredient = NutsName;
-                                else PrimaryIngredient = NutsName;
+                                AddMultiIngredientInstrumental(stack, recipeCode, "nuts", ref NutsName);
                                 continue;
                             }
 
                             if (ingredient?.TypeName == "topping")
                             {
-                                ToppingName = getMainIngredientName(stack, recipeCode, HavePrimary);
-                                if (HavePrimary) SecondaryIngredient = ToppingName;
-                                else PrimaryIngredient = ToppingName;
+                                AddMultiIngredientInstrumental(stack, recipeCode, "toppings", ref ToppingName);
                                 continue;
                             }
 
                             if (ingredient?.TypeName == "salt")
                             {
-                                SaltName = getMainIngredientName(stack, recipeCode, HavePrimary);
-                                if (HavePrimary) SecondaryIngredient = SaltName;
-                                else PrimaryIngredient = SaltName;
+                                AddMultiIngredientInstrumental(stack, recipeCode, "salt", ref SaltName);
                                 continue;
                             }
                         }
 
-                        string ExtraIngredientsFormat = "{0}";
-                        List<string?> ExtraIngredientNames = [
+                        string MainIngredientsFormat = "{0}";
+                        List<string?> MainIngredientNames = [
                             PrimaryIngredient,
                             SecondaryIngredient
                         ];
-                        ExtraIngredientNames = [.. ExtraIngredientNames.Where(s => s != null)!];
+                        MainIngredientNames = [.. MainIngredientNames.Where(s => s != null)!];
 
-                        if (ExtraIngredientNames.Count > 1)
+                        if (MainIngredientNames.Count == 2)
                         {
-                            ExtraIngredientsFormat = "multi-main-ingredients-format";
+                            if (PrimaryIngredient == CheeseName || SecondaryIngredient == CheeseName)
+                            {
+                                MainIngredientsFormat = $"meal-ingredientlist-hotpasta-2";
+                            }
+                            else
+                            {
+                                MainIngredientsFormat = "multi-main-ingredients-format";
+                            }
                         }
+                        else
+                        {
+                            MainIngredientsFormat = $"meal-ingredientlist-{MainIngredientNames.Count}";
+                        }
+
+                        string ExtraIngredientsFormat = "meal-adds-hotpasta-fresh";
+                        List<string?> ExtraIngredientNames = [
+                            CookedEggName,
+                            NutsName,
+                            ToppingName,
+                            SaltName
+                        ];
+                        ExtraIngredientNames = [.. ExtraIngredientNames.Where(s => s != null)];
 
                         string MealFormat = getMaxMealFormat("meal", recipeCode, max);
 
@@ -255,7 +265,12 @@ namespace ACulinaryArtillery
                             MealFormat += "-in-stock";
                         }
 
-                        MealFormat = Lang.Get(MealFormat, getMainIngredientsString(ExtraIngredientNames!, ExtraIngredientsFormat), StockName);
+                        if (MainIngredientNames.Count > 0)
+                        {
+                            MealFormat += "-with-main";
+                        }
+
+                        MealFormat = Lang.Get(MealFormat, getMainIngredientsString(MainIngredientNames!, MainIngredientsFormat), StockName, getMealAddsString(ExtraIngredientsFormat, ExtraIngredientNames!));
                         return MealFormat.Trim().UcFirst();
                     }
             }
@@ -263,11 +278,18 @@ namespace ACulinaryArtillery
             return base.GetNameForMergedIngredients(worldForResolve, recipe, quantitiesByStack);
         }
 
-        public void AddMultiIngredient(ItemStack stack, string recipeCode, bool HavePrimary, string genericName, ref string? ingredientName)
+        public void AddMultiIngredient(ItemStack stack, string recipeCode, bool HavePrimary, string genericName, ref string? name)
         {
-            ingredientName = ingredientName == null
-                ? ingredientName = getMainIngredientName(stack, recipeCode, secondary: HavePrimary)
-                : ingredientName = Lang.Get($"meal-ingredient-{recipeCode}-primary-generic-{genericName}");
+            name = name == null
+                ? name = getMainIngredientName(stack, recipeCode, secondary: HavePrimary)
+                : name = Lang.Get($"meal-ingredient-{recipeCode}-primary-generic-{genericName}");
+        }
+
+        public void AddMultiIngredientInstrumental(ItemStack stack, string recipeCode, string genericName, ref string? name)
+        {
+            name = name == null
+                ? name = ingredientName(stack, EnumIngredientNameType.InsturmentalCase)
+                : name = Lang.Get($"meal-ingredient-{recipeCode}-insturmental-generic-{genericName}");
         }
 
         public static Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, CookingRecipeIngredient> GetIngredientsFromRecipe(CookingRecipe recipe, ItemStack[] stacks)
