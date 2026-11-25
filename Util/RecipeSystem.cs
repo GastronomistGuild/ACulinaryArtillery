@@ -154,9 +154,13 @@ namespace ACulinaryArtillery
                         {
                             CookingRecipeIngredient? ingredient = cookingRecipeIngredientsByStack.TryGetValue(stack);
 
-                            if (ingredient?.Code == "uncookedpasta") continue;
+                            if (ingredient?.TypeName == "uncookedpasta")
+                            {
+                                max += quantity;
+                                continue;
+                            }
 
-                            if (ingredient?.Code == "liquidbase")
+                            if (ingredient?.TypeName == "stock")
                             {
                                 if (stack.Collectible.Code.Path == "waterportion") continue;
 
