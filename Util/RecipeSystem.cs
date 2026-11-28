@@ -72,28 +72,28 @@ namespace ACulinaryArtillery
                             FreshIngredientNames.Add(ingredientName(stack, EnumIngredientNameType.InsturmentalCase));
                         }
 
-                        string MainIngredientsFormat = "{0}";
+                        string CheeseIngredientsFormat = "{0}";
                         string FreshIngredientsFormat = "meal-adds-augratin-fresh";
 
-                        string ExtraMeatVegetableFormat = "{0}";
-                        List<string?> ExtraMeatVegetableNames = [
+                        string MainIngredientsFormat = "{0}";
+                        List<string?> MainIngredientNames = [
                             VegetableName,
                             MeatName
                         ];
-                        ExtraMeatVegetableNames = [.. ExtraMeatVegetableNames.Where(s => s != null)!];
+                        MainIngredientNames = [.. MainIngredientNames.Where(s => s != null)!];
 
-                        if (ExtraMeatVegetableNames.Count > 1)
+                        if (MainIngredientNames.Count > 1)
                         {
-                            ExtraMeatVegetableFormat = "multi-main-ingredients-format";
+                            MainIngredientsFormat = "multi-main-ingredients-format";
                         }
 
                         string MealFormat = getMaxMealFormat("meal", recipeCode, max);
-                        if (ExtraMeatVegetableNames.Count > 0)
+                        if (MainIngredientNames.Count > 0)
                         {
-                            MealFormat += "-with-veggiemeat";
+                            MealFormat += "-with-main";
                         }
 
-                        MealFormat = Lang.Get(MealFormat, getMainIngredientsString([CheeseName!], MainIngredientsFormat), getMealAddsString(FreshIngredientsFormat, FreshIngredientNames), getMainIngredientsString(ExtraMeatVegetableNames!, ExtraMeatVegetableFormat));
+                        MealFormat = Lang.Get(MealFormat, getMainIngredientsString([CheeseName!], CheeseIngredientsFormat), getMealAddsString(FreshIngredientsFormat, FreshIngredientNames), getMainIngredientsString(MainIngredientNames!, MainIngredientsFormat));
 
                         return MealFormat.Trim().UcFirst();
                     }
@@ -258,6 +258,131 @@ namespace ACulinaryArtillery
                         MealFormat = Lang.Get(MealFormat, getMainIngredientsString(ExtraIngredientNames!, ExtraIngredientsFormat), StockName);
                         return MealFormat.Trim().UcFirst();
                     }
+                case "riceandbeans":
+                    {
+                        string? GrainName = null;
+                        string? StockName = null;
+                        string? VegetableName = null;
+                        string? MeatName = null;
+                        string? NutsName = null;
+                        string? CookedEggName = null;
+                        string? ToppingName = null;
+                        string? SaltName = null;
+
+                        string? PrimaryIngredient = null;
+                        string? SecondaryIngredient = null;
+
+                        int max = 0;
+
+                        foreach ((ItemStack stack, int quantity) in quantitiesByStack)
+                        {
+                            CookingRecipeIngredient? ingredient = cookingRecipeIngredientsByStack.TryGetValue(stack);
+
+                            if (ingredient?.TypeName == "rice")
+                            {
+                                AddMultiIngredient(stack, recipeCode, true, "grain", ref GrainName);
+                                max += quantity;
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "stock")
+                            {
+                                if (stack.Collectible.Code.Path == "waterportion") continue;
+
+                                StockName = ingredientName(stack, EnumIngredientNameType.InsturmentalCase);
+                                continue;
+                            }
+
+                            bool HavePrimary =
+                                   VegetableName != null
+                                || MeatName != null;
+                            bool doubled = false;
+
+                            if (ingredient?.TypeName == "vegetable")
+                            {
+                                if (VegetableName != null) doubled = true;
+                                AddMultiIngredient(stack, recipeCode, HavePrimary, "vegetable", ref VegetableName);
+                                if (HavePrimary && !doubled) SecondaryIngredient = VegetableName;
+                                else PrimaryIngredient = VegetableName;
+                                max += quantity;
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "meat")
+                            {
+                                if (MeatName != null) doubled = true;
+                                AddMultiIngredient(stack, recipeCode, HavePrimary, "meat", ref MeatName);
+                                if (HavePrimary && !doubled) SecondaryIngredient = MeatName;
+                                else PrimaryIngredient = MeatName;
+                                max += quantity;
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "cookedegg")
+                            {
+                                AddMultiIngredientInstrumental(stack, recipeCode, "eggs", ref CookedEggName);
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "nuts")
+                            {
+                                AddMultiIngredientInstrumental(stack, recipeCode, "nuts", ref NutsName);
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "topping")
+                            {
+                                AddMultiIngredientInstrumental(stack, recipeCode, "toppings", ref ToppingName);
+                                continue;
+                            }
+
+                            if (ingredient?.TypeName == "salt")
+                            {
+                                AddMultiIngredientInstrumental(stack, recipeCode, "salt", ref SaltName);
+                                continue;
+                            }
+                        }
+
+                        string MainIngredientsFormat;
+                        List<string?> MainIngredientNames = [
+                            PrimaryIngredient,
+                            SecondaryIngredient
+                        ];
+                        MainIngredientNames = [.. MainIngredientNames.Where(s => s != null)!];
+
+                        if (MainIngredientNames.Count == 2)
+                        {
+                            MainIngredientsFormat = "multi-main-ingredients-format";
+                        }
+                        else
+                        {
+                            MainIngredientsFormat = $"meal-ingredientlist-{MainIngredientNames.Count}";
+                        }
+
+                        string ExtraIngredientsFormat = "meal-adds-riceandbeans-fresh";
+                        List<string?> ExtraIngredientNames = [
+                            CookedEggName,
+                            NutsName,
+                            ToppingName,
+                            SaltName
+                        ];
+                        ExtraIngredientNames = [.. ExtraIngredientNames.Where(s => s != null)];
+
+                        string MealFormat = getMaxMealFormat("meal", recipeCode, max);
+
+                        if (StockName != null)
+                        {
+                            MealFormat += "-in-stock";
+                        }
+
+                        if (MainIngredientNames.Count > 0)
+                        {
+                            MealFormat += "-with-main";
+                        }
+
+                        MealFormat = Lang.Get(MealFormat, GrainName, getMainIngredientsString(MainIngredientNames!, MainIngredientsFormat), StockName, getMealAddsString(ExtraIngredientsFormat, ExtraIngredientNames!));
+                        return MealFormat.Trim().UcFirst();
+                    }
             }
 
             return base.GetNameForMergedIngredients(worldForResolve, recipe, quantitiesByStack);
@@ -269,6 +394,14 @@ namespace ACulinaryArtillery
                 ? ingredientName = getMainIngredientName(stack, recipeCode, secondary: HavePrimary)
                 : ingredientName = Lang.Get($"meal-ingredient-{recipeCode}-primary-generic-{genericName}");
         }
+
+        public void AddMultiIngredientInstrumental(ItemStack stack, string recipeCode, string genericName, ref string? name)
+        {
+            name = name == null
+                ? name = ingredientName(stack, EnumIngredientNameType.InsturmentalCase)
+                : name = Lang.Get($"meal-ingredient-{recipeCode}-insturmental-generic-{genericName}");
+        }
+
 
         public static Vintagestory.API.Datastructures.OrderedDictionary<ItemStack, CookingRecipeIngredient> GetIngredientsFromRecipe(CookingRecipe recipe, ItemStack[] stacks)
         {
