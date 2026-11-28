@@ -26,7 +26,33 @@ namespace ACulinaryArtillery.Util
                                           .. capi.GetSimmerRecipes().Where(rec => rec.Ingredients.Any(ing => ing.SatisfiesAsIngredient(maxstack))).Select(rec => rec.Simmering.SmeltedStack.ResolvedItemStack)];
 
             List<ItemStack> recipestacks = [.. allStacks.Where(stack => resolvedStacks.Where(rstack => rstack != null).Any(rstack => stack.Equals(capi.World, rstack, GlobalConstants.IgnoredStackAttributes)))];
-            List<CookingRecipe> mixingrecipes = [.. capi.GetMixingRecipes().Where(recipe => recipe.CooksInto?.ResolvedItemStack == null && recipe.Ingredients!.Any(ingred => ingred.GetMatchingStack(stack) != null))];
+
+            // PERF: index mixing recipes by ingredient code once per session; avoid full scan for every handbook page.
+            Dictionary<string, List<CookingRecipe>> mixingByCode = ObjectCacheUtil.GetOrCreate(capi, "aca:mixingByIngredientCode", () =>
+            {
+                Dictionary<string, List<CookingRecipe>> idx = [];
+                foreach (CookingRecipe recipe in capi.GetMixingRecipes())
+                {
+                    foreach (CookingRecipeIngredient ingred in recipe.Ingredients ?? Array.Empty<CookingRecipeIngredient>())
+                    {
+                        if (string.IsNullOrWhiteSpace(ingred?.Code)) continue;
+                        if (!idx.TryGetValue(ingred.Code, out List<CookingRecipe>? list)) idx[ingred.Code] = list = [];
+                        if (!list.Contains(recipe)) list.Add(recipe);
+                    }
+                }
+                return idx;
+            });
+
+            List<CookingRecipe> mixingrecipes = [];
+            foreach (List<CookingRecipe> candidates in mixingByCode.Values)
+            {
+                foreach (CookingRecipe recipe in candidates)
+                {
+                    if (recipe.CooksInto?.ResolvedItemStack != null) continue;
+                    if (mixingrecipes.Contains(recipe)) continue;
+                    if (recipe.Ingredients!.Any(ingred => ingred.GetMatchingStack(stack) != null)) mixingrecipes.Add(recipe);
+                }
+            }
 
             if (recipestacks.Count == 0 && mixingrecipes.Count == 0) return [];
             List<RichTextComponentBase> components = [];
@@ -252,40 +278,44 @@ namespace ACulinaryArtillery.Util
 
         public static Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? CreateCachedMealRecipeStacks(ICoreClientAPI capi, CookingRecipe recipe)
         {
+            TryBuildVanillaCachedMealRecipeStacks(capi, recipe, out var result);
+            return result;
+        }
+
+        // PERF: lazily build the same vanilla cache key used by GuiHandbookMealRecipePage: `valstacksbying-<Recipe.Code>`.
+        // Avoids eager full recipe x allstacks scan during handbook generation.
+        internal static bool TryBuildVanillaCachedMealRecipeStacks(ICoreClientAPI capi, CookingRecipe recipe, out Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? result)
+        {
+            result = ObjectCacheUtil.TryGet<Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>>(capi, "valstacksbying-" + recipe.Code);
+            if (result != null) return true;
+
             ItemStack[]? allstacks = ObjectCacheUtil.TryGet<ItemStack[]>(capi, "handbookallstacks");
-            if (allstacks == null || allstacks.Length == 0) return null;
+            if (allstacks == null || allstacks.Length == 0) return false;
 
-            return ObjectCacheUtil.GetOrCreate(capi, "valstacksbying-" + recipe.Code, () =>
+            result = ObjectCacheUtil.GetOrCreate(capi, "valstacksbying-" + recipe.Code, () =>
             {
-                Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? valStacksByIng = [];
-
-                foreach (var ingredient in recipe.Ingredients!)
+                Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>> valStacksByIng = [];
+                foreach (var ingredient in recipe.Ingredients ?? Array.Empty<CookingRecipeIngredient>())
                 {
                     HashSet<ItemStack?> ingredientStacks = [];
-
                     CookingRecipeIngredientPatcher.Resolve(ingredient, capi.World, "handbook meal recipes");
                     foreach (var astack in allstacks)
                     {
                         if (ingredient.GetMatchingStack(astack) is not CookingRecipeStack vstack) continue;
-
                         ItemStack stack = astack.Clone();
                         stack.StackSize = vstack.StackSize;
-
                         if (BlockLiquidContainerBase.GetContainableProps(stack) is WaterTightContainableProps props)
                         {
                             stack.StackSize *= (int)(props.ItemsPerLitre * ingredient.PortionSizeLitres);
                         }
-
                         ingredientStacks.Add(stack);
                     }
-
                     if (ingredient.MinQuantity <= 0) ingredientStacks.Add(null);
-
                     valStacksByIng.Add(ingredient.Clone(), ingredientStacks);
                 }
-
                 return valStacksByIng;
             });
+            return result != null;
         }
     }
 }

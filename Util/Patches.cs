@@ -665,6 +665,14 @@ namespace ACulinaryArtillery
 
             if (validStacksByIngredient == null)
             {
+                // PERF: reuse vanilla `valstacksbying-<Recipe.Code>` cache (lazy-built) instead of rebuilding per render.
+                validStacksByIngredient = HandbookInfoExtensions.TryBuildVanillaCachedMealRecipeStacks(api, recipe, out var built)
+                    ? built
+                    : null;
+            }
+
+            if (validStacksByIngredient == null)
+            {
                 validStacksByIngredient = [];
 
                 foreach (CookingRecipeIngredient? ingredient in recipe.Ingredients)
@@ -692,6 +700,10 @@ namespace ACulinaryArtillery
                     validStacksByIngredient.Add(ingredient.Clone(), ingredientStacks);
                 }
 
+                cachedValidStacksByIngredient = validStacksByIngredient;
+            }
+            else
+            {
                 cachedValidStacksByIngredient = validStacksByIngredient;
             }
 
@@ -1218,11 +1230,11 @@ namespace ACulinaryArtillery
     {
         public static void Postfix(ref List<GuiHandbookPage> __result, ModSystemSurvivalHandbook __instance, ref ICoreClientAPI ___capi)
         {
+            // PERF: skip eager vanilla meal/pie cache prebuild here. ACA/vs cache is filled lazily on first access.
+            // Keep existing page ordering behavior (ACA mixing pages before first pie page).
             var firstPie = __result.FirstOrDefault(comp => comp.PageCode.Contains("handbook-mealrecipe-") && comp.PageCode.Contains("-pie"));
             int insertIndex = __result.Count;
             if (firstPie != null) insertIndex = __result.IndexOf(firstPie);
-
-            var allstacks = ObjectCacheUtil.TryGet<ItemStack[]>(___capi, "handbookallstacks");
 
             foreach (var recipe in ___capi.GetMixingRecipes())
             {
@@ -1234,21 +1246,9 @@ namespace ACulinaryArtillery
                         Visible = true
                     };
 
-                    HandbookInfoExtensions.CreateCachedMealRecipeStacks(___capi, recipe);
-
                     __result.Insert(insertIndex, elem);
                     insertIndex++;
                 }
-            }
-
-            foreach (var recipe in ___capi.GetCookingRecipes())
-            {
-                HandbookInfoExtensions.CreateCachedMealRecipeStacks(___capi, recipe);
-            }
-
-            foreach (var recipe in BlockPie.GetHandbookRecipes(___capi, allstacks))
-            {
-                HandbookInfoExtensions.CreateCachedMealRecipeStacks(___capi, recipe);
             }
         }
     }
@@ -1280,8 +1280,24 @@ namespace ACulinaryArtillery
         public static bool Prefix(ref CookingRecipe __instance, ref ICoreClientAPI api, ref Dictionary<CookingRecipeIngredient, HashSet<ItemStack?>>? cachedValidStacksByIngredient)
         {
             if (__instance.Ingredients == null || __instance.Ingredients.Length == 0) return false;
-            cachedValidStacksByIngredient ??= HandbookInfoExtensions.CreateCachedMealRecipeStacks(api, __instance);
+            if (cachedValidStacksByIngredient == null)
+            {
+                // PERF: lazy-fill vanilla cache key `valstacksbying-<Recipe.Code>` only when a recipe is actually rendered.
+                cachedValidStacksByIngredient = HandbookInfoExtensions.TryBuildVanillaCachedMealRecipeStacks(api, __instance, out var built)
+                    ? built
+                    : HandbookInfoExtensions.CreateCachedMealRecipeStacks(api, __instance);
+            }
             return true;
+        }
+    }
+
+    // PERF: skip vanilla eager cache build in ModSystemSurvivalHandbook.onCreatePagesAsync; lazy prefixes cover rendering.
+    [HarmonyPatch(typeof(ModSystemSurvivalHandbook), "CreateCachedMealRecipeStacks")]
+    public static class VanillaHandbookRecipeCachePatch
+    {
+        public static bool Prefix()
+        {
+            return false;
         }
     }
 
